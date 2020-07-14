@@ -6,10 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:10 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/08 10:01:11 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/07/14 10:30:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	position_player (pos_py *pos)
+void	position_player (t_pos_py *data)
+{
+	
+}
