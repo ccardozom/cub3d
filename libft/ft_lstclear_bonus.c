@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/18 09:18:47 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/21 17:35:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
-	{
-		check_line(line, pos);
-	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	if (!lst || !del)
+		return ;
+	if (!(*lst))
+		return ;
+	ft_lstclear(&((*lst)->next), del);
+	ft_lstdelone(*lst, del);
+	*lst = NULL;
 }
-
-
-
-
-

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/04 11:49:26 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/19 16:51:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+void		*ft_memset(void *b, int c, size_t len)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	size_t	i;
+	char	*a;
+
+	a = b;
+	i = 0;
+	while (i < len)
 	{
-		check_line(line, pos);
+		a[i] = c;
+		i++;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	return (b);
 }
-
-
-
-
-

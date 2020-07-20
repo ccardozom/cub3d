@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/09/19 12:20:46 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/25 08:45:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
-	{
-		check_line(line, pos);
-	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	unsigned int	i;
+
+	if (n < 1)
+		return (0);
+	n--;
+	i = 0;
+	while (i < n && s1[i] == s2[i] && s1[i] != '\0')
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
-
-
-
-

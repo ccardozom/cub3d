@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/18 08:52:08 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/21 17:35:03 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	if (f == NULL)
+		return ;
+	while (lst != NULL)
 	{
-		check_line(line, pos);
+		(*f)(lst->content);
+		lst = lst->next;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
 }
-
-
-
-
-

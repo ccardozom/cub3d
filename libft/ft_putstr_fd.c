@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/14 13:40:30 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/14 13:42:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+void	ft_putstr_fd(const char *str, int fd)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	while (str && *str)
 	{
-		check_line(line, pos);
+		ft_putchar_fd(*str, fd);
+		str++;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
 }
-
-
-
-
-

@@ -6,15 +6,15 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/14 12:28:58 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/07/20 09:59:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-#include "mapa.c"
-#include "position_player.c"
-#include "reset_position.c"
-#include "resolution.c"
+
+//#include "position_player.c"
+// #include "reset_position.c"
+// #include "resolution.c"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -29,25 +29,29 @@ int main()
 	
 	t_data 	image;
 	t_pos_py	pos;
-	int		offset;
+	//int		offset;
 
-	if (!(fd = open ("map.cub", O_RDONLY)))
-		return (-1);
+	fd = open ("map.cub", O_RDONLY);
+	if (!fd || fd < 0)
+	{
+		printf("\033[1;31mCould not open file %s\n", "map.cub"); 
+		return 0; 
+	}
 	
 	
 	
-	reset_position(&pos);
-	read_mapa(fd, &pos);
+	//reset_position(&pos);
+	read_map(fd, &pos);
 	
 	mlx = mlx_init();
 
-	mlx_win = mlx_new_window(mlx, pos.map_f, pos.map_c, "Pintando Pixel");
+	mlx_win = mlx_new_window(mlx, pos.plane_x, pos.plane_y, "Pintando Pixel");
 	
 	image.img = mlx_new_image(mlx, pos.plane_x, pos.plane_y);
 
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel, &image.line_length, &image.endian);
 	
-	position_player(&pos);
+	//position_player(&pos);
 	
 	my_mlx_pixel_put(&image, 500, 500, 0x4169e1);
 

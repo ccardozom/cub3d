@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/06 14:44:52 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/21 11:12:59 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	unsigned char	*ptr;
+	unsigned char	c2;
+	int				i;
+
+	i = 0;
+	c2 = (unsigned char)c;
+	ptr = (unsigned char *)s;
+	while (n--)
 	{
-		check_line(line, pos);
+		if (ptr[i] == c2)
+			return (ptr + i);
+		i++;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	return (NULL);
 }
-
-
-
-
-

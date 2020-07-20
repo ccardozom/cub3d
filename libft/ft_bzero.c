@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/04 12:48:09 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/21 10:22:46 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include <stddef.h>
 
-void read_map(int fd, t_pos_py *pos)
+void		ft_bzero(void *s, size_t n)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	char	*c;
+	size_t	i;
+
+	c = (void *)s;
+	i = 0;
+	while (i < n)
 	{
-		check_line(line, pos);
+		c[i] = '\0';
+		i++;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
 }
-
-
-
-
-

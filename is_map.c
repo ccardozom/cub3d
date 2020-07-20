@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   is_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/07/20 10:40:00 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/07/20 13:16:00 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void read_map(int fd, t_pos_py *pos)
+void	is_map(char *line, t_pos_py *pos)
 {
-	char *line;
+	int index;
 	
-	while (get_next_line(fd, &line) == 1)
+	index = ft_strlen(line);
+	if (pos->map == NULL)
 	{
-		check_line(line, pos);
+		pos->map = ft_strdup(line);
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	else
+	{
+		pos->map = ft_strjoin(pos->map, line);
+	}
+	
+	if (pos->map_c < index)
+		pos->map_c = index;
+	pos->map_f++;
 }
-
-
-
-
-

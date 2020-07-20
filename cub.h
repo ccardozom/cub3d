@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/14 12:35:54 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/07/20 12:32:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "mlx/mlx.h"
+#include "get_next_line/get_next_line.h"
+#include "libft/libft.h"
 
 int fd;
 void	*mlx;
@@ -34,6 +36,7 @@ typedef struct	s_position
 	int		plane_y;
 	int		map_f;
 	int		map_c;
+	char	*map;
 	
 }				t_pos_py;
 
@@ -45,9 +48,11 @@ typedef struct  s_data {
 	int		endian;
 }				t_data;
 
-void	read_mapa(int fd, t_pos_py *pos);
-void	position_player (t_pos_py *data);
-void	reset_position(t_pos_py *pos);
+void	read_map(int fd, t_pos_py *pos);
+void	check_line(char *line, t_pos_py *pos);
+//void	position_player (t_pos_py *data);
+//void	reset_position(t_pos_py *pos);
 void	resolution(char *buffer, t_pos_py *pos, int ptr);
+void	is_map(char *line, t_pos_py *pos);
 
 #endif

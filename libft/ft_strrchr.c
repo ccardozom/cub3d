@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapa.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 13:16:44 by ccardozo         ###   ########.fr       */
+/*   Created: 2019/11/06 13:17:38 by ccardozo          #+#    #+#             */
+/*   Updated: 2019/11/12 12:01:55 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "libft.h"
 
-void read_map(int fd, t_pos_py *pos)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *line;
-	
-	while (get_next_line(fd, &line) == 1)
+	char	*ps;
+
+	ps = 0;
+	while (*s)
 	{
-		check_line(line, pos);
+		if (*s == c)
+			ps = (char*)s;
+		++s;
 	}
-	free(line);
-	printf("%d\n", pos->map_c);
-	printf("%d\n", pos->map_f);
-	printf("%s\n", pos->map);
+	if (ps)
+		return (ps);
+	if (c == '\0')
+		return ((char*)s);
+	return (0);
 }
-
-
-
-
-
