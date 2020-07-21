@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/20 09:59:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/07/21 12:56:05 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,13 @@ int main()
 	
 	t_data 	image;
 	t_pos_py	pos;
-	//int		offset;
 
-	fd = open ("map.cub", O_RDONLY);
-	if (!fd || fd < 0)
-	{
-		printf("\033[1;31mCould not open file %s\n", "map.cub"); 
-		return 0; 
-	}
+	fd = open_file();
 	
-	
-	
-	//reset_position(&pos);
 	read_map(fd, &pos);
-	
-	mlx = mlx_init();
-
-	mlx_win = mlx_new_window(mlx, pos.plane_x, pos.plane_y, "Pintando Pixel");
+	close(fd);
+	create_window(&pos);
+	create_map(&pos);
 	
 	image.img = mlx_new_image(mlx, pos.plane_x, pos.plane_y);
 
