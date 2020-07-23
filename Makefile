@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/07/21 13:06:20 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/07/23 12:10:53 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME		=	cub3d
 
 SRCS		=	cub3d.c read_map.c check_line.c resolution.c is_map.c \
 				create_window.c open_file.c create_map.c create_matriz.c \
-				fill_matriz.c return_error.c \
+				fill_matriz.c return_error.c reset_position.c draw_map.c \
+				imprimir_matriz.c \
 				get_next_line/get_next_line.c
 
 OBJSRCS		=	${SRCS:.c=.o}
@@ -46,10 +47,14 @@ e:
 clean:
 		${RM} ${OBJSRCS}
 		$(MAKE) clean -C ./libft
+		$(MAKE) clean -C ./mlx
 		
 fclean:
 		$(MAKE) fclean -C ./libft
-		$(RM) $(NAME)
+		$(MAKE) clean -C ./libft
+		$(MAKE) clean -C ./mlx
+		$(RM) $(NAME) ${OBJSRCS}
+		
 
 re:		fclean $(NAME)
 

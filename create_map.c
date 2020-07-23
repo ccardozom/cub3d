@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 12:48:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/07/23 09:22:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ void		create_map(t_pos_py *pos)
 	{
 		create_matriz(line, pos);
 	}
+	
+	imprimir_matriz(pos);
+	
 	free(line);
 }
