@@ -16,7 +16,7 @@ void	create_window(t_pos_py *pos, t_data *img)
 {
 	mlx = mlx_init();
 
-	mlx_win = mlx_new_window(mlx, pos->plane_x, pos->plane_y, "CUB3D");
-	img->img = mlx_new_image(mlx, pos->plane_x, pos->plane_y);
+	mlx_win = mlx_new_window(mlx, pos->winres_x, pos->winres_y, "CUB3D");
+	img->img = mlx_new_image(mlx, pos->winres_x, pos->winres_y);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,&img->endian);
 }

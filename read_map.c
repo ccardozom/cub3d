@@ -12,10 +12,11 @@
 
 #include "cub.h"
 
-void		read_map(int fd, t_pos_py *pos)
+void		read_map(t_pos_py *pos)
 {
 	char	*line;
 
+	reset_position(pos);
 	while (get_next_line(fd, &line) == 1)
 	{
 		check_line(line, pos);

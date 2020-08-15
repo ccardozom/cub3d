@@ -15,9 +15,8 @@
 void	is_map(char *line, t_pos_py *pos)
 {
 	int index;
-	
 	index = ft_strlen(line);
-	if (pos->map_c < index)
-		pos->map_c = index;
-	pos->map_f++;
+	if (pos->columns < index)
+		pos->columns = index;
+	pos->rows++;
 }

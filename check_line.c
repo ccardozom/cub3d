@@ -17,16 +17,26 @@ void	check_line(char *line, t_pos_py *pos)
 	int index;
 
 	index = 0;
-	while (ft_isalpha(line[index]) == 0 && ft_isdigit(line[index]) == 0)
+	while (line[index] == ' ')
 		index++;
 	if (line[index] == 'R')
-	{
 		resolution(line, pos, index);
-	}
-	else if (ft_isdigit(line[index]))
+	else if (line[index] == 'N' && line[index + 1] == 'O')
+	{}
+	else if (line[index] == 'S' && line[index + 1] == 'O')
+	{}
+	else if (line[index] == 'W' && line[index + 1] == 'E')
+	{}
+	else if (line[index] == 'E' && line[index + 1] == 'A')
+	{}
+	else if (line[index] == 'S')
+	{}
+	else if (line[index] == 'F')
+	{}
+	else if (line[index] == 'C')
+	{}
+	else
 	{
 		is_map(line, pos);
 	}
-	
-	
 }

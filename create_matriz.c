@@ -17,7 +17,8 @@ void		create_matriz(char *line, t_pos_py *pos)
 	int		index;
 
 	index = 0;
-	
+	while (line[index] == ' ')
+		index++;
 	if (ft_isalpha(line[index]) == 0)
 		{	
 			new_matriz(pos,line);

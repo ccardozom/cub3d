@@ -12,12 +12,12 @@
 
 #include "cub.h"
 
-int		open_file(void)
+void		open_file(void)
 {
 	fd = open("map.cub", O_RDONLY);
 	if (!fd || fd < 0)
 	{
-		return (0);
+		printf("Error\n");
+		exit(1);
 	}
-	return (fd);
 }

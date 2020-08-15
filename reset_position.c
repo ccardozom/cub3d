@@ -12,22 +12,17 @@
 
 #include "cub.h"
 
-void	reset_position(t_pos_py *pos, t_tile *tile)
+void	reset_position(t_pos_py *pos)
 {
 	pos->dir_x = 0;
 	pos->dir_y = 0;
 	pos->pos_x = 0;
 	pos->pos_y = 0;
-	pos->plane_x = 0;
-	pos->plane_y = 0;
-	pos->map_c = 0;
-	pos->map_f = 0;
+	pos->winres_x = 0;
+	pos->winres_y = 0;
+	pos->columns = 0;
+	pos->rows = 0;
 	pos->map = NULL;
 	pos->matriz_c = 0;
 	pos->matriz_f = 0;
-	tile->x = 0;
-	tile->y = 0;
-	tile->pos_x = 0;
-	tile->pos_y = 0;
-	tile->pos_sy = 0;
 }

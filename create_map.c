@@ -17,15 +17,16 @@ void		create_map(t_pos_py *pos)
 	char	*line;
 	int		i;
 
-	pos->map = (char **)malloc(pos->map_f * sizeof(char *));
+	pos->map = (char **)malloc(pos->rows * sizeof(char *));
 	i = 0;
-	while (i < pos->map_f)
+	while (i < pos->rows)
 	{
-		pos->map[i] = (char *)malloc(pos->map_c * sizeof(char) + 1);
+		pos->map[i] = (char *)malloc(pos->columns * sizeof(char) + 1);
 		i++;
 	}
 	fill_matriz(pos);
-	fd = open_file();
+	imprimir_matriz(pos);
+	open_file();
 	while (get_next_line(fd, &line) == 1)
 	{
 		create_matriz(line, pos);

@@ -365,7 +365,7 @@ void	*mlx_xpm_file_to_image(void *xvar,char *file,int *width,int *height)
 
   if ((fd = open(file,O_RDONLY))==-1 || (size = lseek(fd,0,SEEK_END))==-1 ||
       (ptr = mmap(0,size,PROT_WRITE|PROT_READ,MAP_PRIVATE,fd,0))==
-      (void *)MAP_FAILED)
+      (void *)rowsAILED)
     {
       if (fd>=0)
 	close(fd);

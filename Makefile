@@ -13,23 +13,22 @@
 NAME		=	cub3d
 
 SRCS		=	cub3d.c read_map.c check_line.c resolution.c is_map.c \
-				create_window.c open_file.c create_map.c create_matriz.c \
-				fill_matriz.c return_error.c reset_position.c draw_map.c \
+				open_file.c create_map.c create_matriz.c \
+				fill_matriz.c return_error.c reset_position.c  \
+				wall_control.c \
 				imprimir_matriz.c \
 				get_next_line/get_next_line.c
+				#create_window.c draw_map.c 
 
 OBJSRCS		=	${SRCS:.c=.o}
 
-CC 			=	gcc
+CC 			=	gcc -g
 
 CFLAGS		=	-Wall -Wextra -Werror
 
-MFLAGS		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+#MFLAGS		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 RM			=	rm -rf
-
-# %.o: %.c
-# 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME):	$(OBJSRCS)
 		@echo "\033[33m[Removiendo version anterior...]"
@@ -47,12 +46,12 @@ e:
 clean:
 		${RM} ${OBJSRCS}
 		$(MAKE) clean -C ./libft
-		$(MAKE) clean -C ./mlx
+		$(MAKE) clean -C ./mlx_linux
 		
 fclean:
 		$(MAKE) fclean -C ./libft
 		$(MAKE) clean -C ./libft
-		$(MAKE) clean -C ./mlx
+		$(MAKE) clean -C ./mlx_linux
 		$(RM) $(NAME) ${OBJSRCS}
 		
 

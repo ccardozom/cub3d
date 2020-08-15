@@ -16,7 +16,7 @@ int		tile_size(t_pos_py *pos)
 {
 	int	size;
 
-	size = pos->plane_x / pos->map_c;
+	size = pos->winres_x / pos->columns;
 
 	return (size);
 }
@@ -25,12 +25,12 @@ void    draw_map(t_pos_py *pos, t_data *image, t_tile *tile)
 {
 
 	
-    while (tile->y < pos->map_f)
+    while (tile->y < pos->rows)
     {
 
         tile->x = 0;
         tile->pos_x = 0;
-        while (tile->x < pos->map_c)
+        while (tile->x < pos->columns)
 		{
 
             tile->pos_x += assign_pixel(tile->x++, tile, image,pos);
@@ -69,6 +69,6 @@ int     assign_pixel(int x, t_tile *tile, t_data *image, t_pos_py * pos)
 void    my_mlx_pixel_put(t_pos_py *pos, t_data *image, int x, int y, int color)
 {
     char    *dst;
-    dst = image->addr + (y * pos->plane_x + x * (image->bits_per_pixel / 8));
+    dst = image->addr + (y * pos->winres_x + x * (image->bits_per_pixel / 8));
     *(unsigned int*)dst = color;
 }

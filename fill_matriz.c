@@ -18,10 +18,10 @@ void	fill_matriz(t_pos_py *pos)
 	int		c;
 
 	f = 0;
-	while (f < pos->map_f)
+	while (f < pos->rows)
 	{
 		c = 0;
-		while (c < pos->map_c)
+		while (c < pos->columns)
 		{
 			pos->map[f][c] = relleno;
 			c++;
@@ -33,9 +33,10 @@ void	fill_matriz(t_pos_py *pos)
 
 void	new_matriz(t_pos_py *pos, char *line)
 {
-	while (pos->matriz_c < pos->map_c)
+	while (pos->matriz_c < pos->columns)
 	{
-		pos->map[pos->matriz_f][pos->matriz_c] = line[pos->matriz_c];
+		if (line[pos->matriz_c] == '1' || line[pos->matriz_c] == '2' || line[pos->matriz_c] == 'N' || line[pos->matriz_c] == '0')
+			pos->map[pos->matriz_f][pos->matriz_c] = line[pos->matriz_c];
 		pos->matriz_c++;
 	}
 	pos->matriz_c = 0;
