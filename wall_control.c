@@ -25,7 +25,7 @@ void    firts_line(t_wall *wall, char **matriz)
     }
 }
 
-void	next_line(t_wall *wall, char **matriz, int rows)
+void	next_line(char **matriz, int rows)
 {
 	int f;
 	int c;
@@ -48,11 +48,14 @@ void	next_line(t_wall *wall, char **matriz, int rows)
 				while (matriz[f][c] != '1')
 					c++;
 				if (c == 0)
+				{
 					if (matriz[f - 1][c] == '1' || matriz[f - 1][c + 1] == '1')
 						wall_closeX = 1;
+				}
 				else if (matriz[f - 1][c - 1] == '1' || matriz[f - 1][c] == '1' || matriz[f - 1][c + 1] == '1')
-						wall_closeX = 1;
-			
+				{
+					wall_closeX = 1;
+				}
 				while (matriz[f][c] != '1')
 					c++;
 				
@@ -62,16 +65,24 @@ void	next_line(t_wall *wall, char **matriz, int rows)
 	}
 }
 
-void    wall_control(char **matriz, int rows)
+void    wall_control(char **matriz, int rows, int columns)
 {
     t_wall  wall;
 
-    wall.posA_x = 5;
-    wall.posA_y = 5;
-    wall.posB_x = 3;
-    wall.posB_y = 3;
-    firts_line(&wall, matriz);
-	next_line(&wall, matriz, rows);
-	printf("\n(%d, %d)\n",wall.posA_x, wall.posA_y);
-	printf("\n(%d, %d)\n",wall.posB_x, wall.posB_y);
+	if (columns >= 3 && rows >= 3)
+	{
+    	wall.posA_x = 5;
+    	wall.posA_y = 5;
+    	wall.posB_x = 3;
+    	wall.posB_y = 3;
+    	firts_line(&wall, matriz);
+		next_line(matriz, rows);
+		printf("\n(%d, %d)\n",wall.posA_x, wall.posA_y);
+		printf("\n(%d, %d)\n",wall.posB_x, wall.posB_y);
+	}
+	else
+	{
+		printf("Error de mapa");
+	}
+	
 }

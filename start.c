@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/17 10:45:09 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/08/17 12:08:42 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void		create_map(t_pos_py *pos)
+void	start(t_pos_py *pos)
 {
-	char	*line;
-	int		i;
+	t_data		img;
+	int	i;
+	i = pos->columns;
 
-	pos->map = (char **)malloc(pos->rows * sizeof(char *));
-	i = 0;
-	while (i < pos->rows)
-	{
-		pos->map[i] = (char *)malloc(pos->columns * sizeof(char) + 1);
-		i++;
-	}
-	fill_matriz(pos);
-	imprimir_matriz(pos);
-	open_file();
-	while (get_next_line(fd, &line) == 1)
-	{
-		create_matriz(line, pos);
-	}
-	create_matriz(line, pos);
-	imprimir_matriz(pos);
+	void	*mlx;
+	void	*mlx_win;
 	
-	free(line);
+	mlx = mlx_init();
+	img.img = mlx_new_image(mlx, pos->winres_x, pos->winres_y);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,&img.endian);
+	mlx_win = mlx_new_window(mlx, pos->winres_x, pos->winres_y, "Cub3D");
+	mlx_loop(mlx);
 }

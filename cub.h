@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/23 13:17:12 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/17 11:30:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "mlx_linux/mlx.h"
+#include "mlx/mlx.h"
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
 
@@ -25,9 +25,8 @@
 
 int check_resolution;
 int fd;
-// void	*mlx;
-// void	*img;
-// void	*mlx_win;
+
+
 
 typedef struct	s_position
 {
@@ -89,7 +88,8 @@ void	create_matriz(char *line, t_pos_py *pos);
 void	fill_matriz(t_pos_py *pos);
 int		return_error(int x);
 void	new_matriz(t_pos_py *pos, char *line);
-void	wall_control(char **matriz, int rows);
+void	wall_control(char **matriz, int rows, int columns);
+void	start(t_pos_py *pos);
 
 void    draw_map(t_pos_py *pos, t_data *image, t_tile *tile);
 int     assign_pixel(int x, t_tile *tile, t_data *image, t_pos_py * pos);

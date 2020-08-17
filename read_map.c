@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 12:58:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/17 10:39:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void		read_map(t_pos_py *pos)
 	{
 		check_line(line, pos);
 	}
+	check_line(line, pos);
 	free(line);
 }
