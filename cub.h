@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/17 11:30:47 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/17 13:23:55 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ void	start(t_pos_py *pos);
 
 void    draw_map(t_pos_py *pos, t_data *image, t_tile *tile);
 int     assign_pixel(int x, t_tile *tile, t_data *image, t_pos_py * pos);
-void    my_mlx_pixel_put(t_pos_py *pos, t_data *image, int x, int y, int color);
+void    my_mlx_pixel_put(t_data *image, int x, int y, int color);
 
 #endif
