@@ -6,16 +6,17 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/08/17 11:18:55 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/08/21 12:40:01 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3d
 
 SRCS		=	cub3d.c read_map.c check_line.c resolution.c is_map.c \
-				open_file.c create_map.c create_matriz.c \
-				fill_matriz.c return_error.c reset_position.c  \
-				wall_control.c start.c\
+				open_file.c create_map.c create_matriz.c initialize.c\
+				fill_matriz.c return_error.c reset_position.c keypress.c\
+				wall_control.c start.c draw_minimap.c draw_player.c\
+				position_player.c \
 				imprimir_matriz.c \
 				get_next_line/get_next_line.c
 				#create_window.c draw_map.c 

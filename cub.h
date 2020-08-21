@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/17 13:23:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 13:35:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,29 @@
 
 #define	relleno	'8'
 
-int check_resolution;
-int fd;
+int		check_resolution;
+int		fd;
+void	*mlx;
+void	*mlx_win;
 
+# define KEY_LEFT		123
+# define KEY_RIGHT		124
+# define KEY_FORWARD 	126
+# define KEY_BACKWARD	125
 
+# define KEY_ESC	53
 
 typedef struct	s_position
 {
-	int		pos_x;
-	int		pos_y;
-	int		dir_x;
-	int		dir_y;
-	int		winres_x;
-	int		winres_y;
-	int		rows;
-	int		columns;
-	int		matriz_c;
-	int		matriz_f;
-	char		**map;
-}				t_pos_py;
+	double x;
+	double y;
+}				t_pos;
+
+typedef struct	s_move_player
+{
+	t_pos	left_rigth;
+	t_pos	down_up;
+}				t_move;
 
 typedef struct	s_data
 {
@@ -53,46 +57,62 @@ typedef struct	s_data
 	int		offset;
 }				t_data;
 
-typedef struct s_tile_size
+typedef struct	s_tile_size
 {
-	int x;
-	int y;
-	int pos_x;
-	int pos_y;
-	int pos_sy;
+	int 	size;
+	int		f;
+	int		c;
+	int		squa_f;
+	int		squa_c;
+	int		pos_squa;
 }				t_tile;
 
 typedef struct	s_wall_control
 {
-	int posA_x;
-	int posA_y;
-	int posB_x;
-	int posB_y;
+	t_pos	posA;
+	t_pos	posB;
 
 }				t_wall;
 
+typedef struct	s_game
+{
+	t_pos	player;
+	t_pos	dir;
+	t_pos	winres;
+	t_pos	matriz;
+	t_move	move;
+	t_data	img;
+	t_tile	tile;
+	int		rows;
+	int		columns;
+	char		**map;
+}				t_game;
 
+void imprimir_matriz(t_game *pos);
 
-void imprimir_matriz(t_pos_py *pos);
-
-void	read_map(t_pos_py *pos);
-void	check_line(char *line, t_pos_py *pos);
-//void	position_player (t_pos_py *data);
-void	reset_position(t_pos_py *pos);
-void	resolution(char *buffer, t_pos_py *pos, int ptr);
-void	is_map(char *line, t_pos_py *pos);
-void	create_window(t_pos_py *pos, t_data *img);
+void	initialize(t_game *pos);
+void	read_map(t_game *pos);
+void	check_line(char *line, t_game *pos);
+void	position_player(t_game *pos, t_pos *tile_pos);
+void	reset_position(t_game *pos);
+void	resolution(char *buffer, t_game *pos, int ptr);
+void	is_map(char *line, t_game *pos);
+void	create_window(t_game *pos, t_data *img);
 void	open_file(void);
-void	create_map(t_pos_py *pos);
-void	create_matriz(char *line, t_pos_py *pos);
-void	fill_matriz(t_pos_py *pos);
+void	create_map(t_game *pos);
+void	create_matriz(char *line, t_game *pos);
+void	fill_matriz(t_game *pos);
 int		return_error(int x);
-void	new_matriz(t_pos_py *pos, char *line);
+void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
-void	start(t_pos_py *pos);
+void	start(t_game *pos);
 
-void    draw_map(t_pos_py *pos, t_data *image, t_tile *tile);
-int     assign_pixel(int x, t_tile *tile, t_data *image, t_pos_py * pos);
-void    my_mlx_pixel_put(t_data *image, int x, int y, int color);
+int		key_press(int keycode, t_game *pos);
+int		key_release(int keycode, t_game *pos);
+
+void	draw_minimap(t_game *pos);
+int		assign_pixel(int x, t_tile *tile, t_data *image, t_game * pos);
+void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
+void	draw_player(t_game *pos);
 
 #endif

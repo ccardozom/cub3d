@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 10:40:00 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 09:38:59 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 11:41:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	is_map(char *line, t_pos_py *pos)
+void	is_map(char *line, t_game *pos)
 {
 	int index;
 	index = ft_strlen(line);

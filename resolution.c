@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 09:40:23 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 09:40:24 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 11:39:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	resolution(char *line, t_pos_py *pos, int ptr)
+void	resolution(char *line, t_game *pos, int ptr)
 {
 	int index;
 
@@ -20,13 +20,12 @@ void	resolution(char *line, t_pos_py *pos, int ptr)
 	index = ptr + 1;
 	while (ft_isdigit(line[index]) == 0)
 		index++;
-	pos->winres_x=ft_atoi(&line[index]);
+	pos->winres.x=ft_atoi(&line[index]);
 
 	while (ft_isdigit(line[index]) == 1)
 		index++;
 	index++;
 	while (ft_isdigit(line[index]) == 0)
 		index++;
-	pos->winres_y=ft_atoi(&line[index]);
-	
+	pos->winres.y=ft_atoi(&line[index]);	
 }

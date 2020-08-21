@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/17 10:45:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 11:40:40 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void		create_map(t_pos_py *pos)
+void		create_map(t_game *pos)
 {
 	char	*line;
 	int		i;

@@ -13,13 +13,13 @@ void    firts_line(t_wall *wall, char **matriz)
         if (matriz[0][index] == '1' && matriz[0][index + 1] == '1' &&
             (matriz[0][index - 1] != '1'))
         {
-			wall->posA_x = 0;
-			wall->posA_y = index;
+			wall->posA.x = 0;
+			wall->posA.y = index;
         }
         if (matriz[0][index] == '1' && matriz[0][index + 1] != '1')
         {
-            wall->posB_x = 0;
-            wall->posB_y = index;
+            wall->posB.x = 0;
+            wall->posB.y = index;
         }
         index++;
     }
@@ -49,10 +49,13 @@ void	next_line(char **matriz, int rows)
 					c++;
 				if (c == 0)
 				{
-					if (matriz[f - 1][c] == '1' || matriz[f - 1][c + 1] == '1')
+					if (matriz[f - 1][c] == '1' ||
+					matriz[f - 1][c + 1] == '1')
 						wall_closeX = 1;
 				}
-				else if (matriz[f - 1][c - 1] == '1' || matriz[f - 1][c] == '1' || matriz[f - 1][c + 1] == '1')
+				else if (matriz[f - 1][c - 1] == '1' ||
+				matriz[f - 1][c] == '1' ||
+				matriz[f - 1][c + 1] == '1')
 				{
 					wall_closeX = 1;
 				}
@@ -71,14 +74,14 @@ void    wall_control(char **matriz, int rows, int columns)
 
 	if (columns >= 3 && rows >= 3)
 	{
-    	wall.posA_x = 5;
-    	wall.posA_y = 5;
-    	wall.posB_x = 3;
-    	wall.posB_y = 3;
+    	wall.posA.x = 5;
+    	wall.posA.y = 5;
+    	wall.posB.x = 3;
+    	wall.posB.y = 3;
     	firts_line(&wall, matriz);
 		next_line(matriz, rows);
-		printf("\n(%d, %d)\n",wall.posA_x, wall.posA_y);
-		printf("\n(%d, %d)\n",wall.posB_x, wall.posB_y);
+		printf("\n(%f, %f)\n",wall.posA.x, wall.posA.y);
+		printf("\n(%f, %f)\n",wall.posB.x, wall.posB.y);
 	}
 	else
 	{

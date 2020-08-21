@@ -1,6 +1,6 @@
 #include "cub.h"
 
-void imprimir_matriz(t_pos_py *pos)
+void imprimir_matriz(t_game *pos)
 {
     int x,y;
 

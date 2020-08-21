@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 11:15:12 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/23 09:55:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 11:46:54 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	fill_matriz(t_pos_py *pos)
+void	fill_matriz(t_game *pos)
 {
 	int		f;
 	int		c;
@@ -31,14 +31,18 @@ void	fill_matriz(t_pos_py *pos)
 	}
 }
 
-void	new_matriz(t_pos_py *pos, char *line)
+void	new_matriz(t_game *pos, char *line)
 {
-	while (pos->matriz_c < pos->columns)
+	while (pos->matriz.x < pos->columns)
 	{
-		if (line[pos->matriz_c] == '1' || line[pos->matriz_c] == '2' || line[pos->matriz_c] == 'N' || line[pos->matriz_c] == '0')
-			pos->map[pos->matriz_f][pos->matriz_c] = line[pos->matriz_c];
-		pos->matriz_c++;
+		if (line[(int)pos->matriz.x] == '1' ||
+		line[(int)pos->matriz.x] == '2' ||
+		line[(int)pos->matriz.x] == 'N' ||
+		line[(int)pos->matriz.x] == '0')
+			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
+			line[(int)pos->matriz.x];
+		pos->matriz.x++;
 	}
-	pos->matriz_c = 0;
-	pos->matriz_f++;
+	pos->matriz.x = 0;
+	pos->matriz.y++;
 }

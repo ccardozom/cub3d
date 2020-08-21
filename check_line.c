@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/15 12:43:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 09:37:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/21 11:40:46 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	check_line(char *line, t_pos_py *pos)
+void	check_line(char *line, t_game *pos)
 {
 	int index;
 
