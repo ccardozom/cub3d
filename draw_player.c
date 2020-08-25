@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/21 12:28:51 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/24 13:13:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int		put_color(t_game *pos)
 	
 	tile_pos.x = pos->tile.squa_c;
 	tile_pos.y = 0;
+	pos->tile.size = pos->winres.x / pos->columns;
 	while (tile_pos.y < pos->tile.size)
 	{
-		if (ft_isalpha(pos->map[pos->tile.f][pos->tile.c]) == 1)
+		if (pos->map[pos->tile.f][pos->tile.c] == 'N')
 		{
 			position_player(pos, &tile_pos);
 		}	

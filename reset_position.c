@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/21 11:40:27 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/25 10:53:54 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,10 @@ void	reset_position(t_game *pos)
 	pos->map = NULL;
 	pos->matriz.x = 0;
 	pos->matriz.y = 0;
+	pos->mlx_win = 0;
+	pos->mlx = 0;
+	pos->move.down = 0;
+	pos->move.up = 0;
+	pos->move.left = 0;
+	pos->move.rigth = 0;
 }

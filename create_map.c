@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/21 11:40:40 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/24 09:52:02 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void		create_map(t_game *pos)
 {
 	char	*line;
 	int		i;
+	int fd;
 
 	pos->map = (char **)malloc(pos->rows * sizeof(char *));
 	i = 0;
@@ -26,7 +27,7 @@ void		create_map(t_game *pos)
 	}
 	fill_matriz(pos);
 	imprimir_matriz(pos);
-	open_file();
+	fd = open_file();
 	while (get_next_line(fd, &line) == 1)
 	{
 		create_matriz(line, pos);

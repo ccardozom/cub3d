@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   draw_player_move.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/24 09:50:06 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/08/25 10:44:48 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void		read_map(t_game *pos)
+
+void	draw_player_move(t_game *pos)
 {
-	char	*line;
-	int fd;
-	
-	fd = open_file();
-	reset_position(pos);
-	while (get_next_line(fd, &line) == 1)
+	float	x;
+	float	y;
+	float cont;
+
+printf("posicion player (%f, %f)\n", pos->player.x, pos->player.y);
+
+	y = pos->player.y;
+	cont = 12;	
+	while (y < pos->player.y + cont)
 	{
-		check_line(line, pos);
+		x = pos->player.x;
+		while ( x < pos->player.x + cont)
+		{
+			my_mlx_pixel_put(&pos->img, x, y, 0xBBCC00);
+			x++;
+		}
+		y++;
 	}
-	check_line(line, pos);
-	free(line);
-	close(fd);
 }

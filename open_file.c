@@ -6,18 +6,21 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 09:46:20 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 10:59:27 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/24 09:51:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void		open_file(void)
+int		open_file()
 {
+	int fd;
+	
 	fd = open("map.cub", O_RDONLY);
 	if (!fd || fd < 0)
 	{
 		printf("Error\n");
 		exit(1);
 	}
+	return (fd);
 }
