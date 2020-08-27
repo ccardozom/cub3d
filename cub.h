@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/25 10:35:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/27 11:57:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ int		check_resolution;
 # define KEY_E		14
 
 # define KEY_ESC	53
+# define PI 3.141592
 
 typedef struct	s_position
 {
-	double x;
-	double y;
+	float x;
+	float y;
 }				t_pos;
 
 typedef struct	s_move_player
@@ -48,6 +49,9 @@ typedef struct	s_move_player
 	int		rigth;
 	int		up;
 	int 	down;
+	float		rotationangle;
+	float		movespeed;
+	float		rotationspeed;
 }				t_move;
 
 typedef struct	s_data
