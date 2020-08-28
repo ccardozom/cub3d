@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/27 11:57:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/28 12:51:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <math.h>
 #include "mlx/mlx.h"
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
@@ -37,18 +38,31 @@ int		check_resolution;
 # define KEY_ESC	53
 # define PI 3.141592
 
+typedef struct	s_raycast
+{
+	float		fov_angle;
+	float		rayangle;
+	int			num_rays;
+	int 		idcolumns;
+}				t_cast;
+
+typedef struct	s_control
+{
+	int			ok_player;
+	int 		player_count;
+}				t_control;
+
+
 typedef struct	s_position
 {
-	float x;
-	float y;
+	float		x;
+	float		y;
 }				t_pos;
 
 typedef struct	s_move_player
 {
-	int		left;
-	int		rigth;
-	int		up;
-	int 	down;
+	int			turn;
+	int			walk;
 	float		rotationangle;
 	float		movespeed;
 	float		rotationspeed;
@@ -56,46 +70,48 @@ typedef struct	s_move_player
 
 typedef struct	s_data
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		offset;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			offset;
 }				t_data;
 
-typedef struct	s_tile_size
+typedef struct		s_tile_size
 {
-	int 	size;
-	int		f;
-	int		c;
-	int		squa_f;
-	int		squa_c;
-	int		pos_squa;
-}				t_tile;
+	int			size;
+	int			f;
+	int			c;
+	int			squa_f;
+	int			squa_c;
+	int			pos_squa;
+}					t_tile;
 
 typedef struct	s_wall_control
 {
-	t_pos	posA;
-	t_pos	posB;
+	t_pos		posA;
+	t_pos		posB;
 
 }				t_wall;
 
 typedef struct	s_game
 {
-	int		fd;
-	void	*mlx;
-	void	*mlx_win;
-	int		rows;
-	int		columns;
-	char	**map;
-	t_pos	player;
-	t_pos	dir;
-	t_pos	winres;
-	t_pos	matriz;
-	t_move	move;
-	t_data	img;
-	t_tile	tile;
+	int			fd;
+	void		*mlx;
+	void		*mlx_win;
+	int			rows;
+	int			columns;
+	char		**map;
+	t_pos		player;
+	t_pos		dir;
+	t_pos		winres;
+	t_pos		matriz;
+	t_move		move;
+	t_data		img;
+	t_tile		tile;
+	t_control	control;
+	t_cast		*cast;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);
@@ -122,9 +138,10 @@ int		key_release(int keycode, t_game *pos);
 
 void	update_player(t_game *pos);
 void	draw_minimap(t_game *pos);
-int		assign_pixel(int x, t_tile *tile, t_data *image, t_game * pos);
+int		assign_pixel(int x, t_tile *tile, t_data *image, t_game *pos);
 void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	draw_player(t_game *pos);
 void	draw_player_move(t_game *pos);
+void	cast_all_rays(t_game *pos);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:10 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/25 09:56:32 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/28 09:58:23 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	position_player(t_game *pos, t_pos *tile_pos)
 			{
 				pos->player.x = tile_pos->x;
 				pos->player.y = pos->tile.squa_f;
+				pos->control.ok_player = 1;
+				pos->control.player_count += 1;
 			}
 			my_mlx_pixel_put(&pos->img, tile_pos->x, pos->tile.squa_f, 0x6495ed);
 		}

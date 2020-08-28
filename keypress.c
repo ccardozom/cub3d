@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/25 12:59:05 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/28 11:49:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 int		key_press(int keycode, t_game *pos)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-		pos->move.up = -3;
+		pos->move.walk = +1;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		pos->move.down = 3;
+		pos->move.walk = -1;
 	if (keycode == KEY_Q || keycode == KEY_LEFT)
-		pos->move.left = -3;
+		pos->move.turn = -1;
 	else if (keycode == KEY_E || keycode == KEY_RIGHT)
-		pos->move.rigth = 3;
+		pos->move.turn = +1;
+	if (keycode == KEY_ESC)
+		exit(0);
 	return (0);
 }
 
 int		key_release(int keycode, t_game *pos)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-		pos->move.up = 0;
+		pos->move.walk = 0;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		pos->move.down = 0;
+		pos->move.walk = 0;
 	else if (keycode == KEY_Q || keycode == KEY_LEFT)
-		pos->move.left = 0;
+		pos->move.turn = 0;
 	else if (keycode == KEY_E || keycode == KEY_RIGHT)
-		pos->move.rigth = 0;
-	// else if (keycode == KEY_ESC)
-	// 	return (exit_game(start, EXIT_SUCCESS));
+		pos->move.turn = 0;
 	return (0);
 }

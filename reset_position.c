@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/27 12:01:00 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/28 12:12:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,32 @@
 
 void	reset_pos_move(t_game *pos)
 {
-	pos->move.left = 0;
-	pos->move.rigth = 0;
-	pos->move.up = 0;
-	pos->move.down = 0;
-	pos->move.rotationangle = PI / 2;
+	pos->move.turn = 0;
+	pos->move.walk = 0;
+	pos->move.rotationangle = 0;
 	pos->move.movespeed = 3.0;
 	pos->move.rotationspeed = 3 * (PI / 180);
+}
+
+void	reset_control(t_game *pos)
+{
+	pos->control.ok_player = 0;
+	pos->control.player_count = 0;
+}
+
+void	reset_cast(t_game *pos)
+{
+	pos->cast.fov_angle = 60 * (PI / 180);
+	pos->cast.num_rays = 0;
+	pos->cast.rayangle = 0;
+	pos->cast.idcolumns = 0;
 }
 
 void	reset_position(t_game *pos)
 {
 	reset_pos_move(pos);
+	reset_control(pos);
+	reset_cast(pos);
 	pos->dir.x = 0;
 	pos->dir.y = 0;
 	pos->player.x = 0;
