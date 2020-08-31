@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/28 12:12:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/31 12:34:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	reset_cast(t_game *pos)
 {
 	pos->cast.fov_angle = 60 * (PI / 180);
 	pos->cast.num_rays = 0;
-	pos->cast.rayangle = 0;
 	pos->cast.idcolumns = 0;
 }
 

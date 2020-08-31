@@ -6,16 +6,22 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/28 12:42:36 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/31 12:31:12 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+void	update(t_game *pos)
+{
+	update_player(pos);
+	//cast_all_rays(pos);
+}
+
 int		main_loop(t_game *pos)
 {
 	mlx_clear_window(pos->mlx, pos->mlx_win);
-	update_player(pos);
+	update(pos);
 	pos->img.img = mlx_new_image(pos->mlx, pos->winres.x,
 	(pos->winres.x / pos->columns) * pos->rows);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,

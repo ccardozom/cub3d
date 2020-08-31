@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/28 12:51:50 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/08/31 13:22:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,42 @@ int		check_resolution;
 
 # define KEY_LEFT		123
 # define KEY_RIGHT		124
-# define KEY_UP 	126
-# define KEY_DOWN	125
-# define KEY_W		13
-# define KEY_S		1
-# define KEY_Q		12
-# define KEY_E		14
+# define KEY_UP 		126
+# define KEY_DOWN		125
+# define KEY_W			13
+# define KEY_S			1
+# define KEY_Q			12
+# define KEY_E			14
+# define FALSE			0
+# define TRUE			1
+# define KEY_ESC		53
+# define PI 			3.141592
 
-# define KEY_ESC	53
-# define PI 3.141592
+typedef struct	s_Ray
+{
+	float		rayAngle;
+	float		wallHitX;
+	float		wallHitY;
+	float		distance;
+	int			wasHitVertical;
+	int			isRayFacingUp;
+	int			isRayFacingDown;
+	int			isRayFacingLeft;
+	int			isRayFacingRight;
+	int			wallHitContent;
+	int			foundHorzWallHit;
+	float		horzWallhitx;
+	float		horzWallhity;
+	int			horzWallcontent;
+	float		xintercep;
+	float		yintercep;
+	float		xstep;
+	float		ystep;
+}				t_rays;
 
 typedef struct	s_raycast
 {
 	float		fov_angle;
-	float		rayangle;
 	int			num_rays;
 	int 		idcolumns;
 }				t_cast;
@@ -111,7 +133,8 @@ typedef struct	s_game
 	t_data		img;
 	t_tile		tile;
 	t_control	control;
-	t_cast		*cast;
+	t_cast		cast;
+	t_rays		ray;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);
