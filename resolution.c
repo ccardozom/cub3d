@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 09:40:23 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/21 11:39:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/03 12:58:53 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	resolution(char *line, t_game *pos, int ptr)
 {
 	int index;
 
-	check_resolution = 1;
+	pos->control.check_resolution = 1;
 	index = ptr + 1;
 	while (ft_isdigit(line[index]) == 0)
 		index++;

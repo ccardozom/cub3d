@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/31 13:22:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/03 12:58:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 
 #define	relleno	'8'
 
-int		check_resolution;
-
 # define KEY_LEFT		123
 # define KEY_RIGHT		124
 # define KEY_UP 		126
@@ -41,24 +39,27 @@ int		check_resolution;
 
 typedef struct	s_Ray
 {
+	float		xray;
+	float		yray;
 	float		rayAngle;
-	float		wallHitX;
-	float		wallHitY;
+	//float		wallHitX;
+	//float		wallHitY;
 	float		distance;
-	int			wasHitVertical;
-	int			isRayFacingUp;
-	int			isRayFacingDown;
-	int			isRayFacingLeft;
-	int			isRayFacingRight;
-	int			wallHitContent;
-	int			foundHorzWallHit;
-	float		horzWallhitx;
-	float		horzWallhity;
-	int			horzWallcontent;
-	float		xintercep;
-	float		yintercep;
-	float		xstep;
-	float		ystep;
+	float		height;
+	//int			wasHitVertical;
+	//int			isRayFacingUp;
+	//int			isRayFacingDown;
+	//int			isRayFacingLeft;
+	//int			isRayFacingRight;
+	//int			wallHitContent;
+	//int			foundHorzWallHit;
+	//float		horzWallhitx;
+	//float		horzWallhity;
+	//int			horzWallcontent;
+	//float		xintercep;
+	//float		yintercep;
+	float		xincrement;
+	float		yincrement;
 }				t_rays;
 
 typedef struct	s_raycast
@@ -72,6 +73,7 @@ typedef struct	s_control
 {
 	int			ok_player;
 	int 		player_count;
+	int			check_resolution;
 }				t_control;
 
 
@@ -88,6 +90,8 @@ typedef struct	s_move_player
 	float		rotationangle;
 	float		movespeed;
 	float		rotationspeed;
+	float		lasttime;
+	float		delta;
 }				t_move;
 
 typedef struct	s_data

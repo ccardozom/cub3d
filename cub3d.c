@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/31 12:31:12 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/03 10:02:27 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	update(t_game *pos)
 {
 	update_player(pos);
-	//cast_all_rays(pos);
+	cast_all_rays(pos);
 }
 
 int		main_loop(t_game *pos)

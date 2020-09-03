@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/25 10:44:48 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/03 13:44:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ printf("posicion player (%f, %f)\n", pos->player.x, pos->player.y);
 		x = pos->player.x;
 		while ( x < pos->player.x + cont)
 		{
+			
 			my_mlx_pixel_put(&pos->img, x, y, 0xBBCC00);
 			x++;
 		}
 		y++;
 	}
+	my_mlx_pixel_put(&pos->img, x + cos(pos->move.rotationangle) * 40,
+	y + sin(pos->move.rotationangle) * 40, 0x6495ed);
 }
