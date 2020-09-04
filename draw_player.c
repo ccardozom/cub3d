@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/28 10:32:32 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/04 10:02:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ int		player_direction(t_game *pos, t_pos *tile_pos)
 	if (pos->map[pos->tile.f][pos->tile.c] == 'N')
 	{
 		position_player(pos, tile_pos);
-		pos->move.rotationangle = PI * 1.5;
+		pos->move.player_angle = PI * 1.5;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'S')
 	{
 		position_player(pos, tile_pos);
-		pos->move.rotationangle = PI / 2;
+		pos->move.player_angle = PI / 2;
 		pos->control.ok_player = 1;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'E')
 	{
 		position_player(pos, tile_pos);
-		pos->move.rotationangle = 2 * PI;
+		pos->move.player_angle = 2 * PI;
 		pos->control.ok_player = 1;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'W')
 	{
 		position_player(pos, tile_pos);
-		pos->move.rotationangle = PI;
+		pos->move.player_angle = PI;
 		pos->control.ok_player = 1;
 	}
 	return (pos->control.ok_player);

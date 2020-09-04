@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 09:57:34 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/03 13:38:08 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/04 10:02:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	update_player(t_game *pos)
 
 	new_player_x = 0;
 	new_player_y = 0;
-	pos->move.rotationangle += pos->move.turn * pos->move.rotationspeed;
+	pos->move.player_angle += pos->move.turn * pos->move.rotationspeed;
 	move_step = pos->move.walk * pos->move.movespeed;
-	new_player_x = pos->player.x + cos(pos->move.rotationangle) * move_step;
-	new_player_y = pos->player.y + sin(pos->move.rotationangle) * move_step;
+	new_player_x = pos->player.x + cos(pos->move.player_angle) * move_step;
+	new_player_y = pos->player.y + sin(pos->move.player_angle) * move_step;
 	if (new_player_x)
 	{
 		if (control_wall_x(pos, new_player_x) == 0)

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/03 12:58:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/04 12:51:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,38 @@
 
 typedef struct	s_Ray
 {
-	float		xray;
-	float		yray;
 	float		rayAngle;
-	//float		wallHitX;
-	//float		wallHitY;
+	// float		wallHitX;
+	// float		wallHitY;
 	float		distance;
 	float		height;
-	//int			wasHitVertical;
-	//int			isRayFacingUp;
-	//int			isRayFacingDown;
-	//int			isRayFacingLeft;
-	//int			isRayFacingRight;
-	//int			wallHitContent;
-	//int			foundHorzWallHit;
-	//float		horzWallhitx;
-	//float		horzWallhity;
-	//int			horzWallcontent;
-	//float		xintercep;
-	//float		yintercep;
-	float		xincrement;
-	float		yincrement;
+	int			wallHitContent;
+	int			wasHitVertical;
+	int			isRayFacingUp;
+	int			isRayFacingDown;
+	int			isRayFacingLeft;
+	int			isRayFacingRight;
+	int			foundHorzWallHit;
+	int			horzWallcontent;
+	float		horzWallhitx;
+	float		horzWallhity;
+	float		nextHorizTouchX;
+	float		nextHorizTouchY;
+	float		horzHitDist;
+	float		nextVertTouchX;
+	float		nextVertTouchY;
+	float		vertWallhitx;
+	float		vertWallhity;
+	int			vertWallcontent;
+	int			foundvertWallHit;
+	float		vertHitDist;
+	float		xintercep;
+	float		yintercep;
+	float		xstep;
+	float		ystep;
+	
+	float		xTocheck;
+	float		yTocheck;
 }				t_rays;
 
 typedef struct	s_raycast
@@ -87,11 +98,9 @@ typedef struct	s_move_player
 {
 	int			turn;
 	int			walk;
-	float		rotationangle;
+	float		player_angle;
 	float		movespeed;
 	float		rotationspeed;
-	float		lasttime;
-	float		delta;
 }				t_move;
 
 typedef struct	s_data
@@ -158,6 +167,7 @@ void	fill_matriz(t_game *pos);
 int		return_error(int x);
 void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
+int		mapHasWall(t_game *pos, float x,float y);
 void	start(t_game *pos);
 
 int		key_press(int keycode, t_game *pos);
@@ -170,5 +180,7 @@ void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	draw_player(t_game *pos);
 void	draw_player_move(t_game *pos);
 void	cast_all_rays(t_game *pos);
+void	horizontal_ray(t_game *pos, float rayangle);
+void	vertical_ray(t_game *pos, float rayangle);
 
 #endif
