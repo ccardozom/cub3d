@@ -6,42 +6,75 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/04 13:04:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/07 13:47:00 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	castRay(t_game *pos, float rayangle)
+float	normalizer(float angle)
 {
-	float	two_PI;
-	float	angle;
-	
-	two_PI = PI * 2;
-	angle = remainder(rayangle, two_PI);
+	float two_PI = 2 * PI;
+	angle = remainder(angle, two_PI);
 	if (angle < 0)
-		angle = two_PI + angle;
-	rayangle = angle;
-	pos->ray.isRayFacingDown = rayangle > 0 && rayangle < PI;
-	pos->ray.isRayFacingUp = !pos->ray.isRayFacingDown;
-	pos->ray.isRayFacingRight = rayangle * 0.5 || rayangle > 1.5 * PI;
-	pos->ray.isRayFacingLeft = !pos->ray.isRayFacingRight;
+		return (two_PI + angle);
+	return (angle);
+}
 
-	horizontal_ray(pos, rayangle);
-	vertical_ray(pos, rayangle);
+void	castRay(float rayangle, int stripid, void *ray_cast, t_game *pos)
+{
+	t_rays ray;
+	
+	rayangle = normalizer(rayangle);
+	ray.isRayFacingDown = rayangle > 0 && rayangle < PI;
+	ray.isRayFacingUp = !ray.isRayFacingDown;
+	ray.isRayFacingRight = rayangle < 0.5 * PI || rayangle > 1.5 * PI;
+	ray.isRayFacingLeft = !ray.isRayFacingRight;
+	pos->rayB.yintercep = floor(pos->player.y / pos->tile.size) * pos->tile.size;
+	pos->rayB.yintercep += ray.isRayFacingDown ? pos->tile.size : 0;
+	pos->rayB.xintercep = pos->player.x + (pos->rayB.yintercep - pos->player.y) / tan(rayangle);
+	pos->rayB.ystep = pos->tile.size;
+	pos->rayB.ystep *= ray.isRayFacingUp ? -1 : 1;
+	pos->rayB.xstep = pos->tile.size / tan(rayangle);
+	pos->rayB.xstep *= (ray.isRayFacingLeft && pos->rayB.xstep > 0) ? -1 : 1;
+	pos->rayB.xstep *= (ray.isRayFacingRight && pos->rayB.xstep < 0) ? -1 : 1;
+	pos->rayB.nextHorizTouchX = pos->rayB.xintercep;
+	pos->rayB.nextHorizTouchY = pos->rayB.yintercep;
+	while (pos->rayB.nextHorizTouchX >= 0 && pos->rayB.nextHorizTouchX <= pos->winres.x &&
+	pos->rayB.nextHorizTouchY >= 0 && pos->rayB.nextHorizTouchY <= pos->winres.y)
+	{
+		pos->rayB.xTocheck = pos->rayB.nextHorizTouchX;
+		pos->rayB.yTocheck = pos->rayB.nextHorizTouchY * (ray.isRayFacingUp ? -1 : 0);
+		if (mapHasWall(pos, pos->rayB.xTocheck, pos->rayB.yTocheck))
+		{
+			pos->rayB.horzWallhitx = pos->rayB.nextHorizTouchX;
+			pos->rayB.horzWallhity = pos->rayB.nextHorizTouchY;
+			pos->rayB.horzWallcontent = ft_atoi(&pos->map[(int)floor(pos->rayB.yTocheck /
+			pos->tile.size)][(int)floor(pos->rayB.xTocheck /
+			pos->tile.size)]);
+			printf("%d ", pos->rayB.horzWallcontent);
+			pos->rayB.foundHorzWallHit = TRUE;
+		}
+		else
+		{
+			pos->rayB.nextHorizTouchX += pos->rayB.xstep;
+			pos->rayB.nextHorizTouchY += pos->rayB.ystep;
+		}
+	}
+	ray_cast[stripid] = ray;   //verificar desde aqui ....?????????????????????????????
 }
 void	cast_all_rays(t_game *pos)
 {
+	void *ray_cast;
 	float	rayangle;
-	int		ray_id;
+	int		stripid;
 	
-	ray_id = 0;
-	rayangle = pos->move.player_angle - (pos->cast.fov_angle / 2);
-	pos->cast.num_rays = pos->winres.x;
-	while (ray_id < pos->cast.num_rays)
+	ray_cast = malloc(sizeof(t_rays) * pos->winres.x);
+	rayangle = pos->move.player_angle - (pos->cast.player_visualangle / 2);
+	stripid = 0;
+	while (stripid < pos->winres.x)
 	{
-		castRay(pos, rayangle);
-		rayangle += pos->cast.fov_angle / pos->cast.num_rays;
-		ray_id++;
+		casRay(rayangle, stripid, &ray_cast, pos);
+		stripid++;
 	}
 }

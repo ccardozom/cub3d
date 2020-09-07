@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/04 12:51:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/07 13:01:03 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,42 +40,50 @@
 typedef struct	s_Ray
 {
 	float		rayAngle;
-	// float		wallHitX;
-	// float		wallHitY;
+	float		wallHitX;
+	float		wallHitY;
 	float		distance;
-	float		height;
-	int			wallHitContent;
 	int			wasHitVertical;
 	int			isRayFacingUp;
 	int			isRayFacingDown;
 	int			isRayFacingLeft;
 	int			isRayFacingRight;
-	int			foundHorzWallHit;
-	int			horzWallcontent;
-	float		horzWallhitx;
-	float		horzWallhity;
-	float		nextHorizTouchX;
-	float		nextHorizTouchY;
-	float		horzHitDist;
-	float		nextVertTouchX;
-	float		nextVertTouchY;
-	float		vertWallhitx;
-	float		vertWallhity;
-	int			vertWallcontent;
-	int			foundvertWallHit;
-	float		vertHitDist;
+	int			wallHitContent;
+	
+	// float		height;
+	// 
+	// 
+	// float		horzHitDist;
+	// float		nextVertTouchX;
+	// float		nextVertTouchY;
+	// float		vertWallhitx;
+	// float		vertWallhity;
+	// int			vertWallcontent;
+	// int			foundvertWallHit;
+	// float		vertHitDist;
+	// 
+	// float		yTocheck;
+}				t_rays;
+
+typedef struct	s_RayB
+{
 	float		xintercep;
 	float		yintercep;
 	float		xstep;
 	float		ystep;
-	
+	int			foundHorzWallHit;
+	float		horzWallhity;
+	float		horzWallhitx;
+	int			horzWallcontent;
+	float		nextHorizTouchY;
+	float		nextHorizTouchX;
 	float		xTocheck;
 	float		yTocheck;
-}				t_rays;
+}				t_raysB;
 
 typedef struct	s_raycast
 {
-	float		fov_angle;
+	float		player_visualangle;
 	int			num_rays;
 	int 		idcolumns;
 }				t_cast;
@@ -148,6 +156,7 @@ typedef struct	s_game
 	t_control	control;
 	t_cast		cast;
 	t_rays		ray;
+	t_raysB		rayB;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);
@@ -182,5 +191,7 @@ void	draw_player_move(t_game *pos);
 void	cast_all_rays(t_game *pos);
 void	horizontal_ray(t_game *pos, float rayangle);
 void	vertical_ray(t_game *pos, float rayangle);
+int		control_wall_x(t_game *pos, float new_pos);
+int		control_wall_y(t_game *pos, int new_pos);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/04 10:02:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/07 12:42:12 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ void	reset_control(t_game *pos)
 
 void	reset_cast(t_game *pos)
 {
-	pos->cast.fov_angle = 60 * (PI / 180);
+	pos->cast.player_visualangle = 60 * (PI / 180);
 	pos->cast.num_rays = 0;
 	pos->cast.idcolumns = 0;
+	pos->rayB.foundHorzWallHit = FALSE;
+	pos->rayB.horzWallhitx = 0;
+	pos->rayB.horzWallhity = 0;
+	pos->rayB.horzWallcontent = 0;
 }
 
 void	reset_position(t_game *pos)
