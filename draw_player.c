@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/04 10:02:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/08 12:32:57 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		put_color(t_game *pos)
 
 	tile_pos.x = pos->tile.squa_c;
 	tile_pos.y = 0;
-	pos->tile.size = pos->winres.x / pos->columns;
 	while (tile_pos.y < pos->tile.size)
 	{
 		pos->control.ok_player = player_direction(pos, &tile_pos);

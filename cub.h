@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/07 13:01:03 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/08 12:36:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ typedef struct	s_position
 {
 	float		x;
 	float		y;
+	float		window_width;
+	float		window_height;
 }				t_pos;
 
 typedef struct	s_move_player
