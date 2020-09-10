@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/07 12:42:12 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/10 17:05:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	reset_pos_move(t_game *pos)
 	pos->move.turn = 0;
 	pos->move.walk = 0;
 	pos->move.player_angle = 0;
-	pos->move.movespeed = 3.0;
-	pos->move.rotationspeed = 3 * (PI / 180);
+	pos->move.movespeed = 1.0;
+	pos->move.rotationspeed = 1 * (PI / 180);
 }
 
 void	reset_control(t_game *pos)
