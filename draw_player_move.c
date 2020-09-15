@@ -22,17 +22,23 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 
 	y = pos->player.y;
 	x = pos->player.x;
-	int collision;
+	float	ini_ray;
+	float	end_ray;
 
-	
+
 	int i;
 	i = 0;
-	
-	while (i < 50)
+	ini_ray = pos->move.player_angle - (pos->cast.FOV_angle / 2);
+	end_ray = pos->move.player_angle + (pos->cast.FOV_angle / 2);
+	while (ini_ray < end_ray)
 	{
-		printf("%f %f ",x + cos(pos->move.player_angle) * i,y + sin(pos->move.player_angle) * i);
-		my_mlx_pixel_put(&pos->img, x + cos(pos->move.player_angle) * i,
-		y + sin(pos->move.player_angle) * i, 0xFCE904);
-		i++;
+		while (i < 50)
+		{
+			//printf("%f %f ",x + cos(ini_ray) * i,y + sin(ini_ray) * i);
+			my_mlx_pixel_put(&pos->img, x + cos(ini_ray) * i,
+			y + sin(ini_ray) * i, 0xFCE904);
+			i++;
+		}
+		ini_ray += 0.1;
 	}
 }
