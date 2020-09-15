@@ -70,7 +70,7 @@ void	cast_all_rays(t_game *pos)
 	float	rayangle;
 	int		stripid;
 	 
-	rayangle = pos->move.player_angle - (pos->cast.player_visualangle / 2);
+	rayangle = pos->move.player_angle - (pos->cast.FOV_angle / 2);
 	stripid = 0;
 	while (stripid < pos->winres.x)
 	{

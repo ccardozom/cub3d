@@ -43,6 +43,7 @@ typedef struct	s_Ray
 	float		wallHitX;
 	float		wallHitY;
 	float		distance;
+	float		rays;
 	int			wasHitVertical;
 	int			isRayFacingUp;
 	int			isRayFacingDown;
@@ -83,7 +84,7 @@ typedef struct	s_RayB
 
 typedef struct	s_raycast
 {
-	float		player_visualangle;
+	float		FOV_angle;
 	int			num_rays;
 	int 		idcolumns;
 }				t_cast;
@@ -152,6 +153,7 @@ typedef struct	s_game
 	t_pos		dir;
 	t_pos		winres;
 	t_pos		matriz;
+	t_pos		proyection_center;
 	t_move		move;
 	t_data		img;
 	t_tile		tile;

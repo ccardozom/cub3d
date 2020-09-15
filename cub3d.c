@@ -40,7 +40,6 @@ int		main(void)
 	t_game	pos;
 
 	initialize(&pos);
-	//wall_control(pos.map, pos.rows, pos.columns);
 	start(&pos);
 	mlx_hook(pos.mlx_win, 2, 0, &key_press, &pos);
 	mlx_hook(pos.mlx_win, 3, 0, &key_release, &pos);

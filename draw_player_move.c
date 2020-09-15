@@ -22,9 +22,12 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 
 	y = pos->player.y;
 	x = pos->player.x;
+	int collision;
 
+	
 	int i;
 	i = 0;
+	
 	while (i < 50)
 	{
 		printf("%f %f ",x + cos(pos->move.player_angle) * i,y + sin(pos->move.player_angle) * i);

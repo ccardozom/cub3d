@@ -12,6 +12,20 @@
 
 #include "cub.h"
 
+void	data(t_game *pos)
+{
+	float	x;
+	float	y;
+
+	x = pos->winres.window_width / 2;
+	y = pos->winres.window_height / 2;
+	pos->ray.distance = x / tan(pos->cast.FOV_angle / 2);
+	pos->cast.num_rays = pos->winres.window_width / pos->cast.FOV_angle;
+	pos->proyection_center.x = x;
+	pos->proyection_center.y = y;
+	pos->ray.rayAngle = pos->cast.FOV_angle / pos->cast.num_rays;
+}
+
 void	start(t_game *pos)
 {	
 	pos->mlx = mlx_init();
@@ -22,5 +36,6 @@ void	start(t_game *pos)
 	&pos->img.line_length,
 	&pos->img.endian);
 	draw_player(pos);
+	cast_data(pos);
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 }

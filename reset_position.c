@@ -30,7 +30,7 @@ void	reset_control(t_game *pos)
 
 void	reset_cast(t_game *pos)
 {
-	pos->cast.player_visualangle = 60 * (PI / 180);
+	pos->cast.FOV_angle = 66 * (PI / 180);
 	pos->cast.num_rays = 0;
 	pos->cast.idcolumns = 0;
 	pos->rayB.foundHorzWallHit = FALSE;
