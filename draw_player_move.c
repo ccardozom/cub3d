@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/10 17:30:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/15 15:06:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 
 	y = pos->player.y;
 	x = pos->player.x;
-	int collision;
 
-	
 	int i;
 	i = 0;
 	

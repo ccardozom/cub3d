@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/08 12:43:33 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/15 15:05:57 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	data(t_game *pos)
+void	cast_data(t_game *pos)
 {
 	float	x;
 	float	y;
