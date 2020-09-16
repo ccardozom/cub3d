@@ -21,60 +21,35 @@ float	normalizer(float angle)
 	return (angle);
 }
 
-// t_rays	castRay(float rayangle, int stripid, rays *rays, t_game *pos)
-// {	
-// 	rayangle = normalizer(rayangle);
-// 	rays[stripid]->isRayFacingDown = rayangle > 0 && rayangle < PI;
-// 	rays->isRayFacingUp = !rays->isRayFacingDown;
-// 	rays->isRayFacingRight = rayangle < 0.5 * PI || rayangle > 1.5 * PI;
-// 	rays->isRayFacingLeft = !rays->isRayFacingRight;
-// 	horizontal_ray(pos,rays);
-// 	pos->rayB.yintercep = floor(pos->player.y / pos->tile.size) * pos->tile.size;
-// 	pos->rayB.yintercep += rays->isRayFacingDown ? pos->tile.size : 0;
-// 	pos->rayB.xintercep = pos->player.x + (pos->rayB.yintercep - pos->player.y) / tan(rayangle);
-// 	pos->rayB.ystep = pos->tile.size;
-// 	pos->rayB.ystep *= rays->isRayFacingUp ? -1 : 1;
-// 	pos->rayB.xstep = pos->tile.size / tan(rayangle);
-// 	pos->rayB.xstep *= (rays->isRayFacingLeft && pos->rayB.xstep > 0) ? -1 : 1;
-// 	pos->rayB.xstep *= (rays->isRayFacingRight && pos->rayB.xstep < 0) ? -1 : 1;
-// 	pos->rayB.nextHorizTouchX = pos->rayB.xintercep;
-// 	pos->rayB.nextHorizTouchY = pos->rayB.yintercep;
-// 	while (pos->rayB.nextHorizTouchX >= 0 && pos->rayB.nextHorizTouchX <= pos->winres.x &&
-// 	pos->rayB.nextHorizTouchY >= 0 && pos->rayB.nextHorizTouchY <= pos->winres.y)
-// 	{
-// 		pos->rayB.xTocheck = pos->rayB.nextHorizTouchX;
-// 		pos->rayB.yTocheck = pos->rayB.nextHorizTouchY * (rays->isRayFacingUp ? -1 : 0);
-// 		if (mapHasWall(pos, pos->rayB.xTocheck, pos->rayB.yTocheck))
-// 		{
-// 			pos->rayB.horzWallhitx = pos->rayB.nextHorizTouchX;
-// 			pos->rayB.horzWallhity = pos->rayB.nextHorizTouchY;
-// 			pos->rayB.horzWallcontent = ft_atoi(&pos->map[(int)floor(pos->rayB.yTocheck /
-// 			pos->tile.size)][(int)floor(pos->rayB.xTocheck /
-// 			pos->tile.size)]);
-// 			//printf("%d ", pos->rayB.horzWallcontent);
-// 			pos->rayB.foundHorzWallHit = TRUE;
-// 			break;
-// 		}
-// 		else
-// 		{
-// 			pos->rayB.nextHorizTouchX += pos->rayB.xstep;
-// 			pos->rayB.nextHorizTouchY += pos->rayB.ystep;
-// 		}
-// 	}
-// 	rays[stripid] = rays;
-// }
-void	cast_all_rays(t_game *pos)
+void	horizontal_collision(t_game *pos, float init_ray)
 {
-	//typedef t_rays rays[(int)pos->winres.x];
-	//rays	rays_cast;
-	float	rayangle;
-	int		stripid;
-	 
-	rayangle = pos->move.player_angle - (pos->cast.FOV_angle / 2);
-	stripid = 0;
-	while (stripid < pos->winres.x)
+	if (horizontal_collisionA(pos,init_ray) == TRUE)
+		;
+	else
 	{
-		//castRay(rayangle, stripid, rays_cast, pos);
-		stripid++;
+		pos->ray.horiz_distA_NEXT.y = (pos->ray.horiz_raydir ==
+		TRUE ? pos->tile.size * -1 : pos->tile.size);
+    	pos->ray.horiz_distA_NEXT.x = pos->tile.size / tan(init_ray);
+		while (!horizontal_collision_next(pos,init_ray))
 	}
+}
+
+void	vertical_collision(t_game *pos, float init_ray)
+{
+	if (vertical_collisionA(pos,init_ray) == TRUE)
+		;
+	else
+	{
+		pos->ray.vert_distA_NEXT.y = (pos->ray.horiz_raydir ==
+		TRUE ? pos->tile.size * -1 : pos->tile.size);
+    	pos->ray.horiz_distA_NEXT.x = pos->tile.size / tan(init_ray);
+		while (!horizontal_collision_next(pos,init_ray))
+	}
+}
+
+void	cast_all_rays(t_game *pos, float init_ray)
+{
+	init_ray = normalizer(init_ray);
+	horizontal_collision(pos,init_ray);
+	vertical_collision(pos, init_ray);
 }

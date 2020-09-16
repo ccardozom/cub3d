@@ -40,47 +40,20 @@
 typedef struct	s_Ray
 {
 	float		rayAngle;
-	float		wallHitX;
-	float		wallHitY;
 	float		distance;
-	float		rays;
-	int			wasHitVertical;
-	int			isRayFacingUp;
-	int			isRayFacingDown;
-	int			isRayFacingLeft;
-	int			isRayFacingRight;
-	int			wallHitContent;
-	
-	// float		height;
-	// 
-	// 
-	// float		horzHitDist;
-	// float		nextVertTouchX;
-	// float		nextVertTouchY;
-	// float		vertWallhitx;
-	// float		vertWallhity;
-	// int			vertWallcontent;
-	// int			foundvertWallHit;
-	// float		vertHitDist;
-	// 
-	// float		yTocheck;
+	int			horiz_raydir;
+	int			vert_raydir;
+	t_pos		horiz_distA_NEXT;
+	t_pos		vert_distA_NEXT;
 }				t_rays;
 
-typedef struct	s_RayB
+typedef struct	s_Ray_collision
 {
-	float		xintercep;
-	float		yintercep;
-	float		xstep;
-	float		ystep;
-	int			foundHorzWallHit;
-	float		horzWallhity;
-	float		horzWallhitx;
-	int			horzWallcontent;
-	float		nextHorizTouchY;
-	float		nextHorizTouchX;
-	float		xTocheck;
-	float		yTocheck;
-}				t_raysB;
+	t_pos		horiz_pointA;
+	t_pos		horizNextCol;
+	t_pos		vert_pointA;
+	t_pos		vertNextCol;
+}				t_ray_col;
 
 typedef struct	s_raycast
 {
@@ -160,7 +133,7 @@ typedef struct	s_game
 	t_control	control;
 	t_cast		cast;
 	t_rays		ray;
-	t_raysB		rayB;
+	t_ray_col	ray_col;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);

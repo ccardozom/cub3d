@@ -15,7 +15,7 @@
 void	update(t_game *pos)
 {
 	update_player(pos);
-	cast_all_rays(pos);
+	//cast_all_rays(pos);
 }
 
 int		main_loop(t_game *pos)
