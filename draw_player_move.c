@@ -6,13 +6,20 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/15 17:11:57 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/16 23:09:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+int		wall_distance(t_game *pos, float init_ray)
+{
+	int distance;
+	cast_all_rays(pos, init_ray);
+	distance = 1;
+	return (distance);
 
+}	
 void	draw_player_move(t_game *pos)
 {
 	float	x;
@@ -32,9 +39,8 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 	while (ini_ray < end_ray)
 	{
 		i = 0;
-		while (i < 50)
+		while (i < wall_distance(pos, ini_ray))
 		{
-			//printf("%f %f ",x + cos(ini_ray) * i,y + sin(ini_ray) * i);
 			my_mlx_pixel_put(&pos->img, x + cos(ini_ray) * i,
 			y + sin(ini_ray) * i, 0xFCE904);
 			i++;

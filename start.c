@@ -36,6 +36,5 @@ void	start(t_game *pos)
 	&pos->img.line_length,
 	&pos->img.endian);
 	draw_player(pos);
-	cast_data(pos);
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 }
