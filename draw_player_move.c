@@ -14,7 +14,7 @@
 
 int		wall_distance(t_game *pos, float init_ray)
 {
-	int distance;
+	float distance;
 	distance = cast_all_rays(pos, init_ray);
 	return (distance);
 

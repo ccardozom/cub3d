@@ -12,15 +12,14 @@
 
 #include "cub.h"
 
-int		mapHasWall(t_game *pos, float x,float y)
+int     wall_colision(t_game *pos, float y, float x)
 {
-	int mapGridIndexX;
-	int mapGridIndexY;
+    int col_Y;
+    int col_X;
 
-	mapGridIndexX = (int)floor(x / pos->tile.size);
-	mapGridIndexY = (int)floor(y / pos->tile.size);
-	if (x < 0 || x > pos->winres.x || y < 0 || y > pos->winres.y)
-		return (FALSE);
-	//printf("%f %f %d %d ",y,x,mapGridIndexY,mapGridIndexX);
-	return (pos->map[mapGridIndexY][mapGridIndexX] != 0);
+    col_Y = (int)y / pos->tile.size;
+    col_X = (int)x / pos->tile.size;
+    if (pos->map[y][x] == '1')
+        return (1);
+    return (0);
 }
