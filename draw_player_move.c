@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/16 23:09:47 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/21 15:50:33 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 int		wall_distance(t_game *pos, float init_ray)
 {
-	int distance;
 	cast_all_rays(pos, init_ray);
-	distance = 1;
-	return (distance);
-
+	return (0);
 }	
 void	draw_player_move(t_game *pos)
 {
@@ -42,7 +39,7 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 		while (i < wall_distance(pos, ini_ray))
 		{
 			my_mlx_pixel_put(&pos->img, x + cos(ini_ray) * i,
-			y + sin(ini_ray) * i, 0xFCE904);
+			y + sin(ini_ray) * i, 0x044D02);
 			i++;
 		}
 		ini_ray += 0.01;

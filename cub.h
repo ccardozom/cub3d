@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/08 12:36:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/17 20:04:45 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,18 @@
 # define KEY_ESC		53
 # define PI 			3.141592
 
+typedef struct	s_position
+{
+	float		x;
+	float		y;
+	float		window_width;
+	float		window_height;
+}				t_pos;
+
 typedef struct	s_Ray
 {
 	float		rayAngle;
 	float		distance;
-	int			horiz_raydir;
-	int			vert_raydir;
 	t_pos		horiz_distA_NEXT;
 	t_pos		vert_distA_NEXT;
 }				t_rays;
@@ -68,15 +74,6 @@ typedef struct	s_control
 	int 		player_count;
 	int			check_resolution;
 }				t_control;
-
-
-typedef struct	s_position
-{
-	float		x;
-	float		y;
-	float		window_width;
-	float		window_height;
-}				t_pos;
 
 typedef struct	s_move_player
 {
@@ -153,7 +150,7 @@ void	fill_matriz(t_game *pos);
 int		return_error(int x);
 void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
-int		mapHasWall(t_game *pos, float x,float y);
+int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 
 int		key_press(int keycode, t_game *pos);
@@ -165,9 +162,11 @@ int		assign_pixel(int x, t_tile *tile, t_data *image, t_game *pos);
 void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	draw_player(t_game *pos);
 void	draw_player_move(t_game *pos);
-void	cast_all_rays(t_game *pos);
-void	horizontal_ray(t_game *pos, float rayangle);
-void	vertical_ray(t_game *pos, float rayangle);
+float	cast_all_rays(t_game *pos, float init_ray);
+void	horizontal_collisionA(t_game *pos, float rayangle);
+void    horizontal_collision_next(t_game *pos);
+void    vertical_collision_next(t_game *pos);
+void	vertical_collisionA(t_game *pos, float rayangle);
 int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
 
