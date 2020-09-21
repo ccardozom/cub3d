@@ -13,9 +13,9 @@
 #include "cub.h"
 
 int		wall_distance(t_game *pos, float init_ray)
-{
-	cast_all_rays(pos, init_ray);
-	return (0);
+{	float distance;
+	distance = cast_all_rays(pos, init_ray);
+	return ((int)distance);
 }	
 void	draw_player_move(t_game *pos)
 {

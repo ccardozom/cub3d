@@ -15,11 +15,11 @@
 void	horizontal_collisionA(t_game *pos, float rayangle)
  {
 	if (rayangle > PI)
-		pos->ray_col.horiz_pointA.y = (int)(pos->player.y / pos->tile.size) *
-		pos->tile.size - 1;
+		pos->ray_col.horiz_pointA.y = ((int)(pos->player.y / pos->tile.size) *
+		pos->tile.size) - 1;
 	else
-		pos->ray_col.horiz_pointA.y = (int)(pos->player.y / pos->tile.size) *
-		pos->tile.size + pos->tile.size;
+		pos->ray_col.horiz_pointA.y = ((int)(pos->player.y / pos->tile.size) *
+		pos->tile.size) + pos->tile.size;
     pos->ray_col.horiz_pointA.x = pos->player.x + (pos->player.y - pos->ray_col.horiz_pointA.y) /
     tan(rayangle);
     pos->ray_col.horizNextCol.x = pos->ray_col.horiz_pointA.x;
