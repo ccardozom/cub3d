@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/21 15:50:33 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/22 00:27:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 
 	float	ini_ray;
 	float	end_ray;
+	int		distance;
 	int i;
 	
 	ini_ray = pos->move.player_angle - (pos->cast.FOV_angle / 2);
@@ -36,12 +37,13 @@ printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
 	while (ini_ray < end_ray)
 	{
 		i = 0;
-		while (i < wall_distance(pos, ini_ray))
+		distance = wall_distance(pos, ini_ray);
+		while (i < distance)
 		{
 			my_mlx_pixel_put(&pos->img, x + cos(ini_ray) * i,
 			y + sin(ini_ray) * i, 0x044D02);
 			i++;
 		}
-		ini_ray += 0.01;
+		ini_ray += 0.1;
 	}
 }

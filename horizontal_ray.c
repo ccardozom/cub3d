@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/04 11:51:30 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/21 15:48:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/21 22:50:02 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ void	horizontal_collisionA(t_game *pos, float rayangle)
 	else
 		pos->ray_col.horiz_pointA.y = ((int)(pos->player.y / pos->tile.size) *
 		pos->tile.size) + pos->tile.size;
-    pos->ray_col.horiz_pointA.x = pos->player.x + (pos->player.y - pos->ray_col.horiz_pointA.y) /
-    tan(rayangle);
+   if (rayangle > PI / 2 && rayangle < PI * 1.5)
+      pos->ray_col.horiz_pointA.x = pos->player.x - (pos->player.y - pos->ray_col.horiz_pointA.y) /
+      tan(rayangle);
+   else
+      pos->ray_col.horiz_pointA.x = pos->player.x + (pos->player.y - pos->ray_col.horiz_pointA.y) /
+      tan(rayangle);
     pos->ray_col.horizNextCol.x = pos->ray_col.horiz_pointA.x;
     pos->ray_col.horizNextCol.y = pos->ray_col.horiz_pointA.y;
 }

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/17 20:04:45 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/21 23:45:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct	s_Ray
 
 typedef struct	s_Ray_collision
 {
+	float		vertdistance;
+	float		horizdistance;
 	t_pos		horiz_pointA;
 	t_pos		horizNextCol;
 	t_pos		vert_pointA;
@@ -165,7 +167,7 @@ void	draw_player_move(t_game *pos);
 float	cast_all_rays(t_game *pos, float init_ray);
 void	horizontal_collisionA(t_game *pos, float rayangle);
 void    horizontal_collision_next(t_game *pos);
-void    vertical_collision_next(t_game *pos);
+void    vertical_collision_next(t_game *pos, float rayangle);
 void	vertical_collisionA(t_game *pos, float rayangle);
 int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
