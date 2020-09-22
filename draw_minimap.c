@@ -66,4 +66,5 @@ void	draw_minimap(t_game *pos)
 			pos->tile.pos_squa = 0;
 		}
 	}
+	draw_player_move(pos);
 }

@@ -12,38 +12,27 @@
 
 #include "cub.h"
 
-int		wall_distance(t_game *pos, float init_ray)
-{	float distance;
-	distance = cast_all_rays(pos, init_ray);
-	return ((int)distance);
-}	
 void	draw_player_move(t_game *pos)
 {
 	float	x;
 	float	y;
-
-printf("\nposicion player (%f, %f)\n", pos->player.y, pos->player.x);
+	int 	i;
+	float	rayangle_init;
+	float	rayangle_finish;
 
 	y = pos->player.y;
 	x = pos->player.x;
-
-	float	ini_ray;
-	float	end_ray;
-	int		distance;
-	int i;
-	
-	ini_ray = pos->move.player_angle - (pos->cast.FOV_angle / 2);
-	end_ray = pos->move.player_angle + (pos->cast.FOV_angle / 2);
-	while (ini_ray < end_ray)
+	rayangle_init = pos->ray.rayangle;
+	rayangle_finish = pos->move.player_angle + (pos->cast.FOV_angle / 2)
+	i = 0;
+	while (rayangle_init < rayangle_finish)
 	{
-		i = 0;
-		distance = wall_distance(pos, ini_ray);
-		while (i < distance)
+		while (i < 50)
 		{
-			my_mlx_pixel_put(&pos->img, x + cos(ini_ray) * i,
-			y + sin(ini_ray) * i, 0x044D02);
+			my_mlx_pixel_put(&pos->img, x + cos(rayangle_init) * i,
+			y + sin(rayangle_init) * i, 0x044D02);
 			i++;
 		}
-		ini_ray += 0.1;
+		rayangle_init += 0.1;
 	}
 }

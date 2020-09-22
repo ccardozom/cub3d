@@ -12,8 +12,8 @@
 
 #include "cub.h"
 
-int		return_error(int x)
+void	return_error()
 {
-	ft_putstr_fd("Error",x);
-	return (-1);
+	ft_putstr_fd("Error",1);
+	exit(-1);
 }

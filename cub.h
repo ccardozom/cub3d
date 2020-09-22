@@ -47,27 +47,22 @@ typedef struct	s_position
 
 typedef struct	s_Ray
 {
+	int 		idcolumns;
 	float		rayAngle;
 	float		distance;
-	t_pos		horiz_distA_NEXT;
-	t_pos		vert_distA_NEXT;
+	float		wallhitY;
+	float		wallhitX;
 }				t_rays;
 
 typedef struct	s_Ray_collision
 {
-	float		vertdistance;
-	float		horizdistance;
-	t_pos		horiz_pointA;
-	t_pos		horizNextCol;
-	t_pos		vert_pointA;
-	t_pos		vertNextCol;
+	float		rayangle
 }				t_ray_col;
 
 typedef struct	s_raycast
 {
 	float		FOV_angle;
 	int			num_rays;
-	int 		idcolumns;
 }				t_cast;
 
 typedef struct	s_control
@@ -131,8 +126,8 @@ typedef struct	s_game
 	t_tile		tile;
 	t_control	control;
 	t_cast		cast;
-	t_rays		ray;
-	t_ray_col	ray_col;
+	t_ray_col	ray;
+	t_rays		*rays;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);
@@ -154,6 +149,7 @@ void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
+void	return_error();
 
 int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);
