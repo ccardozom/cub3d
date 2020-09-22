@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/07/21 13:06:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/22 15:18:57 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	return_error()
 {
 	ft_putstr_fd("Error",1);
-	exit(-1);
+	exit(0);
 }

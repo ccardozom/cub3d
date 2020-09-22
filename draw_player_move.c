@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 00:27:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/22 15:55:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	draw_player_move(t_game *pos)
 	y = pos->player.y;
 	x = pos->player.x;
 	rayangle_init = pos->ray.rayangle;
-	rayangle_finish = pos->move.player_angle + (pos->cast.FOV_angle / 2)
-	i = 0;
+	rayangle_finish = pos->move.player_angle + (pos->cast.FOV_angle / 2);
+	
 	while (rayangle_init < rayangle_finish)
 	{
+		i = 0;
 		while (i < 50)
 		{
 			my_mlx_pixel_put(&pos->img, x + cos(rayangle_init) * i,

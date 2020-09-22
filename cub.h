@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/21 23:45:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/22 15:25:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct	s_Ray
 
 typedef struct	s_Ray_collision
 {
-	float		rayangle
+	float		rayangle;
 }				t_ray_col;
 
 typedef struct	s_raycast
@@ -144,7 +144,7 @@ int		open_file();
 void	create_map(t_game *pos);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
-int		return_error(int x);
+void	return_error(int x);
 void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
@@ -160,7 +160,7 @@ int		assign_pixel(int x, t_tile *tile, t_data *image, t_game *pos);
 void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	draw_player(t_game *pos);
 void	draw_player_move(t_game *pos);
-float	cast_all_rays(t_game *pos, float init_ray);
+void	cast_all_rays(t_game *pos);
 void	horizontal_collisionA(t_game *pos, float rayangle);
 void    horizontal_collision_next(t_game *pos);
 void    vertical_collision_next(t_game *pos, float rayangle);
