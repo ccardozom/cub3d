@@ -81,6 +81,8 @@ typedef struct	s_Ray
 typedef struct	s_Ray_collision
 {
 	float		rayangle;
+	float		horizhitdistance;
+	float		verthitdistance;
 }				t_ray_col;
 
 typedef struct	s_move_player

@@ -98,6 +98,27 @@ void	castray(t_game *pos, int id)
 	pos->rays[id].israyfacingleft = !pos->rays[id].israyfacingright;
 	horizontal_intersection(pos, id);
 	vertical_intersection(pos, id);
+	pos->ray.horizhitdistance = pos->rays[id].foundhorizwallhit ? distancebetweenpoint(pos->player.pos.x,
+	pos->player.pos.y, pos->rays[id].horizwallhitx, pos->rays[id].horizwallhity) : 2147483647;
+	pos->ray.verthitdistance = pos->rays[id].foundvertwallhit ? distancebetweenpoint(pos->player.pos.x,
+	pos->player.pos.y, pos->rays[id].vertwallhitx, pos->rays[id].vertwallhity) : 2147483647;
+	if (pos->ray.verthitdistance < pos->ray.horizhitdistance)
+	{
+		pos->rays[id].distance = pos->ray.verthitdistance;
+		pos->rays[id].wallhitX = pos->rays[id].vertwallhitx;
+		pos->rays[id].wallhitY = pos->rays[id].vertwallhity;
+		pos->rays[id].wallhitcontent = pos->rays[id].vertwallcontent;
+		pos->rays[id].washitvertical = TRUE;
+	}
+	else
+	{
+		pos->rays[id].distance = pos->ray.horizhitdistance;
+		pos->rays[id].wallhitX = pos->rays[id].horizwallhitx;
+		pos->rays[id].wallhitY = pos->rays[id].horizwallhity;
+		pos->rays[id].wallhitcontent = pos->rays[id].horizwallcontent;
+		pos->rays[id].washitvertical = FALSE;
+	}
+	pos->rays[id].rayangle = pos->ray.rayangle;
 	
 }
 
