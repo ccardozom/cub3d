@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 15:55:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/23 20:58:59 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_player_move(t_game *pos)
 
 	y = pos->player.pos.y;
 	x = pos->player.pos.x;
-	rayangle_init = pos->ray.rayangle;
+	rayangle_init = pos->rays->rayangle;
 	rayangle_finish = pos->player.player_angle + (pos->player.FOV_angle / 2);
 	
 	while (rayangle_init < rayangle_finish)

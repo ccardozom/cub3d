@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 15:48:08 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/23 21:13:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ float	normalizeangle(float angle)
 	return (angle);
 }
 
-void	castray(t_game *pos)
+void	castray(t_game *pos, int id)
 {
 	//aqui todos los datos de las coliciones horizontales y verticales
-	pos->rays->rayangle = normalizeangle(pos->ray.rayangle);
+	pos->raysrayangle = normalizeangle(pos->ray.rayangle);
 	pos->rays->israyfacingdown = pos->rays->rayangle > 0 && pos->rays->rayangle < PI;
 	pos->rays->israyfacingup = !pos->rays->israyfacingdown;
 	pos->rays->israyfacingright = pos->rays->rayangle < PI * 0.5 || pos->rays->rayangle > PI * 1.5;
@@ -102,15 +102,16 @@ void	castray(t_game *pos)
 }
 
 void	cast_all_rays(t_game *pos)
-{
+{	
+	int id;
 	if(!(pos->rays = (t_rays *)malloc(sizeof(t_rays) * pos->player.num_rays)))
 		return_error(-1);
 	pos->ray.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
-	pos->rays->idcolumns = 0;
-	while (pos->rays->idcolumns < pos->player.num_rays)
+	id = 0;
+	while (id < pos->player.num_rays)
 	{
-		castray(pos);
+		castray(pos, id);
 		pos->ray.rayangle += pos->player.FOV_angle / pos->player.num_rays;
-		pos->rays->idcolumns++;
+		id++;
 	}
 }	
