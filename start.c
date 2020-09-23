@@ -19,17 +19,17 @@ void	cast_data(t_game *pos)
 
 	x = pos->winres.window_width / 2;
 	y = pos->winres.window_height / 2;
-	pos->cast.num_rays = pos->winres.window_width / pos->cast.FOV_angle;
+	pos->player.num_rays = pos->winres.window_width / pos->player.FOV_angle;
 	pos->proyection_center.x = x;
 	pos->proyection_center.y = y;
-	//pos->ray.rayangle = pos->cast.FOV_angle / pos->cast.num_rays;
+	//pos->ray.rayangle = pos->player.FOV_angle / pos->player.num_rays;
 }
 
 void	start(t_game *pos)
 {	
 	pos->mlx = mlx_init();
 	pos->mlx_win = mlx_new_window(pos->mlx, pos->winres.window_width, pos->winres.window_height, "Cub3D");
-	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width / 4, pos->winres.window_height / 4);
+	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width, pos->winres.window_height);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,

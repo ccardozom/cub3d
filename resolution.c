@@ -16,7 +16,6 @@ void	resolution(char *line, t_game *pos, int ptr)
 {
 	int index;
 
-	pos->control.check_resolution = 1;
 	index = ptr + 1;
 	while (ft_isdigit(line[index]) == 0)
 		index++;

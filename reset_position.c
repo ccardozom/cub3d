@@ -14,35 +14,27 @@
 
 void	reset_pos_move(t_game *pos)
 {
-	pos->move.turn = 0;
-	pos->move.walk = 0;
-	pos->move.player_angle = 0;
-	pos->move.movespeed = 1.5;
-	pos->move.rotationspeed = 2 * (PI / 180);
-}
-
-void	reset_control(t_game *pos)
-{
-	pos->control.ok_player = 0;
-	pos->control.player_count = 0;
-	pos->control.check_resolution = 0;
+	pos->player.turn = 0;
+	pos->player.walk = 0;
+	pos->player.player_angle = 0;
+	pos->player.movespeed = 1.5;
+	pos->player.rotationspeed = 2 * (PI / 180);
 }
 
 void	reset_cast(t_game *pos)
 {
-	pos->cast.FOV_angle = 66 * (PI / 180);
-	pos->cast.num_rays = 0;
+	pos->player.FOV_angle = 66 * (PI / 180);
+	pos->player.num_rays = 0;
 }
 
 void	reset_position(t_game *pos)
 {
 	reset_pos_move(pos);
-	reset_control(pos);
 	reset_cast(pos);
 	pos->dir.x = 0;
 	pos->dir.y = 0;
-	pos->player.x = 0;
-	pos->player.y = 0;
+	pos->player.pos.x = 0;
+	pos->player.pos.y = 0;
 	pos->winres.x = 0;
 	pos->winres.y = 0;
 	pos->columns = 0;

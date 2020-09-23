@@ -21,10 +21,8 @@ void	position_player(t_game *pos, t_pos *tile_pos)
 			if (tile_pos->y == (int)(pos->tile.size / 2) &&
 			pos->tile.pos_squa == (int)(pos->tile.size / 2))
 			{
-				pos->player.x = tile_pos->x;
-				pos->player.y = pos->tile.squa_f;
-				pos->control.ok_player = 1;
-				pos->control.player_count += 1;
+				pos->player.pos.x = tile_pos->x;
+				pos->player.pos.y = pos->tile.squa_f;
 			}
 			my_mlx_pixel_put(&pos->img, tile_pos->x, pos->tile.squa_f, 0x6495ed);
 		}

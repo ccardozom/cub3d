@@ -15,7 +15,7 @@
 
 void	cast_all_rays(t_game *pos)
 {
-	if(!(pos->rays = (t_rays *)malloc(sizeof(t_rays) * pos->cast.num_rays)))
+	if(!(pos->rays = (t_rays *)malloc(sizeof(t_rays) * pos->player.num_rays)))
 		return_error(-1);
-	pos->ray.rayangle = pos->move.player_angle - (pos->cast.FOV_angle / 2);
+	pos->ray.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
 }	

@@ -59,19 +59,6 @@ typedef struct	s_Ray_collision
 	float		rayangle;
 }				t_ray_col;
 
-typedef struct	s_raycast
-{
-	float		FOV_angle;
-	int			num_rays;
-}				t_cast;
-
-typedef struct	s_control
-{
-	int			ok_player;
-	int 		player_count;
-	int			check_resolution;
-}				t_control;
-
 typedef struct	s_move_player
 {
 	int			turn;
@@ -79,7 +66,10 @@ typedef struct	s_move_player
 	float		player_angle;
 	float		movespeed;
 	float		rotationspeed;
-}				t_move;
+	float		FOV_angle;
+	int			num_rays;
+	t_pos		pos;
+}				t_player;
 
 typedef struct	s_data
 {
@@ -101,13 +91,6 @@ typedef struct		s_tile_size
 	int			pos_squa;
 }					t_tile;
 
-typedef struct	s_wall_control
-{
-	t_pos		posA;
-	t_pos		posB;
-
-}				t_wall;
-
 typedef struct	s_game
 {
 	int			fd;
@@ -116,16 +99,13 @@ typedef struct	s_game
 	int			rows;
 	int			columns;
 	char		**map;
-	t_pos		player;
 	t_pos		dir;
 	t_pos		winres;
 	t_pos		matriz;
 	t_pos		proyection_center;
-	t_move		move;
+	t_player	player;
 	t_data		img;
 	t_tile		tile;
-	t_control	control;
-	t_cast		cast;
 	t_ray_col	ray;
 	t_rays		*rays;
 }				t_game;
@@ -144,7 +124,6 @@ int		open_file();
 void	create_map(t_game *pos);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
-void	return_error(int x);
 void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);

@@ -15,13 +15,13 @@
 int		key_press(int keycode, t_game *pos)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-		pos->move.walk = +1;
+		pos->player.walk = +1;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		pos->move.walk = -1;
+		pos->player.walk = -1;
 	if (keycode == KEY_Q || keycode == KEY_LEFT)
-		pos->move.turn = -1;
+		pos->player.turn = -1;
 	else if (keycode == KEY_E || keycode == KEY_RIGHT)
-		pos->move.turn = +1;
+		pos->player.turn = +1;
 	if (keycode == KEY_ESC)
 		exit(0);
 	return (0);
@@ -30,12 +30,12 @@ int		key_press(int keycode, t_game *pos)
 int		key_release(int keycode, t_game *pos)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
-		pos->move.walk = 0;
+		pos->player.walk = 0;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
-		pos->move.walk = 0;
+		pos->player.walk = 0;
 	else if (keycode == KEY_Q || keycode == KEY_LEFT)
-		pos->move.turn = 0;
+		pos->player.turn = 0;
 	else if (keycode == KEY_E || keycode == KEY_RIGHT)
-		pos->move.turn = 0;
+		pos->player.turn = 0;
 	return (0);
 }

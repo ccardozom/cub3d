@@ -12,32 +12,28 @@
 
 #include "cub.h"
 
-int		player_direction(t_game *pos, t_pos *tile_pos)
+void		player_direction(t_game *pos, t_pos *tile_pos)
 {
 	if (pos->map[pos->tile.f][pos->tile.c] == 'N')
 	{
 		position_player(pos, tile_pos);
-		pos->move.player_angle = PI * 1.5;
+		pos->player.player_angle = PI * 1.5;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'S')
 	{
 		position_player(pos, tile_pos);
-		pos->move.player_angle = PI / 2;
-		pos->control.ok_player = 1;
+		pos->player.player_angle = PI / 2;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'E')
 	{
 		position_player(pos, tile_pos);
-		pos->move.player_angle = 2 * PI;
-		pos->control.ok_player = 1;
+		pos->player.player_angle = 2 * PI;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'W')
 	{
 		position_player(pos, tile_pos);
-		pos->move.player_angle = PI;
-		pos->control.ok_player = 1;
+		pos->player.player_angle = PI;
 	}
-	return (pos->control.ok_player);
 }
 
 int		put_color(t_game *pos)
@@ -48,7 +44,7 @@ int		put_color(t_game *pos)
 	tile_pos.y = 0;
 	while (tile_pos.y < pos->tile.size)
 	{
-		pos->control.ok_player = player_direction(pos, &tile_pos);
+		player_direction(pos, &tile_pos);
 		if (pos->map[pos->tile.f][pos->tile.c] == '2')
 		{
 			if (tile_pos.y >= (int)(pos->tile.size / 2) &&

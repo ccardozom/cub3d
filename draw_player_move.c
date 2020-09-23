@@ -20,10 +20,10 @@ void	draw_player_move(t_game *pos)
 	float	rayangle_init;
 	float	rayangle_finish;
 
-	y = pos->player.y;
-	x = pos->player.x;
+	y = pos->player.pos.y;
+	x = pos->player.pos.x;
 	rayangle_init = pos->ray.rayangle;
-	rayangle_finish = pos->move.player_angle + (pos->cast.FOV_angle / 2);
+	rayangle_finish = pos->player.player_angle + (pos->player.FOV_angle / 2);
 	
 	while (rayangle_init < rayangle_finish)
 	{

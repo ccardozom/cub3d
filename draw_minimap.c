@@ -34,8 +34,8 @@ int		put_color_pixel(t_game *pos)
 			my_mlx_pixel_put(&pos->img, pos_x, pos->tile.squa_f, 0x0101DF);
 		else if (ft_isalpha(pos->map[pos->tile.f][pos->tile.c]) == 1)
 		{
-			// pos->player.x = pos->tile.c * pos->tile.size;
-			// pos->player.y = pos->tile.f * pos->tile.size;
+			// pos->player.pos.x = pos->tile.c * pos->tile.size;
+			// pos->player.pos.y = pos->tile.f * pos->tile.size;
 		}	
 		pos_sx++;
 		pos_x++;
