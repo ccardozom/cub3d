@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/23 20:36:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/23 21:22:59 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void	reset_cast(t_game *pos)
 {
 	pos->player.FOV_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
-	pos->rays[id].foundhorizwallhit = FALSE;
-	pos->rays[id].foundvertwallhit = FALSE;
-	pos->rays[id].horizwallhitx = 0;
-	pos->rays[id].horizwallhity = 0;
-	pos->rays[id].horizwallcontent = 0;
-	pos->rays[id].vertwallhitx = 0;
-	pos->rays[id].vertwallhity = 0;
-	pos->rays[id].vertwallcontent = 0;
+	pos->rays->foundhorizwallhit = FALSE;
+	pos->rays->foundvertwallhit = FALSE;
+	pos->rays->horizwallhitx = 0;
+	pos->rays->horizwallhity = 0;
+	pos->rays->horizwallcontent = 0;
+	pos->rays->vertwallhitx = 0;
+	pos->rays->vertwallhity = 0;
+	pos->rays->vertwallcontent = 0;
 }
 
 void	reset_position(t_game *pos)
