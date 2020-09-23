@@ -12,69 +12,69 @@
 
 #include "cub.h"
 
-void	vertical_intersection(t_game *pos)
+void	vertical_intersection(t_game *pos, int id)
 {	//con esto encontramos la primera colision vertical
-	pos->rays->xintercep = floor(pos->player.pos.x / pos->tile.size) * pos->tile.size;
-	pos->rays->xintercep += pos->rays->israyfacingright ? pos->tile.size : 0;
-	pos->rays->yintercep = pos->player.pos.y + (pos->rays->xintercep - pos->player.pos.x) / tan(pos->rays->rayangle);
-	pos->rays->xstep = pos->tile.size;
-	pos->rays->xstep *= pos->rays->israyfacingleft ? -1 : 1;
-	pos->rays->ystep = pos->tile.size / tan(pos->rays->rayangle);
-	pos->rays->ystep *= (pos->rays->israyfacingup && pos->rays->xstep > 0) ? -1 : 1;
-	pos->rays->ystep *= (pos->rays->israyfacingdown && pos->rays->xstep < 0) ? -1 : 1;
-	pos->rays->nextverttouchy = pos->rays->yintercep;
-	pos->rays->nextverttouchx = pos->rays->xintercep;
-	while (pos->rays->nextverttouchx >= 0 && pos->rays->nextverttouchx <= pos->winres.window_width &&
-	pos->rays->nextverttouchy >= 0 && pos->rays->nextverttouchy <= pos->winres.window_height)
+	pos->rays[id].xintercep = floor(pos->player.pos.x / pos->tile.size) * pos->tile.size;
+	pos->rays[id].xintercep += pos->rays[id].israyfacingright ? pos->tile.size : 0;
+	pos->rays[id].yintercep = pos->player.pos.y + (pos->rays[id].xintercep - pos->player.pos.x) / tan(pos->rays[id].rayangle);
+	pos->rays[id].xstep = pos->tile.size;
+	pos->rays[id].xstep *= pos->rays[id].israyfacingleft ? -1 : 1;
+	pos->rays[id].ystep = pos->tile.size / tan(pos->rays[id].rayangle);
+	pos->rays[id].ystep *= (pos->rays[id].israyfacingup && pos->rays[id].xstep > 0) ? -1 : 1;
+	pos->rays[id].ystep *= (pos->rays[id].israyfacingdown && pos->rays[id].xstep < 0) ? -1 : 1;
+	pos->rays[id].nextverttouchy = pos->rays[id].yintercep;
+	pos->rays[id].nextverttouchx = pos->rays[id].xintercep;
+	while (pos->rays[id].nextverttouchx >= 0 && pos->rays[id].nextverttouchx <= pos->winres.window_width &&
+	pos->rays[id].nextverttouchy >= 0 && pos->rays[id].nextverttouchy <= pos->winres.window_height)
 	{
-		pos->rays->xtocheck = pos->rays->nextverttouchx + (pos->rays->israyfacingleft ? -1 : 0);
-		pos->rays->ytocheck = pos->rays->nexthoriztouchy;
-		if (wall_colision(pos, pos->rays->ytocheck, pos->rays->xtocheck))
+		pos->rays[id].xtocheck = pos->rays[id].nextverttouchx + (pos->rays[id].israyfacingleft ? -1 : 0);
+		pos->rays[id].ytocheck = pos->rays[id].nexthoriztouchy;
+		if (wall_colision(pos, pos->rays[id].ytocheck, pos->rays[id].xtocheck))
 		{
-			pos->rays->vertwallhitx = pos->rays->nextverttouchx;
-			pos->rays->vertwallhity = pos->rays->nextverttouchy;
-			pos->rays->vertwallcontent = (int)(pos->map[(int)floor(pos->rays->ytocheck / pos->tile.size)][(int)floor(pos->rays->xtocheck / pos->tile.size)]);
-			pos->rays->foundvertwallhit = TRUE;
+			pos->rays[id].vertwallhitx = pos->rays[id].nextverttouchx;
+			pos->rays[id].vertwallhity = pos->rays[id].nextverttouchy;
+			pos->rays[id].vertwallcontent = (int)(pos->map[(int)floor(pos->rays[id].ytocheck / pos->tile.size)][(int)floor(pos->rays[id].xtocheck / pos->tile.size)]);
+			pos->rays[id].foundvertwallhit = TRUE;
 			break;
 		}
 		else
 		{
-			pos->rays->vertwallhitx += pos->rays->xstep;
-			pos->rays->vertwallhity += pos->rays->ystep;
+			pos->rays[id].vertwallhitx += pos->rays[id].xstep;
+			pos->rays[id].vertwallhity += pos->rays[id].ystep;
 		}
 		
 	}
 }
 
-void	horizontal_intersection(t_game *pos)
+void	horizontal_intersection(t_game *pos, int id)
 {	//con esto encontramos la primera colision horizontal
-	pos->rays->yintercep = floor(pos->player.pos.y / pos->tile.size) * pos->tile.size;
-	pos->rays->yintercep += pos->rays->israyfacingdown ? pos->tile.size : 0;
-	pos->rays->xintercep = pos->player.pos.x + (pos->rays->yintercep - pos->player.pos.y) / tan(pos->rays->rayangle);
-	pos->rays->ystep = pos->tile.size;
-	pos->rays->ystep *= pos->rays->israyfacingup ? -1 : 1;
-	pos->rays->xstep = pos->tile.size / tan(pos->rays->rayangle);
-	pos->rays->xstep *= (pos->rays->israyfacingleft && pos->rays->xstep > 0) ? -1 : 1;
-	pos->rays->xstep *= (pos->rays->israyfacingright && pos->rays->xstep < 0) ? -1 : 1;
-	pos->rays->nexthoriztouchy = pos->rays->yintercep;
-	pos->rays->nexthoriztouchx = pos->rays->xintercep;
-	while (pos->rays->nexthoriztouchx >= 0 && pos->rays->nexthoriztouchx <= pos->winres.window_width &&
-	pos->rays->nexthoriztouchy >= 0 && pos->rays->nexthoriztouchy <= pos->winres.window_height)
+	pos->rays[id].yintercep = floor(pos->player.pos.y / pos->tile.size) * pos->tile.size;
+	pos->rays[id].yintercep += pos->rays[id].israyfacingdown ? pos->tile.size : 0;
+	pos->rays[id].xintercep = pos->player.pos.x + (pos->rays[id].yintercep - pos->player.pos.y) / tan(pos->rays[id].rayangle);
+	pos->rays[id].ystep = pos->tile.size;
+	pos->rays[id].ystep *= pos->rays[id].israyfacingup ? -1 : 1;
+	pos->rays[id].xstep = pos->tile.size / tan(pos->rays[id].rayangle);
+	pos->rays[id].xstep *= (pos->rays[id].israyfacingleft && pos->rays[id].xstep > 0) ? -1 : 1;
+	pos->rays[id].xstep *= (pos->rays[id].israyfacingright && pos->rays[id].xstep < 0) ? -1 : 1;
+	pos->rays[id].nexthoriztouchy = pos->rays[id].yintercep;
+	pos->rays[id].nexthoriztouchx = pos->rays[id].xintercep;
+	while (pos->rays[id].nexthoriztouchx >= 0 && pos->rays[id].nexthoriztouchx <= pos->winres.window_width &&
+	pos->rays[id].nexthoriztouchy >= 0 && pos->rays[id].nexthoriztouchy <= pos->winres.window_height)
 	{
-		pos->rays->xtocheck = pos->rays->nexthoriztouchx;
-		pos->rays->ytocheck = pos->rays->nexthoriztouchy + (pos->rays->israyfacingup ? -1 : 0);
-		if (wall_colision(pos, pos->rays->ytocheck, pos->rays->xtocheck))
+		pos->rays[id].xtocheck = pos->rays[id].nexthoriztouchx;
+		pos->rays[id].ytocheck = pos->rays[id].nexthoriztouchy + (pos->rays[id].israyfacingup ? -1 : 0);
+		if (wall_colision(pos, pos->rays[id].ytocheck, pos->rays[id].xtocheck))
 		{
-			pos->rays->horizwallhitx = pos->rays->nexthoriztouchx;
-			pos->rays->horizwallhity = pos->rays->nexthoriztouchy;
-			pos->rays->horizwallcontent = (int)(pos->map[(int)floor(pos->rays->ytocheck / pos->tile.size)][(int)floor(pos->rays->xtocheck / pos->tile.size)]);
-			pos->rays->foundhorizwallhit = TRUE;
+			pos->rays[id].horizwallhitx = pos->rays[id].nexthoriztouchx;
+			pos->rays[id].horizwallhity = pos->rays[id].nexthoriztouchy;
+			pos->rays[id].horizwallcontent = (int)(pos->map[(int)floor(pos->rays[id].ytocheck / pos->tile.size)][(int)floor(pos->rays[id].xtocheck / pos->tile.size)]);
+			pos->rays[id].foundhorizwallhit = TRUE;
 			break;
 		}
 		else
 		{
-			pos->rays->horizwallhitx += pos->rays->xstep;
-			pos->rays->horizwallhity += pos->rays->ystep;
+			pos->rays[id].horizwallhitx += pos->rays[id].xstep;
+			pos->rays[id].horizwallhity += pos->rays[id].ystep;
 		}
 		
 	}
@@ -91,13 +91,13 @@ float	normalizeangle(float angle)
 void	castray(t_game *pos, int id)
 {
 	//aqui todos los datos de las coliciones horizontales y verticales
-	pos->raysrayangle = normalizeangle(pos->ray.rayangle);
-	pos->rays->israyfacingdown = pos->rays->rayangle > 0 && pos->rays->rayangle < PI;
-	pos->rays->israyfacingup = !pos->rays->israyfacingdown;
-	pos->rays->israyfacingright = pos->rays->rayangle < PI * 0.5 || pos->rays->rayangle > PI * 1.5;
-	pos->rays->israyfacingleft = !pos->rays->israyfacingright;
-	horizontal_intersection(pos);
-	vertical_intersection(pos);
+	pos->rays[id].rayangle = normalizeangle(pos->ray.rayangle);
+	pos->rays[id].israyfacingdown = pos->rays[id].rayangle > 0 && pos->rays[id].rayangle < PI;
+	pos->rays[id].israyfacingup = !pos->rays[id].israyfacingdown;
+	pos->rays[id].israyfacingright = pos->rays[id].rayangle < PI * 0.5 || pos->rays[id].rayangle > PI * 1.5;
+	pos->rays[id].israyfacingleft = !pos->rays[id].israyfacingright;
+	horizontal_intersection(pos, id);
+	vertical_intersection(pos, id);
 	
 }
 
