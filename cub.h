@@ -47,11 +47,35 @@ typedef struct	s_position
 
 typedef struct	s_Ray
 {
-	int 		idcolumns;
-	float		rayAngle;
+	float		xintercep;
+	float		yintercep;
+	float		xstep;
+	float		ystep;
+	float		rayangle;
 	float		distance;
 	float		wallhitY;
 	float		wallhitX;
+	float		horizwallhitx;
+	float		horizwallhity;
+	float		nexthoriztouchx;
+	float		nexthoriztouchy;
+	float		xtocheck;
+	float		ytocheck;
+	int 		idcolumns;
+	int			washitvertical;
+	int			israyfacingup;
+	int			israyfacingdown;
+	int			israyfacingleft;
+	int			israyfacingright;
+	int			wallhitcontent;
+	int			foundhorizwallhit;
+	int			horizwallcontent;
+	int			foundvertwallhit;
+	float		vertwallhitx;
+	float		vertwallhity;
+	int			vertwallcontent;
+	float		nextverttouchx;
+	float		nextverttouchy;
 }				t_rays;
 
 typedef struct	s_Ray_collision
