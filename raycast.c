@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/23 21:13:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/23 22:10:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ void	castray(t_game *pos, int id)
 	pos->rays[id].israyfacingleft = !pos->rays[id].israyfacingright;
 	horizontal_intersection(pos, id);
 	vertical_intersection(pos, id);
-	pos->ray.horizhitdistance = pos->rays[id].foundhorizwallhit ? distancebetweenpoint(pos->player.pos.x,
+	pos->ray.horizhitdistance = pos->rays[id].foundhorizwallhit ? distancebetweenpoints(pos->player.pos.x,
 	pos->player.pos.y, pos->rays[id].horizwallhitx, pos->rays[id].horizwallhity) : 2147483647;
-	pos->ray.verthitdistance = pos->rays[id].foundvertwallhit ? distancebetweenpoint(pos->player.pos.x,
+	pos->ray.verthitdistance = pos->rays[id].foundvertwallhit ? distancebetweenpoints(pos->player.pos.x,
 	pos->player.pos.y, pos->rays[id].vertwallhitx, pos->rays[id].vertwallhity) : 2147483647;
 	if (pos->ray.verthitdistance < pos->ray.horizhitdistance)
 	{

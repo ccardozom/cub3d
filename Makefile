@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/09/04 12:30:51 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/09/23 22:09:23 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS		=	cub3d.c read_map.c check_line.c resolution.c is_map.c \
 				fill_matriz.c return_error.c reset_position.c keypress.c\
 				wall_control.c start.c draw_minimap.c draw_player.c\
 				initial_position_player.c update_player.c draw_player_move.c\
-				raycast.c horizontal_ray.c vertical_ray.c has_wall.c\
+				raycast.c horizontal_ray.c vertical_ray.c has_wall.c raycast_aux.c\
 				imprimir_matriz.c \
 				get_next_line/get_next_line.c
 				#create_window.c draw_map.c 

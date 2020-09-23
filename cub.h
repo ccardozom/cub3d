@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 17:06:05 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/23 22:08:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void	wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 void	return_error();
+float   distancebetweenpoints(float x1, float y1, float x2, float y2);
 
 int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);
