@@ -6,27 +6,22 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 17:05:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 14:18:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	cast_data(t_game *pos)
-{
+void	start(t_game *pos)
+{	
 	float	x;
 	float	y;
-
+	
 	x = pos->winres.window_width / 2;
 	y = pos->winres.window_height / 2;
 	pos->player.num_rays = pos->winres.window_width / pos->player.FOV_angle;
 	pos->proyection_center.x = x;
 	pos->proyection_center.y = y;
-	//pos->ray.rayangle = pos->player.FOV_angle / pos->player.num_rays;
-}
-
-void	start(t_game *pos)
-{	
 	pos->mlx = mlx_init();
 	pos->mlx_win = mlx_new_window(pos->mlx, pos->winres.window_width, pos->winres.window_height, "Cub3D");
 	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width, pos->winres.window_height);
