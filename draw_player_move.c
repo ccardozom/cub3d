@@ -26,10 +26,10 @@ void	draw_player_move(t_game *pos)
 	while (i < pos->player.num_rays)
 	{ 
 		ray = 0;
-		while (ray < pos->rays[i].distance)
+		while (ray < pos->ray_data[i].distance)
 		{ 
-		my_mlx_pixel_put(&pos->img, x + cos(pos->rays[i].rayangle) * ray,
-		y + sin(pos->rays[i].rayangle) * ray, 0x044D02);
+		my_mlx_pixel_put(&pos->img, x + cos(pos->ray_data[i].rayangle) * ray,
+		y + sin(pos->ray_data[i].rayangle) * ray, 0x044D02);
 		ray += 3;
 		}
 		i++;

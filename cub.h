@@ -52,9 +52,6 @@ typedef struct	s_Ray
 	float		xstep;
 	float		ystep;
 	float		rayangle;
-	float		distance;
-	float		wallhitY;
-	float		wallhitX;
 	float		horizwallhitx;
 	float		horizwallhity;
 	float		nexthoriztouchx;
@@ -62,12 +59,10 @@ typedef struct	s_Ray
 	float		xtocheck;
 	float		ytocheck;
 	int 		idcolumns;
-	int			washitvertical;
 	int			israyfacingup;
 	int			israyfacingdown;
 	int			israyfacingleft;
 	int			israyfacingright;
-	int			wallhitcontent;
 	int			foundhorizwallhit;
 	int			horizwallcontent;
 	int			foundvertwallhit;
@@ -77,6 +72,16 @@ typedef struct	s_Ray
 	float		nextverttouchx;
 	float		nextverttouchy;
 }				t_rays;
+
+typedef struct	s_ray_allocated
+{
+	float		distance;
+	float		wallhitY;
+	float		wallhitX;
+	int			wallhitcontent;
+	int			washitvertical;
+	float		rayangle;
+}				t_ray;
 
 typedef struct	s_Ray_collision
 {
@@ -133,7 +138,8 @@ typedef struct	s_game
 	t_data		img;
 	t_tile		tile;
 	t_ray_col	ray;
-	t_rays		*rays;
+	t_rays		rays;
+	t_ray		*ray_data;
 }				t_game;
 
 void imprimir_matriz(t_game *pos);
