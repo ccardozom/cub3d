@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/23 22:08:50 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 18:52:45 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct	s_move_player
 	float		rotationspeed;
 	float		FOV_angle;
 	int			num_rays;
+	int			player_control;
 	t_pos		pos;
 }				t_player;
 

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 17:08:03 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 18:27:40 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	castray(t_game *pos, t_ray *ray_data)
 void	cast_all_rays(t_game *pos)
 {	
 	int id;
-	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays)))
+	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays + 1)))
 		return_error(-1);
 	pos->ray.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
 	id = 0;
@@ -133,6 +133,7 @@ void	cast_all_rays(t_game *pos)
 	{
 		castray(pos, &pos->ray_data[id]);
 		pos->ray.rayangle += pos->player.FOV_angle / pos->player.num_rays;
+		
 		id++;
 	}
 }	

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 16:57:45 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 18:02:11 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		main_loop(t_game *pos)
 	//draw(pos);
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 	mlx_destroy_image(pos->mlx, pos->img.img);
+	free(pos->ray_data);
 	return (0);
 }
 

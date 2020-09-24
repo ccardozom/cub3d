@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/08 12:32:57 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 19:07:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,32 @@
 
 void		player_direction(t_game *pos, t_pos *tile_pos)
 {
-	if (pos->map[pos->tile.f][pos->tile.c] == 'N')
+	if (ft_isalpha(pos->map[pos->tile.f][pos->tile.c]))
 	{
-		position_player(pos, tile_pos);
-		pos->player.player_angle = PI * 1.5;
-	}
-	if (pos->map[pos->tile.f][pos->tile.c] == 'S')
-	{
-		position_player(pos, tile_pos);
-		pos->player.player_angle = PI / 2;
-	}
-	if (pos->map[pos->tile.f][pos->tile.c] == 'E')
-	{
-		position_player(pos, tile_pos);
-		pos->player.player_angle = 2 * PI;
-	}
-	if (pos->map[pos->tile.f][pos->tile.c] == 'W')
-	{
-		position_player(pos, tile_pos);
-		pos->player.player_angle = PI;
+		if (pos->map[pos->tile.f][pos->tile.c] == 'N')
+		{
+			position_player(pos, tile_pos);
+			pos->player.player_angle = PI * 1.5;
+			pos->player.player_control += 1;
+		}
+		if (pos->map[pos->tile.f][pos->tile.c] == 'S')
+		{
+			position_player(pos, tile_pos);
+			pos->player.player_angle = PI / 2;
+			pos->player.player_control += 1;
+		}
+		if (pos->map[pos->tile.f][pos->tile.c] == 'E')
+		{
+			position_player(pos, tile_pos);
+			pos->player.player_angle = 2 * PI;
+			pos->player.player_control += 1;
+		}
+		if (pos->map[pos->tile.f][pos->tile.c] == 'W')
+		{
+			position_player(pos, tile_pos);
+			pos->player.player_angle = PI;
+			pos->player.player_control += 1;
+		}
 	}
 }
 
@@ -45,17 +52,6 @@ int		put_color(t_game *pos)
 	while (tile_pos.y < pos->tile.size)
 	{
 		player_direction(pos, &tile_pos);
-		if (pos->map[pos->tile.f][pos->tile.c] == '2')
-		{
-			if (tile_pos.y >= (int)(pos->tile.size / 2) &&
-			tile_pos.y <= (((int)(pos->tile.size / 2)) + 6))
-				if (pos->tile.pos_squa >= (int)(pos->tile.size / 2) &&
-				pos->tile.pos_squa <= (((int)(pos->tile.size / 2)) + 6))
-				{
-					my_mlx_pixel_put(&pos->img, tile_pos.x,
-					pos->tile.squa_f, 0xBBCC00);
-				}
-		}
 		tile_pos.y++;
 		tile_pos.x++;
 	}

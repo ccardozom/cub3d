@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/23 21:22:59 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/24 18:53:55 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	reset_cast(t_game *pos)
 {
 	pos->player.FOV_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
+	pos->player.player_control = 0;
 	pos->rays.foundhorizwallhit = FALSE;
 	pos->rays.foundvertwallhit = FALSE;
 	pos->rays.horizwallhitx = 0;
