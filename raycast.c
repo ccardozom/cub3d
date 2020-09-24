@@ -125,7 +125,8 @@ void	castray(t_game *pos, t_ray *ray_data)
 void	cast_all_rays(t_game *pos)
 {	
 	int id;
-	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays + 1)))
+
+	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays)))
 		return_error(-1);
 	pos->ray.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
 	id = 0;

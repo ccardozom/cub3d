@@ -19,7 +19,7 @@ void	start(t_game *pos)
 	
 	x = pos->winres.window_width / 2;
 	y = pos->winres.window_height / 2;
-	pos->player.num_rays = pos->winres.window_width / pos->player.FOV_angle;
+	pos->player.num_rays = pos->columns * pos->tile.size;
 	pos->proyection_center.x = x;
 	pos->proyection_center.y = y;
 	pos->mlx = mlx_init();
