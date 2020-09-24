@@ -73,8 +73,8 @@ void	horizontal_intersection(t_game *pos)
 		}
 		else
 		{
-			pos->rays.horizwallhitx += pos->rays.xstep;
-			pos->rays.horizwallhity += pos->rays.ystep;
+			pos->rays.nexthoriztouchx += pos->rays.xstep;
+			pos->rays.nexthoriztouchy += pos->rays.ystep;
 		}
 		
 	}
