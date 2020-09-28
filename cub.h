@@ -94,6 +94,7 @@ typedef struct	s_move_player
 {
 	int			turn;
 	int			walk;
+	float		minimapscale;
 	float		player_angle;
 	float		movespeed;
 	float		rotationspeed;

@@ -63,11 +63,11 @@ void	draw_player(t_game *pos)
 	pos->tile.squa_f = 0;
 	pos->tile.pos_squa = 0;
 	pos->tile.f = 0;
-	while (pos->tile.f < pos->rows)
+	while (pos->tile.f < pos->rows  * pos->player.minimapscale)
 	{
 		pos->tile.c = 0;
 		pos->tile.squa_c = 0;
-		while (pos->tile.c < pos->columns)
+		while (pos->tile.c < pos->columns  * pos->player.minimapscale)
 		{
 			pos->tile.squa_c += put_color(pos);
 			pos->tile.c++;

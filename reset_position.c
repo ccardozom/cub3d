@@ -26,6 +26,7 @@ void	reset_cast(t_game *pos)
 	pos->player.FOV_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
 	pos->player.player_control = 0;
+	pos->player.minimapscale = 0.2;
 	pos->rays.foundhorizwallhit = FALSE;
 	pos->rays.foundvertwallhit = FALSE;
 	pos->rays.horizwallhitx = 0;

@@ -24,7 +24,7 @@ void	start(t_game *pos)
 	pos->proyection_center.y = y;
 	pos->mlx = mlx_init();
 	pos->mlx_win = mlx_new_window(pos->mlx, pos->winres.window_width, pos->winres.window_height, "Cub3D");
-	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width, pos->winres.window_height);
+	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width  * pos->player.minimapscale, pos->winres.window_height  * pos->player.minimapscale);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,
