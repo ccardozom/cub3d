@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 19:07:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/28 16:26:35 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void	draw_player(t_game *pos)
 	pos->tile.squa_f = 0;
 	pos->tile.pos_squa = 0;
 	pos->tile.f = 0;
-	while (pos->tile.f < pos->rows  * pos->player.minimapscale)
+	while (pos->tile.f < pos->rows)
 	{
 		pos->tile.c = 0;
 		pos->tile.squa_c = 0;
-		while (pos->tile.c < pos->columns  * pos->player.minimapscale)
+		while (pos->tile.c < pos->columns)
 		{
 			pos->tile.squa_c += put_color(pos);
 			pos->tile.c++;

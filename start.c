@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 19:01:34 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/28 16:25:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	start(t_game *pos)
 	pos->proyection_center.y = y;
 	pos->mlx = mlx_init();
 	pos->mlx_win = mlx_new_window(pos->mlx, pos->winres.window_width, pos->winres.window_height, "Cub3D");
-	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width  * pos->player.minimapscale, pos->winres.window_height  * pos->player.minimapscale);
+	pos->img.img = mlx_new_image(pos->mlx, pos->winres.window_width, pos->winres.window_height);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,
