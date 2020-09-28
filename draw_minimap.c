@@ -29,9 +29,9 @@ int		put_color_pixel(t_game *pos)
 	pos_sx = 0;
 	while (pos_sx < pos->tile.size)
 	{
-		my_mlx_pixel_put(&pos->img, pos_x, pos->tile.squa_f, 0xFFFFFF);
+		my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0xFFFFFF);
 		if (pos->map[pos->tile.f][pos->tile.c] == '1' || pos->map[pos->tile.f][pos->tile.c] == '8')
-			my_mlx_pixel_put(&pos->img, pos_x, pos->tile.squa_f, 0x0101DF);
+			my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0x0101DF);
 		else if (ft_isalpha(pos->map[pos->tile.f][pos->tile.c]) == 1)
 		{
 			// pos->player.pos.x = pos->tile.c * pos->tile.size;

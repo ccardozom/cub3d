@@ -24,6 +24,6 @@ void	position_player(t_game *pos, t_pos *tile_pos)
 				pos->player.pos.x = tile_pos->x;
 				pos->player.pos.y = pos->tile.squa_f;
 			}
-			my_mlx_pixel_put(&pos->img, tile_pos->x, pos->tile.squa_f, 0x6495ed);
+			my_mlx_pixel_put(&pos->img, tile_pos->x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0x6495ed);
 		}
 }
