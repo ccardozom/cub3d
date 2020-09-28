@@ -28,8 +28,8 @@ void	draw_player_move(t_game *pos)
 		ray = 0;
 		while (ray < pos->ray_data[i].distance)
 		{ 
-		my_mlx_pixel_put(&pos->img, x + cos(pos->ray_data[i].rayangle) * ray,
-		y + sin(pos->ray_data[i].rayangle) * ray, 0x044D02);
+		my_mlx_pixel_put(&pos->img, (x + cos(pos->ray_data[i].rayangle) * ray)  * pos->player.minimapscale,
+		(y + sin(pos->ray_data[i].rayangle) * ray)  * pos->player.minimapscale, 0x044D02);
 		ray += 1;
 		}
 		i += 1;
