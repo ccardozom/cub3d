@@ -23,8 +23,8 @@ int		main_loop(t_game *pos)
 	mlx_clear_window(pos->mlx, pos->mlx_win);
 	update(pos);
 	pos->img.img = mlx_new_image(pos->mlx,
-	pos->winres.window_width,
-	pos->winres.window_height);
+	pos->winres.window_width  * pos->player.minimapscale,
+	pos->winres.window_height * pos->player.minimapscale);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,
