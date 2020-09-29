@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   3dprojection.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/28 17:13:25 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/29 11:47:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	color_all_buffer(t_game *pos)
 	int y;
 
 	y = 0;
-	while while (y < pos->winres.window_height)
+	while (y < pos->winres.window_height)
 	{
 		x = 0;
 		while (x < pos->winres.window_width)
 		{
-			pos->colorbuffer[(pos->winres.window_width * y) + x] = 0xFF0000FF;
+			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0xF71308;
+			my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
 			x++;
-			my_mlx_pixel_put(&pos->img, x, y, 0x0000FF);
 		}
 		y++;
 	}
@@ -54,17 +54,15 @@ void	projection_wall(t_game *pos, int x)
 void	generate_3dprojection(t_game *pos)
 {
 	int i;
-	int y;
 
 	if (!(pos->colorbuffer = (unsigned long *)malloc(sizeof(unsigned long) *
-		(unsigned long)pos->winres.window_width * (unsigned long)pos->winres.window_height)));
+	(unsigned long)pos->winres.window_width * (unsigned long)pos->winres.window_height)))
 			return_error();
 	color_all_buffer(pos);
 	i = 0;
 	while (i < pos->player.num_rays)
 	{
 		projection_wall(pos, i);
-		
 		i++;
 	}
 }

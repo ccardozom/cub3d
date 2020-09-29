@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 18:52:45 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/29 11:45:04 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include "mlx/mlx.h"
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
-#include "textures/"
+
 
 #define	relleno	'8'
 
@@ -190,5 +190,6 @@ void	vertical_collisionA(t_game *pos, float rayangle);
 int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
 void	generate_3dprojection(t_game *pos);
+void	color_all_buffer(t_game *pos);
 
 #endif
