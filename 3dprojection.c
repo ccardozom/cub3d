@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/29 11:47:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/30 00:31:53 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void	color_all_buffer(t_game *pos)
 		x = 0;
 		while (x < pos->winres.window_width)
 		{
-			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0xF71308;
-			my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
+			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x0000FF;
+			if (y < pos->winres.window_height / 2)
+				my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
+			else
+				my_mlx_pixel_put(&pos->img, x, y, 0x9C4B0D);
 			x++;
 		}
 		y++;

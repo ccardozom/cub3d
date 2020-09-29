@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/29 11:51:58 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/30 00:09:23 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	update(t_game *pos)
 {
 	update_player(pos);
 	cast_all_rays(pos);
-	generate_3dprojection(pos); //revisar desde aqui
 }
 
 int		main_loop(t_game *pos)
@@ -30,7 +29,9 @@ int		main_loop(t_game *pos)
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,
 	&pos->img.endian);
-	draw_minimap(pos)
+	generate_3dprojection(pos);
+	draw_minimap(pos);
+	
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 	mlx_destroy_image(pos->mlx, pos->img.img);
 	free(pos->ray_data);
