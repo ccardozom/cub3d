@@ -12,7 +12,7 @@
 
 NAME		=	cub3d
 
-SRCS		=	cub3d.c read_map.c check_line.c resolution.c is_map.c \
+SRCS		=	cub3d.c read_map.c is_map.c \
 				open_file.c create_map.c create_matriz.c initialize.c\
 				fill_matriz.c return_error.c reset_position.c keypress.c\
 				wall_control.c start.c draw_minimap.c draw_player.c\

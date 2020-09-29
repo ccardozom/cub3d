@@ -16,6 +16,8 @@ void	is_map(char *line, t_game *pos)
 {
 	int index;
 	index = ft_strlen(line);
+	if (line == "" && line[index + 1] == '\0')
+		return_error();
 	if (pos->columns < index)
 		pos->columns = index;
 	pos->rows++;
