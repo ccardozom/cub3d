@@ -16,6 +16,7 @@ void	update(t_game *pos)
 {
 	update_player(pos);
 	cast_all_rays(pos);
+	generate_3dproyection(pos);
 }
 
 int		main_loop(t_game *pos)
@@ -30,7 +31,6 @@ int		main_loop(t_game *pos)
 	&pos->img.line_length,
 	&pos->img.endian);
 	draw_minimap(pos);
-	//draw(pos);
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 	mlx_destroy_image(pos->mlx, pos->img.img);
 	free(pos->ray_data);

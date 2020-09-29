@@ -21,6 +21,7 @@
 #include "mlx/mlx.h"
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
+#include "textures/"
 
 #define	relleno	'8'
 
@@ -102,6 +103,12 @@ typedef struct	s_move_player
 	int			num_rays;
 	int			player_control;
 	t_pos		pos;
+	float		perpdistance;
+	float		distanceprojplane;
+	float		projectedwallheight;
+	int			wallstripheight;
+	int			walltoppixel;
+	int			wallbottompixel;
 }				t_player;
 
 typedef struct	s_data
@@ -126,23 +133,24 @@ typedef struct		s_tile_size
 
 typedef struct	s_game
 {
-	int			fd;
-	void		*mlx;
-	void		*mlx_win;
-	int			rows;
-	int			columns;
-	char		**map;
-	t_pos		dir;
-	t_pos		winres;
-	t_pos		matriz;
-	t_pos		proyection_center;
-	t_player	player;
-	t_data		img;
-	t_tile		tile;
-	t_ray_col	ray;
-	t_rays		rays;
-	t_ray		*ray_data;
-}				t_game;
+	int				fd;
+	void			*mlx;
+	void			*mlx_win;
+	int				rows;
+	int				columns;
+	char			**map;
+	unsigned long	*colorbuffer;
+	t_pos			dir;
+	t_pos			winres;
+	t_pos			matriz;
+	t_pos			proyection_center;
+	t_player		player;
+	t_data			img;
+	t_tile			tile;
+	t_ray_col		ray;
+	t_rays			rays;
+	t_ray			*ray_data;
+}					t_game;
 
 void imprimir_matriz(t_game *pos);
 
@@ -181,5 +189,6 @@ void    vertical_collision_next(t_game *pos, float rayangle);
 void	vertical_collisionA(t_game *pos, float rayangle);
 int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
+void	generate_3dprojection(t_game *pos);
 
 #endif

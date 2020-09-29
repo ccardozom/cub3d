@@ -19,8 +19,7 @@ int		open_file()
 	fd = open("map.cub", O_RDONLY);
 	if (!fd || fd < 0)
 	{
-		printf("Error\n");
-		exit(1);
+		return_error();
 	}
 	return (fd);
 }
