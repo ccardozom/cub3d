@@ -6,11 +6,23 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/30 00:31:53 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/09/30 13:56:33 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+void	color_all_wall(t_game *pos, int i)
+{
+	int y;
+
+	y = pos->player.walltoppixel;
+	while (y < pos->player.wallbottompixel)
+	{
+		my_mlx_pixel_put(&pos->img, i, y, 0x217A09);
+		y++;
+	}
+}
 
 void	color_all_buffer(t_game *pos)
 {
@@ -23,7 +35,7 @@ void	color_all_buffer(t_game *pos)
 		x = 0;
 		while (x < pos->winres.window_width)
 		{
-			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x0000FF;
+			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x1FB0E3;
 			if (y < pos->winres.window_height / 2)
 				my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
 			else
@@ -36,8 +48,8 @@ void	color_all_buffer(t_game *pos)
 
 void	projection_wall(t_game *pos, int x)
 {
-	pos->player.perpdistance = (pos->ray_data[x].distance *
-		cos(pos->ray_data[x].rayangle)) - pos->player.player_angle ;
+	pos->player.perpdistance = pos->ray_data[x].distance *
+		cos(pos->ray_data[x].rayangle - pos->player.player_angle) ;
 		pos->player.distanceprojplane = (pos->winres.window_width / 2) /
 		tan(pos->player.FOV_angle / 2);
 		pos->player.projectedwallheight = (pos->tile.size /
@@ -52,6 +64,7 @@ void	projection_wall(t_game *pos, int x)
 		pos->player.wallbottompixel = pos->player.wallbottompixel >
 		pos->winres.window_height ? pos->winres.window_height :
 		pos->player.wallbottompixel;
+		color_all_wall(pos, x);
 }
 
 void	generate_3dprojection(t_game *pos)
