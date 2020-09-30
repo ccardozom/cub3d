@@ -12,6 +12,18 @@
 
 #include "cub.h"
 
+void	wall_position(t_game *pos, int i)
+{
+	if (pos->ray_data[x].rayangle < (3 * PI) / 4 && pos->ray_data[x].rayangle > PI / 4)
+		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
+	if (pos->ray_data[x].rayangle > (3 * PI) / 4 && pos->ray_data[x].rayangle < (5 * PI) / 4)
+		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
+	if (pos->ray_data[x].rayangle < (7 * PI) / 4 && pos->ray_data[x].rayangle > (5 * PI) / 4))
+		my_mlx_pixel_put(&pos->img, i, y, 0XF8FC04);
+	if (pos->ray_data[x].rayangle > (7 * PI) / 4 || pos->ray_data[x].rayangle < PI / 4)
+		my_mlx_pixel_put(&pos->img, i, y, 0xA904FC);
+}
+
 void	color_all_wall(t_game *pos, int i)
 {
 	int y;
@@ -19,7 +31,7 @@ void	color_all_wall(t_game *pos, int i)
 	y = pos->player.walltoppixel;
 	while (y < pos->player.wallbottompixel)
 	{
-		my_mlx_pixel_put(&pos->img, i, y, 0x217A09);
+		wall_position(pos, i)
 		y++;
 	}
 }
