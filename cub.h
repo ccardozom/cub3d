@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/29 11:45:04 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/01 13:18:26 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ typedef struct	s_position
 	float		window_width;
 	float		window_height;
 }				t_pos;
+
+typedef struct	s_color
+{
+	int				empty;
+	int				r;
+	int				g;
+	int				b;
+}				t_color;
 
 typedef struct	s_Ray
 {
@@ -121,6 +129,29 @@ typedef struct	s_data
 	int			offset;
 }				t_data;
 
+typedef struct	s_text
+{
+	char			*path;
+	void			*id;
+	int				*image;
+	int				data;
+	int				w;
+	int				h;
+	int				endian;
+	int				size_line;
+}				t_text;
+
+typedef struct	s_textures
+{
+	t_text			north_text;
+	t_text			south_text;
+	t_text			east_text;
+	t_text			weast_text;
+	t_text			sprite;
+	t_color			floor;
+	t_color			ceilling;
+}				t_textures;
+
 typedef struct		s_tile_size
 {
 	int			size;
@@ -140,12 +171,15 @@ typedef struct	s_game
 	int				columns;
 	char			**map;
 	unsigned long	*colorbuffer;
+	void			*data;
+	int				control;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
 	t_pos			proyection_center;
 	t_player		player;
 	t_data			img;
+	t_textures		texture;
 	t_tile			tile;
 	t_ray_col		ray;
 	t_rays			rays;
@@ -191,5 +225,9 @@ int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
 void	generate_3dprojection(t_game *pos);
 void	color_all_buffer(t_game *pos);
+void	path_texture_n(t_game *pos, char *line, int i);
+void	path_texture_s(t_game *pos, char *line, int i);
+void	path_texture_e(t_game *pos, char *line, int i);
+void	path_texture_o(t_game *pos, char *line, int i);
 
 #endif

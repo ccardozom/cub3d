@@ -6,21 +6,21 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/30 13:56:33 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/01 10:48:23 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	wall_position(t_game *pos, int i)
+void	wall_position(t_game *pos, int i, int y)
 {
-	if (pos->ray_data[x].rayangle < (3 * PI) / 4 && pos->ray_data[x].rayangle > PI / 4)
+	if (pos->ray_data[i].rayangle < (3 * PI) / 4 && pos->ray_data[i].rayangle > PI / 4)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
-	if (pos->ray_data[x].rayangle > (3 * PI) / 4 && pos->ray_data[x].rayangle < (5 * PI) / 4)
+	if (pos->ray_data[i].rayangle > (3 * PI) / 4 && pos->ray_data[i].rayangle < (5 * PI) / 4)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
-	if (pos->ray_data[x].rayangle < (7 * PI) / 4 && pos->ray_data[x].rayangle > (5 * PI) / 4))
+	if (pos->ray_data[i].rayangle < (7 * PI) / 4 && pos->ray_data[i].rayangle > (5 * PI) / 4)
 		my_mlx_pixel_put(&pos->img, i, y, 0XF8FC04);
-	if (pos->ray_data[x].rayangle > (7 * PI) / 4 || pos->ray_data[x].rayangle < PI / 4)
+	if (pos->ray_data[i].rayangle > (7 * PI) / 4 || pos->ray_data[i].rayangle < PI / 4)
 		my_mlx_pixel_put(&pos->img, i, y, 0xA904FC);
 }
 
@@ -31,7 +31,7 @@ void	color_all_wall(t_game *pos, int i)
 	y = pos->player.walltoppixel;
 	while (y < pos->player.wallbottompixel)
 	{
-		wall_position(pos, i)
+		wall_position(pos, i, y);
 		y++;
 	}
 }

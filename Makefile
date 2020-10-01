@@ -6,13 +6,13 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/09/24 18:49:52 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/10/01 11:55:34 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3d
 
-SRCS		=	cub3d.c read_map.c is_map.c \
+SRCS		=	cub3d.c read_map.c is_map.c texturas.c\
 				open_file.c create_map.c create_matriz.c initialize.c\
 				fill_matriz.c return_error.c reset_position.c keypress.c\
 				wall_control.c start.c draw_minimap.c draw_player.c\

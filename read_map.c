@@ -6,12 +6,29 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/24 09:50:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/01 13:34:49 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+void	get_colors(char *line, t_color *color, char param)
+{
+	color->empty = 0;
+	while (*line == ' ' || *line == param)
+		line++;
+	color->r = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	while (*line == ' ' || *line == ',')
+		line++;
+	color->g = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	while (*line == ' ' || *line == ',')
+		line++;
+	color->b = ft_atoi(line);
+}
 
 void	resolution(char *line, t_game *pos, int ptr)
 {
@@ -40,19 +57,29 @@ void	check_line(char *line, t_game *pos)
 	if (line[index] == 'R')
 		resolution(line, pos, index);
 	else if (line[index] == 'N' && line[index + 1] == 'O')
-	{}
+	{
+		pos->control = 1;
+		path_texture_n(pos, line, index + 2);
+	}
 	else if (line[index] == 'S' && line[index + 1] == 'O')
-	{}
+	{
+		pos->control = 2;
+		path_texture_s(pos, line, index + 2);
+	}
 	else if (line[index] == 'W' && line[index + 1] == 'E')
-	{}
+	{
+		pos->control = 3;
+		path_texture_o(pos, line, index + 2);
+	}
 	else if (line[index] == 'E' && line[index + 1] == 'A')
-	{}
-	else if (line[index] == 'S')
-	{}
-	else if (line[index] == 'F')
-	{}
-	else if (line[index] == 'C')
-	{}
+	{
+		pos->control = 4;
+		path_texture_e(pos, line, index + 2);
+	}
+	else if (ft_strchr(line, 'F'))
+		get_colors((char*)line, &pos->texture.floor, 'F');
+	else if (ft_strchr(line, 'C'))
+		get_colors((char*)line, &pos->texture.ceilling, 'C');
 	else
 	{
 		is_map(line, pos);
