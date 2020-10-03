@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/01 10:48:23 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/04 00:53:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	wall_position(t_game *pos, int i, int y)
 {
-	if (pos->ray_data[i]->washitvertical == TRUE && pos->ray_data[i].rayangle < PI * 1.5 && pos->ray_data[i].rayangle > PI / 2)
-		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
-	if (pos->ray_data[i]->washitvertical == TRUE && (pos->ray_data[i].rayangle > PI * 1.5 || pos->ray_data[i].rayangle < PI / 2))
-		my_mlx_pixel_put(&pos->img, i, y, 0xFCBB9A);
-	if (pos->ray_data[i]->washitvertical == FALSE && pos->ray_data[i].rayangle < PI && pos->ray_data[i].rayangle > 0)
-		my_mlx_pixel_put(&pos->img, i, y, 0XF8FC04);
-	if (pos->ray_data[i]->washitvertical == FALSE && pos->ray_data[i].rayangle > PI && pos->ray_data[i].rayangle < PI * 2)
-		my_mlx_pixel_put(&pos->img, i, y, 0xA904FC);
+	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].rayangle < PI * 1.5 && pos->ray_data[i].rayangle > PI / 2)
+		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
+	if (pos->ray_data[i].washitvertical == TRUE && (pos->ray_data[i].rayangle > PI * 1.5 || pos->ray_data[i].rayangle < PI / 2))
+		my_mlx_pixel_put(&pos->img, i, y, 0xFEFE02);
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].rayangle < PI && pos->ray_data[i].rayangle > 0)
+		my_mlx_pixel_put(&pos->img, i, y, 0XFAFAF8);
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].rayangle > PI && pos->ray_data[i].rayangle < PI * 2)
+		my_mlx_pixel_put(&pos->img, i, y, 0x010100);
 }
 
 void	color_all_wall(t_game *pos, int i)
