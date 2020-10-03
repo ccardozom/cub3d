@@ -13,7 +13,7 @@
 #include "cub.h"
 
 void	vertical_intersection(t_game *pos)
-{	//con esto encontramos la primera colision vertical
+{	
 	pos->rays.xintercep = floor(pos->player.pos.x / pos->tile.size) * pos->tile.size;
 	pos->rays.xintercep += pos->rays.israyfacingright ? pos->tile.size : 0;
 	pos->rays.yintercep = pos->player.pos.y + (pos->rays.xintercep - pos->player.pos.x) * tan(pos->rays.rayangle);

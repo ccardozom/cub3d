@@ -14,13 +14,13 @@
 
 void	wall_position(t_game *pos, int i, int y)
 {
-	if (pos->ray_data[i].rayangle < (3 * PI) / 4 && pos->ray_data[i].rayangle > PI / 4)
+	if (pos->ray_data[i]->washitvertical == TRUE && pos->ray_data[i].rayangle < PI * 1.5 && pos->ray_data[i].rayangle > PI / 2)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
-	if (pos->ray_data[i].rayangle > (3 * PI) / 4 && pos->ray_data[i].rayangle < (5 * PI) / 4)
-		my_mlx_pixel_put(&pos->img, i, y, 0xFC0B04);
-	if (pos->ray_data[i].rayangle < (7 * PI) / 4 && pos->ray_data[i].rayangle > (5 * PI) / 4)
+	if (pos->ray_data[i]->washitvertical == TRUE && (pos->ray_data[i].rayangle > PI * 1.5 || pos->ray_data[i].rayangle < PI / 2))
+		my_mlx_pixel_put(&pos->img, i, y, 0xFCBB9A);
+	if (pos->ray_data[i]->washitvertical == FALSE && pos->ray_data[i].rayangle < PI && pos->ray_data[i].rayangle > 0)
 		my_mlx_pixel_put(&pos->img, i, y, 0XF8FC04);
-	if (pos->ray_data[i].rayangle > (7 * PI) / 4 || pos->ray_data[i].rayangle < PI / 4)
+	if (pos->ray_data[i]->washitvertical == FALSE && pos->ray_data[i].rayangle > PI && pos->ray_data[i].rayangle < PI * 2)
 		my_mlx_pixel_put(&pos->img, i, y, 0xA904FC);
 }
 
