@@ -82,9 +82,13 @@ void	horizontal_intersection(t_game *pos)
 
 float	normalizeangle(float angle)
 {
-	angle = remainder(angle, PI * 2);
+	// angle = remainder(angle, PI * 2);
+	// if (angle < 0)
+	// 	angle = PI * 2 + angle;
+	if (angle > 2 * PI)
+		angle -= 2 * PI;
 	if (angle < 0)
-		angle = PI * 2 + angle;
+		angle += 2 * PI;
 	return (angle);
 }
 
