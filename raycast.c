@@ -47,7 +47,7 @@ void	vertical_intersection(t_game *pos)
 }
 
 void	horizontal_intersection(t_game *pos)
-{	//con esto encontramos la primera colision horizontal
+{	
 	pos->rays.yintercep = floor(pos->player.pos.y / pos->tile.size) * pos->tile.size;
 	pos->rays.yintercep += pos->rays.israyfacingdown ? pos->tile.size : 0;
 	pos->rays.xintercep = pos->player.pos.x + (pos->rays.yintercep - pos->player.pos.y) / tan(pos->rays.rayangle);
@@ -58,6 +58,8 @@ void	horizontal_intersection(t_game *pos)
 	pos->rays.xstep *= (pos->rays.israyfacingright && pos->rays.xstep < 0) ? -1 : 1;
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
+	if (pos->rays.israyfacingup)
+		pos->rays.nexthoriztouchy--;
 	while (pos->rays.nexthoriztouchx >= 0 && pos->rays.nexthoriztouchx <= pos->winres.window_width &&
 	pos->rays.nexthoriztouchy >= 0 && pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
@@ -85,16 +87,11 @@ float	normalizeangle(float angle)
 	angle = remainder(angle, PI * 2);
 	if (angle < 0)
 		angle = (PI * 2) + angle;
-	// if (angle > 2 * PI)
-	// 	angle -= 2 * PI;
-	// if (angle < 0)
-	// 	angle += 2 * PI;
 	return (angle);
 }
 
 void	castray(t_game *pos, t_ray *ray_data)
 {
-	//aqui todos los datos de las coliciones horizontales y verticales
 	pos->rays.rayangle = normalizeangle(pos->ray.rayangle);
 	pos->rays.israyfacingdown = pos->rays.rayangle > 0 && pos->rays.rayangle < PI;
 	pos->rays.israyfacingup = !pos->rays.israyfacingdown;
