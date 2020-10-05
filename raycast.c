@@ -127,11 +127,11 @@ void	cast_all_rays(t_game *pos)
 {	
 	int id;
 
-	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays)))
+	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays + 1)))
 		return_error(-1);
 	pos->ray.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
 	id = 0;
-	while (id < pos->player.num_rays)
+	while (id <= pos->player.num_rays)
 	{
 		castray(pos, &pos->ray_data[id]);
 		pos->ray.rayangle += pos->player.FOV_angle / pos->player.num_rays;
