@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:10:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/08/21 11:40:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/05 23:44:27 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,24 @@ void		create_matriz(char *line, t_game *pos)
 	index = 0;
 	while (line[index] == ' ')
 		index++;
-	if (ft_isalpha(line[index]) == 0)
+	if (line[index] == 'R')
+			pos->control = 1;
+	else if (line[index] == 'N' && line[index + 1] == 'O')
+		pos->control += 1;
+	else if (line[index] == 'S' && line[index + 1] == 'O')
+		pos->control += 1;
+	else if (line[index] == 'W' && line[index + 1] == 'E')
+		pos->control += 1;
+	else if (line[index] == 'E' && line[index + 1] == 'A')
+		pos->control += 1;
+	else if (line[index] == 'S')
+		pos->control += 1;
+	else if (ft_strchr(line, 'F'))
+		pos->control += 1;
+	else if (ft_strchr(line, 'C'))
+		pos->control += 1;
+	else
+		if (pos->control == 8 && *line != '\0')
 		{	
 			new_matriz(pos,line);
 		}

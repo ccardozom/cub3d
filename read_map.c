@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/01 13:34:49 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/05 23:25:36 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void	check_line(char *line, t_game *pos)
 			pos->control += 1;
 		}
 	else
-	{
-		is_map(line, pos);
-	}
+		{
+			is_map(line, pos);
+		}
 }
 
 void		read_map(t_game *pos)
