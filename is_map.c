@@ -15,8 +15,12 @@
 void	is_map(char *line, t_game *pos)
 {
 	int index;
-	index = ft_strlen(line);
-	if (pos->columns < index)
-		pos->columns = index;
-	pos->rows++;
+
+	if (pos->control == 8)
+	{
+		index = ft_strlen(line);
+		if (pos->columns < index)
+			pos->columns = index;
+		pos->rows++;
+	}
 }

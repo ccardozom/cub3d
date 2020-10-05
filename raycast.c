@@ -84,7 +84,7 @@ float	normalizeangle(float angle)
 {
 	angle = remainder(angle, PI * 2);
 	if (angle < 0)
-		angle = (PI * 2) + angle;
+		angle = PI * 2) + angle;
 	// if (angle > 2 * PI)
 	// 	angle -= 2 * PI;
 	// if (angle < 0)
@@ -103,9 +103,9 @@ void	castray(t_game *pos, t_ray *ray_data)
 	horizontal_intersection(pos);
 	vertical_intersection(pos);
 	pos->ray.horizhitdistance = pos->rays.foundhorizwallhit ? distancebetweenpoints(pos->player.pos.x,
-	pos->player.pos.y, pos->rays.horizwallhitx, pos->rays.horizwallhity) : 1;
+	pos->player.pos.y, pos->rays.horizwallhitx, pos->rays.horizwallhity) : 2147483647;
 	pos->ray.verthitdistance = pos->rays.foundvertwallhit ? distancebetweenpoints(pos->player.pos.x,
-	pos->player.pos.y, pos->rays.vertwallhitx, pos->rays.vertwallhity) : 1;
+	pos->player.pos.y, pos->rays.vertwallhitx, pos->rays.vertwallhity) : 2147483647;
 	if (pos->ray.verthitdistance < pos->ray.horizhitdistance)
 	{
 		ray_data->distance = pos->ray.verthitdistance;

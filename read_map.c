@@ -55,31 +55,45 @@ void	check_line(char *line, t_game *pos)
 	while (line[index] == ' ')
 		index++;
 	if (line[index] == 'R')
-		resolution(line, pos, index);
+		{
+			resolution(line, pos, index);
+			pos->control = 1;
+		}
 	else if (line[index] == 'N' && line[index + 1] == 'O')
 	{
-		pos->control = 1;
+		pos->control += 1;
 		path_texture_n(pos, line, index + 2);
 	}
 	else if (line[index] == 'S' && line[index + 1] == 'O')
 	{
-		pos->control = 2;
+		pos->control += 1;
 		path_texture_s(pos, line, index + 2);
 	}
 	else if (line[index] == 'W' && line[index + 1] == 'E')
 	{
-		pos->control = 3;
+		pos->control += 1;
 		path_texture_o(pos, line, index + 2);
 	}
 	else if (line[index] == 'E' && line[index + 1] == 'A')
 	{
-		pos->control = 4;
+		pos->control += 1;
 		path_texture_e(pos, line, index + 2);
 	}
+	else if (line[index] == 'S')
+	{
+		pos->control += 1;
+		path_texture_s(pos, line, index + 1);
+	}
 	else if (ft_strchr(line, 'F'))
+	{
 		get_colors((char*)line, &pos->texture.floor, 'F');
+		pos->control += 1;
+	}
 	else if (ft_strchr(line, 'C'))
-		get_colors((char*)line, &pos->texture.ceilling, 'C');
+		{
+			get_colors((char*)line, &pos->texture.ceilling, 'C');
+			pos->control += 1;
+		}
 	else
 	{
 		is_map(line, pos);

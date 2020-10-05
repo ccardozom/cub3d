@@ -87,3 +87,22 @@ void	path_texture_o(t_game *pos, char *line, int i)
 	}
 	pos->texture.south_text.path[cont] = '\0';
 }
+
+void	path_texture_s(t_game *pos, char *line, int i)
+{
+	int len;
+	int cont;
+
+	while (line[i] == ' ')
+		i++;
+	len = ft_strlen(&line[i]);
+	pos->texture.sprite.path = (char *)malloc(sizeof(char)*len);
+	cont = 0;
+	while (line[i] != ' ' && line[i] != '\0')
+	{
+		pos->texture.sprite.path[cont] = line[i];
+		cont++;
+		i++;
+	}
+	pos->texture.sprite.path[cont] = '\0';
+}
