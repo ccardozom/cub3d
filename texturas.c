@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 11:54:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/01 12:33:11 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/05 15:36:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	path_texture_o(t_game *pos, char *line, int i)
 	pos->texture.south_text.path[cont] = '\0';
 }
 
-void	path_texture_s(t_game *pos, char *line, int i)
+void	path_texture_sp(t_game *pos, char *line, int i)
 {
 	int len;
 	int cont;

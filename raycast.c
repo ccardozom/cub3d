@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 18:27:40 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/05 15:36:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ float	normalizeangle(float angle)
 {
 	angle = remainder(angle, PI * 2);
 	if (angle < 0)
-		angle = PI * 2) + angle;
+		angle = (PI * 2) + angle;
 	// if (angle > 2 * PI)
 	// 	angle -= 2 * PI;
 	// if (angle < 0)
