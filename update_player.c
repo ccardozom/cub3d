@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 09:57:34 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/04 10:02:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:02:11 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	update_player(t_game *pos)
 	new_player_x = 0;
 	new_player_y = 0;
 	pos->player.player_angle += pos->player.turn * pos->player.rotationspeed;
+	pos->player.player_angle = normalizeangle(pos->player.player_angle);
 	move_step = pos->player.walk * pos->player.movespeed;
 	new_player_x = pos->player.pos.x + cos(pos->player.player_angle) * move_step;
 	new_player_y = pos->player.pos.y + sin(pos->player.player_angle) * move_step;

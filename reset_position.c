@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/24 18:53:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:07:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,30 @@ void	reset_pos_move(t_game *pos)
 	pos->player.walk = 0;
 	pos->player.player_angle = 0;
 	pos->player.movespeed = 1.5;
-	pos->player.rotationspeed = 2 * (PI / 180);
+	pos->player.rotationspeed = 10 * (PI / 180);
+}
+
+void	reset_rays_data(t_game *pos)
+{
+	pos->rays.xintercep = 0;
+	pos->rays.yintercep = 0;
+	pos->rays.xstep = 0;
+	pos->rays.ystep = 0;
+	pos->rays.horizwallhitx = 0;
+	pos->rays.horizwallhity = 0;
+	pos->rays.nexthoriztouchx = 0;
+	pos->rays.nexthoriztouchy = 0;
+	pos->rays.xtocheck = 0;
+	pos->rays.ytocheck = 0;
+	pos->rays.idcolumns = 0;
+	pos->rays.foundhorizwallhit = 0;
+	pos->rays.horizwallcontent = 0;
+	pos->rays.foundvertwallhit = 0;
+	pos->rays.vertwallhitx = 0;
+	pos->rays.vertwallhity = 0;
+	pos->rays.vertwallcontent = 0;
+	pos->rays.nextverttouchx = 0;
+	pos->rays.nextverttouchy = 0;
 }
 
 void	reset_cast(t_game *pos)
@@ -35,10 +58,15 @@ void	reset_cast(t_game *pos)
 	pos->rays.vertwallhitx = 0;
 	pos->rays.vertwallhity = 0;
 	pos->rays.vertwallcontent = 0;
+	pos->ray_data->israyfacingup = 0;
+	pos->ray_data->israyfacingdown = 0;
+	pos->ray_data->israyfacingleft = 0;
+	pos->ray_data->israyfacingright = 0;
 }
 
 void	reset_position(t_game *pos)
 {
+	//reset_rays_data(pos);
 	reset_pos_move(pos);
 	reset_cast(pos);
 	pos->dir.x = 0;

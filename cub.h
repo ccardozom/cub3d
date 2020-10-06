@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/05 15:36:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:02:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,6 @@ typedef struct	s_Ray
 	float		xtocheck;
 	float		ytocheck;
 	int 		idcolumns;
-	int			israyfacingup;
-	int			israyfacingdown;
-	int			israyfacingleft;
-	int			israyfacingright;
 	int			foundhorizwallhit;
 	int			horizwallcontent;
 	int			foundvertwallhit;
@@ -80,6 +76,8 @@ typedef struct	s_Ray
 	int			vertwallcontent;
 	float		nextverttouchx;
 	float		nextverttouchy;
+	float		horizhitdistance;
+	float		verthitdistance;
 }				t_rays;
 
 typedef struct	s_ray_allocated
@@ -89,15 +87,12 @@ typedef struct	s_ray_allocated
 	float		wallhitX;
 	int			wallhitcontent;
 	int			washitvertical;
-	float		rayangle;
+	float		ray_angle;
+	int			israyfacingup;
+	int			israyfacingdown;
+	int			israyfacingleft;
+	int			israyfacingright;
 }				t_ray;
-
-typedef struct	s_Ray_collision
-{
-	float		rayangle;
-	float		horizhitdistance;
-	float		verthitdistance;
-}				t_ray_col;
 
 typedef struct	s_move_player
 {
@@ -181,7 +176,6 @@ typedef struct	s_game
 	t_data			img;
 	t_textures		texture;
 	t_tile			tile;
-	t_ray_col		ray;
 	t_rays			rays;
 	t_ray			*ray_data;
 }					t_game;
@@ -193,6 +187,7 @@ void	read_map(t_game *pos);
 void	check_line(char *line, t_game *pos);
 void	position_player(t_game *pos, t_pos *tile_pos);
 void	reset_position(t_game *pos);
+void	reset_rays_data(t_game *pos);
 void	resolution(char *buffer, t_game *pos, int ptr);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);
@@ -211,6 +206,7 @@ int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);
 
 void	update_player(t_game *pos);
+float	normalizeangle(float angle);
 void	draw_minimap(t_game *pos);
 int		assign_pixel(int x, t_tile *tile, t_data *image, t_game *pos);
 void	my_mlx_pixel_put(t_data *image, int x, int y, int color);

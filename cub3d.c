@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/30 00:09:23 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 14:19:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,24 @@ void	update(t_game *pos)
 
 int		main_loop(t_game *pos)
 {
-	mlx_clear_window(pos->mlx, pos->mlx_win);
-	update(pos);
-	pos->img.img = mlx_new_image(pos->mlx,
-	pos->winres.window_width,
-	pos->winres.window_height);
-	pos->img.addr = mlx_get_data_addr(pos->img.img,
-	&pos->img.bits_per_pixel,
-	&pos->img.line_length,
-	&pos->img.endian);
-	cast_all_rays(pos);
-	generate_3dprojection(pos);
-	draw_minimap(pos);
-	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
-	mlx_destroy_image(pos->mlx, pos->img.img);
-	free(pos->ray_data);
+	if (pos->player.walk || pos->player.turn)
+	{
+		mlx_clear_window(pos->mlx, pos->mlx_win);
+		mlx_destroy_image(pos->mlx, pos->img.img);
+		update(pos);
+		pos->img.img = mlx_new_image(pos->mlx,
+		pos->winres.window_width,
+		pos->winres.window_height);
+		pos->img.addr = mlx_get_data_addr(pos->img.img,
+		&pos->img.bits_per_pixel,
+		&pos->img.line_length,
+		&pos->img.endian);
+		cast_all_rays(pos);
+		generate_3dprojection(pos);
+		draw_minimap(pos);
+		mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
+		free(pos->ray_data);
+	}
 	return (0);
 }
 

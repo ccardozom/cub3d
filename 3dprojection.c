@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/04 00:53:50 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 13:55:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	wall_position(t_game *pos, int i, int y)
 {
-	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].rayangle < PI * 1.5 && pos->ray_data[i].rayangle > PI / 2)
+	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
-	if (pos->ray_data[i].washitvertical == TRUE && (pos->ray_data[i].rayangle > PI * 1.5 || pos->ray_data[i].rayangle < PI / 2))
+	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFEFE02);
-	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].rayangle < PI && pos->ray_data[i].rayangle > 0)
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)
 		my_mlx_pixel_put(&pos->img, i, y, 0XFAFAF8);
-	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].rayangle > PI && pos->ray_data[i].rayangle < PI * 2)
-		my_mlx_pixel_put(&pos->img, i, y, 0x010100);
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup)
+	 	my_mlx_pixel_put(&pos->img, i, y, 0x010100);
+	
 }
 
 void	color_all_wall(t_game *pos, int i)
@@ -60,22 +61,14 @@ void	color_all_buffer(t_game *pos)
 
 void	projection_wall(t_game *pos, int x)
 {
-	pos->player.perpdistance = pos->ray_data[x].distance *
-		cos(pos->ray_data[x].rayangle - pos->player.player_angle) ;
-		pos->player.distanceprojplane = (pos->winres.window_width / 2) /
-		tan(pos->player.FOV_angle / 2);
-		pos->player.projectedwallheight = (pos->tile.size /
-		pos->player.perpdistance) * pos->player.distanceprojplane;
+	pos->player.perpdistance = pos->ray_data[x].distance * cos(pos->ray_data[x].ray_angle - pos->player.player_angle);
+		pos->player.distanceprojplane = (pos->winres.window_width / 2) / tan(pos->player.FOV_angle / 2);
+		pos->player.projectedwallheight = (pos->tile.size / pos->player.perpdistance) * pos->player.distanceprojplane;
 		pos->player.wallstripheight = (int)pos->player.projectedwallheight;
-		pos->player.walltoppixel = (pos->winres.window_height / 2) -
-		(pos->player.wallstripheight / 2);
-		pos->player.walltoppixel = pos->player.walltoppixel < 0 ? 0 :
-		pos->player.walltoppixel;
-		pos->player.wallbottompixel = (pos->winres.window_height / 2) +
-		(pos->player.wallstripheight / 2);
-		pos->player.wallbottompixel = pos->player.wallbottompixel >
-		pos->winres.window_height ? pos->winres.window_height :
-		pos->player.wallbottompixel;
+		pos->player.walltoppixel = (pos->winres.window_height / 2) - (pos->player.wallstripheight / 2);
+		pos->player.walltoppixel = pos->player.walltoppixel < 0 ? 0 : pos->player.walltoppixel;
+		pos->player.wallbottompixel = (pos->winres.window_height / 2) + (pos->player.wallstripheight / 2);
+		pos->player.wallbottompixel = pos->player.wallbottompixel > pos->winres.window_height ? pos->winres.window_height : pos->player.wallbottompixel;
 		color_all_wall(pos, x);
 }
 
