@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 14:02:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 19:57:07 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ typedef struct	s_game
 	unsigned long	*colorbuffer;
 	void			*data;
 	int				control;
+	int				first_frame;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 13:55:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:16:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	wall_position(t_game *pos, int i, int y)
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)
-		my_mlx_pixel_put(&pos->img, i, y, 0xFEFE02);
+		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)
-		my_mlx_pixel_put(&pos->img, i, y, 0XFAFAF8);
+		my_mlx_pixel_put(&pos->img, i, y, 0X85F94B);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup)
-	 	my_mlx_pixel_put(&pos->img, i, y, 0x010100);
+	 	my_mlx_pixel_put(&pos->img, i, y, 0xF76CC9);
 	
 }
 

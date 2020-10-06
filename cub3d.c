@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 14:19:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 19:59:26 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	update(t_game *pos)
 
 int		main_loop(t_game *pos)
 {
-	if (pos->player.walk || pos->player.turn)
+	if (pos->player.walk || pos->player.turn || pos->first_frame == 0)
 	{
 		mlx_clear_window(pos->mlx, pos->mlx_win);
 		mlx_destroy_image(pos->mlx, pos->img.img);

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 09:57:34 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 14:02:11 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:01:00 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void	update_player(t_game *pos)
 		if (control_wall_y(pos, new_player_y) == 0)
 			pos->player.pos.y = new_player_y;
 	}
+	pos->first_frame = 1;
 }
