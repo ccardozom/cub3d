@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/05 23:25:36 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/07 12:40:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	check_line(char *line, t_game *pos)
 	else if (line[index] == 'S')
 	{
 		pos->control += 1;
-		path_texture_s(pos, line, index + 1);
+		path_texture_sp(pos, line, index + 1);
 	}
 	else if (ft_strchr(line, 'F'))
 	{

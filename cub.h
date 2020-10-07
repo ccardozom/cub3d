@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 19:57:07 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/07 12:32:01 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,6 @@ void	path_texture_o(t_game *pos, char *line, int i);
 void	path_texture_sp(t_game *pos, char *line, int i);
 void	color_all_buffer(t_game *pos);
 void	charge_textures_main(t_game *pos);
-void	charge_textures(t_game *pos, t_text *texture);
+int		charge_textures(t_game *pos, t_text *texture);
 
 #endif

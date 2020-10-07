@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 11:54:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/05 15:36:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/07 16:05:40 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	path_texture_n(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
+	pos->texture.north_text.path = NULL;
 	pos->texture.north_text.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')
@@ -39,6 +40,7 @@ void	path_texture_s(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
+	pos->texture.north_text.path = NULL;
 	pos->texture.south_text.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')

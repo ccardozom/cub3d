@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/29 11:27:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/06 21:08:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		put_color_pixel(t_game *pos)
 			// pos->player.pos.x = pos->tile.c * pos->tile.size;
 			// pos->player.pos.y = pos->tile.f * pos->tile.size;
 		}	
+		if (pos->map[pos->tile.f][pos->tile.c] == '2')
+			my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0x28A108);
 		pos_sx++;
 		pos_x++;
 	}

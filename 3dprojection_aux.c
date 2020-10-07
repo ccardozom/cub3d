@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   3dprojection_aux.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/07 11:00:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/07 12:29:48 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	charge_textures(t_game *pos, t_text *texture)
+int		charge_textures(t_game *pos, t_text *texture)
 {
 	if (texture->path)
-		if (!(texture->id = mlx_xpm_file_to_image(player->mlx_ptr,
+		if (!(texture->id = mlx_xpm_file_to_image(pos->mlx,
 			texture->path, &texture->w, &texture->h)))
-			return_error();
+			return(0);
 	if (!(texture->image = (int*)mlx_get_data_addr(texture->id, &texture->data,
 		&texture->size_line, &texture->endian)))
-		return_error();
+		return(0);
 	// free(texture->path);
-	// return (1);
+	return(1);
 }
 
 void		charge_textures_main(t_game *pos)
