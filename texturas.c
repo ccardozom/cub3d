@@ -40,7 +40,7 @@ void	path_texture_s(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
-	pos->texture.north_text.path = NULL;
+	pos->texture.south_text.path = NULL;
 	pos->texture.south_text.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')
@@ -60,6 +60,7 @@ void	path_texture_e(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
+	pos->texture.east_text.path = NULL;
 	pos->texture.east_text.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')
@@ -79,6 +80,7 @@ void	path_texture_o(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
+	pos->texture.weast_text.path = NULL;
 	pos->texture.weast_text.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')
@@ -98,6 +100,7 @@ void	path_texture_sp(t_game *pos, char *line, int i)
 	while (line[i] == ' ')
 		i++;
 	len = ft_strlen(&line[i]);
+	pos->texture.sprite.path = NULL;
 	pos->texture.sprite.path = (char *)malloc(sizeof(char)*len);
 	cont = 0;
 	while (line[i] != ' ' && line[i] != '\0')
