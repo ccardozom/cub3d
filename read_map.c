@@ -62,27 +62,27 @@ void	check_line(char *line, t_game *pos)
 	else if (line[index] == 'N' && line[index + 1] == 'O')
 	{
 		pos->control += 1;
-		path_texture_n(pos, line, index + 2);
+		path_texture_n(pos, line);
 	}
 	else if (line[index] == 'S' && line[index + 1] == 'O')
 	{
 		pos->control += 1;
-		path_texture_s(pos, line, index + 2);
+		path_texture_s(pos, line);
 	}
 	else if (line[index] == 'W' && line[index + 1] == 'E')
 	{
 		pos->control += 1;
-		path_texture_o(pos, line, index + 2);
+		path_texture_o(pos, line);
 	}
 	else if (line[index] == 'E' && line[index + 1] == 'A')
 	{
 		pos->control += 1;
-		path_texture_e(pos, line, index + 2);
+		path_texture_e(pos, line);
 	}
 	else if (line[index] == 'S')
 	{
 		pos->control += 1;
-		path_texture_sp(pos, line, index + 1);
+		path_texture_sp(pos, line);
 	}
 	else if (ft_strchr(line, 'F'))
 	{
