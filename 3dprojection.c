@@ -37,28 +37,6 @@ void	color_all_wall(t_game *pos, int i)
 	}
 }
 
-void	color_all_buffer(t_game *pos)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (y < pos->winres.window_height)
-	{
-		x = 0;
-		while (x < pos->winres.window_width)
-		{
-			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x1FB0E3;
-			if (y < pos->winres.window_height / 2)
-				my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
-			else
-				my_mlx_pixel_put(&pos->img, x, y, 0x9C4B0D);
-			x++;
-		}
-		y++;
-	}
-}
-
 void	projection_wall(t_game *pos, int x)
 {
 	pos->player.perpdistance = pos->ray_data[x].distance * cos(pos->ray_data[x].ray_angle - pos->player.player_angle);

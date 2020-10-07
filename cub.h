@@ -227,5 +227,8 @@ void	path_texture_s(t_game *pos, char *line, int i);
 void	path_texture_e(t_game *pos, char *line, int i);
 void	path_texture_o(t_game *pos, char *line, int i);
 void	path_texture_sp(t_game *pos, char *line, int i);
+void	color_all_buffer(t_game *pos);
+void	charge_textures_main(t_game *pos);
+void	charge_textures(t_game *pos, t_text *texture);
 
 #endif

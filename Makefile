@@ -17,7 +17,7 @@ SRCS		=	cub3d.c read_map.c is_map.c texturas.c\
 				fill_matriz.c return_error.c reset_position.c keypress.c\
 				wall_control.c start.c draw_minimap.c draw_player.c\
 				initial_position_player.c update_player.c draw_player_move.c\
-				raycast.c has_wall.c raycast_aux.c 3dprojection.c\
+				raycast.c has_wall.c raycast_aux.c 3dprojection.c 3dprojection_aux.c\
 				imprimir_matriz.c \
 				get_next_line/get_next_line.c
 				#create_window.c draw_map.c 
