@@ -88,4 +88,5 @@ void	reset_position(t_game *pos)
 	pos->matriz.y = 0;
 	pos->mlx_win = 0;
 	pos->mlx = 0;
+	pos->tile.size = 64;
 }
