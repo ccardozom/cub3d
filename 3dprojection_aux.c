@@ -12,6 +12,16 @@
 
 #include "cub.h"
 
+int		get_color(t_color pixel)
+{
+	int		color;
+
+	color = pixel.r;
+	color = (color << 8) | pixel.g;
+	color = (color << 8) | pixel.b;
+	return (color);
+}
+
 int		charge_textures(t_game *pos, t_text *texture)
 {
 	if (texture->path)
@@ -53,7 +63,10 @@ void	color_all_buffer(t_game *pos)
 		{
 			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x1FB0E3;
 			if (y < pos->winres.window_height / 2)
+			{
+				get_color(pos->texture.ceilling);
 				my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
+			}
 			else
 				my_mlx_pixel_put(&pos->img, x, y, 0x9C4B0D);
 			x++;
