@@ -44,7 +44,11 @@ void	resolution(char *line, t_game *pos, int ptr)
 	index++;
 	while (ft_isdigit(line[index]) == 0)
 		index++;
-	pos->winres.y=ft_atoi(&line[index]);	
+	pos->winres.y=ft_atoi(&line[index]);
+	if (pos->winres.x > 2560)
+		pos->winres.x = 2560;
+	if (pos->winres.y > 1395)
+		pos->winres.y = 1395;	
 }
 
 void	check_line(char *line, t_game *pos)

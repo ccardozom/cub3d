@@ -15,10 +15,12 @@
 int		get_color(t_color pixel)
 {
 	int		color;
+	int		rgb;
 
 	color = pixel.r;
 	color = (color << 8) | pixel.g;
 	color = (color << 8) | pixel.b;
+	rgb = (color & 0xFF0000) | (color & 0x00FF00) | (color & 0x0000FF);
 	return (color);
 }
 
