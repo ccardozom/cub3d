@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 21:08:50 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/08 11:21:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		put_color_pixel(t_game *pos)
 
 void	draw_minimap(t_game *pos)
 {
-	pos->tile.size = pos->winres.x / pos->columns;
 	pos->tile.squa_f = 0;
 	pos->tile.pos_squa = 0;
 	pos->tile.f = 0;
