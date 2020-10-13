@@ -31,7 +31,7 @@ int		charge_textures(t_game *pos, t_text *texture)
 	if (!(texture->image = (int*)mlx_get_data_addr(texture->id, &texture->data,
 		&texture->size_line, &texture->endian)))
 		return(0);
-	// free(texture->path);
+	free(texture->path);
 	return(1);
 }
 
