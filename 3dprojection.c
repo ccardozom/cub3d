@@ -21,8 +21,8 @@ void	wall_position(t_game *pos, int i, int y)
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)
 		my_mlx_pixel_put(&pos->img, i, y, 0X85F94B);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup)
-	 	my_mlx_pixel_put(&pos->img, i, y, 0xF76CC9);
-	pos->img.img[(pos->tile.size * y) + i]) = pos->texture.n .img[(pos->tile.size * y) + i]);
+	 	pos->img.img[(pos->tile.size * y) + i]) = pos->texture.north_text.image[(i * pos->texture.h) + 1];
+
 	
 }
 
