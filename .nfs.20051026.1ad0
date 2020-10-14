@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/14 10:37:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/13 20:12:27 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 void	wall_position(t_game *pos, int i, int y)
 {
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
-	{
-		pos->color = pos->texture.east_text.image[ pos->texture.east_text.size_line *  pos->texture.east_text.h +  pos->texture.east_text.w];
-		my_mlx_pixel_put(&pos->img, i, y, pos->color);
-	}
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)
 		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)
 		my_mlx_pixel_put(&pos->img, i, y, 0X85F94B);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup)
-	 	my_mlx_pixel_put(&pos->img, i, y, 0XA5C944);
+	 	;//pos->img.img[(pos->tile.size * y) + i] = pos->texture.north_text.image[(i * pos->texture.north_text.h) + 1];
 
 	
 }
