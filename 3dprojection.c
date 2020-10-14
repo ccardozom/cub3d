@@ -15,6 +15,10 @@
 void	wall_position(t_game *pos, int i, int y)
 {
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
+	{
+		pos->color = pos->texture.east_text.image[ pos->texture.east_text.size_line *  pos->texture.east_text.h +  pos->texture.east_text.w];
+		my_mlx_pixel_put(&pos->img, i, y, pos->color);
+	}
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)
 		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);

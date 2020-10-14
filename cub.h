@@ -169,6 +169,7 @@ typedef struct	s_game
 	void			*data;
 	int				control;
 	int				first_frame;
+	int				color;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
