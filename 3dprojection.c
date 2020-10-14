@@ -14,30 +14,31 @@
 
 void	wall_position(t_game *pos, int i, int y)
 {
-	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
+	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright) //este
 	{
-		pos->color = pos->texture.east_text.image[ pos->texture.east_text.size_line *  pos->texture.east_text.h +  pos->texture.east_text.w];
+		pos->player.textureoffsety = (y - pos->player.wallbottompixel) * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
+		pos->color = (unsigned int)(pos->texture.east_text.data + (pos->player.textureoffsety * all->imag.size_line + pos->player.textureoffsetx * (all->imag.bpp / 8)))
 		my_mlx_pixel_put(&pos->img, i, y, pos->color);
 	}
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
-	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)
+	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)//oeste
 		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);
-	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)//sur
 		my_mlx_pixel_put(&pos->img, i, y, 0X85F94B);
-	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup)
+	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup) //norte
 	 	my_mlx_pixel_put(&pos->img, i, y, 0XA5C944);
 
 	
 }
 
-void	color_all_wall(t_game *pos, int i)
+void	color_all_wall(t_game *pos, int x)
 {
 	int y;
 
 	y = pos->player.walltoppixel;
 	while (y < pos->player.wallbottompixel)
 	{
-		wall_position(pos, i, y);
+		wall_position(pos, x, y);
 		y++;
 	}
 }
@@ -52,6 +53,10 @@ void	projection_wall(t_game *pos, int x)
 		pos->player.walltoppixel = pos->player.walltoppixel < 0 ? 0 : pos->player.walltoppixel;
 		pos->player.wallbottompixel = (pos->winres.window_height / 2) + (pos->player.wallstripheight / 2);
 		pos->player.wallbottompixel = pos->player.wallbottompixel > pos->winres.window_height ? pos->winres.window_height : pos->player.wallbottompixel;
+		if (pos->ray_data[x].washitvertical)
+			pos->player.textureoffsetx = (int)pos->ray_data[x].wallhitY % pos->tile.size;
+		else
+			pos->player.textureoffsetx = (int)pos->ray_data[x].wallhitX % pos->tile.size;
 		color_all_wall(pos, x);
 }
 

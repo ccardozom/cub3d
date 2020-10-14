@@ -67,6 +67,8 @@ void	reset_cast(t_game *pos)
 	pos->ray_data->israyfacingdown = 0;
 	pos->ray_data->israyfacingleft = 0;
 	pos->ray_data->israyfacingright = 0;
+	pos->player.textureoffsetx = 0;
+	pos->player.textureoffsety = 0;
 }
 
 void	reset_position(t_game *pos)

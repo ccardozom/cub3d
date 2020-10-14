@@ -112,6 +112,8 @@ typedef struct	s_move_player
 	int			wallstripheight;
 	int			walltoppixel;
 	int			wallbottompixel;
+	int			textureoffsetx;
+	int			textureoffsety;
 }				t_player;
 
 typedef struct	s_data
