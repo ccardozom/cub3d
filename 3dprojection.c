@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/14 10:37:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/14 14:08:46 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	wall_position(t_game *pos, int i, int y)
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright) //este
 	{
 		pos->player.textureoffsety = (y - pos->player.wallbottompixel) * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
-		pos->color = (unsigned int)(pos->texture.east_text.data + (pos->player.textureoffsety * pos->texture.east_text.size_line + pos->player.textureoffsetx * (pos->texture.east_text.data / 8)))
+		pos->color = (unsigned int)(pos->texture.east_text.data + (pos->player.textureoffsety * pos->texture.east_text.size_line + pos->player.textureoffsetx * (pos->texture.east_text.data / 8)));
 		my_mlx_pixel_put(&pos->img, i, y, pos->color);
 	}
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
