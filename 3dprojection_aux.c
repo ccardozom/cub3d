@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/08 16:03:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/17 21:49:47 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		charge_textures(t_game *pos, t_text *texture)
 	if (!(texture->image = (int*)mlx_get_data_addr(texture->id, &texture->data,
 		&texture->size_line, &texture->endian)))
 		return(0);
-	free(texture->path);
+	//free(texture->path);
 	return(1);
 }
 
@@ -65,10 +65,10 @@ void	color_all_buffer(t_game *pos)
 			if (y < pos->winres.window_height / 2)
 			{
 				get_color(pos->texture.ceilling);
-				my_mlx_pixel_put(&pos->img, x, y, pos->texture.ceilling);
+				my_mlx_pixel_put(&pos->img, x, y, get_color(pos->texture.ceilling));
 			}
 			else
-				my_mlx_pixel_put(&pos->img, x, y, pos->texture.floor);
+				my_mlx_pixel_put(&pos->img, x, y, get_color(pos->texture.floor));
 			x++;
 		}
 		y++;
