@@ -15,12 +15,12 @@
 void	wall_position(t_game *pos, int i, int y)
 {
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright) //este
-	{
-		pos->player.textureoffsety = (y - pos->player.wallbottompixel) * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
-		pos->player.textureoffsety *= (pos->player.textureoffsety < 0 ? -1 : 1);
-		pos->color = (unsigned int)(pos->texture.east_text.data + (pos->player.textureoffsety * pos->texture.east_text.size_line + pos->player.textureoffsetx * (pos->texture.east_text.data / 8)));
-		my_mlx_pixel_put(&pos->img, i, y, pos->color);
-	}
+	// {
+	// 	pos->player.textureoffsety = (y - pos->player.wallbottompixel) * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
+	// 	pos->player.textureoffsety *= (pos->player.textureoffsety < 0 ? -1 : 1);
+	// 	pos->color = (unsigned int)(pos->texture.east_text.data + (pos->player.textureoffsety * pos->texture.east_text.size_line + pos->player.textureoffsetx * (pos->texture.east_text.data / 8)));
+	// 	my_mlx_pixel_put(&pos->img, i, y, pos->color);
+	// }
 		my_mlx_pixel_put(&pos->img, i, y, 0xFE2F02);
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)//oeste
 		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);

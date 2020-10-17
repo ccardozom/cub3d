@@ -65,10 +65,10 @@ void	color_all_buffer(t_game *pos)
 			if (y < pos->winres.window_height / 2)
 			{
 				get_color(pos->texture.ceilling);
-				my_mlx_pixel_put(&pos->img, x, y, pos->colorbuffer[(int)(pos->winres.window_width * y) + x]);
+				my_mlx_pixel_put(&pos->img, x, y, pos->texture.ceilling);
 			}
 			else
-				my_mlx_pixel_put(&pos->img, x, y, 0x9C4B0D);
+				my_mlx_pixel_put(&pos->img, x, y, pos->texture.floor);
 			x++;
 		}
 		y++;
