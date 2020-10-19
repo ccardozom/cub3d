@@ -19,11 +19,11 @@ void	wall_position(t_game *pos, int i, int y)
 // la matriz pos->texture.image de cada lado contiene los colores en formato int por lo que se puede pasar directamente a my_mlx_pixel_put
 // antes de pasar tenemos que saber las coordenadas del muro y ubicarlas en la textura
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)//oeste
-		my_mlx_pixel_put(&pos->img, i, y, 0xAA10E8);
+		my_mlx_pixel_put(&pos->img, i, y, pos->texture.weast_text.image[(pos->player.textureoffsety * pos->tile.size) + pos->player.textureoffsetx]);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)//sur
-		my_mlx_pixel_put(&pos->img, i, y, 0X85F94B);
+		my_mlx_pixel_put(&pos->img, i, y, pos->texture.south_text.image[(pos->player.textureoffsety * pos->tile.size) + pos->player.textureoffsetx]);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingup) //norte
-	 	my_mlx_pixel_put(&pos->img, i, y, 0XA5C944);
+	 	my_mlx_pixel_put(&pos->img, i, y, pos->texture.north_text.image[(pos->player.textureoffsety * pos->tile.size) + pos->player.textureoffsetx]);
 
 	
 }

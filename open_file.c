@@ -16,7 +16,7 @@ int		open_file()
 {
 	int fd;
 	
-	fd = open("map1.cub", O_RDONLY);
+	fd = open("map.cub", O_RDONLY);
 	if (!fd || fd < 0)
 	{
 		return_error();
