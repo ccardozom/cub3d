@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 09:46:20 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/19 13:06:40 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/19 15:48:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		open_file()
 {
 	int fd;
 	
-	fd = open("map.cub", O_RDONLY);
+	fd = open("map1.cub", O_RDONLY);
 	if (!fd || fd < 0)
 	{
 		return_error();
