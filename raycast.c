@@ -27,7 +27,8 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <= pos->winres.window_width &&
 	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <= pos->winres.window_height)
 	{
-		wall_colision_search_ver(pos, ray_data);
+		if (wall_colision_search_ver(pos, ray_data))
+			break;
 	}
 }
 
@@ -46,7 +47,8 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	while (pos->rays.nexthoriztouchx >= 0 && pos->rays.nexthoriztouchx <= pos->winres.window_width &&
 	pos->rays.nexthoriztouchy >= 0 && pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
-		wall_colision_search_hor(pos, ray_data);
+		if (wall_colision_search_hor(pos, ray_data))
+			break;
 	}
 }
 

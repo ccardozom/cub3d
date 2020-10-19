@@ -17,7 +17,7 @@ float   distancebetweenpoints(float x1, float y1, float x2, float y2)
     return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
-void	wall_colision_search_hor(t_game *pos, t_ray *ray_data)
+int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.xtocheck = pos->rays.nexthoriztouchx;
 	pos->rays.ytocheck = pos->rays.nexthoriztouchy + (ray_data->israyfacingup ? -1 : 0);
@@ -27,7 +27,7 @@ void	wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 		pos->rays.horizwallhity = pos->rays.nexthoriztouchy;
 		pos->rays.horizwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
 		pos->rays.foundhorizwallhit = TRUE;
-		break;
+		return (1);
 	}
 	else
 	{
@@ -35,9 +35,10 @@ void	wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 		pos->rays.nexthoriztouchy += pos->rays.ystep;
 		pos->rays.foundhorizwallhit = FALSE;
 	}
+	return (0);
 }
 
-void	wall_colision_search_ver(t_game *pos, t_ray *ray_data)
+int		wall_colision_search_ver(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.xtocheck = pos->rays.nextverttouchx + (ray_data->israyfacingleft ? -1 : 0);
 	pos->rays.ytocheck = pos->rays.nextverttouchy;
@@ -47,7 +48,7 @@ void	wall_colision_search_ver(t_game *pos, t_ray *ray_data)
 		pos->rays.vertwallhity = pos->rays.nextverttouchy;
 		pos->rays.vertwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
 		pos->rays.foundvertwallhit = TRUE;
-		break;
+		return (1);
 	}
 	else
 	{
@@ -55,6 +56,7 @@ void	wall_colision_search_ver(t_game *pos, t_ray *ray_data)
 		pos->rays.nextverttouchy += pos->rays.ystep;
 		pos->rays.foundvertwallhit = FALSE;
 	}
+	return (0);
 }
 
 void	dir_colision(t_game *pos, t_ray *ray_data)
