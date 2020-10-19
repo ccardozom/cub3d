@@ -21,5 +21,7 @@ int		wall_colision(t_game *pos, float y, float x)
 	col_X = (int)x / pos->tile.size;
 	if (pos->map[col_Y][col_X] == '1')
 		return (1);
+	if (pos->map[col_Y][col_X] == '2')
+		;
 	return (0);
 }

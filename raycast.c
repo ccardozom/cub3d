@@ -27,23 +27,7 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <= pos->winres.window_width &&
 	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <= pos->winres.window_height)
 	{
-		pos->rays.xtocheck = pos->rays.nextverttouchx + (ray_data->israyfacingleft ? -1 : 0);
-		pos->rays.ytocheck = pos->rays.nextverttouchy;
-		if (wall_colision(pos, pos->rays.ytocheck, pos->rays.xtocheck))
-		{
-			pos->rays.vertwallhitx = pos->rays.nextverttouchx;
-			pos->rays.vertwallhity = pos->rays.nextverttouchy;
-			pos->rays.vertwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
-			pos->rays.foundvertwallhit = TRUE;
-			break;
-		}
-		else
-		{
-			pos->rays.nextverttouchx += pos->rays.xstep;
-			pos->rays.nextverttouchy += pos->rays.ystep;
-			pos->rays.foundvertwallhit = FALSE;
-		}
-		
+		wall_colision_search_ver(pos, ray_data);
 	}
 }
 
@@ -62,23 +46,7 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	while (pos->rays.nexthoriztouchx >= 0 && pos->rays.nexthoriztouchx <= pos->winres.window_width &&
 	pos->rays.nexthoriztouchy >= 0 && pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
-		pos->rays.xtocheck = pos->rays.nexthoriztouchx;
-		pos->rays.ytocheck = pos->rays.nexthoriztouchy + (ray_data->israyfacingup ? -1 : 0);
-		if (wall_colision(pos, pos->rays.ytocheck, pos->rays.xtocheck))
-		{
-			pos->rays.horizwallhitx = pos->rays.nexthoriztouchx;
-			pos->rays.horizwallhity = pos->rays.nexthoriztouchy;
-			pos->rays.horizwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
-			pos->rays.foundhorizwallhit = TRUE;
-			break;
-		}
-		else
-		{
-			pos->rays.nexthoriztouchx += pos->rays.xstep;
-			pos->rays.nexthoriztouchy += pos->rays.ystep;
-			pos->rays.foundhorizwallhit = FALSE;
-		}
-		
+		wall_colision_search_hor(pos, ray_data);
 	}
 }
 
@@ -105,22 +73,7 @@ void	castray(t_game *pos, t_ray *ray_data)
 	pos->player.pos.y, pos->rays.horizwallhitx, pos->rays.horizwallhity) : 2147483647;
 	pos->rays.verthitdistance = pos->rays.foundvertwallhit ? distancebetweenpoints(pos->player.pos.x,
 	pos->player.pos.y, pos->rays.vertwallhitx, pos->rays.vertwallhity) : 2147483647;
-	if (pos->rays.verthitdistance < pos->rays.horizhitdistance)
-	{
-		ray_data->distance = pos->rays.verthitdistance;
-		ray_data->wallhitX = pos->rays.vertwallhitx;
-		ray_data->wallhitY = pos->rays.vertwallhity;
-		ray_data->wallhitcontent = pos->rays.vertwallcontent;
-		ray_data->washitvertical = TRUE;
-	}
-	else
-	{
-		ray_data->distance = pos->rays.horizhitdistance;
-		ray_data->wallhitX = pos->rays.horizwallhitx;
-		ray_data->wallhitY = pos->rays.horizwallhity;
-		ray_data->wallhitcontent = pos->rays.horizwallcontent;
-		ray_data->washitvertical = FALSE;
-	}
+	dir_colision(pos, ray_data);
 	ray_data->ray_angle = pos->rays.rayangle;
 	
 }

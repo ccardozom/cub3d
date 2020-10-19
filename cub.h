@@ -205,10 +205,11 @@ int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 void	return_error();
 float   distancebetweenpoints(float x1, float y1, float x2, float y2);
-
 int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);
-
+void	wall_colision_search_hor(t_game *pos, t_ray *ray_data);
+void	wall_colision_search_ver(t_game *pos, t_ray *ray_data);
+void	dir_colision(t_game *pos, t_ray *ray_data);
 void	update_player(t_game *pos);
 float	normalizeangle(float angle);
 void	draw_minimap(t_game *pos);

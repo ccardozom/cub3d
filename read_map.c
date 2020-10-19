@@ -80,7 +80,7 @@ void		check_line(char *line, t_game *pos)
 		pos->control += 1;
 		get_colors((char*)line, &pos->texture.ceilling, 'C');
 	}
-	else
+	else if (pos->control == 8)
 		is_map(line, pos);
 }
 
