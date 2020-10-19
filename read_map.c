@@ -6,13 +6,13 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/07 12:40:47 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/19 14:45:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	get_colors(char *line, t_color *color, char param)
+void		get_colors(char *line, t_color *color, char param)
 {
 	color->empty = 0;
 	while (*line == ' ' || *line == param)
@@ -30,28 +30,28 @@ void	get_colors(char *line, t_color *color, char param)
 	color->b = ft_atoi(line);
 }
 
-void	resolution(char *line, t_game *pos, int ptr)
+void		resolution(char *line, t_game *pos, int ptr)
 {
 	int index;
 
+	pos->control = 1;
 	index = ptr + 1;
 	while (ft_isdigit(line[index]) == 0)
 		index++;
-	pos->winres.x=ft_atoi(&line[index]);
-
+	pos->winres.x = ft_atoi(&line[index]);
 	while (ft_isdigit(line[index]) == 1)
 		index++;
 	index++;
 	while (ft_isdigit(line[index]) == 0)
 		index++;
-	pos->winres.y=ft_atoi(&line[index]);
+	pos->winres.y = ft_atoi(&line[index]);
 	if (pos->winres.x > 2560)
 		pos->winres.x = 2560;
 	if (pos->winres.y > 1395)
-		pos->winres.y = 1395;	
+		pos->winres.y = 1395;
 }
 
-void	check_line(char *line, t_game *pos)
+void		check_line(char *line, t_game *pos)
 {
 	int index;
 
@@ -59,56 +59,30 @@ void	check_line(char *line, t_game *pos)
 	while (line[index] == ' ')
 		index++;
 	if (line[index] == 'R')
-		{
-			resolution(line, pos, index);
-			pos->control = 1;
-		}
+		resolution(line, pos, index);
 	else if (line[index] == 'N' && line[index + 1] == 'O')
-	{
-		pos->control += 1;
 		path_texture_n(pos, line);
-	}
 	else if (line[index] == 'S' && line[index + 1] == 'O')
-	{
-		pos->control += 1;
 		path_texture_s(pos, line);
-	}
 	else if (line[index] == 'W' && line[index + 1] == 'E')
-	{
-		pos->control += 1;
 		path_texture_o(pos, line);
-	}
 	else if (line[index] == 'E' && line[index + 1] == 'A')
-	{
-		pos->control += 1;
 		path_texture_e(pos, line);
-	}
 	else if (line[index] == 'S')
-	{
-		pos->control += 1;
 		path_texture_sp(pos, line);
-	}
 	else if (ft_strchr(line, 'F'))
-	{
 		get_colors((char*)line, &pos->texture.floor, 'F');
-		pos->control += 1;
-	}
 	else if (ft_strchr(line, 'C'))
-		{
-			get_colors((char*)line, &pos->texture.ceilling, 'C');
-			pos->control += 1;
-		}
+		get_colors((char*)line, &pos->texture.ceilling, 'C');
 	else
-		{
-			is_map(line, pos);
-		}
+		is_map(line, pos);
 }
 
 void		read_map(t_game *pos)
 {
 	char	*line;
-	int fd;
-	
+	int		fd;
+
 	fd = open_file();
 	reset_position(pos);
 	while (get_next_line(fd, &line) == 1)

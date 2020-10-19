@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/17 21:49:47 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/19 14:40:28 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		charge_textures(t_game *pos, t_text *texture)
 	if (!(texture->image = (int*)mlx_get_data_addr(texture->id, &texture->data,
 		&texture->size_line, &texture->endian)))
 		return(0);
-	//free(texture->path);
 	return(1);
 }
 
