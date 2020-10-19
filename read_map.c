@@ -71,9 +71,15 @@ void		check_line(char *line, t_game *pos)
 	else if (line[index] == 'S')
 		path_texture_sp(pos, line);
 	else if (ft_strchr(line, 'F'))
+	{
+		pos->control += 1;
 		get_colors((char*)line, &pos->texture.floor, 'F');
+	}
 	else if (ft_strchr(line, 'C'))
+	{
+		pos->control += 1;
 		get_colors((char*)line, &pos->texture.ceilling, 'C');
+	}
 	else
 		is_map(line, pos);
 }
