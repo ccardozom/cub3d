@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/14 14:08:46 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/19 13:03:31 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	wall_position(t_game *pos, int i, int y)
 {
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingright)
 		my_mlx_pixel_put(&pos->img, i, y, pos->texture.east_text.image[(pos->player.textureoffsety * pos->tile.size) + pos->player.textureoffsetx]);
-// la matriz pos->texture.image de cada lado contiene los colores en formato int por lo que se puede pasar directamente a my_mlx_pixel_put
-// antes de pasar tenemos que saber las coordenadas del muro y ubicarlas en la textura
 	if (pos->ray_data[i].washitvertical == TRUE && pos->ray_data[i].israyfacingleft)//oeste
 		my_mlx_pixel_put(&pos->img, i, y, pos->texture.weast_text.image[(pos->player.textureoffsety * pos->tile.size) + pos->player.textureoffsetx]);
 	if (pos->ray_data[i].washitvertical == FALSE && pos->ray_data[i].israyfacingdown)//sur

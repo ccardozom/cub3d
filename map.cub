@@ -1,13 +1,13 @@
-R 1000 1000
+R 600 420
 
 NO textures/bluestone.xpm
-SO textures/metal.xpm
-WE textures/eagle.xpm
-EA textures/wall_wood.xpm
+SO textures/wall_1.xpm
+WE textures/wall_2.xpm
+EA textures/wood.xpm
 
-S ./path_to_the_sprite_texture
-F 220,100,0
-C 225,30,0
+S textures/sprite_2.xpm
+F 55,100,4
+C 80,37,125
 
 11111111111111
 10000000000001
