@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/19 13:03:31 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/19 13:29:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ void	wall_position(t_game *pos, int i, int y)
 void	color_all_wall(t_game *pos, int x)
 {
 	int y;
+	int distancefromtop;
 
 	y = pos->player.walltoppixel;
+	distancefromtop = 0;
 	while (y < pos->player.wallbottompixel)
 	{
-		pos->player.textureoffsety = (y - pos->player.wallbottompixel) * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
+		distancefromtop = y + (pos->player.wallstripheight / 2) - (pos->winres.window_height / 2);
+		pos->player.textureoffsety = distancefromtop * ((float)pos->texture.east_text.h / pos->player.wallstripheight);
 	 	pos->player.textureoffsety *= (pos->player.textureoffsety < 0 ? -1 : 1);
 		wall_position(pos, x, y);
 		y++;
