@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/07 20:41:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:04:32 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <math.h>
-#include "mlx/mlx.h"
-#include "get_next_line/get_next_line.h"
-#include "libft/libft.h"
+#include "../mlx/mlx.h"
+#include "../get_next_line/get_next_line.h"
+#include "../libft/libft.h"
 
 
 #define	relleno	'8'

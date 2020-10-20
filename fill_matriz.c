@@ -6,35 +6,16 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 11:15:12 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/08 12:46:31 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:15:08 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
-
-void	fill_matriz(t_game *pos)
-{
-	int		f;
-	int		c;
-
-	f = 0;
-	while (f < pos->rows)
-	{
-		c = 0;
-		while (c < pos->columns)
-		{
-			pos->map[f][c] = relleno;
-			c++;
-		}
-		pos->map[f][c] = '\0';
-		f++;
-	}
-}
+#include "include/cub.h"
 
 int		player(char c)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-		return (0);	
+		return (0);
 	return (1);
 }
 

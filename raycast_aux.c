@@ -3,29 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_aux.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <ccardozo@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 21:44:38 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/23 21:44:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
-float   distancebetweenpoints(float x1, float y1, float x2, float y2)
+float	distancebetweenpoints(float x1, float y1, float x2, float y2)
 {
-    return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
+	return (sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
 int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.xtocheck = pos->rays.nexthoriztouchx;
-	pos->rays.ytocheck = pos->rays.nexthoriztouchy + (ray_data->israyfacingup ? -1 : 0);
+	pos->rays.ytocheck = pos->rays.nexthoriztouchy +
+	(ray_data->israyfacingup ? -1 : 0);
 	if (wall_colision(pos, pos->rays.ytocheck, pos->rays.xtocheck))
 	{
 		pos->rays.horizwallhitx = pos->rays.nexthoriztouchx;
 		pos->rays.horizwallhity = pos->rays.nexthoriztouchy;
-		pos->rays.horizwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
+		pos->rays.horizwallcontent = pos->map[(int)(pos->rays.ytocheck /
+		pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
 		pos->rays.foundhorizwallhit = TRUE;
 		return (1);
 	}
@@ -40,13 +42,15 @@ int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 
 int		wall_colision_search_ver(t_game *pos, t_ray *ray_data)
 {
-	pos->rays.xtocheck = pos->rays.nextverttouchx + (ray_data->israyfacingleft ? -1 : 0);
+	pos->rays.xtocheck = pos->rays.nextverttouchx +
+	(ray_data->israyfacingleft ? -1 : 0);
 	pos->rays.ytocheck = pos->rays.nextverttouchy;
 	if (wall_colision(pos, pos->rays.ytocheck, pos->rays.xtocheck))
 	{
 		pos->rays.vertwallhitx = pos->rays.nextverttouchx;
 		pos->rays.vertwallhity = pos->rays.nextverttouchy;
-		pos->rays.vertwallcontent = pos->map[(int)(pos->rays.ytocheck / pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
+		pos->rays.vertwallcontent = pos->map[(int)(pos->rays.ytocheck /
+		pos->tile.size)][(int)(pos->rays.xtocheck / pos->tile.size)];
 		pos->rays.foundvertwallhit = TRUE;
 		return (1);
 	}

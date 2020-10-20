@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/19 14:45:22 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 void		get_colors(char *line, t_color *color, char param)
 {
@@ -34,21 +34,27 @@ void		resolution(char *line, t_game *pos, int ptr)
 {
 	int index;
 
-	pos->control = 1;
-	index = ptr + 1;
-	while (ft_isdigit(line[index]) == 0)
+	index = 0;
+	while (line[index] == ' ')
 		index++;
-	pos->winres.x = ft_atoi(&line[index]);
-	while (ft_isdigit(line[index]) == 1)
+	if (line[index] == 'R')
+	{
+		pos->control = 1;
+		index = ptr + 1;
+		while (ft_isdigit(line[index]) == 0)
+			index++;
+		pos->winres.x = ft_atoi(&line[index]);
+		while (ft_isdigit(line[index]) == 1)
+			index++;
 		index++;
-	index++;
-	while (ft_isdigit(line[index]) == 0)
-		index++;
-	pos->winres.y = ft_atoi(&line[index]);
-	if (pos->winres.x > 2560)
-		pos->winres.x = 2560;
-	if (pos->winres.y > 1395)
-		pos->winres.y = 1395;
+		while (ft_isdigit(line[index]) == 0)
+			index++;
+		pos->winres.y = ft_atoi(&line[index]);
+		if (pos->winres.x > 2560)
+			pos->winres.x = 2560;
+		if (pos->winres.y > 1395)
+			pos->winres.y = 1395;
+	}
 }
 
 void		check_line(char *line, t_game *pos)
@@ -58,19 +64,13 @@ void		check_line(char *line, t_game *pos)
 	index = 0;
 	while (line[index] == ' ')
 		index++;
-	if (line[index] == 'R')
-		resolution(line, pos, index);
-	else if (line[index] == 'N' && line[index + 1] == 'O')
-		path_texture_n(pos, line);
-	else if (line[index] == 'S' && line[index + 1] == 'O')
-		path_texture_s(pos, line);
-	else if (line[index] == 'W' && line[index + 1] == 'E')
-		path_texture_o(pos, line);
-	else if (line[index] == 'E' && line[index + 1] == 'A')
-		path_texture_e(pos, line);
-	else if (line[index] == 'S')
-		path_texture_sp(pos, line);
-	else if (ft_strchr(line, 'F'))
+	resolution(line, pos, index);
+	path_texture_n(pos, line);
+	path_texture_s(pos, line);
+	path_texture_o(pos, line);
+	path_texture_e(pos, line);
+	path_texture_sp(pos, line);
+	if (ft_strchr(line, 'F'))
 	{
 		pos->control += 1;
 		get_colors((char*)line, &pos->texture.floor, 'F');

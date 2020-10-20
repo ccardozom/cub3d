@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/19 18:17:44 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 void	reset_pos_move(t_game *pos)
 {
@@ -18,12 +18,11 @@ void	reset_pos_move(t_game *pos)
 	pos->player.walk = 0;
 	pos->player.player_angle = 0;
 	pos->player.movespeed = 2;
-	pos->player.rotationspeed = 3 * (PI / 180);
+	pos->player.rotationspeed = 1.5 * (PI / 360);
 	pos->texture.north_text.path = NULL;
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
 	pos->texture.east_text.path = NULL;
-	
 }
 
 void	reset_rays_data(t_game *pos)
@@ -73,7 +72,6 @@ void	reset_cast(t_game *pos)
 
 void	reset_position(t_game *pos)
 {
-	//reset_rays_data(pos);
 	reset_pos_move(pos);
 	reset_cast(pos);
 	pos->first_frame = 0;

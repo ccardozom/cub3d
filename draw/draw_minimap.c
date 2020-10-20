@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/08 11:21:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:09:25 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../include/cub.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -24,25 +24,24 @@ int		put_color_pixel(t_game *pos)
 {
 	int		pos_sx;
 	int		pos_x;
-	
+
 	pos_x = pos->tile.squa_c;
 	pos_sx = 0;
 	while (pos_sx < pos->tile.size)
 	{
-		my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0xFFFFFF);
-		if (pos->map[pos->tile.f][pos->tile.c] == '1' || pos->map[pos->tile.f][pos->tile.c] == '8')
-			my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0x0101DF);
-		else if (ft_isalpha(pos->map[pos->tile.f][pos->tile.c]) == 1)
-		{
-			// pos->player.pos.x = pos->tile.c * pos->tile.size;
-			// pos->player.pos.y = pos->tile.f * pos->tile.size;
-		}	
+		my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+		pos->tile.squa_f * pos->player.minimapscale, 0xFFFFFF);
+		if (pos->map[pos->tile.f][pos->tile.c] == '1' ||
+		pos->map[pos->tile.f][pos->tile.c] == '8')
+			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+			pos->tile.squa_f * pos->player.minimapscale, 0x0101DF);
 		if (pos->map[pos->tile.f][pos->tile.c] == '2')
-			my_mlx_pixel_put(&pos->img, pos_x  * pos->player.minimapscale, pos->tile.squa_f  * pos->player.minimapscale, 0x28A108);
+			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+			pos->tile.squa_f * pos->player.minimapscale, 0x28A108);
 		pos_sx++;
 		pos_x++;
 	}
-	return(pos->tile.size);
+	return (pos->tile.size);
 }
 
 void	draw_minimap(t_game *pos)

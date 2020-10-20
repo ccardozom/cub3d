@@ -6,23 +6,22 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/10/01 11:55:34 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/10/20 14:20:16 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3d
 
-SRCS		=	cub3d.c read_map.c is_map.c texturas.c\
+SRCS1		=	cub3d.c read_map.c is_map.c texturas.c\
 				open_file.c create_map.c create_matriz.c initialize.c\
 				fill_matriz.c return_error.c reset_position.c keypress.c\
-				wall_control.c start.c draw_minimap.c draw_player.c\
-				initial_position_player.c update_player.c draw_player_move.c\
-				raycast.c has_wall.c raycast_aux.c 3dprojection.c 3dprojection_aux.c\
-				imprimir_matriz.c \
+				wall_control.c start.c\
+				initial_position_player.c update_player.c\
+				raycast.c has_wall.c raycast_aux.c projection.c projection_aux.c\
+				draw/draw_player.c draw/draw_player_move.c draw/draw_minimap.c\
 				get_next_line/get_next_line.c
-				#create_window.c draw_map.c 
 
-OBJSRCS		=	${SRCS:.c=.o}
+OBJSRCS1		=	${SRCS1:.c=.o}
 
 CC 			=	gcc -g
 
@@ -34,13 +33,13 @@ MFLAGS		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 RM			=	rm -rf
 
-$(NAME):	$(OBJSRCS)
+$(NAME):	$(OBJSRCS1)
 		@echo "\033[33m[Removiendo version anterior...]"
 		@$(RM) Cub3d
 		@echo "\033[33m[Compilando Libft...]"
 		@$(MAKE) -C ./libft
 		@echo "\033[33m[Compilando Cub3d...]"
-		$(CC) $(CFLAGS) ${MFLAGS} $(OBJSRCS) ./libft/libft.a -o $(NAME)
+		$(CC) $(CFLAGS) ${MFLAGS} $(OBJSRCS1) ./libft/libft.a -o $(NAME)
 
 all:	$(NAME)
 
@@ -48,7 +47,7 @@ e:
 	./${NAME}
 
 clean:
-		${RM} ${OBJSRCS}
+		${RM} ${OBJSRCS1}
 		$(MAKE) clean -C ./libft
 		$(MAKE) clean -C ./mlx
 		
@@ -56,7 +55,7 @@ fclean:
 		$(MAKE) fclean -C ./libft
 		$(MAKE) clean -C ./libft
 		$(MAKE) clean -C ./mlx
-		$(RM) $(NAME) ${OBJSRCS}
+		$(RM) $(NAME) ${OBJSRCS1}
 		
 
 re:		fclean $(NAME)

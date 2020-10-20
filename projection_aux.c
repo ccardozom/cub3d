@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3dprojection_aux.c                                 :+:      :+:    :+:   */
+/*   projection_aux.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/19 14:40:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
-int		get_color(t_color pixel)
+int			get_color(t_color pixel)
 {
 	int		color;
 
@@ -22,16 +22,16 @@ int		get_color(t_color pixel)
 	return (color);
 }
 
-int		charge_textures(t_game *pos, t_text *texture)
+int			charge_textures(t_game *pos, t_text *texture)
 {
 	if (texture->path)
 		if (!(texture->id = mlx_xpm_file_to_image(pos->mlx,
 			texture->path, &texture->w, &texture->h)))
-			return(0);
+			return (0);
 	if (!(texture->image = (int*)mlx_get_data_addr(texture->id, &texture->data,
 		&texture->size_line, &texture->endian)))
-		return(0);
-	return(1);
+		return (0);
+	return (1);
 }
 
 void		charge_textures_main(t_game *pos)
@@ -48,7 +48,7 @@ void		charge_textures_main(t_game *pos)
 		return_error();
 }
 
-void	color_all_buffer(t_game *pos)
+void		color_all_buffer(t_game *pos)
 {
 	int x;
 	int y;
@@ -60,14 +60,17 @@ void	color_all_buffer(t_game *pos)
 		x = 0;
 		while (x < pos->winres.window_width)
 		{
-			pos->colorbuffer[(int)(pos->winres.window_width * y) + x] = 0x1FB0E3;
+			pos->colorbuffer[(int)(pos->winres.window_width * y) +
+			x] = 0x1FB0E3;
 			if (y < pos->winres.window_height / 2)
 			{
 				get_color(pos->texture.ceilling);
-				my_mlx_pixel_put(&pos->img, x, y, get_color(pos->texture.ceilling));
+				my_mlx_pixel_put(&pos->img, x, y,
+				get_color(pos->texture.ceilling));
 			}
 			else
-				my_mlx_pixel_put(&pos->img, x, y, get_color(pos->texture.floor));
+				my_mlx_pixel_put(&pos->img, x, y,
+				get_color(pos->texture.floor));
 			x++;
 		}
 		y++;

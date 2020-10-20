@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 19:59:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:04:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 void	update(t_game *pos)
 {

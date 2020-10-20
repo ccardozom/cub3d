@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 10:40:00 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/05 21:12:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 void	is_map(char *line, t_game *pos)
 {

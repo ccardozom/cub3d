@@ -6,14 +6,14 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/09/22 15:18:57 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
-void	return_error()
+void	return_error(void)
 {
-	ft_putstr_fd("Error",1);
+	ft_putstr_fd("Error", 1);
 	exit(0);
 }

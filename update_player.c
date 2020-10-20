@@ -6,11 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 09:57:34 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 20:01:00 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 int		control_wall_y(t_game *pos, int new_pos)
 {
@@ -47,8 +47,10 @@ void	update_player(t_game *pos)
 	pos->player.player_angle += pos->player.turn * pos->player.rotationspeed;
 	pos->player.player_angle = normalizeangle(pos->player.player_angle);
 	move_step = pos->player.walk * pos->player.movespeed;
-	new_player_x = pos->player.pos.x + cos(pos->player.player_angle) * move_step;
-	new_player_y = pos->player.pos.y + sin(pos->player.player_angle) * move_step;
+	new_player_x = pos->player.pos.x +
+	cos(pos->player.player_angle) * move_step;
+	new_player_y = pos->player.pos.y +
+	sin(pos->player.player_angle) * move_step;
 	if (new_player_x)
 	{
 		if (control_wall_x(pos, new_player_x) == 0)

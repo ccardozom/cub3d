@@ -6,58 +6,72 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/06 14:00:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "include/cub.h"
 
 void	vertical_intersection(t_game *pos, t_ray *ray_data)
-{	
-	pos->rays.xintercep = (int)(pos->player.pos.x / pos->tile.size) * pos->tile.size;
-	pos->rays.xintercep += ray_data->israyfacingright ? pos->tile.size : 0;
-	pos->rays.yintercep = pos->player.pos.y + (pos->rays.xintercep - pos->player.pos.x) * tan(pos->rays.rayangle);
+{
+	pos->rays.xintercep = (int)(pos->player.pos.x /
+	pos->tile.size) * pos->tile.size;
+	pos->rays.xintercep += ray_data->israyfacingright ?
+	pos->tile.size : 0;
+	pos->rays.yintercep = pos->player.pos.y + (pos->rays.xintercep -
+	pos->player.pos.x) * tan(pos->rays.rayangle);
 	pos->rays.xstep = pos->tile.size;
 	pos->rays.xstep *= ray_data->israyfacingleft ? -1 : 1;
 	pos->rays.ystep = pos->tile.size * tan(pos->rays.rayangle);
-	pos->rays.ystep *= (ray_data->israyfacingup && pos->rays.ystep > 0) ? -1 : 1;
-	pos->rays.ystep *= (ray_data->israyfacingdown && pos->rays.ystep < 0) ? -1 : 1;
+	pos->rays.ystep *= (ray_data->israyfacingup &&
+	pos->rays.ystep > 0) ? -1 : 1;
+	pos->rays.ystep *= (ray_data->israyfacingdown &&
+	pos->rays.ystep < 0) ? -1 : 1;
 	pos->rays.nextverttouchy = pos->rays.yintercep;
 	pos->rays.nextverttouchx = pos->rays.xintercep;
-	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <= pos->winres.window_width &&
-	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <= pos->winres.window_height)
+	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <=
+	pos->winres.window_width &&
+	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <=
+	pos->winres.window_height)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
-			break;
+			break ;
 	}
 }
 
 void	horizontal_intersection(t_game *pos, t_ray *ray_data)
-{	
-	pos->rays.yintercep = (int)(pos->player.pos.y / pos->tile.size) * pos->tile.size;
-	pos->rays.yintercep += ray_data->israyfacingdown ? pos->tile.size : 0;
-	pos->rays.xintercep = pos->player.pos.x + (pos->rays.yintercep - pos->player.pos.y) / tan(pos->rays.rayangle);
+{
+	pos->rays.yintercep = (int)(pos->player.pos.y /
+	pos->tile.size) * pos->tile.size;
+	pos->rays.yintercep += ray_data->israyfacingdown ?
+	pos->tile.size : 0;
+	pos->rays.xintercep = pos->player.pos.x +
+	(pos->rays.yintercep - pos->player.pos.y) / tan(pos->rays.rayangle);
 	pos->rays.ystep = pos->tile.size;
 	pos->rays.ystep *= ray_data->israyfacingup ? -1 : 1;
 	pos->rays.xstep = pos->tile.size / tan(pos->rays.rayangle);
-	pos->rays.xstep *= (ray_data->israyfacingleft && pos->rays.xstep > 0) ? -1 : 1;
-	pos->rays.xstep *= (ray_data->israyfacingright && pos->rays.xstep < 0) ? -1 : 1;
+	pos->rays.xstep *= (ray_data->israyfacingleft &&
+	pos->rays.xstep > 0) ? -1 : 1;
+	pos->rays.xstep *= (ray_data->israyfacingright &&
+	pos->rays.xstep < 0) ? -1 : 1;
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
-	while (pos->rays.nexthoriztouchx >= 0 && pos->rays.nexthoriztouchx <= pos->winres.window_width &&
-	pos->rays.nexthoriztouchy >= 0 && pos->rays.nexthoriztouchy <= pos->winres.window_height)
+	while (pos->rays.nexthoriztouchx >= 0 &&
+	pos->rays.nexthoriztouchx <= pos->winres.window_width &&
+	pos->rays.nexthoriztouchy >= 0 &&
+	pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
-			break;
+			break ;
 	}
 }
 
 float	normalizeangle(float angle)
 {
 	if (angle >= 360 * (M_PI / 180))
-        angle = angle - (2 * M_PI);
-    if (angle < 0)
-        angle = (2 * M_PI) + angle;
+		angle = angle - (2 * M_PI);
+	if (angle < 0)
+		angle = (2 * M_PI) + angle;
 	return (angle);
 }
 
@@ -65,30 +79,35 @@ void	castray(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
 	pos->rays.rayangle = pos->rays.rayangle;
-	ray_data->israyfacingdown = pos->rays.rayangle > 0 && pos->rays.rayangle < PI;
+	ray_data->israyfacingdown = pos->rays.rayangle > 0 &&
+	pos->rays.rayangle < PI;
 	ray_data->israyfacingup = !ray_data->israyfacingdown;
-	ray_data->israyfacingright = pos->rays.rayangle < PI * 0.5 || pos->rays.rayangle > PI * 1.5;
+	ray_data->israyfacingright = pos->rays.rayangle < PI * 0.5 ||
+	pos->rays.rayangle > PI * 1.5;
 	ray_data->israyfacingleft = !ray_data->israyfacingright;
 	horizontal_intersection(pos, ray_data);
 	vertical_intersection(pos, ray_data);
-	pos->rays.horizhitdistance = pos->rays.foundhorizwallhit ? distancebetweenpoints(pos->player.pos.x,
-	pos->player.pos.y, pos->rays.horizwallhitx, pos->rays.horizwallhity) : 2147483647;
-	pos->rays.verthitdistance = pos->rays.foundvertwallhit ? distancebetweenpoints(pos->player.pos.x,
-	pos->player.pos.y, pos->rays.vertwallhitx, pos->rays.vertwallhity) : 2147483647;
+	pos->rays.horizhitdistance = pos->rays.foundhorizwallhit ?
+	distancebetweenpoints(pos->player.pos.x,
+	pos->player.pos.y, pos->rays.horizwallhitx,
+	pos->rays.horizwallhity) : 2147483647;
+	pos->rays.verthitdistance = pos->rays.foundvertwallhit ?
+	distancebetweenpoints(pos->player.pos.x,
+	pos->player.pos.y, pos->rays.vertwallhitx,
+	pos->rays.vertwallhity) : 2147483647;
 	dir_colision(pos, ray_data);
 	ray_data->ray_angle = pos->rays.rayangle;
-	
 }
 
 void	cast_all_rays(t_game *pos)
-{	
+{
 	int id;
 
-	if(!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) * pos->player.num_rays)))
+	if (!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) *
+	pos->player.num_rays)))
 		return_error(-1);
 	pos->rays.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
-	printf("%f\n",pos->rays.rayangle);
 	id = 0;
 	while (id < pos->player.num_rays)
 	{
@@ -97,4 +116,4 @@ void	cast_all_rays(t_game *pos)
 		pos->rays.rayangle += pos->player.FOV_angle / pos->player.num_rays;
 		id++;
 	}
-}	
+}
