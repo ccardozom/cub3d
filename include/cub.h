@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:04:32 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/26 02:02:52 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,18 @@ typedef struct	s_text
 	int				size_line;
 }				t_text;
 
+typedef struct	s_sprite
+{
+	t_pos			pos;
+	float			angulo;
+	float			distance;
+	float			vectx;
+	float			vecty;
+	float			anguloplayerobjeto;
+	float			diferenciaangulo;
+	int				visible;
+}				t_sprite;
+
 typedef struct	s_textures
 {
 	t_text			north_text;
@@ -171,6 +183,7 @@ typedef struct	s_game
 	int				control;
 	int				first_frame;
 	int				color;
+	int				spritecount;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
@@ -181,6 +194,7 @@ typedef struct	s_game
 	t_tile			tile;
 	t_rays			rays;
 	t_ray			*ray_data;
+	t_sprite		*sprites;
 }					t_game;
 
 void imprimir_matriz(t_game *pos);

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/26 16:21:51 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void	reset_rays_data(t_game *pos)
 	pos->rays.vertwallcontent = 0;
 	pos->rays.nextverttouchx = 0;
 	pos->rays.nextverttouchy = 0;
+	pos->ray_data->israyfacingup = 0;
+	pos->ray_data->israyfacingdown = 0;
+	pos->ray_data->israyfacingleft = 0;
+	pos->ray_data->israyfacingright = 0;
 }
 
 void	reset_cast(t_game *pos)
@@ -62,23 +66,19 @@ void	reset_cast(t_game *pos)
 	pos->rays.vertwallhitx = 0;
 	pos->rays.vertwallhity = 0;
 	pos->rays.vertwallcontent = 0;
-	pos->ray_data->israyfacingup = 0;
-	pos->ray_data->israyfacingdown = 0;
-	pos->ray_data->israyfacingleft = 0;
-	pos->ray_data->israyfacingright = 0;
 	pos->player.textureoffsetx = 0;
 	pos->player.textureoffsety = 0;
 }
 
 void	reset_sprites(t_game *pos)
 {
-	pos->sprites.angulo = 0;
-	pos->sprites.distance = 0;
-	pos->sprites.visible = 0;
-	pos->sprites.vectx = 0;
-	pos->sprites.vecty = 0;
-	pos->sprites.anguloplayerobjeto = 0;
-	pos->sprites.diferenciaangulo = 0;
+	pos->sprites->angulo = 0;
+	pos->sprites->distance = 0;
+	pos->sprites->visible = 0;
+	pos->sprites->vectx = 0;
+	pos->sprites->vecty = 0;
+	pos->sprites->anguloplayerobjeto = 0;
+	pos->sprites->diferenciaangulo = 0;
 	pos->spritecount = 0;
 }
 
@@ -102,4 +102,5 @@ void	reset_position(t_game *pos)
 	pos->mlx_win = 0;
 	pos->mlx = 0;
 	pos->tile.size = 64;
+	pos->spritecount = 0;
 }
