@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:09:25 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/26 23:58:30 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int		put_color_pixel(t_game *pos)
 {
 	int		pos_sx;
 	int		pos_x;
+	int		id;
 
+	if (!(pos->sprites = (t_sprite *)malloc(sizeof(t_sprite) * pos->spritecount)))
+		return_error ();
+	id = 0;
 	pos_x = pos->tile.squa_c;
 	pos_sx = 0;
 	while (pos_sx < pos->tile.size)
@@ -36,8 +40,11 @@ int		put_color_pixel(t_game *pos)
 			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
 			pos->tile.squa_f * pos->player.minimapscale, 0x0101DF);
 		if (pos->map[pos->tile.f][pos->tile.c] == '2')
+		{
 			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
 			pos->tile.squa_f * pos->player.minimapscale, 0x28A108);
+			sprite_position(&pos->sprites[id], pos, pos_x, pos->tile.squa_f);
+		}
 		pos_sx++;
 		pos_x++;
 	}

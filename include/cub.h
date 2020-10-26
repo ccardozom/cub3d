@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/26 17:04:22 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/27 00:39:42 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,7 @@ void	initialize(t_game *pos);
 void	read_map(t_game *pos);
 void	check_line(char *line, t_game *pos);
 void	position_player(t_game *pos, t_pos *tile_pos);
+void	sprite_position(t_sprite *sprites, t_game *pos, int pos_x, int pos_y);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
 void	resolution(char *buffer, t_game *pos, int ptr);
