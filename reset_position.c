@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/26 16:21:51 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/26 17:05:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ void	reset_position(t_game *pos)
 	pos->mlx = 0;
 	pos->tile.size = 64;
 	pos->spritecount = 0;
+	pos->control_map = 0;
 }

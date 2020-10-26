@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/26 02:02:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/26 17:04:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ typedef struct	s_game
 	char			**map;
 	void			*data;
 	int				control;
+	int				control_map;
 	int				first_frame;
 	int				color;
 	int				spritecount;
