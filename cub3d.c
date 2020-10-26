@@ -12,18 +12,13 @@
 
 #include "include/cub.h"
 
-void	update(t_game *pos)
-{
-	update_player(pos);
-}
-
 int		main_loop(t_game *pos)
 {
 	if (pos->player.walk || pos->player.turn || pos->first_frame == 0)
 	{
 		mlx_clear_window(pos->mlx, pos->mlx_win);
 		mlx_destroy_image(pos->mlx, pos->img.img);
-		update(pos);
+		update_player(pos);
 		pos->img.img = mlx_new_image(pos->mlx,
 		pos->winres.window_width,
 		pos->winres.window_height);

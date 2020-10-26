@@ -28,4 +28,5 @@ void	position_player(t_game *pos, t_pos *tile_pos)
 			my_mlx_pixel_put(&pos->img, tile_pos->x * pos->player.minimapscale,
 			pos->tile.squa_f * pos->player.minimapscale, 0x6495ed);
 		}
+	pos->player.player_control += 1;
 }

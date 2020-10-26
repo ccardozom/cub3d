@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:04:32 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/07 20:41:06 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <math.h>
-#include "../mlx/mlx.h"
-#include "../get_next_line/get_next_line.h"
-#include "../libft/libft.h"
+#include "mlx/mlx.h"
+#include "get_next_line/get_next_line.h"
+#include "libft/libft.h"
 
 
 #define	relleno	'8'
@@ -138,6 +138,18 @@ typedef struct	s_text
 	int				size_line;
 }				t_text;
 
+typedef struct	s_sprite
+{
+	t_pos			pos;
+	float			angulo;
+	float			distance;
+	int				visible;
+	float			vectx;
+	float			vecty;
+	float			anguloplayerobjeto;
+	float			diferenciaangulo;
+}				t_sprite;
+
 typedef struct	s_textures
 {
 	t_text			north_text;
@@ -171,6 +183,7 @@ typedef struct	s_game
 	int				control;
 	int				first_frame;
 	int				color;
+	int				spritecount;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
@@ -181,6 +194,7 @@ typedef struct	s_game
 	t_tile			tile;
 	t_rays			rays;
 	t_ray			*ray_data;
+	t_sprite		*sprites;
 }					t_game;
 
 void imprimir_matriz(t_game *pos);
@@ -191,6 +205,7 @@ void	check_line(char *line, t_game *pos);
 void	position_player(t_game *pos, t_pos *tile_pos);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
+void	reset_sprites(t_game *pos);
 void	resolution(char *buffer, t_game *pos, int ptr);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);

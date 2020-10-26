@@ -70,10 +70,23 @@ void	reset_cast(t_game *pos)
 	pos->player.textureoffsety = 0;
 }
 
+void	reset_sprites(t_game *pos)
+{
+	pos->sprites.angulo = 0;
+	pos->sprites.distance = 0;
+	pos->sprites.visible = 0;
+	pos->sprites.vectx = 0;
+	pos->sprites.vecty = 0;
+	pos->sprites.anguloplayerobjeto = 0;
+	pos->sprites.diferenciaangulo = 0;
+	pos->spritecount = 0;
+}
+
 void	reset_position(t_game *pos)
 {
 	reset_pos_move(pos);
 	reset_cast(pos);
+	reset_sprites(pos);
 	pos->first_frame = 0;
 	pos->dir.x = 0;
 	pos->dir.y = 0;

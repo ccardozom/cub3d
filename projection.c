@@ -86,10 +86,6 @@ void	generate_3dprojection(t_game *pos)
 {
 	int i;
 
-	if (!(pos->colorbuffer = (unsigned long *)malloc(sizeof(unsigned long) *
-	(unsigned long)pos->winres.window_width *
-	(unsigned long)pos->winres.window_height)))
-		return_error();
 	color_all_buffer(pos);
 	i = 0;
 	while (i < pos->player.num_rays)

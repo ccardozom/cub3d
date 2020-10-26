@@ -18,25 +18,21 @@ void		player_direction(t_game *pos, t_pos *tile_pos)
 	{
 		position_player(pos, tile_pos);
 		pos->player.player_angle = PI * 1.5;
-		pos->player.player_control += 1;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'S')
 	{
 		position_player(pos, tile_pos);
 		pos->player.player_angle = PI / 2;
-		pos->player.player_control += 1;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'E')
 	{
 		position_player(pos, tile_pos);
 		pos->player.player_angle = 2 * PI;
-		pos->player.player_control += 1;
 	}
 	if (pos->map[pos->tile.f][pos->tile.c] == 'W')
 	{
 		position_player(pos, tile_pos);
 		pos->player.player_angle = PI;
-		pos->player.player_control += 1;
 	}
 }
 

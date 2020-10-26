@@ -62,6 +62,7 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
+		
 			break ;
 	}
 }
@@ -78,7 +79,6 @@ float	normalizeangle(float angle)
 void	castray(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
-	pos->rays.rayangle = pos->rays.rayangle;
 	ray_data->israyfacingdown = pos->rays.rayangle > 0 &&
 	pos->rays.rayangle < PI;
 	ray_data->israyfacingup = !ray_data->israyfacingdown;

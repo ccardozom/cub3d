@@ -12,7 +12,8 @@
 
 #include "../include/cub.h"
 
-void	draw_player_move(t_game *pos)
+void	
+draw_player_move(t_game *pos)
 {
 	float	x;
 	float	y;
