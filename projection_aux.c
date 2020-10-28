@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/27 11:11:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void		color_all_buffer(t_game *pos)
 		{
 			if (y < pos->winres.window_height / 2)
 			{
-				//get_color(pos->texture.ceilling);
 				my_mlx_pixel_put(&pos->img, x, y,
 				get_color(pos->texture.ceilling));
 			}

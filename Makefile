@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/10/26 17:52:16 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/10/28 11:31:27 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		=	cub3d
 SRCS1		=	cub3d.c read_map.c is_map.c texturas.c\
 				open_file.c create_map.c initialize.c\
 				return_error.c reset_position.c keypress.c\
-				wall_control.c start.c\
+				wall_control.c start.c sprites.c\
 				position_player.c update_player.c\
 				raycast.c has_wall.c raycast_aux.c projection.c projection_aux.c\
 				draw/draw_player.c draw/draw_player_move.c draw/draw_minimap.c\

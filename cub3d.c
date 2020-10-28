@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:04:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/10/28 10:57:01 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main_loop(t_game *pos)
 		&pos->img.endian);
 		cast_all_rays(pos);
 		generate_3dprojection(pos);
+		sprites(pos);
 		draw_minimap(pos);
 		mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
 		free(pos->ray_data);
