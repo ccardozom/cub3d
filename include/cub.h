@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/28 11:24:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:24:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,9 +149,10 @@ typedef struct	s_sprite
 	float			diferenciaangulo;
 	int				visible;
 	float			spriteangulo;
-	int				x0;
-	int				x;
-	int 			x1;
+	int				spr_bottom;
+	int				spr_top;
+	float			x;
+	float			spr_height;
 }				t_sprite;
 
 typedef struct	s_textures
@@ -189,6 +190,8 @@ typedef struct	s_game
 	int				first_frame;
 	int				color;
 	int				spritecount;
+	int				spritecount_aux;
+	int				pos_id_spr;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
@@ -208,10 +211,10 @@ void	initialize(t_game *pos);
 void	read_map(t_game *pos);
 void	check_line(char *line, t_game *pos);
 void	position_player(t_game *pos, t_pos *tile_pos);
-void	sprite_position(t_sprite *sprites, t_game *pos, int pos_x, int pos_y);
 void	sprites(t_game *pos);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
+void	reset_sprites(t_game *pos);
 void	resolution(char *buffer, t_game *pos, int ptr);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);

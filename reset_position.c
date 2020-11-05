@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/28 11:13:42 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:24:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void	reset_sprites(t_game *pos)
 	pos->sprites->vectx = 0;
 	pos->sprites->vecty = 0;
 	pos->sprites->spriteangulo = 0;
+	pos->sprites->spr_top = 0;
+	pos->sprites->spr_bottom = 0;
 	pos->sprites->x = 0;
-	pos->sprites->x0 = 0;
-	pos->sprites->x1 = 0;
 	pos->sprites->anguloplayerobjeto = 0;
 	pos->sprites->diferenciaangulo = 0;
-	pos->spritecount = 0;
+	pos->sprites->spr_height = 0;
 }
 
 void	reset_position(t_game *pos)
@@ -107,5 +107,7 @@ void	reset_position(t_game *pos)
 	pos->mlx = 0;
 	pos->tile.size = 64;
 	pos->spritecount = 0;
+	pos->spritecount_aux = 0;
 	pos->control_map = 0;
+	pos->pos_id_spr = 0;
 }
