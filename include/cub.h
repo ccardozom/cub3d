@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/05 12:24:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/06 12:26:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,18 +141,21 @@ typedef struct	s_text
 typedef struct	s_sprite
 {
 	t_pos			pos;
-	float			angulo;
+	//float			angulo;
+	// float			angulo_spr_init;
+	// float			angulo_spr_end;
 	float			distance;
 	float			vectx;
 	float			vecty;
-	float			anguloplayerobjeto;
-	float			diferenciaangulo;
+	//float			anguloplayerobjeto;
+	//float			diferenciaangulo;
 	int				visible;
 	float			spriteangulo;
 	int				spr_bottom;
 	int				spr_top;
 	float			x;
 	float			spr_height;
+
 }				t_sprite;
 
 typedef struct	s_textures
