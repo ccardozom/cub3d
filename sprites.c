@@ -80,7 +80,21 @@ void	color_sprites(t_sprite *sprites, t_game *pos) //revisar esta funcion
 
 void	distancia_sprites(t_game *pos, int i)
 {
-		pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x, pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
+	int index;
+	t_sprite *aux;
+
+	pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x, pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
+	index = 0;
+	while (pos->sprites[index])
+	{
+		if (pos->sprites[i].distance < pos->sprites[index].distance)
+		{
+			aux =  pos->sprites[index];
+			pos->sprites[index] = pos->sprites[i];
+			pos->sprites[i] = aux;
+		}
+		index++;
+	}
 }
 
 void	sprites(t_game *pos)
