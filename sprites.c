@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 13:13:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/06 14:00:30 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/09 11:46:04 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,35 @@ void	angulo_sprites(t_game *pos)
 void	color_sprites(t_sprite *sprites, t_game *pos) //revisar esta funcion
 {
 	float y;
-	int textura_x, textura_y;
-	float x;
+	float textura_x, textura_y;
+	int x, texturasend;
+	float auxstep;
 
+	auxstep = (float)pos->texture.sprite.w / (float)sprites->spr_height;
 	textura_x = 0;
 	angulo_spr_vision(sprites, pos);
+	texturasend = sprites->x + sprites->spr_height;
 	x = sprites->x;
-	while (x < (sprites->x + sprites->spr_height))
+	while (x < texturasend)
 	{
-		if (x >= 0 && x < (int)pos->winres.window_width && sprites->distance < pos->ray_data[(int)x].distance)
+		if (x >= 0 && x < (int)pos->winres.window_width && sprites->distance < pos->ray_data[x].distance)
 		{
 			textura_y = 0;
 			y = sprites->spr_top;
 			while (y < sprites->spr_bottom)
 			{
-				if (pos->texture.sprite.image[(textura_y *
-				pos->tile.size) + textura_x] != 0x000000)
-					my_mlx_pixel_put(&pos->img, x, y + sprites->spr_top,
-					pos->texture.sprite.image[(textura_y *
-					pos->tile.size) + textura_x]);
+				if (y > 0 && y < (int)pos->winres.window_height)
+					if (pos->texture.sprite.image[((int)textura_y *
+					pos->tile.size) + (int)textura_x] != 0x000000)
+						my_mlx_pixel_put(&pos->img, x, y,
+						pos->texture.sprite.image[((int)textura_y *
+						pos->tile.size) + (int)textura_x]);
 				y++;
-				textura_y++;
+				textura_y += auxstep;
 			}
 		}
 		x++;
-		textura_x++;
+		textura_x += auxstep;
 	}
 }
 

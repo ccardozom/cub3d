@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/06 12:26:15 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/09 11:26:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ typedef struct	s_sprite
 	float			spriteangulo;
 	int				spr_bottom;
 	int				spr_top;
-	float			x;
-	float			spr_height;
+	int			x;
+	int			spr_height;
 
 }				t_sprite;
 
