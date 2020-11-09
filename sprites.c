@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 13:13:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/09 19:24:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/09 20:09:53 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ void	sprites(t_game *pos)
 	int i;
 	int id;
 
-	i = 0;
+	i = pos->spritecount ;
 	id = 0;
 	angulo_sprites(pos);
 	ordenar_sprites(pos);
-	while (i < pos->spritecount)
+	while (i >= 0)
 	{
 		if (pos->sprites[i].visible == TRUE)
 		{
@@ -117,6 +117,6 @@ void	sprites(t_game *pos)
 			pos->sprites[i].spr_bottom = pos->sprites[i].spr_top + pos->sprites[i].spr_height;
 			color_sprites(&pos->sprites[i], pos);
 		}
-		i++;
+		i--;
 	}
 }
