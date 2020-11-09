@@ -12,6 +12,26 @@
 
 #include "include/cub.h"
 
+void	ordenar_sprites(t_game *pos)
+{
+	t_sprite aux;
+	int index;
+
+	index = 0;
+	if (pos->spritecount > 1)
+		while (index < pos->spritecount)
+		{
+			if (pos->sprites[index].distance > pos->sprites[index + 1].distance)
+			{
+				aux = pos->sprites[index + 1];
+				pos->sprites[index + 1] = pos->sprites[index];
+				pos->sprites[index] = aux;
+				index = 0;
+			}
+			index++;
+		}
+}
+
 void	angulo_spr_vision(t_sprite *sprites, t_game *pos)
 {
 	sprites->x = pos->player.distanceprojplane * tan(sprites->spriteangulo);
@@ -39,6 +59,7 @@ void	angulo_sprites(t_game *pos)
 			pos->sprites[i].visible = TRUE;
 		else
 			pos->sprites[i].visible = FALSE;
+		pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x, pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
 		i++;
 	}
 }
@@ -78,11 +99,6 @@ void	color_sprites(t_sprite *sprites, t_game *pos) //revisar esta funcion
 	}
 }
 
-void	distancia_sprites(t_game *pos, int i)
-{
-	pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x, pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
-}
-
 void	sprites(t_game *pos)
 {
 	int i;
@@ -91,11 +107,11 @@ void	sprites(t_game *pos)
 	i = 0;
 	id = 0;
 	angulo_sprites(pos);
+	ordenar_sprites(pos);
 	while (i < pos->spritecount)
 	{
 		if (pos->sprites[i].visible == TRUE)
 		{
-			distancia_sprites(pos, i);
 			pos->sprites[i].spr_height = (pos->tile.size / pos->sprites[i].distance) * pos->player.distanceprojplane;
 			pos->sprites[i].spr_top = (pos->winres.window_height / 2) - (pos->sprites[i].spr_height / 2);
 			pos->sprites[i].spr_bottom = pos->sprites[i].spr_top + pos->sprites[i].spr_height;
