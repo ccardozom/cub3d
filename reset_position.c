@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/06 12:29:06 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/11 13:05:48 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ void	reset_cast(t_game *pos)
 
 void	reset_sprites(t_game *pos)
 {
-	// pos->sprites->angulo = 0;
-	pos->sprites->distance = 0;
+	pos->sprites->distance = 0.0;
 	pos->sprites->visible = 0;
 	pos->sprites->vectx = 0;
 	pos->sprites->vecty = 0;
@@ -81,18 +80,13 @@ void	reset_sprites(t_game *pos)
 	pos->sprites->spr_top = 0;
 	pos->sprites->spr_bottom = 0;
 	pos->sprites->x = 0;
-	// pos->sprites->anguloplayerobjeto = 0;
-	// pos->sprites->diferenciaangulo = 0;
 	pos->sprites->spr_height = 0;
-	// pos->sprites->angulo_spr_init = 0;
-	// pos->sprites->angulo_spr_end = 0;
 }
 
 void	reset_position(t_game *pos)
 {
 	reset_pos_move(pos);
 	reset_cast(pos);
-	reset_sprites(pos);
 	pos->first_frame = 0;
 	pos->dir.x = 0;
 	pos->dir.y = 0;

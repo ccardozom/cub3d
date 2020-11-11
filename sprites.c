@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 13:13:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/09 20:09:53 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/11/11 09:22:20 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	ordenar_sprites(t_game *pos)
 {
-	t_sprite aux;
-	int index;
+	t_sprite	aux;
+	int			index;
 
 	index = 0;
+	//aux = NULL;
 	if (pos->spritecount > 1)
-		while (index < pos->spritecount)
+		while (index <= pos->spritecount)
 		{
 			if (pos->sprites[index].distance > pos->sprites[index + 1].distance)
 			{
@@ -35,8 +36,8 @@ void	ordenar_sprites(t_game *pos)
 void	angulo_spr_vision(t_sprite *sprites, t_game *pos)
 {
 	sprites->x = pos->player.distanceprojplane * tan(sprites->spriteangulo);
-	sprites->x = (pos->winres.window_width / 2 + sprites->x) - sprites->spr_height / 2;
-	
+	sprites->x = (pos->winres.window_width / 2 + sprites->x) -
+	sprites->spr_height / 2;
 }
 
 void	angulo_sprites(t_game *pos)
@@ -48,28 +49,32 @@ void	angulo_sprites(t_game *pos)
 	{
 		pos->sprites[i].vectx = pos->sprites[i].pos.x - pos->player.pos.x;
 		pos->sprites[i].vecty = pos->sprites[i].pos.y - pos->player.pos.y;
-		pos->sprites[i].spriteangulo = atan2(pos->sprites[i].vecty, pos->sprites[i].vectx);
+		pos->sprites[i].spriteangulo = atan2(pos->sprites[i].vecty,
+		pos->sprites[i].vectx);
 		pos->sprites[i].spriteangulo -= pos->player.player_angle;
-		//pos->sprites[i].anguloplayerobjeto =  - pos->sprites[i].spriteangulo;
 		if (pos->sprites[i].spriteangulo < -1 * PI)
 			pos->sprites[i].spriteangulo += 2.0 * PI;
 		if (pos->sprites[i].spriteangulo > PI)
 			pos->sprites[i].spriteangulo -= 2.0 * PI;
-		if (pos->sprites[i].spriteangulo >= -1 * (pos->player.FOV_angle / 2) && pos->sprites[i].spriteangulo <= pos->player.FOV_angle / 2)
+		if (pos->sprites[i].spriteangulo >= -1 * (pos->player.FOV_angle / 2) &&
+		pos->sprites[i].spriteangulo <= pos->player.FOV_angle / 2)
 			pos->sprites[i].visible = TRUE;
 		else
 			pos->sprites[i].visible = FALSE;
-		pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x, pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
+		pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x,
+		pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
 		i++;
 	}
 }
 
-void	color_sprites(t_sprite *sprites, t_game *pos) //revisar esta funcion
+void	color_sprites(t_sprite *sprites, t_game *pos)
 {
-	float y;
-	float textura_x, textura_y;
-	int x, texturasend;
-	float auxstep;
+	float	y;
+	float	textura_x;
+	float	textura_y;
+	int		x;
+	int		texturasend;
+	float	auxstep;
 
 	auxstep = (float)pos->texture.sprite.w / (float)sprites->spr_height;
 	textura_x = 0;
@@ -78,7 +83,8 @@ void	color_sprites(t_sprite *sprites, t_game *pos) //revisar esta funcion
 	x = sprites->x;
 	while (x < texturasend)
 	{
-		if (x >= 0 && x < (int)pos->winres.window_width && sprites->distance < pos->ray_data[x].distance)
+		if (x >= 0 && x <= (int)pos->winres.window_width &&
+		sprites->distance < pos->ray_data[x].distance)
 		{
 			textura_y = 0;
 			y = sprites->spr_top;
@@ -104,7 +110,7 @@ void	sprites(t_game *pos)
 	int i;
 	int id;
 
-	i = pos->spritecount ;
+	i = pos->spritecount;
 	id = 0;
 	angulo_sprites(pos);
 	ordenar_sprites(pos);
@@ -112,9 +118,12 @@ void	sprites(t_game *pos)
 	{
 		if (pos->sprites[i].visible == TRUE)
 		{
-			pos->sprites[i].spr_height = (pos->tile.size / pos->sprites[i].distance) * pos->player.distanceprojplane;
-			pos->sprites[i].spr_top = (pos->winres.window_height / 2) - (pos->sprites[i].spr_height / 2);
-			pos->sprites[i].spr_bottom = pos->sprites[i].spr_top + pos->sprites[i].spr_height;
+			pos->sprites[i].spr_height = (pos->tile.size /
+			pos->sprites[i].distance) * pos->player.distanceprojplane;
+			pos->sprites[i].spr_top = (pos->winres.window_height / 2) -
+			(pos->sprites[i].spr_height / 2);
+			pos->sprites[i].spr_bottom = pos->sprites[i].spr_top +
+			pos->sprites[i].spr_height;
 			color_sprites(&pos->sprites[i], pos);
 		}
 		i--;

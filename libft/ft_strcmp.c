@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   open_file.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/21 09:46:20 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/10 09:33:04 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/11/10 09:10:09 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/11/10 09:10:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub.h"
+#include "libft.h"
 
-int		open_file(char **argv)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	int fd;
-
-	fd = open(argv[1], O_RDONLY);
-	if (!fd || fd < 0)
+	while (*s1 || *s2)
 	{
-		return_error();
+		if ((unsigned char)*s1 != (unsigned char)*s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
 	}
-	return (fd);
+	return (0);
 }

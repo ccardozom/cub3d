@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/09 11:26:50 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/11 13:10:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,31 @@
 # define FALSE			0
 # define TRUE			1
 # define KEY_ESC		53
-# define PI 			3.141592
+# define PI 			3.141592653
+
+typedef struct s_bmpFileHeader
+{
+  /* 2 bytes de identificación */
+  unsigned int size;        /* Tamaño del archivo */
+  unsigned short resv1;       /* Reservado */
+  unsigned short resv2;       /* Reservado */
+  unsigned int offset;      /* Offset hasta hasta los datos de imagen */
+} t_bmpFileHeader;
+
+typedef struct s_bmpInfoHeader
+{
+  unsigned int headersize;      /* Tamaño de la cabecera */
+  unsigned int width;               /* Ancho */
+  unsigned int height;          /* Alto */
+  unsigned short planes;                  /* Planos de color (Siempre 1) */
+  unsigned short bpp;             /* bits por pixel */
+  unsigned int compress;        /* compresión */
+  unsigned int imgsize;     /* tamaño de los datos de imagen */
+  unsigned int bpmx;                /* Resolución X en bits por metro */
+  unsigned int bpmy;                /* Resolución Y en bits por metro */
+  unsigned int colors;              /* colors used en la paleta */
+  unsigned int imxtcolors;      /* Colores importantes. 0 si son todos */
+} t_bmpInfoHeader;
 
 typedef struct	s_position
 {
@@ -141,14 +165,9 @@ typedef struct	s_text
 typedef struct	s_sprite
 {
 	t_pos			pos;
-	//float			angulo;
-	// float			angulo_spr_init;
-	// float			angulo_spr_end;
 	float			distance;
 	float			vectx;
 	float			vecty;
-	//float			anguloplayerobjeto;
-	//float			diferenciaangulo;
 	int				visible;
 	float			spriteangulo;
 	int				spr_bottom;
@@ -210,8 +229,8 @@ typedef struct	s_game
 
 void imprimir_matriz(t_game *pos);
 
-void	initialize(t_game *pos);
-void	read_map(t_game *pos);
+void	initialize(t_game *pos, char **argv);
+void	read_map(t_game *pos, char **argv);
 void	check_line(char *line, t_game *pos);
 void	position_player(t_game *pos, t_pos *tile_pos);
 void	sprites(t_game *pos);
@@ -221,8 +240,8 @@ void	reset_sprites(t_game *pos);
 void	resolution(char *buffer, t_game *pos, int ptr);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);
-int		open_file();
-void	create_map(t_game *pos);
+int		open_file(char **argv);
+void	create_map(t_game *pos, char **argv);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);

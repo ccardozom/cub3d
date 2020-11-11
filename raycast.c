@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/11 13:28:30 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.nextverttouchx = pos->rays.xintercep;
 	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <=
 	pos->winres.window_width &&
-	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <=
+	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <
 	pos->winres.window_height)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
@@ -103,6 +103,7 @@ void	cast_all_rays(t_game *pos)
 {
 	int id;
 
+	pos->rays.rayangle = 0;
 	if (!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) *
 	pos->player.num_rays)))
 		return_error(-1);

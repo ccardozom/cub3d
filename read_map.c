@@ -6,11 +6,16 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/11 10:13:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
+
+// void		vel_mov_player(t_game *pos)
+// {
+// 	if (pos->winres.x)
+// }
 
 void		get_colors(char *line, t_color *color, char param)
 {
@@ -55,6 +60,7 @@ void		resolution(char *line, t_game *pos, int ptr)
 		if (pos->winres.y > 1395)
 			pos->winres.y = 1395;
 	}
+	//vel_mov_player(pos);
 }
 
 void		check_line(char *line, t_game *pos)
@@ -84,12 +90,12 @@ void		check_line(char *line, t_game *pos)
 		is_map(line, pos);
 }
 
-void		read_map(t_game *pos)
+void		read_map(t_game *pos, char **argv)
 {
 	char	*line;
 	int		fd;
 
-	fd = open_file();
+	fd = open_file(argv);
 	reset_position(pos);
 	while (get_next_line(fd, &line) == 1)
 	{

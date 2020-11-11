@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 11:08:48 by ccardozo          #+#    #+#              #
-#    Updated: 2020/07/15 10:34:14 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/11/10 09:11:52 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ FILES = 		ft_memset.c \
 				ft_strlen.c \
 				ft_strrchr.c \
 				ft_strncmp.c \
+				ft_strcmp.c \
 				ft_strlcpy.c \
 				ft_strlcat.c \
 				ft_strnstr.c \
