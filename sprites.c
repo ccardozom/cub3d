@@ -18,7 +18,6 @@ void	ordenar_sprites(t_game *pos)
 	int			index;
 
 	index = 0;
-	//aux = NULL;
 	if (pos->spritecount > 1)
 		while (index <= pos->spritecount)
 		{
