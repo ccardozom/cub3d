@@ -6,16 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/11 10:13:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:19:34 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
-
-// void		vel_mov_player(t_game *pos)
-// {
-// 	if (pos->winres.x)
-// }
 
 void		get_colors(char *line, t_color *color, char param)
 {
@@ -55,12 +50,7 @@ void		resolution(char *line, t_game *pos, int ptr)
 		while (ft_isdigit(line[index]) == 0)
 			index++;
 		pos->winres.y = ft_atoi(&line[index]);
-		if (pos->winres.x > 2560)
-			pos->winres.x = 2560;
-		if (pos->winres.y > 1395)
-			pos->winres.y = 1395;
 	}
-	//vel_mov_player(pos);
 }
 
 void		check_line(char *line, t_game *pos)
@@ -100,6 +90,7 @@ void		read_map(t_game *pos, char **argv)
 	while (get_next_line(fd, &line) == 1)
 	{
 		check_line(line, pos);
+		free(line);
 	}
 	check_line(line, pos);
 	free(line);

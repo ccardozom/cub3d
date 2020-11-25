@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/10 09:36:07 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:57:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void		create_map(t_game *pos, char **argv)
 	{
 		reset_sprites(pos);
 		create_matriz(line, pos);
+		free(line);
 	}
 	create_matriz(line, pos);
 	free(line);

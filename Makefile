@@ -6,11 +6,11 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/11/10 10:06:10 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/11/20 11:37:27 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	cub3d
+NAME		=	cub3D
 
 SRCS1		=	cub3d.c read_map.c is_map.c texturas.c\
 				open_file.c create_map.c initialize.c\
