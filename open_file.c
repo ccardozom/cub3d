@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 09:46:20 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/10 09:33:04 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/26 08:43:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		open_file(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (!fd || fd < 0)
 	{
-		return_error();
+		return_error(2);
 	}
 	return (fd);
 }

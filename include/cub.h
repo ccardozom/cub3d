@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/11 13:10:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/26 12:37:52 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,7 +237,7 @@ void	sprites(t_game *pos);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
 void	reset_sprites(t_game *pos);
-void	resolution(char *buffer, t_game *pos, int ptr);
+void	resolution(char *buffer, t_game *pos);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);
 int		open_file(char **argv);
@@ -248,7 +248,7 @@ void	new_matriz(t_game *pos, char *line);
 void	wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
-void	return_error();
+void	return_error(int x);
 float   distancebetweenpoints(float x1, float y1, float x2, float y2);
 int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);

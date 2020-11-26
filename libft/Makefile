@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 11:08:48 by ccardozo          #+#    #+#              #
-#    Updated: 2020/11/10 09:11:52 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/11/26 10:26:55 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Werror -Wextra
 LFLAGS = -c
 
 FILES = 		ft_memset.c \
+				ft_strsearch.c \
 				ft_bzero.c \
 				ft_memcpy.c \
 				ft_memccpy.c \

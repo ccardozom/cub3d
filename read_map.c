@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/25 10:19:34 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/26 12:42:24 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,25 @@ void		get_colors(char *line, t_color *color, char param)
 	color->b = ft_atoi(line);
 }
 
-void		resolution(char *line, t_game *pos, int ptr)
+void		resolution(char *line, t_game *pos)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'R')
-	{
-		pos->control = 1;
-		index = ptr + 1;
-		while (ft_isdigit(line[index]) == 0)
-			index++;
-		pos->winres.x = ft_atoi(&line[index]);
-		while (ft_isdigit(line[index]) == 1)
-			index++;
-		index++;
-		while (ft_isdigit(line[index]) == 0)
-			index++;
-		pos->winres.y = ft_atoi(&line[index]);
+	while (*line == ' ')
+		line++;
+	if (*line == 'R')
+	{	pos->control = 1;
+		line++;
+		while (ft_isdigit(*line) == 0)
+			line++;
+		pos->winres.x = ft_atoi(line);
+		while (ft_isdigit(*line) == 1)
+			line++;
+		line++;
+		while (ft_isdigit(*line) == 0)
+			line++;
+		pos->winres.y = ft_atoi(line);
 	}
+	if (!(pos->winres.x) || !(pos->winres.y))
+		return_error (11);
 }
 
 void		check_line(char *line, t_game *pos)
@@ -60,7 +58,7 @@ void		check_line(char *line, t_game *pos)
 	index = 0;
 	while (line[index] == ' ')
 		index++;
-	resolution(line, pos, index);
+	resolution(line, pos);
 	path_texture_n(pos, line);
 	path_texture_s(pos, line);
 	path_texture_o(pos, line);

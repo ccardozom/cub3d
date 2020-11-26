@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_map.c                                           :+:      :+:    :+:   */
+/*   ft_strsearch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 10:40:00 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 08:46:11 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/11/26 10:20:37 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/11/26 10:29:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub.h"
+#include "libft.h"
 
-void	is_map(char *line, t_game *pos)
+int		ft_strsearch(const char *s1, const char *s2)
 {
-	int index;
+    int cont;
 
-	if (pos->control == 8 && *line != '\0')
+    cont = 0;
+	while (*s1)
 	{
-		index = ft_strlen(line);
-		if (pos->columns < index)
-			pos->columns = index;
-		index = 0;
-		while (line[index] != '\0')
-		{
-			if (line[index] == '2')
-				pos->spritecount += 1;
-			index++;
+		if ((unsigned char)*s1 != (unsigned char)*s2)
+			s1++;
+		else
+		{	
+			cont++;
+			s2++;
 		}
-		pos->rows++;
-		pos->control_map = 1;
+		if (cont == 4)
+			return (1);
 	}
-	if (pos->control_map == 1 && *line == '\0')
-		return_error(3);
+	return (0);
 }
