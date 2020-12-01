@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 12:37:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 14:47:03 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,8 +172,8 @@ typedef struct	s_sprite
 	float			spriteangulo;
 	int				spr_bottom;
 	int				spr_top;
-	int			x;
-	int			spr_height;
+	int				x;
+	int				spr_height;
 
 }				t_sprite;
 
@@ -190,12 +190,12 @@ typedef struct	s_textures
 
 typedef struct		s_tile_size
 {
-	int			size;
-	int			f;
-	int			c;
-	int			squa_f;
-	int			squa_c;
-	int			pos_squa;
+	int				size;
+	int				f;
+	int				c;
+	int				squa_f;
+	int				squa_c;
+	int				pos_squa;
 }					t_tile;
 
 typedef struct	s_game
@@ -225,6 +225,7 @@ typedef struct	s_game
 	t_rays			rays;
 	t_ray			*ray_data;
 	t_sprite		*sprites;
+	int				checking[8];
 }					t_game;
 
 void imprimir_matriz(t_game *pos);
@@ -232,6 +233,8 @@ void imprimir_matriz(t_game *pos);
 void	initialize(t_game *pos, char **argv);
 void	read_map(t_game *pos, char **argv);
 void	check_line(char *line, t_game *pos);
+int		checker(int *checker);
+int		search_wall(t_game *pos, char *line, char wall);
 void	position_player(t_game *pos, t_pos *tile_pos);
 void	sprites(t_game *pos);
 void	reset_position(t_game *pos);

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 12:02:02 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 10:12:26 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,9 @@ void	return_error(int x)
 	if (x == 12)
 		ft_putstr_fd("Error\n ¡¡No somos tan pequeños...!!" 
 		" Tamaño del mapa no valido\n", 1);
+	if (x == 13)
+		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!" 
+		" verifica eso ya...\n", 1);
+	system("leaks cub3D");
 	exit(0);
 }

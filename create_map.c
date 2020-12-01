@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 12:26:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 11:35:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void		create_map(t_game *pos, char **argv)
 	char	*line;
 	int		i;
 	int		fd;
-
+	if (pos->control == 8 && pos->control_map == 1)
+	{
 	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
 		return_error (4);
 	i = 0;
@@ -92,11 +93,13 @@ void		create_map(t_game *pos, char **argv)
 	{
 		reset_sprites(pos);
 		create_matriz(line, pos);
-		free(line);
+		if (line != '\0')
+			free(line);
 	}
 	create_matriz(line, pos);
 	free(line);
 	close(fd);
-	if (pos->control != 8)
+	}
+	else
 		return_error (11);
 }

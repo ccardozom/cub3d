@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 11:54:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/25 09:53:49 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 14:39:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,80 @@
 
 void	path_texture_n(t_game *pos, char *line)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'N' && line[index + 1] == 'O')
+	while (*line == ' ')
+		line++;
+	if (*line == 'N' && *(++line) == 'O')
 	{
-		pos->control += 1;
-		while (*line == ' ' || *line == 'N' || *line == 'O')
+		line++;
+		while (*line == ' ' && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->texture.north_text.path = ft_strdup(line);
+		pos->checking[1] = 1;
 	}
 }
 
 void	path_texture_s(t_game *pos, char *line)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'S' && line[index + 1] == 'O')
+	while (*line == ' ')
+		line++;
+	if (*line == 'S' && *(++line) == 'O')
 	{
-		pos->control += 1;
-		while (*line == ' ' || *line == 'S' || *line == 'O')
+		line++;
+		while (*line == ' ' && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->texture.south_text.path = ft_strdup(line);
+		pos->checking[2] = 1;
 	}
 }
 
 void	path_texture_o(t_game *pos, char *line)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'W' && line[index + 1] == 'E')
+	while (*line == ' ')
+		line++;
+	if (*line == 'W' && *(++line) == 'E')
 	{
-		pos->control += 1;
-		while (*line == ' ' || *line == 'W' || *line == 'E')
+		line++;
+		while (*line == ' ' && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->texture.weast_text.path = ft_strdup(line);
+		pos->checking[3] = 1;
 	}
 }
 
 void	path_texture_e(t_game *pos, char *line)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'E' && line[index + 1] == 'A')
+	while (*line == ' ')
+		line++;
+	if (*line == 'E' && *(++line) == 'A')
 	{
-		pos->control += 1;
-		while (*line == ' ' || *line == 'E' || *line == 'A')
+		line++;
+		while (*line == ' ' && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->texture.east_text.path = ft_strdup(line);
+		pos->checking[4] = 1;
 	}
 }
 
 void	path_texture_sp(t_game *pos, char *line)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'S' && line[index + 1] != 'O')
+	while (*line == ' ')
+		line++;
+	if (*line == 'S' && *(++line) != 'O')
 	{
-		pos->control += 1;
-		while (*line == ' ' || *line == 'S')
+		line++;
+		while (*line == ' ' && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->texture.sprite.path = ft_strdup(line);
+		pos->checking[5] = 1;
 	}
 }

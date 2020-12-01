@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wall_control.c                                     :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/20 10:44:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 14:47:42 by ccardozo         ###   ########.fr       */
+/*   Created: 2020/12/01 14:00:59 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/12/01 14:48:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
 
-int	search_wall(t_game *pos, char *line, char wall)
+int		check_data(int *checker)
+{
+	int i;
+
+	i = 0;
+	while (checker[i])
+	{
+		if (checker[i] != 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int		checker(int *checker)
 {
 	int check;
-
+	
 	check = 0;
-	while (*line)
-	{
-		if ((unsigned char)*line != (unsigned char)wall && ft_isalpha(*line) == 0)
-			line++;
-		else if (checker(pos->checking))
-		{	
-			return (1);
-		}
-	}
-	return (0);
+	check = check_data(checker);
+	return (check);
 }

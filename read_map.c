@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 12:42:24 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 14:46:20 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,30 @@ void		resolution(char *line, t_game *pos)
 	while (*line == ' ')
 		line++;
 	if (*line == 'R')
-	{	pos->control = 1;
-		line++;
-		while (ft_isdigit(*line) == 0)
+	{
+		while (ft_isdigit(*line) == 0 && *line != '\0')
 			line++;
+		if (*line == '\0')
+			return_error (11);
 		pos->winres.x = ft_atoi(line);
 		while (ft_isdigit(*line) == 1)
 			line++;
 		line++;
-		while (ft_isdigit(*line) == 0)
+		while ((*line == ' ' || ft_isdigit(*line) == 0) && *line != '\0')
 			line++;
 		pos->winres.y = ft_atoi(line);
+		while (ft_isdigit(*line) == 1)
+			line++;
+		while (*line != '\0')
+		{
+			if (*line != ' ')
+				return_error (13);
+			line++;
+		}
+		if (!(pos->winres.x) || !(pos->winres.y))
+			return_error (11);
+		pos->checking[0] = 1;
 	}
-	if (!(pos->winres.x) || !(pos->winres.y))
-		return_error (11);
 }
 
 void		check_line(char *line, t_game *pos)
@@ -66,15 +76,15 @@ void		check_line(char *line, t_game *pos)
 	path_texture_sp(pos, line);
 	if (ft_strchr(line, 'F'))
 	{
-		pos->control += 1;
+		pos->checking[6] = 1;
 		get_colors((char*)line, &pos->texture.floor, 'F');
 	}
 	else if (ft_strchr(line, 'C'))
 	{
-		pos->control += 1;
+		pos->checking[7] = 1;
 		get_colors((char*)line, &pos->texture.ceilling, 'C');
 	}
-	else if (pos->control == 8)
+	else if (checker(pos->checking) && search_wall(pos, line, '1'))
 		is_map(line, pos);
 }
 
@@ -82,9 +92,17 @@ void		read_map(t_game *pos, char **argv)
 {
 	char	*line;
 	int		fd;
+	int		i;
 
 	fd = open_file(argv);
 	reset_position(pos);
+	i = 0;
+	while (pos->checking[i])
+	{
+		pos->checking[i] = 0;
+		i++;
+	}
+	pos->checking[i] = '\0';
 	while (get_next_line(fd, &line) == 1)
 	{
 		check_line(line, pos);

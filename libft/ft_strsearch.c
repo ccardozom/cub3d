@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:20:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 10:29:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/01 13:31:31 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_strsearch(const char *s1, const char *s2)
 {
-    int cont;
+	int cont;
 
-    cont = 0;
+	cont = 0;
 	while (*s1)
 	{
 		if ((unsigned char)*s1 != (unsigned char)*s2)
