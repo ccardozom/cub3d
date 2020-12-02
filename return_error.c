@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 11:07:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 13:31:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	return_error(int x)
 		ft_putstr_fd("Error\n ¡¡Sabes que es lo que quiero....?!!" 
 		" Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?\n", 1);
 	if (x == 12)
-		ft_putstr_fd("Error\n ¡¡No somos tan pequeños...!!" 
-		" Tamaño del mapa no valido\n", 1);
+		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
+		" El mapa no es valido\n", 1);
 	if (x == 13)
 		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!" 
 		" verifica eso ya...\n", 1);

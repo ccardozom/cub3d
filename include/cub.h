@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 10:31:40 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 13:36:35 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,7 +250,7 @@ void	create_map(t_game *pos, char **argv);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);
-void	wall_control(char **matriz, int rows, int columns);
+int		wall_control(char **mapa, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 void	return_error(int x);
