@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 14:00:59 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 14:48:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 08:41:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		check_data(int *checker)
 	int i;
 
 	i = 0;
-	while (checker[i])
+	while (i < 8)
 	{
 		if (checker[i] != 1)
 			return (0);

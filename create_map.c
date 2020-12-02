@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 11:35:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:40:24 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	new_matriz(t_game *pos, char *line)
 		if (line[(int)pos->matriz.x] == '1' ||
 		line[(int)pos->matriz.x] == '2' ||
 		player(line[(int)pos->matriz.x]) == 0 ||
-		line[(int)pos->matriz.x] == '0')
+		line[(int)pos->matriz.x] == '0' ||
+		line[(int)pos->matriz.x] == ' ')
 			{
 				if (line[(int)pos->matriz.x] == '2')
 				{
@@ -45,29 +46,10 @@ void	new_matriz(t_game *pos, char *line)
 
 void		create_matriz(char *line, t_game *pos)
 {
-	int		index;
-
-	index = 0;
-	while (line[index] == ' ')
-		index++;
-	if (line[index] == 'R')
-		pos->control = 1;
-	else if (line[index] == 'N' && line[index + 1] == 'O')
-		pos->control += 1;
-	else if (line[index] == 'S' && line[index + 1] == 'O')
-		pos->control += 1;
-	else if (line[index] == 'W' && line[index + 1] == 'E')
-		pos->control += 1;
-	else if (line[index] == 'E' && line[index + 1] == 'A')
-		pos->control += 1;
-	else if (line[index] == 'S')
-		pos->control += 1;
-	else if (ft_strchr(line, 'F'))
-		pos->control += 1;
-	else if (ft_strchr(line, 'C'))
-		pos->control += 1;
-	else if (pos->control == 8 && *line != '\0')
+	if ((pos->line_count2 == pos->line_count1) && *line != '\0')
 		new_matriz(pos, line);
+	if (pos->line_count2 != pos->line_count1)
+		pos->line_count2++;
 }
 
 void		create_map(t_game *pos, char **argv)
@@ -75,7 +57,7 @@ void		create_map(t_game *pos, char **argv)
 	char	*line;
 	int		i;
 	int		fd;
-	if (pos->control == 8 && pos->control_map == 1)
+	if (checker(pos->checking) && pos->control_map == 1)
 	{
 	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
 		return_error (4);

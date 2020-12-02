@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 10:12:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:07:13 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	return_error(int x)
 		" hacemos nada!! No se puede leer el archivo .cub\n", 1);
 	if (x == 3)
 		ft_putstr_fd("Error\n ¡¡Te he dicho que esto esta" 
-		" pro-hi-bi-do!! Existe un espacio vacio al final del mapa\n", 1);
+		" pro-hi-bi-do!! Existe lineas vacias en el mapa\n", 1);
 	if (x == 4)
 		ft_putstr_fd("Error\n No se a podido reservar memoria\n", 1);
 	if (x == 5)

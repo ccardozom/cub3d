@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 14:47:03 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 10:31:40 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,8 @@ typedef struct	s_game
 	int				spritecount;
 	int				spritecount_aux;
 	int				pos_id_spr;
+	int				line_count1;
+	int				line_count2;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
@@ -234,7 +236,7 @@ void	initialize(t_game *pos, char **argv);
 void	read_map(t_game *pos, char **argv);
 void	check_line(char *line, t_game *pos);
 int		checker(int *checker);
-int		search_wall(t_game *pos, char *line, char wall);
+int		search_wall(t_game *pos, char *line);
 void	position_player(t_game *pos, t_pos *tile_pos);
 void	sprites(t_game *pos);
 void	reset_position(t_game *pos);

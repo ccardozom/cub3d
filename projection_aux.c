@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/26 08:54:46 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:45:46 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ int			charge_textures(t_game *pos, t_text *texture)
 void		charge_textures_main(t_game *pos)
 {
 	if (!(charge_textures(pos, &pos->texture.north_text)))
-		return_error(5);
+		return_error (5);
 	if (!(charge_textures(pos, &pos->texture.south_text)))
-		return_error(6);
+		return_error (6);
 	if (!(charge_textures(pos, &pos->texture.weast_text)))
-		return_error(7);
+		return_error (7);
 	if (!(charge_textures(pos, &pos->texture.east_text)))
-		return_error(8);
+		return_error (8);
 	if (!(charge_textures(pos, &pos->texture.sprite)))
-		return_error(9);
+		return_error (9);
 }
 
 void		color_all_buffer(t_game *pos)

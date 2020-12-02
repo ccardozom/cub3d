@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/25 14:13:34 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:41:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ordenar_sprites(t_game *pos)
 	int			index;
 	int			cont_sprites;
 
-	//aux = (t_sprite *)malloc(sizeof(t_sprite) + 1);
 	index = 0;
 	if (pos->spritecount > 1)
 		while (index < pos->spritecount)
@@ -53,7 +52,6 @@ void	ordenar_sprites(t_game *pos)
 			}
 			index++;
 		}
-	//free(aux);
 }
 
 void	angulo_spr_vision(t_sprite *sprites, t_game *pos)

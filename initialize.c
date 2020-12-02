@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:22:02 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:27 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:34:22 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	map_controll(t_game *pos)
 {
-	if (pos->control == 8 && pos->rows < 4 && pos->columns < 4)
+	if (checker(pos->checking) && pos->rows < 4 && pos->columns < 4)
 		return_error (12);
-	if (pos->control != 8)
+	if (!checker(pos->checking))
 		return_error (11);
 }
 

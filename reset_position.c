@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 14:34:02 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:16:23 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,6 @@ void	reset_position(t_game *pos)
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;
 	pos->pos_id_spr = 0;
+	pos->line_count1 = 0;
+	pos->line_count2 = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/01 14:46:20 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:09:51 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void		check_line(char *line, t_game *pos)
 		pos->checking[7] = 1;
 		get_colors((char*)line, &pos->texture.ceilling, 'C');
 	}
-	else if (checker(pos->checking) && search_wall(pos, line, '1'))
+	else if (search_wall(pos, line))
 		is_map(line, pos);
+	if (pos->control_map == 0)
+		pos->line_count1++;
 }
 
 void		read_map(t_game *pos, char **argv)
