@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:44:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/04 09:22:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/04 10:57:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	check_wall_line(char **mapa, int rows, int columns, t_checkmap *checkmap)
 { //aqui hay que mirar el fallo para el mapa de la derech
 	if (checkmap->check_ini == 0 || checkmap->check_fin == 0)
 	{
-	if (checkmap->check_ini == 1 && (mapa[rows - 1][columns] == '1' ||
-		mapa[rows][columns + 1] == '1' || mapa[rows + 1][columns] == '2' || mapa[rows + 1][columns] == '1'
-		|| player(mapa[rows][columns + 1]) || mapa[rows ][columns] != '0') )
+	if (checkmap->check_ini == 1 && mapa[rows][columns] == '1' && (mapa[rows - 1][columns] == '1' ||
+		mapa[rows][columns + 1] == '1' || mapa[rows + 1][columns] == '1'))
 		checkmap->check_fin = 1;
 	if (mapa[rows - 1][columns] == '1' && (mapa[rows][columns + 1] == '0' ||
 		mapa[rows][columns + 1] == '2' || player(mapa[rows][columns + 1])) && checkmap->check_ini == 0)
 		checkmap->check_ini = 1;	
 	}
+	if (mapa[rows][columns + 1] == '1' && mapa[rows + 1][columns] != '8' && mapa[rows][columns + 1] != '\0')
+		checkmap->check_fin = 0;
 }
 
 void	check_wallup_close(char **mapa, int rows, int columns)
