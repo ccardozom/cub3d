@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 11:40:24 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/03 10:02:37 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,23 @@ void	new_matriz(t_game *pos, char *line)
 		player(line[(int)pos->matriz.x]) == 0 ||
 		line[(int)pos->matriz.x] == '0' ||
 		line[(int)pos->matriz.x] == ' ')
+		{
+			if (line[(int)pos->matriz.x] == '2')
 			{
-				if (line[(int)pos->matriz.x] == '2')
-				{
-					pos->sprites[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
-					pos->sprites[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
-				}
-				pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
-				line[(int)pos->matriz.x];
+				pos->sprites[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
+				pos->sprites[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
 			}
+			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
+			line[(int)pos->matriz.x];
+			if (player(line[(int)pos->matriz.x]) == 0)
+				pos->checkplayer = 1;
+		}
+		else
+		{
+			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
+			'8';
+		}
+		
 		pos->matriz.x++;
 	}
 	pos->matriz.x = 0;
@@ -57,7 +65,8 @@ void		create_map(t_game *pos, char **argv)
 	char	*line;
 	int		i;
 	int		fd;
-	if (checker(pos->checking) && pos->control_map == 1)
+	if (checker(pos->checking) &&
+	pos->control_map == 1)
 	{
 	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
 		return_error (4);

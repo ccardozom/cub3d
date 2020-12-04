@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:22:02 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 13:36:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/03 13:03:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	map_controll(t_game *pos)
 		return_error (12);
 	if (!checker(pos->checking))
 		return_error (11);
-	if (!wall_control(pos->map, pos->rows, pos->columns))
+	if (!wall_control(pos->map, pos->rows, pos->columns, &pos->checkmap))
+		return_error (12);
+	if (pos->checkplayer == 0)
 		return_error (12);
 }
 

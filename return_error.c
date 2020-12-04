@@ -6,22 +6,32 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 13:31:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/03 11:56:07 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
 
+void	error_map(int x)
+{
+	if (x == 3)
+		ft_putstr_fd("Error\n ¡¡Te he dicho que esto esta" 
+		" pro-hi-bi-do!! Existe lineas vacias en el mapa\n", 1);
+	if (x == 12)
+		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
+		" El mapa no es valido. Falta Jugador\n", 1);
+	if (x == 14)
+		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
+		" El mapa no es valido. No esta rodeado de muros\n", 1);
+}
 void	return_error(int x)
 {
+	error_map(x);
 	if (x == 1)
 		ft_putstr_fd("Error\n ¡¡Estamos jodidos!! No existe argumento\n", 1);
 	if (x == 2)
 		ft_putstr_fd("Error\n ¡¡jajaja sin algo que leer no" 
 		" hacemos nada!! No se puede leer el archivo .cub\n", 1);
-	if (x == 3)
-		ft_putstr_fd("Error\n ¡¡Te he dicho que esto esta" 
-		" pro-hi-bi-do!! Existe lineas vacias en el mapa\n", 1);
 	if (x == 4)
 		ft_putstr_fd("Error\n No se a podido reservar memoria\n", 1);
 	if (x == 5)
@@ -45,9 +55,6 @@ void	return_error(int x)
 	if (x == 11)
 		ft_putstr_fd("Error\n ¡¡Sabes que es lo que quiero....?!!" 
 		" Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?\n", 1);
-	if (x == 12)
-		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
-		" El mapa no es valido\n", 1);
 	if (x == 13)
 		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!" 
 		" verifica eso ya...\n", 1);

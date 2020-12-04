@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 13:36:35 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/03 12:44:20 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,6 +198,14 @@ typedef struct		s_tile_size
 	int				pos_squa;
 }					t_tile;
 
+typedef struct		s_map
+{
+	int				f;
+	int				c;
+	int				check_ini;
+	int				check_fin;
+}					t_checkmap;
+
 typedef struct	s_game
 {
 	int				fd;
@@ -216,6 +224,8 @@ typedef struct	s_game
 	int				pos_id_spr;
 	int				line_count1;
 	int				line_count2;
+	int				checkplayer;
+	t_checkmap		checkmap;
 	t_pos			dir;
 	t_pos			winres;
 	t_pos			matriz;
@@ -238,6 +248,7 @@ void	check_line(char *line, t_game *pos);
 int		checker(int *checker);
 int		search_wall(t_game *pos, char *line);
 void	position_player(t_game *pos, t_pos *tile_pos);
+int		player(char c);
 void	sprites(t_game *pos);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
@@ -250,7 +261,7 @@ void	create_map(t_game *pos, char **argv);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);
-int		wall_control(char **mapa, int rows, int columns);
+int		wall_control(char **mapa, int rows, int columns, t_checkmap *checkmap);
 int     wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 void	return_error(int x);
