@@ -6,46 +6,60 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:44:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/04 10:57:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/07 10:04:53 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
 
 void	check_wall_line(char **mapa, int rows, int columns, t_checkmap *checkmap)
-{ //aqui hay que mirar el fallo para el mapa de la derech
+{
 	if (checkmap->check_ini == 0 || checkmap->check_fin == 0)
 	{
 	if (checkmap->check_ini == 1 && mapa[rows][columns] == '1' && (mapa[rows - 1][columns] == '1' ||
 		mapa[rows][columns + 1] == '1' || mapa[rows + 1][columns] == '1'))
-		checkmap->check_fin = 1;
+	checkmap->check_fin = 1;
 	if (mapa[rows - 1][columns] == '1' && (mapa[rows][columns + 1] == '0' ||
 		mapa[rows][columns + 1] == '2' || player(mapa[rows][columns + 1])) && checkmap->check_ini == 0)
 		checkmap->check_ini = 1;	
 	}
-	if (mapa[rows][columns + 1] == '1' && mapa[rows + 1][columns] != '8' && mapa[rows][columns + 1] != '\0')
+	if ((mapa[rows][columns + 1] == '1' || mapa[rows][columns + 1] != '\0') && mapa[rows][columns + 1] != '8' &&
+	mapa[rows + 1][columns] != '8')
 		checkmap->check_fin = 0;
 }
 
 void	check_wallup_close(char **mapa, int rows, int columns)
 {
-	if (mapa[rows][columns] != '1' && mapa[rows + 1][columns] != '1' &&
-		(mapa[rows + 1][columns] == '0' ||
-		mapa[rows + 1][columns] == '2' || player(mapa[rows + 1][columns])))
-		return_error (14);
-	if (mapa[rows][columns + 1] == '1' || mapa[rows + 1][columns] == '1')
+	if (mapa[rows][columns] == '1' || mapa[rows][columns] == '8')
+	{
+		if (mapa[rows][columns] == '8' && mapa[rows + 1][columns] == '1')
+		{
+			if ((mapa[rows + 1][columns - 1] == '0' ||
+			mapa[rows + 1][columns - 1] == '2' || player(mapa[rows + 1][columns - 1])) ||
+			(mapa[rows + 1][columns + 1] == '0' ||
+			mapa[rows + 1][columns + 1] == '2' || player(mapa[rows + 1][columns + 1])))
+			return_error (14);
+		}
 		;
+	}
 	else
 		return_error (14);
 }
 
 void	check_walldown_close(char **mapa, int rows, int columns)
 {
-	if (mapa[rows][columns] != '1' && (mapa[rows - 1][columns] == '0' ||
-		mapa[rows - 1][columns] == '2' || player(mapa[rows - 1][columns])))
-		return_error (14);
-	if (mapa[rows][columns - 1] == '1' || mapa[rows - 1][columns] == '1')
+	if (mapa[rows][columns] == '1' || mapa[rows][columns] == '8')
+	{
+		if (mapa[rows][columns] == '8' && mapa[rows - 1][columns] == '1')
+		{
+			if ((mapa[rows - 1][columns - 1] == '0' ||
+			mapa[rows - 1][columns - 1] == '2' || player(mapa[rows - 1][columns - 1])) ||
+			(mapa[rows - 1][columns + 1] == '0' ||
+			mapa[rows - 1][columns + 1] == '2' || player(mapa[rows - 1][columns + 1])))
+			return_error (14);
+		}
 		;
+	}
 	else
 		return_error (14);
 }
@@ -80,9 +94,9 @@ int		wall_control(char **map, int rows, int columns, t_checkmap *checkmap)
 	checkmap->f = 0;
 	while (checkmap->f < rows)
 	{
-		checkmap->c = 0;
 		checkmap->check_ini = 0;
 		checkmap->check_fin = 0;
+		checkmap->c = 0;
 		while (checkmap->c < columns)
 		{
 			if (checkmap->f == 0)

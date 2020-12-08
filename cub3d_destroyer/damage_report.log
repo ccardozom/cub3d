@@ -1,13 +1,12 @@
-Wed Dec  2 11:11:11 CET 2020
+Mon Dec  7 09:03:01 CET 2020
 
 
 =============== CUB3D DESTROYER - DAMAGE REPORT ===============
 
-[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF # 1]=====================
-./invalid_maps/invalid_map_area_009.cub
+./invalid_maps/invalid_map_area_012.cub
 R 1080 720
 NO ./wolftex/greystone.png
 SO ./wolftex/redbrick.png
@@ -17,19 +16,8 @@ S ./wolftex/barrel.png
 C 255,200,160
 F 122,122,122
 
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001
-10202020N02020201
-10000000000000001
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
- 1111111111111111
+11
+11
 
 PARSER OUTPUT:
 
@@ -50,67 +38,9 @@ F 122,122,122
 111
 
 PARSER OUTPUT:
-[139] Segmentation fault
 
 
 =====================[DESTROYED STUFF # 3]=====================
-./invalid_maps/invalid_map_area_024.cub
-R 1080 720
-NO ./wolftex/greystone.png
-SO ./wolftex/redbrick.png
-EA ./wolftex/wood.png
-WE ./wolftex/wood.png
-S ./wolftex/barrel.png
-C 255,200,160
-F 122,122,122
-
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001    11
-10000000000000001111101
-10202020N02020200000001
-10000000000000001111101
-10002000200200001   111
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-PARSER OUTPUT:
-[139] Segmentation fault
-
-
-=====================[DESTROYED STUFF # 4]=====================
-./invalid_maps/invalid_map_area_025.cub
-R 1080 720
-NO ./wolftex/greystone.png
-SO ./wolftex/redbrick.png
-EA ./wolftex/wood.png
-WE ./wolftex/wood.png
-S ./wolftex/barrel.png
-C 255,200,160
-F 122,122,122
-
-11111111111111111
-10000000000000001
-10200000200000201
-10000000000000001
-10002000200020001
-10000000000000001   11
-10202020002020201   1N1
-10000000000000001   111
-10002000200200001
-10000000000000001
-10200000200002001
-10000000000000001
-11111111111111111
-
-PARSER OUTPUT:
-
-
-=====================[DESTROYED STUFF # 5]=====================
 valid_maps/valid_map_area_001.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -152,10 +82,9 @@ F 122,122,122
 PARSER OUTPUT:
 Error
  ¡¡Te he dicho que esto esta pro-hi-bi-do!! Existe lineas vacias en el mapa
-[139] Segmentation fault
 
 
-=====================[DESTROYED STUFF # 6]=====================
+=====================[DESTROYED STUFF # 4]=====================
 valid_maps/valid_map_area_002.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -195,10 +124,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF # 7]=====================
+=====================[DESTROYED STUFF # 5]=====================
 valid_maps/valid_map_area_003.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -240,10 +170,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF # 8]=====================
+=====================[DESTROYED STUFF # 6]=====================
 valid_maps/valid_map_area_004.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -285,10 +216,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF # 9]=====================
+=====================[DESTROYED STUFF # 7]=====================
 valid_maps/valid_map_area_005.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -330,10 +262,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #10]=====================
+=====================[DESTROYED STUFF # 8]=====================
 valid_maps/valid_map_area_006.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -404,10 +337,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #11]=====================
+=====================[DESTROYED STUFF # 9]=====================
 valid_maps/valid_map_area_007.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -479,10 +413,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #12]=====================
+=====================[DESTROYED STUFF #10]=====================
 valid_maps/valid_map_area_008.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -612,10 +547,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #13]=====================
+=====================[DESTROYED STUFF #11]=====================
 valid_maps/valid_map_area_009.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -686,10 +622,11 @@ F 122,122,122
 11111111111111111
 
 PARSER OUTPUT:
-[139] Segmentation fault
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #14]=====================
+=====================[DESTROYED STUFF #12]=====================
 valid_maps/valid_map_area_010.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -767,9 +704,11 @@ F 122,122,122
 1
 
 PARSER OUTPUT:
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #15]=====================
+=====================[DESTROYED STUFF #13]=====================
 valid_maps/valid_map_area_011.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -864,10 +803,9 @@ F 122,122,122
 PARSER OUTPUT:
 Error
  ¡¡Te he dicho que esto esta pro-hi-bi-do!! Existe lineas vacias en el mapa
-[139] Segmentation fault
 
 
-=====================[DESTROYED STUFF #16]=====================
+=====================[DESTROYED STUFF #14]=====================
 valid_maps/valid_map_area_012.cub
 R 1080 720
 NO ./wolftex/greystone.png
@@ -945,9 +883,11 @@ F 122,122,122
 1
 
 PARSER OUTPUT:
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
 
 
-=====================[DESTROYED STUFF #17]=====================
+=====================[DESTROYED STUFF #15]=====================
 valid_maps/valid_tex_011.cub
 R 1080 720
 SO ./wolftex/redbrick.png
@@ -977,7 +917,7 @@ Error
  ¡¡Sabes que es lo que quiero....?!! Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?
 
 
-=====================[DESTROYED STUFF #18]=====================
+=====================[DESTROYED STUFF #16]=====================
 valid_maps/valid_tex_015.cub
 F 122,122,122
 SO 	./wolftex/redbrick.png
@@ -1007,7 +947,7 @@ Error
  ¡¡Sabes que es lo que quiero....?!! Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?
 
 
-=====================[DESTROYED STUFF #19]=====================
+=====================[DESTROYED STUFF #17]=====================
 valid_maps/valid_tex_017.cub
 SO ./wolftex/redbrick.png
 EA ./wolftex/wood.png
@@ -1035,7 +975,88 @@ R 1080 720
 PARSER OUTPUT:
 Error
  ¡¡Sabes que es lo que quiero....?!! Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?
-[139] Segmentation fault
+
+
+=====================[DESTROYED STUFF #18]=====================
+valid_maps/valid_tex_033.cub
+R 1080 720
+SO ./wolftex/redbrick.png
+EA ./wolftex/wood.png
+C 255,200,160
+F 122,122,122
+
+S                               ./wolftex/barrel.png
+                                                                WE ./wolftex/wood.png
+            NO ./wolftex/greystone.png
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
+
+
+=====================[DESTROYED STUFF #19]=====================
+valid_maps/valid_tex_042.cub
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            WE                                                                                                                   ./wolftex/wood.png
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    SO                                                                         ./wolftex/redbrick.png
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             F                                  122                    ,                       122,                    122
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO                                                                             ./wolftex/greystone.png
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            S                                                           ./wolftex/barrel.png
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           R                                                     1080                  720
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     EA                                                                                           ./wolftex/wood.png
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 C                                           255                                                                                            ,200,160
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Sabes que es lo que quiero....?!! Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?
 
 
 =====================[DESTROYED STUFF #20]=====================
@@ -1062,3 +1083,49 @@ C 42,0,81
 11111111111111111
 
 PARSER OUTPUT:
+Error
+ ¡¡Algo falla...!! El mapa no es valido. No esta rodeado de muros
+
+
+=====================[DESTROYED STUFF #21]=====================
+valid_maps/valid_tex_050.cub
+
+
+SO ./wolftex/redbrick.png
+                                                                NO ./wolftex/greystone.png
+                                    
+                                    
+
+
+
+                                    R 1080 720
+
+
+
+
+
+
+
+                                                                    F 122,122,122
+EA ./wolftex/wood.png
+            WE ./wolftex/wood.png
+                                                S ./wolftex/barrel.png
+                                C 255,200,160
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Sabes que es lo que quiero....?!! Faltan datos para arrancar el juego ¿[R,NO,SO,EA,WE,F,S,C]?
