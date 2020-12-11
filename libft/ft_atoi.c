@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccardozo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 08:20:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2019/11/21 10:21:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 10:05:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int				ft_atoi(const char *s)
 	long int	nb;
 
 	nb = 0;
+	if (ft_strcmp(s, "") == 0)
+		return (-1);
 	while (*s == 32 || (*s >= 9 && *s <= 13))
 		s++;
 	p = (*s == '-') ? -1 : 1;

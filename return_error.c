@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/08 09:41:12 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 11:24:58 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	error_map(int x)
 {
 	if (x == 3)
 		ft_putstr_fd("Error\n ¡¡Te he dicho que esto esta" 
-		" pro-hi-bi-do!! Existe lineas vacias en el mapa\n", 1);
+		" pro-hi-bi-do!! Existe lineas vacias al final mapa\n", 1);
 	if (x == 12)
 		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
 		" El mapa no es valido. Falta Jugador\n", 1);
@@ -58,6 +58,6 @@ void	return_error(int x)
 	if (x == 13)
 		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!" 
 		" verifica eso ya...\n", 1);
-	system("leaks cub3D");
+	//system("leaks cub3D");
 	exit(0);
 }

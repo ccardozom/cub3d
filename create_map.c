@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/03 10:02:37 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 01:15:34 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,43 @@ int		player(char c)
 
 void	new_matriz(t_game *pos, char *line)
 {
+	int	check_end_line;
+
+	check_end_line = 0;
 	while (pos->matriz.x < pos->columns)
 	{
-		if (line[(int)pos->matriz.x] == '1' ||
-		line[(int)pos->matriz.x] == '2' ||
-		player(line[(int)pos->matriz.x]) == 0 ||
-		line[(int)pos->matriz.x] == '0' ||
-		line[(int)pos->matriz.x] == ' ')
+		if (line[(int)pos->matriz.x] == '\0')
+			check_end_line = 1;
+		if (check_end_line == 0)
 		{
-			if (line[(int)pos->matriz.x] == '2')
+			if (line[(int)pos->matriz.x] == '1' ||
+			line[(int)pos->matriz.x] == '2' ||
+			player(line[(int)pos->matriz.x]) == 0 ||
+			line[(int)pos->matriz.x] == '0' ||
+			line[(int)pos->matriz.x] == ' ')
 			{
-				pos->sprites[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
-				pos->sprites[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
+				if (line[(int)pos->matriz.x] == '2')
+				{
+					pos->sprites[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
+					pos->sprites[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
+				}
+				if (line[(int)pos->matriz.x] == ' ')
+					pos->map[(int)pos->matriz.y][(int)pos->matriz.x] = '8';
+				else
+					pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
+					line[(int)pos->matriz.x];
+				if (player(line[(int)pos->matriz.x]) == 0)
+					pos->checkplayer = 1;
 			}
-			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
-			line[(int)pos->matriz.x];
-			if (player(line[(int)pos->matriz.x]) == 0)
-				pos->checkplayer = 1;
 		}
 		else
 		{
 			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
 			'8';
 		}
-		
 		pos->matriz.x++;
 	}
+	pos->map[(int)pos->matriz.y][(int)pos->matriz.x] = '\0';
 	pos->matriz.x = 0;
 	pos->matriz.y++;
 }
@@ -58,6 +69,25 @@ void		create_matriz(char *line, t_game *pos)
 		new_matriz(pos, line);
 	if (pos->line_count2 != pos->line_count1)
 		pos->line_count2++;
+}
+
+void	rellenar_matriz(char **matriz, int filas, int columnas)
+{
+	int i;
+	int j;
+	
+	j = 0;
+	while (filas > j)
+	{
+		i = 0;
+		while (columnas > i)
+		{
+			matriz[j][i] = '8';
+			i++;
+		}	
+		matriz[j][i] = '\0';
+		j++;
+	}
 }
 
 void		create_map(t_game *pos, char **argv)
@@ -73,10 +103,11 @@ void		create_map(t_game *pos, char **argv)
 	i = 0;
 	while (i < pos->rows)
 	{
-		if (!(pos->map[i] = (char *)malloc(pos->columns * sizeof(char) + 1)))
+		if (!(pos->map[i] = (char *)malloc((pos->columns + 1) * sizeof(char))))
 			return_error (4);
 		i++;
 	}
+	rellenar_matriz(pos->map, pos->rows, pos->columns);
 	if (!(pos->sprites = (t_sprite *)malloc(sizeof(t_sprite) * pos->spritecount)))
 		return_error (4);
 	fd = open_file(argv);

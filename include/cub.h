@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/08 09:40:47 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 16:01:21 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ typedef struct	s_game
 	int				line_count1;
 	int				line_count2;
 	int				checkplayer;
+	int				control_line_empty;
 	t_checkmap		checkmap;
 	t_pos			dir;
 	t_pos			winres;
@@ -261,9 +262,9 @@ void	create_map(t_game *pos, char **argv);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);
-int		wall_control(char **mapa, int rows, int columns, t_checkmap *checkmap);
+int		wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
-void	start(t_game *pos);
+void	start(t_game *pos, char **argv);
 void	return_error(int x);
 void	free_all(t_game *pos);
 float   distancebetweenpoints(float x1, float y1, float x2, float y2);

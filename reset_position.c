@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/03 09:44:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 08:27:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	reset_pos_move(t_game *pos)
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
 	pos->texture.east_text.path = NULL;
+	pos->texture.ceilling.r = '\0';
+	pos->texture.ceilling.g = '\0';
+	pos->texture.ceilling.b = '\0';
+	pos->texture.floor.r = '\0';
+	pos->texture.floor.g = '\0';
+	pos->texture.floor.b = '\0';
 }
 
 void	reset_rays_data(t_game *pos)

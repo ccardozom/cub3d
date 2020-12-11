@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/08 17:36:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:35:26 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		key_press(int keycode, t_game *pos)
 	{
 		free_all(pos);
 		//free(pos->texture.sprite.path);
-		system("leaks cub3D");
+		//system("leaks cub3D");
 		exit(0);
 	}
 	return (0);
