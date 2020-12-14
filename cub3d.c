@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 16:20:29 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/12 10:06:30 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ int		main(int argc, char **argv)
 	
 	if (argc < 2 || argc > 3)
 		return_error(1);
+if (ft_strsearch(argv[1], ".cub"))
+	initialize(&pos, argv);
 	if (argv[2])
 	{
 		if (ft_strcmp(argv[2], "--save") == 0)
 		{
-			start(&pos, argv);
 			save_bmp(&pos);
 		}
 		else
@@ -56,7 +57,8 @@ int		main(int argc, char **argv)
 	}
 	else if (ft_strsearch(argv[1], ".cub") == 1 && !(argv[2]))
 	{
-		start(&pos, argv);
+		//initialize(&pos, argv);
+		start(&pos);
 		mlx_hook(pos.mlx_win, 2, 0, &key_press, &pos);
 		mlx_hook(pos.mlx_win, 3, 0, &key_release, &pos);
 		mlx_loop_hook(pos.mlx, &main_loop, &pos);

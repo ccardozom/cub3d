@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 11:24:58 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/12 09:00:24 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	return_error(int x)
 		ft_putstr_fd("Error\n ¡¡Estamos jodidos!! No existe argumento\n", 1);
 	if (x == 2)
 		ft_putstr_fd("Error\n ¡¡jajaja sin algo que leer no" 
-		" hacemos nada!! No se puede leer el archivo .cub\n", 1);
+		" hacemos nada!! No se puede leer el archivo .cub o .bmp\n", 1);
 	if (x == 4)
 		ft_putstr_fd("Error\n No se a podido reservar memoria\n", 1);
 	if (x == 5)

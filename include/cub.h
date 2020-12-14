@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 16:01:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/14 12:00:05 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 #include "../get_next_line/get_next_line.h"
 #include "../libft/libft.h"
 
-
-#define	relleno	'8'
-
 # define KEY_LEFT		123
 # define KEY_RIGHT		124
 # define KEY_UP 		126
@@ -37,30 +34,9 @@
 # define TRUE			1
 # define KEY_ESC		53
 # define PI 			3.141592653
-
-typedef struct s_bmpFileHeader
-{
-  /* 2 bytes de identificación */
-  unsigned int size;        /* Tamaño del archivo */
-  unsigned short resv1;       /* Reservado */
-  unsigned short resv2;       /* Reservado */
-  unsigned int offset;      /* Offset hasta hasta los datos de imagen */
-} t_bmpFileHeader;
-
-typedef struct s_bmpInfoHeader
-{
-  unsigned int headersize;      /* Tamaño de la cabecera */
-  unsigned int width;               /* Ancho */
-  unsigned int height;          /* Alto */
-  unsigned short planes;                  /* Planos de color (Siempre 1) */
-  unsigned short bpp;             /* bits por pixel */
-  unsigned int compress;        /* compresión */
-  unsigned int imgsize;     /* tamaño de los datos de imagen */
-  unsigned int bpmx;                /* Resolución X en bits por metro */
-  unsigned int bpmy;                /* Resolución Y en bits por metro */
-  unsigned int colors;              /* colors used en la paleta */
-  unsigned int imxtcolors;      /* Colores importantes. 0 si son todos */
-} t_bmpInfoHeader;
+# define BYTES_PER_PIXEL 3
+# define INFO_HEADER_SIZE 40
+# define  FILE_HEADER_SIZE 	14
 
 typedef struct	s_position
 {
@@ -264,7 +240,8 @@ void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);
 int		wall_control(char **matriz, int rows, int columns);
 int     wall_colision(t_game *pos, float y, float x);
-void	start(t_game *pos, char **argv);
+void	start(t_game *pos);
+void	save_bmp(t_game *pos);
 void	return_error(int x);
 void	free_all(t_game *pos);
 float   distancebetweenpoints(float x1, float y1, float x2, float y2);

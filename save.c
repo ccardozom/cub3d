@@ -1,23 +1,91 @@
 #include "include/cub.h"
 
-static int
-	write_bmp_data(int file, t_window *w, int pad)
+int			get_color_bmp(unsigned char *image, int x, int y, t_game *pos)
 {
-	const unsigned char	zero[3] = {0, 0, 0};
-	int					i;
-	int					j;
-	int					color;
-	i = 0;
-	while (i < (int)w->size.y)
+	int	rgb;
+	int	color;
+
+	color = *(int*)(image + (4 * (int)pos->winres.window_width *
+	((int)pos->winres.window_height - 1 - y)) + (4 * x));
+	rgb = (color & 0xFF0000) | (color & 0x00FF00) | (color & 0x0000FF);
+	return (rgb);
+}
+
+unsigned char	*create_bitmap_file_header(t_game *pos)
+{
+	int						filesize;
+	static unsigned char fileheader[] = {
+           0,0, /// signature
+           0,0,0,0, /// image file size in bytes
+           0,0,0,0, /// reserved
+           0,0,0,0, /// start of pixel array
+       };
+
+	filesize = FILE_HEADER_SIZE + INFO_HEADER_SIZE + (BYTES_PER_PIXEL *
+	(int)pos->winres.window_width * (int)pos->winres.window_height);
+	fileheader[0] = (unsigned char)('B');
+	fileheader[1] = (unsigned char)('M');
+	fileheader[2] = (unsigned char)(filesize);
+	fileheader[3] = (unsigned char)(filesize >> 8);
+	fileheader[4] = (unsigned char)(filesize >> 16);
+	fileheader[5] = (unsigned char)(filesize >> 24);
+	fileheader[10] = (unsigned char)(INFO_HEADER_SIZE + FILE_HEADER_SIZE);
+	return (fileheader);
+}
+
+unsigned char	*create_bitmap_info_header(t_game *pos)
+{
+	static unsigned char	infoheader[] = {
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+	};
+
+	infoheader[0] = (unsigned char)(INFO_HEADER_SIZE);
+	infoheader[4] = (unsigned char)((int)pos->winres.window_width);
+	infoheader[5] = (unsigned char)((int)pos->winres.window_width >> 8);
+	infoheader[6] = (unsigned char)((int)pos->winres.window_width >> 16);
+	infoheader[7] = (unsigned char)((int)pos->winres.window_width >> 24);
+	infoheader[8] = (unsigned char)((int)pos->winres.window_height);
+	infoheader[9] = (unsigned char)((int)pos->winres.window_height >> 8);
+	infoheader[10] = (unsigned char)((int)pos->winres.window_height >> 16);
+	infoheader[11] = (unsigned char)((int)pos->winres.window_height >> 24);
+	infoheader[12] = (unsigned char)(1);
+	infoheader[14] = (unsigned char)(BYTES_PER_PIXEL * 8);
+	return (infoheader);
+}
+
+static int		write_bmp_data(int file, unsigned char *image, t_game *pos)
+{
+	static unsigned char	zero[4] = {
+		0, 0, 0, 0
+	};
+	int						i;
+	int						j;
+	int						color;
+	int						paddingsize;
+
+	paddingsize = (4 - ((int)pos->winres.window_width * BYTES_PER_PIXEL) % 4) % 4;
+	i = (int)pos->winres.window_width * ((int)pos->winres.window_height - 1);
+	while (i >= 0)
 	{
 		j = 0;
-		while (j < (int)w->size.x)
+		while (j < (int)pos->winres.window_width)
 		{
-			color = get_color(w, j, i);
-			if (write(file, &color, 3) < 0)
+			color = get_color_bmp(image, j, i, pos);
+			write(file, &color, 3);
+			if (paddingsize > 0)
+			{
+				write(file, &zero, paddingsize);
 				return (0);
-			if (pad > 0 && write(file, &zero, pad) < 0)
-				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -25,45 +93,31 @@ static int
 	return (1);
 }
 
-static int
-	write_bmp_header(int fd, int filesize, t_global *global)
+void			generate_bitmap_image(unsigned char *image, t_game *pos)
 {
-	int				i;
-	int				tmp;
-	unsigned char	bmpfileheader[54];
-	i = 0;
-	while (i < 54)
-		bmpfileheader[i++] = (unsigned char)(0);
-	bmpfileheader[0] = (unsigned char)(‘B’);
-	bmpfileheader[1] = (unsigned char)(‘M’);
-	set_int_in_char(bmpfileheader + 2, filesize);
-	bmpfileheader[10] = (unsigned char)(54);
-	bmpfileheader[14] = (unsigned char)(40);
-	tmp = global->window.size.x;
-	set_int_in_char(bmpfileheader + 18, tmp);
-	tmp = global->window.size.y;
-	set_int_in_char(bmpfileheader + 22, tmp);
-	bmpfileheader[27] = (unsigned char)(1);
-	bmpfileheader[28] = (unsigned char)(24);
-	return (!(write(fd, bmpfileheader, 54) < 0));
+	int						paddingsize;
+	unsigned char			*fileheader;
+	unsigned char			*infoheader;
+	int						fd;
+
+	paddingsize = (4 - ((int)pos->winres.window_width * 3) % 4) % 4;
+	if ((fd = open("screenshot.bmp", O_WRONLY | O_CREAT
+									| O_TRUNC | O_APPEND)) < 0)
+		return_error (2);
+	ft_putstr_fd("Se esta creando el archivo BMP ...\n", 1);
+	fileheader = create_bitmap_file_header(pos);
+	infoheader = create_bitmap_info_header(pos);
+	write(fd, fileheader, FILE_HEADER_SIZE);
+	write(fd, infoheader, INFO_HEADER_SIZE);
+	if (!write_bmp_data(fd, image, pos))
+		return_error (2);
+	close(fd);
 }
 
-void	save(t_game *pos)
+void	save_bmp(t_game *pos)
 {
-	t_data	 	*w;
-	int			filesize;
-	int			file;
-	int			pad;
-	w = &pos->img;
-	pad = (4 - ((int)w->line_length * 3) % 4) % 4;
-	filesize = 54 + (3 * ((int)w->size.x + pad) * (int)w->size.y);
-	if ((file = open(“save.bmp”, O_WRONLY | O_CREAT
-									| O_TRUNC | O_APPEND)) < 0)
-		return (0);
-	if (!write_bmp_header(file, filesize, global))
-		return (0);
-	if (!write_bmp_data(file, w, pad))
-		return (0);
-	close(file);
-	return (1);
+	start(pos);
+	generate_bitmap_image((unsigned char*)pos->img.addr, pos);
+	ft_putstr_fd("Image BMP 'screenshot.bmp' create correctly.\n", 1);
+	exit(0);
 }
