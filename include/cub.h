@@ -126,6 +126,17 @@ typedef struct	s_data
 	int			offset;
 }				t_data;
 
+typedef struct	s_bitmap
+{
+	char	*fileheader;
+	char	*infoheader;
+	int		fd;
+	int		paddingsize;
+	int		width;
+	int		heigth;
+	t_data	*windows;
+}				t_bitmap;
+
 typedef struct	s_text
 {
 	char			*path;
