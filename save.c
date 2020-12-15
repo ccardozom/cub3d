@@ -1,20 +1,20 @@
 #include "include/cub.h"
 
-int			get_color_bmp(t_bitmap *w, int x, int y)
+int			get_color_bmp(t_data *windows, int x, int y, t_bitmap *w)
 {
 	int	rgb;
 	int	color;
 
-	color = *(int*)(w->windows->addr + (4 * w->width *
+	color = *(int*)(windows->addr + (4 * w->width *
 	(w->heigth - 1 - y)) + (4 * x));
 	rgb = (color & 0xFF0000) | (color & 0x00FF00) | (color & 0x0000FF);
 	return (rgb);
 }
 
-unsigned char	*create_bitmap_file_header(t_bitmap *w)
+char	*create_bitmap_file_header(t_bitmap *w)
 {
 	int						filesize;
-	static unsigned char fileheader[] = {
+	static char fileheader[] = {
            0,0, /// signature
            0,0,0,0, /// image file size in bytes
            0,0,0,0, /// reserved
@@ -33,9 +33,9 @@ unsigned char	*create_bitmap_file_header(t_bitmap *w)
 	return (fileheader);
 }
 
-unsigned char	*create_bitmap_info_header(t_bitmap *w)
+char	*create_bitmap_info_header(t_bitmap *w)
 {
-	static unsigned char	infoheader[] = {
+	static char	infoheader[] = {
 		0, 0, 0, 0,
 		0, 0, 0, 0,
 		0, 0, 0, 0,
@@ -62,7 +62,7 @@ unsigned char	*create_bitmap_info_header(t_bitmap *w)
 	return (infoheader);
 }
 
-static int		write_bmp_data(t_bitmap *w)
+static int		write_bmp_data(t_bitmap *w, t_data *windows)
 {
 	static unsigned char	zero[4] = {
 		0, 0, 0, 0
@@ -71,17 +71,17 @@ static int		write_bmp_data(t_bitmap *w)
 	int						j;
 	int						color;
 
-	i = w->width * (w->heigth - 1);
-	while (i >= 0)
+	i = 0;
+	while (i < w->heigth)
 	{
 		j = 0;
 		while (j < w->width)
 		{
-			color = get_color_bmp(w, j, i);
-			write(file, &color, 3);
-			if (paddingsize > 0)
+			color = get_color_bmp(windows, j, i, w);
+			write(w->fd, &color, 3);
+			if (w->paddingsize > 0)
 			{
-				write(file, &zero, paddingsize);
+				write(w->fd, &zero, w->paddingsize);
 				return (0);
 			}
 			j++;
@@ -93,23 +93,28 @@ static int		write_bmp_data(t_bitmap *w)
 
 void			generate_bitmap_image(t_game *pos)
 {
-	t_bitmap *w;
+	t_bitmap w;
+	t_data *windows;
+	char	*name;
 
-	w->windows = &pos->img;
-	w->width = (int)pos->winres.window_width;
-	w->heigth = (int)pos->winres.window_height;
-	w->paddingsize = (4 - (w->width * 3) % 4) % 4;
-	if ((w->fd = open("screenshot.bmp", O_WRONLY | O_CREAT
-									| O_TRUNC | O_APPEND)) < 0)
-		return_error (2);
+	name = "screenshot.bmp";
+	w.fd = open(name, O_CREAT | O_RDWR, 00600);
+	//w = NULL;
+	windows = &pos->img;
+	w.width = (int)pos->winres.window_width;
+	w.heigth = (int)pos->winres.window_height;
+	w.paddingsize = (4 - (w.width * 3) % 4) % 4;
+//	if ((w->fd = open("screenshot.bmp", O_WRONLY | O_CREAT
+//									| O_TRUNC | O_APPEND) < 0)
+//		return_error (2);
 	ft_putstr_fd("Se esta creando el archivo BMP ...\n", 1);
-	w->fileheader = create_bitmap_file_header(w);
-	w->infoheader = create_bitmap_info_header(w);
-	write(fd, w->fileheader, FILE_HEADER_SIZE);
-	write(fd, w->infoheader, INFO_HEADER_SIZE);
-	if (!write_bmp_data(w))
+	w.fileheader = create_bitmap_file_header(&w);
+	w.infoheader = create_bitmap_info_header(&w);
+	write(w.fd, w.fileheader, FILE_HEADER_SIZE);
+	write(w.fd, w.infoheader, INFO_HEADER_SIZE);
+	if (!write_bmp_data(&w, windows))
 		return_error (2);
-	close(fd);
+	close(w.fd);
 }
 /*
 void	bitmap_info_header(t_all *a, int fd)

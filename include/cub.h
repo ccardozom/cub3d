@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/14 12:00:05 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/15 02:08:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ typedef struct	s_bitmap
 	int		paddingsize;
 	int		width;
 	int		heigth;
-	t_data	*windows;
 }				t_bitmap;
 
 typedef struct	s_text
