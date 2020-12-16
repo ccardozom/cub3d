@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/15 02:08:15 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 12:52:07 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,17 @@ typedef struct		s_map
 	int				check_fin;
 }					t_checkmap;
 
+typedef struct		s_color_sprites
+{
+	float	y;
+	float	tx;
+	float	ty;
+	int		index;
+	int		texturasend;
+	float	auxstep;
+	int		i;
+}					t_colorS;
+
 typedef struct	s_game
 {
 	int				fd;
@@ -230,6 +241,7 @@ typedef struct	s_game
 void imprimir_matriz(t_game *pos);
 
 void	initialize(t_game *pos, char **argv);
+void	init_color(t_colorS *color, t_game *pos, t_sprite *sprites);
 void	read_map(t_game *pos, char **argv);
 void	check_line(char *line, t_game *pos);
 int		checker(int *checker);
@@ -237,10 +249,14 @@ int		search_wall(t_game *pos, char *line);
 void	position_player(t_game *pos, t_pos *tile_pos);
 int		player(char c);
 void	sprites(t_game *pos);
+void	angulo_spr_vision(t_sprite *sprites, t_game *pos);
 void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
 void	reset_sprites(t_game *pos);
 void	resolution(char *buffer, t_game *pos);
+void	reserv_memo(t_game *pos);
+void	reset_aux(t_sprite *aux);
+int		get_color_bmp(t_data *windows, int x, int y, t_bitmap *w);
 void	is_map(char *line, t_game *pos);
 void	create_window(t_game *pos, t_data *img);
 int		open_file(char **argv);

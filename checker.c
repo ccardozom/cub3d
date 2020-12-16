@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 14:00:59 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 08:41:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:58:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		check_data(int *checker)
 int		checker(int *checker)
 {
 	int check;
-	
+
 	check = 0;
 	check = check_data(checker);
 	return (check);

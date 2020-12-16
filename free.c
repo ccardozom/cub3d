@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/08 09:53:40 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:51:02 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ void	free_all(t_game *pos)
 		pos->sprites = NULL;
 	}
 }
-

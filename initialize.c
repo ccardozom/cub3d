@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:22:02 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/10 13:38:23 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:45:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	map_controll(t_game *pos)
 {
 	if (checker(pos->checking) && pos->rows < 4 && pos->columns < 4)
-		return_error (12);
+		return_error(12);
 	if (!checker(pos->checking))
-		return_error (11);
+		return_error(11);
 	if (!wall_control(pos->map, pos->rows, pos->columns))
-		return_error (12);
+		return_error(12);
 	if (pos->checkplayer == 0)
-		return_error (12);
+		return_error(12);
 }
 
 void	initialize(t_game *pos, char **argv)
@@ -36,9 +36,13 @@ void	initialize(t_game *pos, char **argv)
 		pos->player.movespeed = 12;
 		pos->player.rotationspeed = 6 * (PI / 180);
 	}
-	else if ((pos->winres.window_width > 1000 || pos->winres.window_width < 2560) && (pos->winres.window_height > 1000 || pos->winres.window_height < 1395))
+	else if ((pos->winres.window_width > 1000 ||
+	pos->winres.window_width < 2560) &&
+	(pos->winres.window_height > 1000 || pos->winres.window_height < 1395))
 	{
 		pos->player.movespeed = 8;
 		pos->player.rotationspeed = 4 * (PI / 180);
 	}
+	if (pos->player.player_control != 1)
+		return_error(12);
 }

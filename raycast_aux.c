@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 21:44:38 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/11 11:29:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 09:42:05 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ float	distancebetweenpoints(float x1, float y1, float x2, float y2)
 int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 {
 	int		control_row;
-	
+
 	pos->rays.xtocheck = pos->rays.nexthoriztouchx;
 	pos->rays.ytocheck = pos->rays.nexthoriztouchy +
 	(ray_data->israyfacingup ? -1 : 0);
@@ -29,10 +29,11 @@ int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 		control_row = (int)(pos->rays.ytocheck /
 		pos->tile.size);
 		if (control_row == pos->rows)
-			control_row -= 1; 
+			control_row -= 1;
 		pos->rays.horizwallhitx = pos->rays.nexthoriztouchx;
 		pos->rays.horizwallhity = pos->rays.nexthoriztouchy;
-		pos->rays.horizwallcontent = pos->map[control_row][(int)(pos->rays.xtocheck / pos->tile.size)];
+		pos->rays.horizwallcontent = pos->map[control_row]
+		[(int)(pos->rays.xtocheck / pos->tile.size)];
 		pos->rays.foundhorizwallhit = TRUE;
 		return (1);
 	}

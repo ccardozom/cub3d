@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:10 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/03 09:51:30 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 08:56:51 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ void	position_player(t_game *pos, t_pos *tile_pos)
 		pos->player.pos.x = tile_pos->x;
 		pos->player.pos.y = pos->tile.squa_f;
 	}
-	pos->player.player_control += 1;
 }

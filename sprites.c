@@ -6,27 +6,11 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/02 09:41:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 12:54:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
-void reset_aux(t_sprite *aux)
-{
-	aux->pos.window_height=0;
-	aux->pos.window_width=0;
-	aux->pos.x=0;
-	aux->pos.y=0;
-	aux->distance=0;
-	aux->vectx=0;
-	aux->vecty=0;
-	aux->visible=0;
-	aux->spriteangulo=0;
-	aux->spr_bottom=0;
-	aux->spr_top=0;
-	aux->x=0;
-	aux->spr_height=0;
-}
 
 void	ordenar_sprites(t_game *pos)
 {
@@ -37,16 +21,18 @@ void	ordenar_sprites(t_game *pos)
 	index = 0;
 	if (pos->spritecount > 1)
 		while (index < pos->spritecount)
-		{	cont_sprites = index + 1;
+		{
+			cont_sprites = index + 1;
 			reset_aux(&aux);
 			while (cont_sprites < pos->spritecount)
 			{
-				if (pos->sprites[index].distance > pos->sprites[cont_sprites].distance)
+				if (pos->sprites[index].distance >
+				pos->sprites[cont_sprites].distance)
 				{
 					aux = pos->sprites[cont_sprites];
 					pos->sprites[cont_sprites] = pos->sprites[index];
 					pos->sprites[index] = aux;
-					break;
+					break ;
 				}
 				cont_sprites++;
 			}
@@ -90,39 +76,30 @@ void	angulo_sprites(t_game *pos)
 
 void	color_sprites(t_sprite *sprites, t_game *pos)
 {
-	float	y;
-	float	textura_x;
-	float	textura_y;
-	int		x;
-	int		texturasend;
-	float	auxstep;
+	t_colorS	color;
+	int			x;
+	float		y;
 
-	auxstep = (float)pos->texture.sprite.w / (float)sprites->spr_height;
-	textura_x = 0;
-	angulo_spr_vision(sprites, pos);
-	texturasend = sprites->x + sprites->spr_height;
-	x = sprites->x;
-	while (x < texturasend)
+	init_color(&color, pos, sprites);
+	x = sprites->x - 1;
+	while (++x < color.texturasend)
 	{
 		if (x >= 0 && x <= (int)pos->winres.window_width &&
 		sprites->distance < pos->ray_data[x].distance)
 		{
-			textura_y = 0;
-			y = sprites->spr_top;
-			while (y < sprites->spr_bottom)
+			color.ty = 0;
+			y = sprites->spr_top - 1;
+			while (++y < sprites->spr_bottom)
 			{
+				color.index = ((int)color.ty * pos->tile.size) + (int)color.tx;
 				if (y > 0 && y < (int)pos->winres.window_height)
-					if (pos->texture.sprite.image[((int)textura_y *
-					pos->tile.size) + (int)textura_x] != 0x000000)
+					if (pos->texture.sprite.image[color.index] != 0x0)
 						my_mlx_pixel_put(&pos->img, x, y,
-						pos->texture.sprite.image[((int)textura_y *
-						pos->tile.size) + (int)textura_x]);
-				y++;
-				textura_y += auxstep;
+						pos->texture.sprite.image[color.index]);
+				color.ty += color.auxstep;
 			}
 		}
-		x++;
-		textura_x += auxstep;
+		color.tx += color.auxstep;
 	}
 }
 
