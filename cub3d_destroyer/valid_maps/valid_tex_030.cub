@@ -3,7 +3,7 @@ NO ./wolftex/fuhrer.xpm
 SO ./wolftex/fuhrer.xpm
 EA ./wolftex/fuhrer.xpm
 WE ./wolftex/fuhrer.xpm
-S ./wolftex/barrel.png
+S textures/wall_2.xpm
 C 255,200,160
 F 122,122,122
 

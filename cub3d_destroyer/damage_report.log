@@ -1,0 +1,1650 @@
+Thu Dec 17 11:04:18 CET 2020
+
+
+=============== CUB3D DESTROYER - DAMAGE REPORT ===============
+
+
+
+=====================[DESTROYED STUFF # 1]=====================
+./invalid_maps/invalid_map_area_012.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11
+11
+
+PARSER OUTPUT:
+
+
+=====================[DESTROYED STUFF # 2]=====================
+valid_maps/valid_RGB_000.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se pu
+
+=====================[DESTROYED STUFF # 3]=====================
+valid_maps/valid_RGB_001.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 0,1,1
+F 0,1,1
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra
+
+=====================[DESTROYED STUFF # 4]=====================
+valid_maps/valid_RGB_007.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+F 122,122,122
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+C 255,200,160
+S textures/wall_2.xpm
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3529]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF # 5]=====================
+valid_maps/valid_RGB_008.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+C 255,200,160
+F 122,122,122
+S textures/wall_2.xpm
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la te
+
+=====================[DESTROYED STUFF # 6]=====================
+valid_maps/valid_RGB_016.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,0,255
+F 0,255,0
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3583]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF # 7]=====================
+valid_maps/valid_RGB_017.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,255,255
+F 0,0,0
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3593]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF # 8]=====================
+valid_maps/valid_RGB_018.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 0,0,0
+F 255,255,255
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3603]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF # 9]=====================
+valid_maps/valid_RGB_021.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 0,0,1
+F 0,0,1
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3624]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #10]=====================
+valid_maps/valid_RGB_022.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,255,255
+F 255,255,255
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3634]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #11]=====================
+valid_maps/valid_map_area_000.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 100,200,160
+F 25,122,254
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+
+
+=====================[DESTROYED STUFF #12]=====================
+valid_maps/valid_map_area_006.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+                                                        111111
+                                                        11020111111111
+                11111111111111111                       11000000000001
+                100000000000000011111111111111111111111111020020020021
+                102000002000002000000000000000000000000000000000000001
+                100000000000000011111111111111111001111111111111011111
+                10002000200020001               1001           101
+                10000000000000001               1001           101111111111111111
+                10202020N02020201               1001           100000000000000001
+                10000000000000001           111110011111       111111111111111101
+                10002000200200001           100000000001                      101
+                10000000000000001           100000000001                      101
+                10200000200002001111111111111000200200011111111111111111111111101
+                10000000000000000000000000000000000000000000000000000000000000001
+                11111011111111111111111111111000200200011111111111111111111111101
+                    101                     100000000001                      101
+                11111011111111111           100000000001                      101
+                10000000000000001           111110011111                      101
+                10200000200000201               1001                          101
+                10000000000000001111111111111111100111111111111111111111111111101
+                10002000200020000000000000000000000000000000000000000000000000001
+                10000000000000001111111111111111111111111111111111111111111111111
+                10202020002020201
+                10000000000000001
+                10002000200200001
+                10000000000000001
+                10200000200002001111111111111
+                10000000000000000000000000001
+                11111111111111111111111111101
+                                         11011
+                                        11000111111111
+11111111111111111                       11000000000001
+100000000000000011111111111111111111111111020020020021
+102000002000002000000000000000000000000000000000000001
+100000000000000011111111111111111001111111111111011111
+10002000200020001               1001           101
+10000000000000001               1001           101111111111111111
+10202020002020201               1001           100000000000000001
+10000000000000001           111110011111       111111111111111101
+10002000200200001           100000000001                      101
+10000000000000001           100000000001                      101
+10200000200002001111111111111000200200011111111111111111111111101
+10000000000000000000000000000000000000000000000000000000000000001
+11111011111111111111111111111000200200011111111111111111111111101
+    101                     100000000001                      101
+11111011111111111           100000000001                      101
+10000000000000001           111110011111                      101
+10200000200000201               1001                          101
+10000000000000001111111111111111100111111111111111111111111111101
+10002000200020000000000000000000000000000000000000000000000000001
+10000000000000001111111111111111111111111111111111111111111111111
+10202020002020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ El mapa esta abierto
+
+=====================[DESTROYED STUFF #13]=====================
+valid_maps/valid_res_004.cub
+R 1080 720              
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3734]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #14]=====================
+valid_maps/valid_res_006.cub
+
+
+
+R 1080 720
+
+
+
+
+
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3749]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #15]=====================
+valid_maps/valid_res_007.cub
+
+
+            R                1080                            720
+
+
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3760]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #16]=====================
+valid_maps/valid_res_008.cub
+NO textures/wood.xpm
+R 1080 720
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3770]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #17]=====================
+valid_maps/valid_res_010.cub
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+R 1080 720
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3787]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #18]=====================
+valid_maps/valid_res_014.cub
+R 1 1
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3809]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #19]=====================
+valid_maps/valid_res_019.cub
+R 1 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3842]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #20]=====================
+valid_maps/valid_tex_000.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la te
+
+=====================[DESTROYED STUFF #21]=====================
+valid_maps/valid_tex_002.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+WE textures/bluestone.xpm
+EA textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3868]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #22]=====================
+valid_maps/valid_tex_006.cub
+R 1080 720
+EA textures/bluestone.xpm
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! 
+
+=====================[DESTROYED STUFF #23]=====================
+valid_maps/valid_tex_008.cub
+R 1080 720
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+SO textures/wall_1.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3908]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #24]=====================
+valid_maps/valid_tex_009.cub
+R 1080 720
+SO textures/wall_1.xpm
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3918]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #25]=====================
+valid_maps/valid_tex_010.cub
+R 1080 720
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+NO textures/wood.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3928]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #26]=====================
+valid_maps/valid_tex_012.cub
+R 1080 720
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+NO textures/wood.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3942]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #27]=====================
+valid_maps/valid_tex_013.cub
+R 1080 720
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm  	
+NO textures/wood.xpm
+WE textures/bluestone.xpm		 
+S textures/wall_2.xpm
+C 255,200,160	 	 
+F 122,122,122	 
+			  
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3952]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #28]=====================
+valid_maps/valid_tex_014.cub
+R 1080 720 
+SO textures/wall_1.xpm	
+EA textures/bluestone.xpm
+NO textures/wood.xpm		 
+WE textures/bluestone.xpm
+S textures/wall_2.xpm	 	
+C 255,200,160	 
+F 122,122,122	 
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura n
+
+=====================[DESTROYED STUFF #29]=====================
+valid_maps/valid_tex_015.cub
+F 122,122,122
+SO 	textures/wall_1.xpm
+EA textures/bluestone.xpm
+NO 			textures/wood.xpm
+WE textures/bluestone.xpm
+R 1080 720
+	S textures/wall_2.xpm
+C 255,200,160
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3975]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #30]=====================
+valid_maps/valid_tex_016.cub
+F 122,122,122
+C 255,200,160
+S textures/wall_2.xpm
+SO textures/wall_1.xpm
+WE textures/bluestone.xpm
+EA textures/bluestone.xpm
+NO textures/wood.xpm
+R 1080 720
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[3985]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #31]=====================
+valid_maps/valid_tex_017.cub
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+NO textures/wood.xpm
+						WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+R 1080 720
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi n
+
+=====================[DESTROYED STUFF #32]=====================
+valid_maps/valid_tex_020.cub
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+R 1080 720
+S textures/wall_2.xpm
+C 255,200,160
+SO textures/wall_1.xpm
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4015]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #33]=====================
+valid_maps/valid_tex_021.cub
+WE textures/bluestone.xpm
+EA textures/bluestone.xpm
+SO textures/wall_1.xpm
+NO textures/wood.xpm
+S textures/wall_2.xpm
+R 1080 720
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4025]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #34]=====================
+valid_maps/valid_tex_022.cub
+F 122,122,122	
+SO textures/wall_1.xpm 
+WE  textures/bluestone.xpm
+EA textures/bluestone.xpm
+ NO textures/wood.xpm
+R 1080 720
+S textures/wall_2.xpm
+C 255,200,160
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4035]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #35]=====================
+valid_maps/valid_tex_023.cub
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+R 1080 720
+EA textures/bluestone.xpm
+C 255,200,160
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de 
+
+=====================[DESTROYED STUFF #36]=====================
+valid_maps/valid_tex_024.cub
+R 1080 720
+NO ./.png/pillar.png
+SO ./.xpm/fuhrer.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra
+
+=====================[DESTROYED STUFF #37]=====================
+valid_maps/valid_tex_026.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE ./wolftex/fuhrer.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ 
+
+=====================[DESTROYED STUFF #38]=====================
+valid_maps/valid_tex_027.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wall_1.xpm
+EA ./wolftex/fuhrer.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4088]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #39]=====================
+valid_maps/valid_tex_030.cub
+R 1080 720
+NO ./wolftex/fuhrer.xpm
+SO ./wolftex/fuhrer.xpm
+EA ./wolftex/fuhrer.xpm
+WE ./wolftex/fuhrer.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Esto esta mas vacio que 42 en la pandemia!! No se encuentra el path de la textura del sprite
+leaks[4111]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #40]=====================
+valid_maps/valid_tex_031.cub
+R 1080 720
+NO textures/wood.xpm
+SO textures/wood.xpm
+EA textures/wood.xpm
+WE textures/wood.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4138]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #41]=====================
+valid_maps/valid_tex_032.cub
+C 255,200,160
+                                    NO textures/wood.xpm
+SO                                                                                                                              textures/wall_1.xpm
+EA textures/bluestone.xpm                                                                                                       
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+F 122,122,122
+
+R 1080 720
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4166]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #42]=====================
+valid_maps/valid_tex_035.cub
+R 1080 720
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+SO textures/wall_1.xpm
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4184]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #43]=====================
+valid_maps/valid_tex_036.cub
+R 1080 720
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+SO textures/wall_1.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se e
+
+=====================[DESTROYED STUFF #44]=====================
+valid_maps/valid_tex_037.cub
+R 1080 720
+SO textures/wall_1.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+NO textures/wood.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4208]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #45]=====================
+valid_maps/valid_tex_038.cub
+R 1080 720
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+SO textures/wall_1.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4218]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #46]=====================
+valid_maps/valid_tex_039.cub
+R 1080 720
+SO textures/wall_1.xpm
+NO textures/wood.xpm
+EA textures/bluestone.xpm
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4231]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #47]=====================
+valid_maps/valid_tex_040.cub
+
+
+
+
+
+
+
+
+
+
+
+                                            R 1080 720
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            NO textures/wood.xpm
+                                                                            SO textures/wall_1.xpm
+                                                                            EA textures/bluestone.xpm
+                                                                            WE textures/bluestone.xpm
+                                                                            S textures/wall_2.xpm
+C 255,200,160
+F 122,122,122
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4241]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #48]=====================
+valid_maps/valid_tex_041.cub
+R 1080 720
+                                    NO                                              textures/wood.xpm
+                EA                                                                                          textures/bluestone.xpm
+    WE textures/bluestone.xpm
+
+
+
+C 255,200,160
+                S textures/wall_2.xpm
+F 122,122,122
+
+SO                                          textures/wall_1.xpm
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4253]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #49]=====================
+valid_maps/valid_tex_047.cub
+                WE                                                                                                 textures/bluestone.xpm
+
+             SO                                                  textures/wall_1.xpm
+                      F                 122,122,122
+                                 NO                                                                             textures/wood.xpm
+                                         S          textures/wall_2.xpm
+                                                                    R                                         1080                  720
+                                                      EA                                                                                           textures/bluestone.xpm
+
+                          C                      255                                                                                            ,200,160
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4287]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #50]=====================
+valid_maps/valid_tex_049.cub
+                WE              textures/bluestone.xpm
+
+             SO                         textures/wall_1.xpm
+                      F                 122,122,122
+                                 NO textures/wood.xpm
+                                         S          textures/wall_2.xpm
+                                                                    R           1080                  720
+                                                      EA                  textures/bluestone.xpm
+
+                          C                      255,200,160
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte
+leaks[4304]: leaks cannot find any existing process you have access to which has a name like 'cub3D'; try running with `sudo`.
+
+
+=====================[DESTROYED STUFF #51]=====================
+valid_maps/valid_tex_050.cub
+
+
+SO textures/wall_1.xpm
+                                                                NO textures/wood.xpm
+                                    
+                                    
+
+
+
+                                    R 1080 720
+
+
+
+
+
+
+
+                                                                    F 122,122,122
+EA textures/bluestone.xpm
+            WE textures/bluestone.xpm
+                                                S textures/wall_2.xpm
+                                C 255,200,160
+
+11111111111111111
+10000000000000001
+10200000200000201
+10000000000000001
+10002000200020001
+10000000000000001
+10202020N02020201
+10000000000000001
+10002000200200001
+10000000000000001
+10200000200002001
+10000000000000001
+11111111111111111
+
+PARSER OUTPUT:
+Error
+ ¡¡Asi no se puede!! No se encuentra el path de la textura norte

@@ -6,11 +6,18 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 10:20:31 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 23:53:49 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
+
+int		program_exit(t_game *pos)
+{
+	mlx_destroy_window(pos->mlx, pos->mlx_win);
+	system("leaks cub3D");
+	exit(0);
+}
 
 int		main_loop(t_game *pos)
 {
@@ -58,6 +65,7 @@ int		main(int argc, char **argv)
 		start(&pos);
 		mlx_hook(pos.mlx_win, 2, 0, &key_press, &pos);
 		mlx_hook(pos.mlx_win, 3, 0, &key_release, &pos);
+		mlx_hook(pos.mlx_win, 17, 0, &program_exit, &pos);
 		mlx_loop_hook(pos.mlx, &main_loop, &pos);
 		mlx_loop(pos.mlx);
 	}

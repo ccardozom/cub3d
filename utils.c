@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 10:07:15 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 12:53:45 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 10:59:03 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	reserv_memo(t_game *pos)
 		return_error(4);
 }
 
-int				get_color_bmp(t_data *windows, int x, int y, t_bitmap *w)
+int		get_color_bmp(t_data *windows, int x, int y, t_bitmap *w)
 {
 	int		rgb;
 	int		color;
@@ -66,7 +66,7 @@ void	reset_aux(t_sprite *aux)
 	aux->spr_height = 0;
 }
 
-void	init_color(t_colorS *color, t_game *pos, t_sprite *sprites)
+void	init_color(t_colorspri *color, t_game *pos, t_sprite *sprites)
 {
 	color->auxstep = (float)pos->texture.sprite.w / (float)sprites->spr_height;
 	color->tx = 0;

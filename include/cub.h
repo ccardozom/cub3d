@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 12:52:07 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 10:50:24 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define KEY_DOWN		125
 # define KEY_W			13
 # define KEY_S			1
-# define KEY_Q			12
-# define KEY_E			14
+# define KEY_A			0
+# define KEY_D			2
 # define FALSE			0
 # define TRUE			1
 # define KEY_ESC		53
@@ -98,7 +98,8 @@ typedef struct	s_move_player
 {
 	int			turn;
 	int			walk;
-	float		minimapscale;
+	float		minimapscale_x;
+	float		minimapscale_y;
 	float		player_angle;
 	float		movespeed;
 	float		rotationspeed;
@@ -172,6 +173,11 @@ typedef struct	s_textures
 	t_text			sprite;
 	t_color			floor;
 	t_color			ceilling;
+	int				check_n;
+	int				check_s;
+	int				check_o;
+	int				check_e;
+	int				check_sp;
 }				t_textures;
 
 typedef struct		s_tile_size
@@ -201,9 +207,9 @@ typedef struct		s_color_sprites
 	int		texturasend;
 	float	auxstep;
 	int		i;
-}					t_colorS;
+}					t_colorspri;
 
-typedef struct	s_game
+typedef struct		s_game
 {
 	int				fd;
 	void			*mlx;
@@ -241,7 +247,7 @@ typedef struct	s_game
 void imprimir_matriz(t_game *pos);
 
 void	initialize(t_game *pos, char **argv);
-void	init_color(t_colorS *color, t_game *pos, t_sprite *sprites);
+void	init_color(t_colorspri *color, t_game *pos, t_sprite *sprites);
 void	read_map(t_game *pos, char **argv);
 void	check_line(char *line, t_game *pos);
 int		checker(int *checker);
@@ -254,23 +260,23 @@ void	reset_position(t_game *pos);
 void	reset_rays_data(t_game *pos);
 void	reset_sprites(t_game *pos);
 void	resolution(char *buffer, t_game *pos);
+void	normalizeresolution(t_game *pos);
 void	reserv_memo(t_game *pos);
 void	reset_aux(t_sprite *aux);
 int		get_color_bmp(t_data *windows, int x, int y, t_bitmap *w);
 void	is_map(char *line, t_game *pos);
-void	create_window(t_game *pos, t_data *img);
 int		open_file(char **argv);
 void	create_map(t_game *pos, char **argv);
 void	create_matriz(char *line, t_game *pos);
 void	fill_matriz(t_game *pos);
 void	new_matriz(t_game *pos, char *line);
 int		wall_control(char **matriz, int rows, int columns);
-int     wall_colision(t_game *pos, float y, float x);
+int		wall_colision(t_game *pos, float y, float x);
 void	start(t_game *pos);
 void	save_bmp(t_game *pos);
 void	return_error(int x);
 void	free_all(t_game *pos);
-float   distancebetweenpoints(float x1, float y1, float x2, float y2);
+float	distancebetweenpoints(float x1, float y1, float x2, float y2);
 int		key_press(int keycode, t_game *pos);
 int		key_release(int keycode, t_game *pos);
 int		wall_colision_search_hor(t_game *pos, t_ray *ray_data);
@@ -284,10 +290,8 @@ void	my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void	draw_player(t_game *pos);
 void	draw_player_move(t_game *pos);
 void	cast_all_rays(t_game *pos);
-void	horizontal_collisionA(t_game *pos, float rayangle);
-void    horizontal_collision_next(t_game *pos);
-void    vertical_collision_next(t_game *pos, float rayangle);
-void	vertical_collisionA(t_game *pos, float rayangle);
+void	horizontal_collision_next(t_game *pos);
+void	vertical_collision_next(t_game *pos, float rayangle);
 int		control_wall_x(t_game *pos, float new_pos);
 int		control_wall_y(t_game *pos, int new_pos);
 void	generate_3dprojection(t_game *pos);

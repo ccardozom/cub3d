@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 08:27:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 10:41:43 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	reset_pos_move(t_game *pos)
 	pos->texture.floor.r = '\0';
 	pos->texture.floor.g = '\0';
 	pos->texture.floor.b = '\0';
+	pos->texture.check_e = 0;
+	pos->texture.check_n = 0;
+	pos->texture.check_o = 0;
+	pos->texture.check_s = 0;
+	pos->texture.check_sp = 0;
 }
 
 void	reset_rays_data(t_game *pos)
@@ -63,7 +68,6 @@ void	reset_cast(t_game *pos)
 	pos->player.FOV_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
 	pos->player.player_control = 0;
-	pos->player.minimapscale = 0.2;
 	pos->rays.foundhorizwallhit = FALSE;
 	pos->rays.foundvertwallhit = FALSE;
 	pos->rays.horizwallhitx = 0;

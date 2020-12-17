@@ -1,10 +1,10 @@
-NO ./wolftex/greystone.png
-SO ./wolftex/redbrick.png
+NO textures/wood.xpm
+SO textures/wall_1.xpm
 R 1080 720
-EA ./wolftex/wood.png
+EA textures/bluestone.xpm
 C 255,200,160
-WE ./wolftex/wood.png
-S ./wolftex/barrel.png
+WE textures/bluestone.xpm
+S textures/wall_2.xpm
 F 122,122,122
 
 11111111111111111

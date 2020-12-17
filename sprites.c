@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 12:54:44 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/16 23:43:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	angulo_sprites(t_game *pos)
 
 void	color_sprites(t_sprite *sprites, t_game *pos)
 {
-	t_colorS	color;
+	t_colorspri	color;
 	int			x;
 	float		y;
 

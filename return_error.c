@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 10:47:25 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 08:50:34 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	error_texture(int x)
 	if (x == 9)
 		ft_putstr_fd("Error\n ¡¡Esto esta mas vacio que 42 en la pandemia!!"
 		" No se encuentra el path de la textura del sprite\n", 1);
+	if (x == 15)
+		ft_putstr_fd("Error\n ¡¡O vas sobrado o te falta!!"
+		" Tienes un problema con las texturas\n", 1);
 }
 
 void	return_error(int x)
@@ -64,6 +67,9 @@ void	return_error(int x)
 	if (x == 13)
 		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!"
 		" verifica eso ya...\n", 1);
-	//system("leaks cub3D");
+	if (x == 16)
+		ft_putstr_fd("Error\n ¡¡No sé como decirte!!"
+		" pero tienes un valor no permitido en el mapa...\n", 1);
+	system("leaks cub3D");
 	exit(0);
 }

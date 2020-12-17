@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:44:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/16 09:17:20 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:10:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		search_wall(t_game *pos, char *line)
 			line[index] == 'W' || line[index] == 'S' || line[index] == 'E')
 			index++;
 		else
-			return (0);
+			return(0);//return_error(16);
 	}
 	if (*line != '\0')
 	{

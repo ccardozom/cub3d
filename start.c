@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/12 10:02:11 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/17 11:17:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	start(t_game *pos)
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,
 	&pos->img.endian);
+	pos->player.minimapscale_x = pos->tile.size * 2 / pos->winres.window_width;
+	pos->player.minimapscale_y = pos->tile.size * 2 / pos->winres.window_height;
 	draw_player(pos);
 	cast_all_rays(pos);
 	generate_3dprojection(pos);
