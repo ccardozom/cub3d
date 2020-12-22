@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 10:44:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 10:48:05 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 13:22:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,36 +41,31 @@ int		search_wall(t_game *pos, char *line)
 	return (1);
 }
 
-int		wall_control(char **matriz, int rows, int columns)
+int		wall_control(char **m, int rows, int col)
 {
-	int filas;
-	int columnas;
+	int f;
+	int c;
 
-	filas = 0;
-	while (filas < rows)
+	f = 0;
+	while (f < rows)
 	{
-		columnas = 0;
-		while (columnas < columns)
+		c = -1;
+		while (++c < col)
 		{
-			if (matriz[filas][columnas] == '0' || matriz[filas][columnas] == '2')
+			if (m[f][c] == '0' || m[f][c] == '2' || player(m[f][c]) == 0)
 			{
-				if (filas == 0 || filas == rows - 1 || columnas == 0 || columnas == columns - 1)
+				if (f == 0 || f == rows - 1 || c == 0 || c == col - 1 ||
+					m[f - 1][c] == '8' || m[f - 1][c + 1] == '8' ||
+					m[f][c + 1] == '8' || m[f + 1][c + 1] == '8' ||
+					m[f + 1][c] == '8' || m[f + 1][c - 1] == '8' ||
+					m[f][c - 1] == '8' || m[f - 1][c - 1] == '8')
 				{
 					ft_putstr_fd("Error\n El mapa esta abierto", 1);
-					exit (0);
-				}
-				if (matriz[filas - 1][columnas] == '8' || matriz[filas - 1][columnas + 1] == '8' ||
-					matriz[filas][columnas + 1] == '8' || matriz[filas + 1][columnas + 1] == '8' ||
-					matriz[filas + 1][columnas] == '8' || matriz[filas + 1][columnas - 1] == '8' ||
-					matriz[filas][columnas - 1] == '8' || matriz[filas - 1][columnas - 1] == '8')
-				{
-					ft_putstr_fd("Error\n El mapa esta abierto", 1);
-					exit (0);
+					exit(0);
 				}
 			}
-			columnas++;
 		}
-		filas++;
+		f++;
 	}
 	return (1);
 }
