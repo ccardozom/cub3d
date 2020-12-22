@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/15 02:08:15 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 14:05:07 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,18 @@ typedef struct	s_sprite
 	int				spr_height;
 
 }				t_sprite;
+
+typedef struct	s_colortextura
+{
+	float	y;
+	float	tex_x;
+	float	tex_y;
+	int		x;
+	int		tex_send;
+	float	auxstep;
+	int		index;
+}				t_colortexture;
+
 
 typedef struct	s_textures
 {

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 11:52:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 13:33:28 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		resolution(char *line, t_game *pos)
 		while (ft_isdigit(*line) == 0 && *line != '\0')
 			line++;
 		if (*line == '\0')
-			return_error (11);
+			return_error(11);
 		pos->winres.x = ft_atoi(line);
 		while (ft_isdigit(*line) == 1)
 			line++;
@@ -57,11 +57,11 @@ void		resolution(char *line, t_game *pos)
 		while (*line != '\0')
 		{
 			if (*line != ' ' || *line == '\t')
-				return_error (13);
+				return_error(13);
 			line++;
 		}
 		if (!(pos->winres.x) || !(pos->winres.y))
-			return_error (11);
+			return_error(11);
 		pos->checking[0] = 1;
 	}
 }
@@ -117,7 +117,7 @@ void		read_map(t_game *pos, char **argv)
 	}
 	check_line(line, pos);
 	if (pos->control_line_empty == 0)
-		return_error (3);
+		return_error(3);
 	free(line);
 	close(fd);
 }

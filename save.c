@@ -100,7 +100,7 @@ void			generate_bitmap_image(t_game *pos)
 	name = "save.bmp";
 	w.fd = open(name, O_CREAT | O_RDWR, 00600);
 	if (w.fd < 0)
-		return_error (2);
+		return_error(2);
 	windows = &pos->img;
 	w.width = (int)pos->winres.window_width;
 	w.heigth = (int)pos->winres.window_height;
@@ -111,7 +111,7 @@ void			generate_bitmap_image(t_game *pos)
 	write(w.fd, w.fileheader, FILE_HEADER_SIZE);
 	write(w.fd, w.infoheader, INFO_HEADER_SIZE);
 	if (!write_bmp_data(&w, windows))
-		return_error (2);
+		return_error(2);
 	close(w.fd);
 }
 

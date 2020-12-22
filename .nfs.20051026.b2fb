@@ -103,14 +103,14 @@ void			generate_bitmap_image(unsigned char *image, t_game *pos)
 	paddingsize = (4 - ((int)pos->winres.window_width * 3) % 4) % 4;
 	if ((fd = open("screenshot.bmp", O_WRONLY | O_CREAT
 									| O_TRUNC | O_APPEND)) < 0)
-		return_error (2);
+		return_error(2);
 	ft_putstr_fd("Se esta creando el archivo BMP ...\n", 1);
 	fileheader = create_bitmap_file_header(pos);
 	infoheader = create_bitmap_info_header(pos);
 	write(fd, fileheader, FILE_HEADER_SIZE);
 	write(fd, infoheader, INFO_HEADER_SIZE);
 	if (!write_bmp_data(fd, image, pos))
-		return_error (2);
+		return_error(2);
 	close(fd);
 }
 
