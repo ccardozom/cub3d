@@ -1,26 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   save.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/22 14:35:31 by ccardozo          #+#    #+#             */
+/*   Updated: 2020/12/22 14:41:43 by ccardozo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "include/cub.h"
 
-int			get_color_bmp(t_data *windows, int x, int y, t_bitmap *w)
+char			*create_bitmap_file_header(t_bitmap *w)
 {
-	int	rgb;
-	int	color;
+	int				filesize;
+	static char		fileheader[14];
 
-	color = *(int*)(windows->addr + (4 * w->width *
-	(w->heigth - 1 - y)) + (4 * x));
-	rgb = (color & 0xFF0000) | (color & 0x00FF00) | (color & 0x0000FF);
-	return (rgb);
-}
-
-char	*create_bitmap_file_header(t_bitmap *w)
-{
-	int						filesize;
-	static char fileheader[] = {
-           0,0, /// signature
-           0,0,0,0, /// image file size in bytes
-           0,0,0,0, /// reserved
-           0,0,0,0, /// start of pixel array
-       };
-
+	ft_bzero(fileheader, 14);
 	filesize = FILE_HEADER_SIZE + INFO_HEADER_SIZE + (BYTES_PER_PIXEL *
 	w->width * w->heigth);
 	fileheader[0] = (unsigned char)('B');
@@ -33,21 +30,11 @@ char	*create_bitmap_file_header(t_bitmap *w)
 	return (fileheader);
 }
 
-char	*create_bitmap_info_header(t_bitmap *w)
+char			*create_bitmap_info_header(t_bitmap *w)
 {
-	static char	infoheader[] = {
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-		0, 0, 0, 0,
-	};
+	static char	infoheader[40];
 
+	ft_bzero(infoheader, 40);
 	infoheader[0] = (unsigned char)(INFO_HEADER_SIZE);
 	infoheader[4] = (unsigned char)w->width;
 	infoheader[5] = (unsigned char)(w->width >> 8);
@@ -93,9 +80,9 @@ static int		write_bmp_data(t_bitmap *w, t_data *windows)
 
 void			generate_bitmap_image(t_game *pos)
 {
-	t_bitmap w;
-	t_data *windows;
-	char	*name;
+	t_bitmap	w;
+	t_data		*windows;
+	char		*name;
 
 	name = "save.bmp";
 	w.fd = open(name, O_CREAT | O_RDWR, 00600);
@@ -115,7 +102,7 @@ void			generate_bitmap_image(t_game *pos)
 	close(w.fd);
 }
 
-void	save_bmp(t_game *pos)
+void			save_bmp(t_game *pos)
 {
 	start(pos);
 	generate_bitmap_image(pos);
