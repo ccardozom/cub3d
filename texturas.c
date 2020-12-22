@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 11:54:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 13:33:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 15:21:19 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	path_texture_n(t_game *pos, char *line)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'N' && *(++line) == 'O')
 	{
 		line++;
@@ -30,8 +28,6 @@ void	path_texture_n(t_game *pos, char *line)
 
 void	path_texture_s(t_game *pos, char *line)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'S' && *(++line) == 'O')
 	{
 		line++;
@@ -46,8 +42,6 @@ void	path_texture_s(t_game *pos, char *line)
 
 void	path_texture_o(t_game *pos, char *line)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'W' && *(++line) == 'E')
 	{
 		line++;
@@ -62,8 +56,6 @@ void	path_texture_o(t_game *pos, char *line)
 
 void	path_texture_e(t_game *pos, char *line)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'E' && *(++line) == 'A')
 	{
 		line++;
@@ -78,8 +70,6 @@ void	path_texture_e(t_game *pos, char *line)
 
 void	path_texture_sp(t_game *pos, char *line)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'S' && *(++line) != 'O')
 	{
 		line++;

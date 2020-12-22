@@ -6,11 +6,21 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 13:33:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 16:16:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
+
+char	*erase_spaces(char *line)
+{
+	// while ((*line == ' ' || *line == '\t' ||
+	// 	ft_isdigit(*line) == 0) && *line != '\0')
+	// 		line++;
+	while (*line == ' ' || *line == '\t')
+		line++;
+	return (line);
+}
 
 void		get_colors(char *line, t_color *color, char param)
 {
@@ -31,14 +41,12 @@ void		get_colors(char *line, t_color *color, char param)
 	if (color->r == -1 || color->g == -1 || color->b == -1)
 	{
 		ft_putstr_fd("Error\n Faltan datos del juego", 1);
-		exit (0);
+		exit(0);
 	}
 }
 
 void		resolution(char *line, t_game *pos)
 {
-	while (*line == ' ' || *line == '\t')
-		line++;
 	if (*line == 'R')
 	{
 		while (ft_isdigit(*line) == 0 && *line != '\0')
@@ -49,7 +57,8 @@ void		resolution(char *line, t_game *pos)
 		while (ft_isdigit(*line) == 1)
 			line++;
 		line++;
-		while ((*line == ' ' || *line == '\t' || ft_isdigit(*line) == 0) && *line != '\0')
+		while ((*line == ' ' || *line == '\t' ||
+		ft_isdigit(*line) == 0) && *line != '\0')
 			line++;
 		pos->winres.y = ft_atoi(line);
 		while (ft_isdigit(*line) == 1)
@@ -60,7 +69,7 @@ void		resolution(char *line, t_game *pos)
 				return_error(13);
 			line++;
 		}
-		if (!(pos->winres.x) || !(pos->winres.y))
+		if (pos->winres.x <= 0 || pos->winres.y <= 0)
 			return_error(11);
 		pos->checking[0] = 1;
 	}
@@ -68,11 +77,7 @@ void		resolution(char *line, t_game *pos)
 
 void		check_line(char *line, t_game *pos)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ' || line[index] == '\t')
-		index++;
+	line = erase_spaces(line);
 	resolution(line, pos);
 	path_texture_n(pos, line);
 	path_texture_s(pos, line);

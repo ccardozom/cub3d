@@ -1,4 +1,4 @@
-R 10 10
+            R 10 10
 
 NO textures/bluestone.xpm
 SO textures/wall_1.xpm
@@ -7,7 +7,7 @@ EA textures/wood.xpm
 
 S textures/sprite_1.xpm
 F 55,100,4
-C ,37,125
+C 155,37,125
 
 1111111111
 1000002001
