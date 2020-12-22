@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:05:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/08 23:35:26 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ int		key_press(int keycode, t_game *pos)
 	else if (keycode == KEY_E || keycode == KEY_RIGHT)
 		pos->player.turn = +1;
 	if (keycode == KEY_ESC)
+	{
+		free_all(pos);
+		//free(pos->texture.sprite.path);
+		//system("leaks cub3D");
 		exit(0);
+	}
 	return (0);
 }
 

@@ -6,17 +6,17 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/11/10 10:06:10 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/12/11 16:16:10 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	cub3d
+NAME		=	cub3D
 
 SRCS1		=	cub3d.c read_map.c is_map.c texturas.c\
-				open_file.c create_map.c initialize.c\
+				open_file.c create_map.c initialize.c save.c\
 				return_error.c reset_position.c keypress.c\
-				wall_control.c start.c sprites.c\
-				position_player.c update_player.c\
+				wall_control.c start.c sprites.c checker.c\
+				position_player.c update_player.c free.c\
 				raycast.c has_wall.c raycast_aux.c projection.c projection_aux.c\
 				draw/draw_player.c draw/draw_player_move.c draw/draw_minimap.c\
 				get_next_line/get_next_line.c
@@ -43,7 +43,7 @@ $(NAME):	$(OBJSRCS1)
 
 all:	$(NAME)
 
-e:
+run:
 	./${NAME}
 
 clean:

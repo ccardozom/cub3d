@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/11 13:05:48 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/11 08:27:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ void	reset_pos_move(t_game *pos)
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
 	pos->texture.east_text.path = NULL;
+	pos->texture.ceilling.r = '\0';
+	pos->texture.ceilling.g = '\0';
+	pos->texture.ceilling.b = '\0';
+	pos->texture.floor.r = '\0';
+	pos->texture.floor.g = '\0';
+	pos->texture.floor.b = '\0';
 }
 
 void	reset_rays_data(t_game *pos)
@@ -106,4 +112,7 @@ void	reset_position(t_game *pos)
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;
 	pos->pos_id_spr = 0;
+	pos->line_count1 = 0;
+	pos->line_count2 = 0;
+	pos->checkplayer = 0;
 }

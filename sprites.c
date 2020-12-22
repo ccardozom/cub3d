@@ -6,27 +6,49 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/11 09:22:20 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/02 09:41:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
+void reset_aux(t_sprite *aux)
+{
+	aux->pos.window_height=0;
+	aux->pos.window_width=0;
+	aux->pos.x=0;
+	aux->pos.y=0;
+	aux->distance=0;
+	aux->vectx=0;
+	aux->vecty=0;
+	aux->visible=0;
+	aux->spriteangulo=0;
+	aux->spr_bottom=0;
+	aux->spr_top=0;
+	aux->x=0;
+	aux->spr_height=0;
+}
 
 void	ordenar_sprites(t_game *pos)
 {
 	t_sprite	aux;
 	int			index;
+	int			cont_sprites;
 
 	index = 0;
 	if (pos->spritecount > 1)
-		while (index <= pos->spritecount)
-		{
-			if (pos->sprites[index].distance > pos->sprites[index + 1].distance)
+		while (index < pos->spritecount)
+		{	cont_sprites = index + 1;
+			reset_aux(&aux);
+			while (cont_sprites < pos->spritecount)
 			{
-				aux = pos->sprites[index + 1];
-				pos->sprites[index + 1] = pos->sprites[index];
-				pos->sprites[index] = aux;
-				index = 0;
+				if (pos->sprites[index].distance > pos->sprites[cont_sprites].distance)
+				{
+					aux = pos->sprites[cont_sprites];
+					pos->sprites[cont_sprites] = pos->sprites[index];
+					pos->sprites[index] = aux;
+					break;
+				}
+				cont_sprites++;
 			}
 			index++;
 		}
@@ -113,8 +135,9 @@ void	sprites(t_game *pos)
 	id = 0;
 	angulo_sprites(pos);
 	ordenar_sprites(pos);
-	while (i >= 0)
+	while (id < pos->spritecount)
 	{
+		i--;
 		if (pos->sprites[i].visible == TRUE)
 		{
 			pos->sprites[i].spr_height = (pos->tile.size /
@@ -125,6 +148,6 @@ void	sprites(t_game *pos)
 			pos->sprites[i].spr_height;
 			color_sprites(&pos->sprites[i], pos);
 		}
-		i--;
+		id++;
 	}
 }

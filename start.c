@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/28 12:16:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/12 10:02:11 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,10 @@ void	start(t_game *pos)
 	&pos->img.line_length,
 	&pos->img.endian);
 	draw_player(pos);
+	cast_all_rays(pos);
+	generate_3dprojection(pos);
+	draw_minimap(pos);
+	sprites(pos);
 	mlx_put_image_to_window(pos->mlx, pos->mlx_win, pos->img.img, 0, 0);
+	free(pos->ray_data);
 }

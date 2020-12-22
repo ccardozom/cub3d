@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 19:42:17 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/10 09:11:22 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:27:20 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct		s_list
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
+int					ft_strsearch(const char *s1, const char *s2);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
