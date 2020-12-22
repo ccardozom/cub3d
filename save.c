@@ -97,16 +97,14 @@ void			generate_bitmap_image(t_game *pos)
 	t_data *windows;
 	char	*name;
 
-	name = "screenshot.bmp";
+	name = "save.bmp";
 	w.fd = open(name, O_CREAT | O_RDWR, 00600);
-	//w = NULL;
+	if (w.fd < 0)
+		return_error (2);
 	windows = &pos->img;
 	w.width = (int)pos->winres.window_width;
 	w.heigth = (int)pos->winres.window_height;
 	w.paddingsize = (4 - (w.width * 3) % 4) % 4;
-//	if ((w->fd = open("screenshot.bmp", O_WRONLY | O_CREAT
-//									| O_TRUNC | O_APPEND) < 0)
-//		return_error (2);
 	ft_putstr_fd("Se esta creando el archivo BMP ...\n", 1);
 	w.fileheader = create_bitmap_file_header(&w);
 	w.infoheader = create_bitmap_info_header(&w);
@@ -116,77 +114,6 @@ void			generate_bitmap_image(t_game *pos)
 		return_error (2);
 	close(w.fd);
 }
-/*
-void	bitmap_info_header(t_all *a, int fd)
-{
-	int header_info_size;
-	int plane_nbr;
-	int o_count;
-​
-	header_info_size = 40;
-	plane_nbr = 1;
-	write(fd, &header_info_size, 4);
-	write(fd, &a->mlx.win_width, 4);
-	write(fd, &a->mlx.win_height, 4);
-	write(fd, &plane_nbr, 2);
-	write(fd, &a->img.bits_per_pixel, 2);
-	o_count = 0;
-	while (o_count < 28)
-	{
-		write(fd, "\0", 1);
-		o_count++;
-	}
-}
-​
-void	mir_verti(t_all *a)
-{
-	int		line_cnt;
-	int		e;
-	int		f;
-​
-	line_cnt = 0;
-	while ((unsigned int)line_cnt < a->mlx.win_height)
-	{
-		e = 0;
-		f = a->img.line_length;
-		while (e < f && e != f)
-		{
-			mir_verti_pixel(a, line_cnt, &e, f);
-			f -= 4;
-		}
-		line_cnt++;
-	}
-}
-​
-void	mir_verti_pixel(t_all *a, int line_cnt, int *e, int f)
-{
-	char	save;
-	int		k;
-​
-	k = 3;
-	while (k >= 0)
-	{
-		save = a->img.addr[*e + (line_cnt * a->img.line_length)];
-		a->img.addr[*e + (line_cnt * a->img.line_length)] =
-			a->img.addr[f - k + (line_cnt * a->img.line_length - 1)];
-		a->img.addr[f - k + (line_cnt * a->img.line_length - 1)] =
-			save;
-		k--;
-		*e = *e + 1;
-	}
-}
-​
-void	data_to_bitmap(t_all *a, int fd)
-{
-	int i;
-​
-	i = a->mlx.win_width * a->mlx.win_height - 1;
-	while (i >= 0)
-	{
-		write(fd, &a->img.addr[i * a->img.bits_per_pixel / 8], 4);
-		i--;
-	}
-}*/
 
 void	save_bmp(t_game *pos)
 {
@@ -194,24 +121,4 @@ void	save_bmp(t_game *pos)
 	generate_bitmap_image(pos);
 	ft_putstr_fd("Image BMP 'screenshot.bmp' create correctly.\n", 1);
 	exit(0);
-/*
-		int		fd;
-	int		file_size;
-	int		first_pix;
-	char	*name;
-​
-	name = "first_image.bmp";
-	fd = open(name, O_CREAT | O_RDWR, 00600);
-	file_size = 14 + 40 + 4 + (pos->windows.
-	 * a->mlx.win_height) * 4;
-	first_pix = 14 + 40 + 4;
-	write(fd, "BM", 2);
-	write(fd, &file_size, 4);
-	write(fd, "\0\0\0\0", 4);
-	write(fd, &first_pix, 4);
-	bitmap_info_header(a, fd);
-	mir_verti(a);
-	data_to_bitmap(a, fd);
-	close(fd);
-	exit_game(a);*/
 }

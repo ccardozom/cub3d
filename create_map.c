@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 01:15:34 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 11:03:51 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ void	new_matriz(t_game *pos, char *line)
 					pos->map[(int)pos->matriz.y][(int)pos->matriz.x] =
 					line[(int)pos->matriz.x];
 				if (player(line[(int)pos->matriz.x]) == 0)
-					pos->checkplayer = 1;
+					pos->checkplayer += 1;
 			}
+			else
+				return_error(15);
+			
 		}
 		else
 		{

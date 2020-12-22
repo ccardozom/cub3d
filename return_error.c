@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/12 09:00:24 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/22 11:03:40 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ void	error_map(int x)
 		" pro-hi-bi-do!! Existe lineas vacias al final mapa\n", 1);
 	if (x == 12)
 		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
-		" El mapa no es valido. Falta Jugador\n", 1);
+		" El mapa no es valido. Falta o sobra un Jugador\n", 1);
 	if (x == 14)
 		ft_putstr_fd("Error\n ¡¡Algo falla...!!" 
 		" El mapa no es valido. No esta rodeado de muros\n", 1);
+	if (x == 15)
+		ft_putstr_fd("Error\n ¡¡Si sabes que eso no esta permitido...!!" 
+		" El mapa contiene caracteres no validos\n", 1);
 }
 void	return_error(int x)
 {

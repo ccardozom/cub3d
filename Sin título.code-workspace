@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "/Volumes/sgoinfre/students/ccardozo/42madrid/cub3d/cub3d"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"libft.h": "c",
+			"algorithm": "c"
+		}
+	}
+}
