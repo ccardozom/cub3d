@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:24:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:25:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ void	ordenar_sprites(t_game *pos)
 	int			cont_sprites;
 
 	index = 0;
-	if (pos->spritecount > 1)
-		while (index < pos->spritecount)
+	if (pos->sp_count > 1)
+		while (index < pos->sp_count)
 		{
 			cont_sprites = index + 1;
 			ft_bzero(&aux, sizeof(t_sprite));
-			while (cont_sprites < pos->spritecount)
+			while (cont_sprites < pos->sp_count)
 			{
-				if (pos->sprites[index].distance >
-				pos->sprites[cont_sprites].distance)
+				if (pos->sp[index].distance >
+				pos->sp[cont_sprites].distance)
 				{
-					aux = pos->sprites[cont_sprites];
-					pos->sprites[cont_sprites] = pos->sprites[index];
-					pos->sprites[index] = aux;
+					aux = pos->sp[cont_sprites];
+					pos->sp[cont_sprites] = pos->sp[index];
+					pos->sp[index] = aux;
 					break ;
 				}
 				cont_sprites++;
@@ -53,24 +53,24 @@ void	angulo_sprites(t_game *pos)
 	int	i;
 
 	i = 0;
-	while (i < pos->spritecount)
+	while (i < pos->sp_count)
 	{
-		pos->sprites[i].vectx = pos->sprites[i].pos.x - pos->player.pos.x;
-		pos->sprites[i].vecty = pos->sprites[i].pos.y - pos->player.pos.y;
-		pos->sprites[i].spriteangulo = atan2(pos->sprites[i].vecty,
-		pos->sprites[i].vectx);
-		pos->sprites[i].spriteangulo -= pos->player.player_angle;
-		if (pos->sprites[i].spriteangulo < -1 * PI)
-			pos->sprites[i].spriteangulo += 2.0 * PI;
-		if (pos->sprites[i].spriteangulo > PI)
-			pos->sprites[i].spriteangulo -= 2.0 * PI;
-		if (pos->sprites[i].spriteangulo >= -1 * (pos->player.fov_angle / 2) &&
-		pos->sprites[i].spriteangulo <= pos->player.fov_angle / 2)
-			pos->sprites[i].visible = TRUE;
+		pos->sp[i].vectx = pos->sp[i].pos.x - pos->player.pos.x;
+		pos->sp[i].vecty = pos->sp[i].pos.y - pos->player.pos.y;
+		pos->sp[i].spriteangulo = atan2(pos->sp[i].vecty,
+		pos->sp[i].vectx);
+		pos->sp[i].spriteangulo -= pos->player.player_angle;
+		if (pos->sp[i].spriteangulo < -1 * PI)
+			pos->sp[i].spriteangulo += 2.0 * PI;
+		if (pos->sp[i].spriteangulo > PI)
+			pos->sp[i].spriteangulo -= 2.0 * PI;
+		if (pos->sp[i].spriteangulo >= -1 * (pos->player.fov_angle / 2) &&
+		pos->sp[i].spriteangulo <= pos->player.fov_angle / 2)
+			pos->sp[i].visible = TRUE;
 		else
-			pos->sprites[i].visible = FALSE;
-		pos->sprites[i].distance = distancebetweenpoints(pos->player.pos.x,
-		pos->player.pos.y, pos->sprites[i].pos.x, pos->sprites[i].pos.y);
+			pos->sp[i].visible = FALSE;
+		pos->sp[i].distance = distancebetweenpoints(pos->player.pos.x,
+		pos->player.pos.y, pos->sp[i].pos.x, pos->sp[i].pos.y);
 		i++;
 	}
 }
@@ -109,22 +109,22 @@ void	sprites(t_game *pos)
 	int i;
 	int id;
 
-	i = pos->spritecount;
+	i = pos->sp_count;
 	id = 0;
 	angulo_sprites(pos);
 	ordenar_sprites(pos);
-	while (id < pos->spritecount)
+	while (id < pos->sp_count)
 	{
 		i--;
-		if (pos->sprites[i].visible == TRUE)
+		if (pos->sp[i].visible == TRUE)
 		{
-			pos->sprites[i].spr_height = (pos->tile.size /
-			pos->sprites[i].distance) * pos->player.distanceprojplane;
-			pos->sprites[i].spr_top = (pos->winres.window_height / 2) -
-			(pos->sprites[i].spr_height / 2);
-			pos->sprites[i].spr_bottom = pos->sprites[i].spr_top +
-			pos->sprites[i].spr_height;
-			color_sprites(&pos->sprites[i], pos);
+			pos->sp[i].spr_height = (pos->tile.size /
+			pos->sp[i].distance) * pos->player.distanceprojplane;
+			pos->sp[i].spr_top = (pos->winres.window_height / 2) -
+			(pos->sp[i].spr_height / 2);
+			pos->sp[i].spr_bottom = pos->sp[i].spr_top +
+			pos->sp[i].spr_height;
+			color_sprites(&pos->sp[i], pos);
 		}
 		id++;
 	}

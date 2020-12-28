@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 13:33:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:23:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	new_matriz(t_game *pos, char *line)
 			{
 				if (line[(int)pos->matriz.x] == '2')
 				{
-					pos->sprites[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
-					pos->sprites[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
+					pos->sp[pos->spritecount_aux].pos.x = (pos->matriz.x * pos->tile.size) + (pos->tile.size / 2);
+					pos->sp[pos->spritecount_aux++].pos.y = (pos->matriz.y * pos->tile.size) + (pos->tile.size / 2);
 				}
 				if (line[(int)pos->matriz.x] == ' ')
 					pos->map[(int)pos->matriz.y][(int)pos->matriz.x] = '8';
@@ -98,32 +98,31 @@ void		create_map(t_game *pos, char **argv)
 	char	*line;
 	int		i;
 	int		fd;
-	if (checker(pos->checking) &&
-	pos->control_map == 1)
+	if (checker(pos->checking) && pos->control_map == 1)
 	{
-	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
-		return_error(4);
-	i = 0;
-	while (i < pos->rows)
-	{
-		if (!(pos->map[i] = (char *)malloc((pos->columns + 1) * sizeof(char))))
+		if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
 			return_error(4);
-		i++;
-	}
-	rellenar_matriz(pos->map, pos->rows, pos->columns);
-	if (!(pos->sprites = (t_sprite *)malloc(sizeof(t_sprite) * pos->spritecount)))
-		return_error(4);
-	fd = open_file(argv);
-	while (get_next_line(fd, &line) == 1)
-	{
-		reset_sprites(pos);
+		i = 0;
+		while (i < pos->rows)
+		{
+			if (!(pos->map[i] = (char *)malloc((pos->columns + 1) * sizeof(char))))
+				return_error(4);
+			i++;
+		}
+		rellenar_matriz(pos->map, pos->rows, pos->columns);
+		if (!(pos->sp = (t_sprite *)malloc(sizeof(t_sprite) * pos->sp_count)))
+			return_error(4);
+		fd = open_file(argv);
+		while (get_next_line(fd, &line) == 1)
+		{
+			reset_sprites(pos);
+			create_matriz(line, pos);
+			if (line != '\0')
+				free(line);
+		}
 		create_matriz(line, pos);
-		if (line != '\0')
-			free(line);
-	}
-	create_matriz(line, pos);
-	free(line);
-	close(fd);
+		free(line);
+		close(fd);
 	}
 	else
 		return_error(11);

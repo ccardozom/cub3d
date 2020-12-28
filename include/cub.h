@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:39:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:23:33 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ typedef struct		s_game
 	int			control_map;
 	int			first_frame;
 	int			color;
-	int			spritecount;
+	int			sp_count;
 	int			spritecount_aux;
 	int			pos_id_spr;
 	int			line_count1;
@@ -234,7 +234,7 @@ typedef struct		s_game
 	t_tile		tile;
 	t_rays		rays;
 	t_ray		*ray_data;
-	t_sprite	*sprites;
+	t_sprite	*sp;
 	int			checking[8];
 }					t_game;
 

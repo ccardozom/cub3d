@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 10:40:00 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 13:33:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:23:59 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	is_map(char *line, t_game *pos)
 			while (line[index] != '\0')
 			{
 				if (line[index] == '2')
-					pos->spritecount += 1;
+					pos->sp_count += 1;
 				index++;
 			}
 			pos->rows++;

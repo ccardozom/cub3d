@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:23:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:24:17 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ void	reset_cast(t_game *pos)
 
 void	reset_sprites(t_game *pos)
 {
-	pos->sprites->distance = 0.0;
-	pos->sprites->visible = 0;
-	pos->sprites->vectx = 0;
-	pos->sprites->vecty = 0;
-	pos->sprites->spriteangulo = 0;
-	pos->sprites->spr_top = 0;
-	pos->sprites->spr_bottom = 0;
-	pos->sprites->x = 0;
-	pos->sprites->spr_height = 0;
+	pos->sp->distance = 0.0;
+	pos->sp->visible = 0;
+	pos->sp->vectx = 0;
+	pos->sp->vecty = 0;
+	pos->sp->spriteangulo = 0;
+	pos->sp->spr_top = 0;
+	pos->sp->spr_bottom = 0;
+	pos->sp->x = 0;
+	pos->sp->spr_height = 0;
 }
 
 void	reset_position(t_game *pos)
@@ -108,7 +108,7 @@ void	reset_position(t_game *pos)
 	pos->mlx_win = 0;
 	pos->mlx = 0;
 	pos->tile.size = 64;
-	pos->spritecount = 0;
+	pos->sp_count = 0;
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;
 	pos->pos_id_spr = 0;

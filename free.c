@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:49:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 10:05:56 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	free_all(t_game *pos)
 {
 	if (pos)
 		free_map(pos);
-	if (pos->sprites)
+	if (pos->sp)
 	{
-		free(pos->sprites);
-		pos->sprites = NULL;
+		free(pos->sp);
+		pos->sp = NULL;
 	}
 }
