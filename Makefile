@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/12/28 09:47:53 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/12/28 15:21:31 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ OBJSRCS1		=	${SRCS1:.c=.o}
 
 CC			=	gcc -g
 
+FSAVE		=	--save
+
 NORM	=	norminette
 
 CFLAGS		=	-Wall -Wextra -Werror
@@ -47,7 +49,10 @@ $(NAME):	$(OBJSRCS1)
 
 norma:
 	@$(NORM) $(SRCS1) $(INCLUDE)
-	
+
+saved:
+	@./$(NAME) $(MAPA) $(FSAVE)
+
 all:	$(NAME)
 
 run:

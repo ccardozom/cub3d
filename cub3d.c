@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/12 10:06:30 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 15:18:03 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,15 @@ int		main_loop(t_game *pos)
 int		main(int argc, char **argv)
 {
 	t_game	pos;
-	
+
 	if (argc < 2 || argc > 3)
 		return_error(1);
-if (ft_strsearch(argv[1], ".cub"))
-	initialize(&pos, argv);
+	if (ft_strsearch(argv[1], ".cub"))
+		initialize(&pos, argv);
 	if (argv[2])
 	{
 		if (ft_strcmp(argv[2], "--save") == 0)
-		{
 			save_bmp(&pos);
-		}
 		else
 		{
 			return_error(10);
@@ -57,12 +55,11 @@ if (ft_strsearch(argv[1], ".cub"))
 	}
 	else if (ft_strsearch(argv[1], ".cub") == 1 && !(argv[2]))
 	{
-		//initialize(&pos, argv);
 		start(&pos);
 		mlx_hook(pos.mlx_win, 2, 0, &key_press, &pos);
 		mlx_hook(pos.mlx_win, 3, 0, &key_release, &pos);
 		mlx_loop_hook(pos.mlx, &main_loop, &pos);
 		mlx_loop(pos.mlx);
-	}	
+	}
 	return (0);
 }
