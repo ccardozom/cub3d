@@ -6,7 +6,7 @@
 #    By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 08:55:53 by ccardozo          #+#    #+#              #
-#    Updated: 2020/12/22 14:39:48 by ccardozo         ###   ########.fr        #
+#    Updated: 2020/12/28 09:12:47 by ccardozo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,13 @@ SRCS1		=	cub3d.c read_map.c is_map.c texturas.c utils.c\
 				draw/draw_player.c draw/draw_player_move.c draw/draw_minimap.c\
 				get_next_line/get_next_line.c
 
+INCLUDE		=	include/cub.h
+
 OBJSRCS1		=	${SRCS1:.c=.o}
 
-CC 			=	gcc -g
+CC			=	gcc -g
+
+NORM	=	norminette
 
 CFLAGS		=	-Wall -Wextra -Werror
 
@@ -39,6 +43,9 @@ $(NAME):	$(OBJSRCS1)
 		@echo "\033[33m[Compilando Cub3d...]"
 		$(CC) $(CFLAGS) ${MFLAGS} $(OBJSRCS1) ./libft/libft.a -o $(NAME)
 
+norma:
+	@$(NORM) $(SRCS1) $(INCLUDE)
+	
 all:	$(NAME)
 
 run:

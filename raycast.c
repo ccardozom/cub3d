@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/09 10:39:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:24:41 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,14 @@ void	cast_all_rays(t_game *pos)
 	if (!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) *
 	pos->player.num_rays)))
 		return_error(4);
-	pos->rays.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
+	pos->rays.rayangle = pos->player.player_angle - (pos->player.fov_angle / 2);
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
 	id = 0;
 	while (id < pos->player.num_rays)
 	{
 		reset_rays_data(pos);
 		castray(pos, &pos->ray_data[id]);
-		pos->rays.rayangle += pos->player.FOV_angle / pos->player.num_rays;
+		pos->rays.rayangle += pos->player.fov_angle / pos->player.num_rays;
 		id++;
 	}
 }

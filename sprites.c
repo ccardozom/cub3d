@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 14:20:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:24:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	angulo_sprites(t_game *pos)
 			pos->sprites[i].spriteangulo += 2.0 * PI;
 		if (pos->sprites[i].spriteangulo > PI)
 			pos->sprites[i].spriteangulo -= 2.0 * PI;
-		if (pos->sprites[i].spriteangulo >= -1 * (pos->player.FOV_angle / 2) &&
-		pos->sprites[i].spriteangulo <= pos->player.FOV_angle / 2)
+		if (pos->sprites[i].spriteangulo >= -1 * (pos->player.fov_angle / 2) &&
+		pos->sprites[i].spriteangulo <= pos->player.fov_angle / 2)
 			pos->sprites[i].visible = TRUE;
 		else
 			pos->sprites[i].visible = FALSE;

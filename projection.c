@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/11/05 09:44:19 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:25:00 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	projection_wall(t_game *pos, int x)
 	pos->player.perpdistance = pos->ray_data[x].distance *
 	cos(pos->ray_data[x].ray_angle - pos->player.player_angle);
 	pos->player.distanceprojplane = (pos->winres.window_width / 2) /
-	tan(pos->player.FOV_angle / 2);
+	tan(pos->player.fov_angle / 2);
 	pos->player.projectedwallheight = (pos->tile.size /
 	pos->player.perpdistance) * pos->player.distanceprojplane;
 	pos->player.wallstripheight = (int)pos->player.projectedwallheight;
@@ -74,10 +74,10 @@ void	projection_wall(t_game *pos, int x)
 	pos->winres.window_height ? pos->winres.window_height :
 	pos->player.wallbottompixel;
 	if (pos->ray_data[x].washitvertical)
-		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhitY %
+		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhit_y %
 		pos->tile.size;
 	else
-		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhitX %
+		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhit_x %
 		pos->tile.size;
 	color_all_wall(pos, x);
 }

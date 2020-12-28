@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 08:27:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:23:38 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	reset_rays_data(t_game *pos)
 
 void	reset_cast(t_game *pos)
 {
-	pos->player.FOV_angle = 66 * (PI / 180);
+	pos->player.fov_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
 	pos->player.player_control = 0;
 	pos->player.minimapscale = 0.2;
