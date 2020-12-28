@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 10:23:33 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 13:20:34 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,6 @@ typedef struct		s_game
 	int			columns;
 	char		**map;
 	void		*data;
-	int			control;
 	int			control_map;
 	int			first_frame;
 	int			color;
@@ -238,7 +237,6 @@ typedef struct		s_game
 	int			checking[8];
 }					t_game;
 
-void		imprimir_matriz(t_game *pos);
 void		initialize(t_game *pos, char **argv);
 void		read_map(t_game *pos, char **argv);
 void		check_line(char *line, t_game *pos);
@@ -256,7 +254,7 @@ void		create_window(t_game *pos, t_data *img);
 int			open_file(char **argv);
 void		create_map(t_game *pos, char **argv);
 void		create_matriz(char *line, t_game *pos);
-void		fill_matriz(t_game *pos);
+void		rellenar_matriz(char **matriz, int filas, int columnas);
 void		new_matriz(t_game *pos, char *line);
 int			wall_control(char **matriz, int rows, int columns);
 int			wall_colision(t_game *pos, float y, float x);
@@ -273,13 +271,10 @@ void		dir_colision(t_game *pos, t_ray *ray_data);
 void		update_player(t_game *pos);
 float		normalizeangle(float angle);
 void		draw_minimap(t_game *pos);
-int			assign_pixel(int x, t_tile *tile, t_data *image, t_game *pos);
 void		my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void		draw_player(t_game *pos);
 void		draw_player_move(t_game *pos);
 void		cast_all_rays(t_game *pos);
-void		horizontal_collision_next(t_game *pos);
-void		vertical_collision_next(t_game *pos, float rayangle);
 int			control_wall_x(t_game *pos, float new_pos);
 int			control_wall_y(t_game *pos, int new_pos);
 void		generate_3dprojection(t_game *pos);
@@ -289,7 +284,6 @@ void		path_texture_s(t_game *pos, char *line);
 void		path_texture_e(t_game *pos, char *line);
 void		path_texture_o(t_game *pos, char *line);
 void		path_texture_sp(t_game *pos, char *line);
-void		color_all_buffer(t_game *pos);
 void		charge_textures_main(t_game *pos);
 int			charge_textures(t_game *pos, t_text *texture);
 int			get_color_bmp(t_data *windows, int x, int y, t_bitmap *w);
