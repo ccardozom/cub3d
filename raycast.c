@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:24:41 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/28 09:44:55 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.nexthoriztouchy <= pos->winres.window_height)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
-		
 			break ;
 	}
 }
