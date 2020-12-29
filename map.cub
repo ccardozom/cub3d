@@ -6,8 +6,8 @@ WE textures/wall_2.xpm
 EA textures/wood.xpm
 
 S textures/sprite_2.xpm
-F 55,100,4
-C 155,37,125
+F  55,0,4
+C 45,0,125
 
 1111111111
 1000002001

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 15:31:21 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/29 10:26:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,6 +248,7 @@ void			sprites(t_game *pos);
 void			reset_position(t_game *pos);
 void			reset_rays_data(t_game *pos);
 void			reset_sprites(t_game *pos);
+void			reset_color(t_color *color);
 void			resolution(char *buffer, t_game *pos);
 void			is_map(char *line, t_game *pos);
 void			create_window(t_game *pos, t_data *img);

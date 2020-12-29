@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 15:07:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/29 10:44:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,31 @@ char		*erase_spaces(char *line)
 	return (line);
 }
 
-void		get_colors(char *line, t_color *color, char param)
+void		get_colors(char *line, t_color *color)
 {
-	color->empty = 0;
-	while (*line == ' ' || *line == param)
+	reset_color(color);
+	while (*line == ' ' || *line == '\t')
 		line++;
-	color->r = ft_atoi(line);
+	if (ft_isdigit(*line))
+		color->r = ft_atoi(line);
 	while (ft_isdigit(*line))
 		line++;
-	while (*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == '\t' || *line == ',')
 		line++;
-	color->g = ft_atoi(line);
+	if (ft_isdigit(*line))
+		color->g = ft_atoi(line);
 	while (ft_isdigit(*line))
 		line++;
-	while (*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == '\t' || *line == ',')
 		line++;
-	color->b = ft_atoi(line);
-	if (color->r == -1 || color->g == -1 || color->b == -1)
+	if (ft_isdigit(*line))
+		color->b = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	line = erase_spaces(line);
+	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0')
 	{
-		ft_putstr_fd("Error\n Faltan datos del juego", 1);
+		ft_putstr_fd("Error\n Datos incorrectos en suelo o el cielo :-(", 1);
 		exit(0);
 	}
 }
@@ -81,13 +87,15 @@ void		check_line(char *line, t_game *pos)
 	path_texture_sp(pos, line);
 	if (ft_strchr(line, 'F'))
 	{
+		line++;
 		pos->checking[6] = 1;
-		get_colors((char*)line, &pos->texture.floor, 'F');
+		get_colors((char*)line, &pos->texture.floor);
 	}
 	else if (ft_strchr(line, 'C'))
 	{
+		line++;
 		pos->checking[7] = 1;
-		get_colors((char*)line, &pos->texture.ceilling, 'C');
+		get_colors((char*)line, &pos->texture.ceilling);
 	}
 	else if (search_wall(pos, line))
 		is_map(line, pos);
