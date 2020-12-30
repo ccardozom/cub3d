@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/04 12:23:32 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/29 13:07:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 08:40:49 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int		wall_colision(t_game *pos, float y, float x)
 
 	coly = (int)y / pos->tile.size;
 	colx = (int)x / pos->tile.size;
-	//if (coly == pos->rows)
-	//	coly -= 1;
 	if (pos->map[coly][colx] == '1')
 		return (1);
 	return (0);
