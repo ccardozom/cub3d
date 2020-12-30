@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 11:13:36 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/29 12:10:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	start(t_game *pos)
 {
-	pos->player.num_rays = pos->winres.window_width;
+	pos->player.num_rays = pos->winres.window_w;
 	pos->mlx = mlx_init();
 	pos->mlx_win = mlx_new_window(pos->mlx,
-	pos->winres.window_width, pos->winres.window_height, "Cub3D");
+	pos->winres.window_w, pos->winres.window_h, "Cub3D");
 	pos->img.img = mlx_new_image(pos->mlx,
-	pos->winres.window_width, pos->winres.window_height);
+	pos->winres.window_w, pos->winres.window_h);
 	pos->img.addr = mlx_get_data_addr(pos->img.img,
 	&pos->img.bits_per_pixel,
 	&pos->img.line_length,

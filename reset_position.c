@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 13:34:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 12:06:30 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reset_pos_move(t_game *pos)
 	pos->player.walk = 0;
 	pos->player.player_angle = 0;
 	pos->player.movespeed = 2;
-	pos->player.rotationspeed = 1.5 * (PI / 180);
+	pos->player.rotationspeed = 0.5 * (PI / 180);
 	pos->texture.north_text.path = NULL;
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
@@ -60,7 +60,7 @@ void	reset_rays_data(t_game *pos)
 
 void	reset_cast(t_game *pos)
 {
-	pos->player.fov_angle = 66 * (PI / 180);
+	pos->player.v_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
 	pos->player.player_control = 0;
 	pos->player.minimapscale = 0.2;
@@ -83,6 +83,8 @@ void	reset_sprites(t_game *pos)
 	pos->sp->vectx = 0;
 	pos->sp->vecty = 0;
 	pos->sp->spriteangulo = 0;
+	pos->sp->anguloini = 0;
+	pos->sp->angulofin = 0;
 	pos->sp->spr_top = 0;
 	pos->sp->spr_bottom = 0;
 	pos->sp->x = 0;

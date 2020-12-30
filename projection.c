@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 09:25:00 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	color_all_wall(t_game *pos, int x)
 	while (y < pos->player.wallbottompixel)
 	{
 		distancefromtop = y + (pos->player.wallstripheight / 2) -
-		(pos->winres.window_height / 2);
+		(pos->winres.window_h / 2);
 		pos->player.textureoffsety = distancefromtop *
 		((float)pos->texture.east_text.h / pos->player.wallstripheight);
 		pos->player.textureoffsety *= (pos->player.textureoffsety < 0 ? -1 : 1);
@@ -59,19 +59,19 @@ void	projection_wall(t_game *pos, int x)
 {
 	pos->player.perpdistance = pos->ray_data[x].distance *
 	cos(pos->ray_data[x].ray_angle - pos->player.player_angle);
-	pos->player.distanceprojplane = (pos->winres.window_width / 2) /
-	tan(pos->player.fov_angle / 2);
+	pos->player.distanceprojplane = (pos->winres.window_w / 2) /
+	tan(pos->player.v_angle / 2);
 	pos->player.projectedwallheight = (pos->tile.size /
 	pos->player.perpdistance) * pos->player.distanceprojplane;
 	pos->player.wallstripheight = (int)pos->player.projectedwallheight;
-	pos->player.walltoppixel = (pos->winres.window_height / 2) -
+	pos->player.walltoppixel = (pos->winres.window_h / 2) -
 	(pos->player.wallstripheight / 2);
 	pos->player.walltoppixel = pos->player.walltoppixel < 0 ? 0 :
 	pos->player.walltoppixel;
-	pos->player.wallbottompixel = (pos->winres.window_height / 2) +
+	pos->player.wallbottompixel = (pos->winres.window_h / 2) +
 	(pos->player.wallstripheight / 2);
 	pos->player.wallbottompixel = pos->player.wallbottompixel >
-	pos->winres.window_height ? pos->winres.window_height :
+	pos->winres.window_h ? pos->winres.window_h :
 	pos->player.wallbottompixel;
 	if (pos->ray_data[x].washitvertical)
 		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhit_y %

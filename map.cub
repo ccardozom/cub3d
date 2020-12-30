@@ -1,11 +1,11 @@
-            R 2000 2000
+            R 600 600
 
 NO textures/bluestone.xpm
 SO textures/wall_1.xpm
 WE textures/wall_2.xpm
 EA textures/wood.xpm
 
-S textures/sprite_2.xpm
+S textures/sprite_1.xpm
 F  55,0,4
 C 45,0,125
 

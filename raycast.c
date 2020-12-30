@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/29 13:01:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.nextverttouchy = pos->rays.yintercep;
 	pos->rays.nextverttouchx = pos->rays.xintercep;
 	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <=
-	pos->winres.window_width &&
+	pos->winres.window_w &&
 	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <
-	pos->winres.window_height)
+	pos->winres.window_h)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
 			break ;
@@ -57,9 +57,9 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
 	while (pos->rays.nexthoriztouchx >= 0 &&
-	pos->rays.nexthoriztouchx <= pos->winres.window_width &&
+	pos->rays.nexthoriztouchx <= pos->winres.window_w &&
 	pos->rays.nexthoriztouchy >= 0 &&
-	pos->rays.nexthoriztouchy <= pos->winres.window_height)
+	pos->rays.nexthoriztouchy <= pos->winres.window_h)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
 			break ;
@@ -106,14 +106,14 @@ void	cast_all_rays(t_game *pos)
 	if (!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) *
 	pos->player.num_rays)))
 		return_error(4);
-	pos->rays.rayangle = pos->player.player_angle - (pos->player.fov_angle / 2);
+	pos->rays.rayangle = pos->player.player_angle - (pos->player.v_angle / 2);
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
 	id = 0;
 	while (id < pos->player.num_rays)
 	{
 		reset_rays_data(pos);
 		castray(pos, &pos->ray_data[id]);
-		pos->rays.rayangle += pos->player.fov_angle / pos->player.num_rays;
+		pos->rays.rayangle += pos->player.v_angle / pos->player.num_rays;
 		id++;
 	}
 }

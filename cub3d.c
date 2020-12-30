@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 15:18:03 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		main_loop(t_game *pos)
 		mlx_destroy_image(pos->mlx, pos->img.img);
 		update_player(pos);
 		pos->img.img = mlx_new_image(pos->mlx,
-		pos->winres.window_width,
-		pos->winres.window_height);
+		pos->winres.window_w,
+		pos->winres.window_h);
 		pos->img.addr = mlx_get_data_addr(pos->img.img,
 		&pos->img.bits_per_pixel,
 		&pos->img.line_length,

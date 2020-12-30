@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/29 10:26:44 by ccardozo         ###   ########.fr       */
+/*   Updated: 2020/12/30 12:04:33 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct	s_position
 {
 	float		x;
 	float		y;
-	float		window_width;
-	float		window_height;
+	float		window_w;
+	float		window_h;
 }				t_pos;
 
 typedef struct	s_color
@@ -102,7 +102,7 @@ typedef struct	s_move_player
 	float		player_angle;
 	float		movespeed;
 	float		rotationspeed;
-	float		fov_angle;
+	float		v_angle;
 	int			num_rays;
 	int			player_control;
 	t_pos		pos;
@@ -156,6 +156,8 @@ typedef struct	s_sprite
 	float		vecty;
 	int			visible;
 	float		spriteangulo;
+	float		anguloini;
+	float		angulofin;
 	int			spr_bottom;
 	int			spr_top;
 	int			x;
