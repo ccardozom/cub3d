@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/02 21:05:48 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/02 21:26:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,6 +248,7 @@ void			position_player(t_game *pos, t_pos *tile_pos);
 int				player(char c);
 void			sprites(t_game *pos);
 void			angulo_ini(t_game *pos, int x1, int i);
+void			angulo_fin(t_game *pos, int x2, int i);
 void			reset_position(t_game *pos);
 void			reset_rays_data(t_game *pos);
 void			reset_sprites(t_game *pos);
