@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/30 12:15:30 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/02 21:03:50 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,19 @@ void	angulo_sprites(t_game *pos)
 	while (i < pos->sp_count)
 	{
 		pos->sp[i].vectx = pos->sp[i].pos.x - pos->player.pos.x;
-		x1 = (pos->sp[i].pos.x - pos->tile.size / 2) - pos->player.pos.x;
 		x2 = (pos->sp[i].pos.x + pos->tile.size / 2) - pos->player.pos.x;
 		pos->sp[i].vecty = pos->sp[i].pos.y - pos->player.pos.y;
 		pos->sp[i].spriteangulo = atan2(pos->sp[i].vecty,
 		pos->sp[i].vectx);
-		pos->sp[i].anguloini = atan2(pos->sp[i].vecty,
-		x1);
+		angulo_ini(pos, x1, i);
 		pos->sp[i].angulofin = atan2(pos->sp[i].vecty,
 		x2);
 		pos->sp[i].spriteangulo -= pos->player.player_angle;
-		pos->sp[i].anguloini -= pos->player.player_angle;
 		pos->sp[i].angulofin -= pos->player.player_angle;
 		pos->sp[i].spriteangulo = pos->sp[i].spriteangulo < -1 * PI ?
 		pos->sp[i].spriteangulo + (2.0 * PI) : pos->sp[i].spriteangulo;
 		pos->sp[i].spriteangulo = pos->sp[i].spriteangulo > PI ?
 		pos->sp[i].spriteangulo - (2.0 * PI) : pos->sp[i].spriteangulo;
-		pos->sp[i].anguloini = pos->sp[i].anguloini < -1 * PI ?
-		pos->sp[i].anguloini + (2.0 * PI) : pos->sp[i].anguloini;
-		pos->sp[i].anguloini = pos->sp[i].anguloini > PI ?
-		pos->sp[i].anguloini - (2.0 * PI) : pos->sp[i].anguloini;
 		pos->sp[i].angulofin = pos->sp[i].angulofin < -1 * PI ?
 		pos->sp[i].angulofin + (2.0 * PI) : pos->sp[i].angulofin;
 		pos->sp[i].angulofin = pos->sp[i].angulofin > PI ?
