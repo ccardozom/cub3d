@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/02 21:25:04 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/02 21:36:38 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,9 @@ void	angulo_sprites(t_game *pos)
 	{
 		pos->sp[i].vectx = pos->sp[i].pos.x - pos->player.pos.x;
 		pos->sp[i].vecty = pos->sp[i].pos.y - pos->player.pos.y;
-		pos->sp[i].spriteangulo = atan2(pos->sp[i].vecty,
-		pos->sp[i].vectx);
+		angulo_central(pos, i);
 		angulo_ini(pos, x1, i);
 		angulo_fin(pos, x2, i);
-		pos->sp[i].spriteangulo -= pos->player.player_angle;
-		pos->sp[i].spriteangulo = pos->sp[i].spriteangulo < -1 * PI ?
-		pos->sp[i].spriteangulo + (2.0 * PI) : pos->sp[i].spriteangulo;
-		pos->sp[i].spriteangulo = pos->sp[i].spriteangulo > PI ?
-		pos->sp[i].spriteangulo - (2.0 * PI) : pos->sp[i].spriteangulo;
 		if ((pos->sp[i].anguloini >= -1 * (pos->player.v_angle / 2) &&
 		pos->sp[i].anguloini <= pos->player.v_angle / 2) ||
 		(pos->sp[i].angulofin >= -1 * (pos->player.v_angle / 2) &&
