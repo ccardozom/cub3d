@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:01:27 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/22 14:56:02 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/12 12:18:08 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void	return_error(int x)
 	if (x == 13)
 		ft_putstr_fd("Error\n ¡¡Los datos de la resolucion no son correctos!!"
 		" verifica eso ya...\n", 1);
+	system("leaks cub3D");
 	exit(0);
 }

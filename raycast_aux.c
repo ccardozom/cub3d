@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/23 21:44:38 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/30 09:33:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:39:15 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int		wall_colision_search_hor(t_game *pos, t_ray *ray_data)
 {
 	int		control_row;
 
-	pos->rays.xtocheck = pos->rays.nexthoriztouchx;
+	pos->rays.xtocheck = pos->rays.nexthoriztouchx > (pos->columns *
+	 pos->tile.size) - 1 ? (pos->columns * pos->tile.size) - 1 :
+	pos->rays.nexthoriztouchx;
 	pos->rays.ytocheck = pos->rays.nexthoriztouchy +
 	(ray_data->israyfacingup ? -1 : 0);
 	if (wall_colision(pos, pos->rays.ytocheck, pos->rays.xtocheck))

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/28 13:38:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:09:35 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,15 @@ void	reserv_mem_map(t_game *pos)
 {
 	int i;
 
-	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *))))
+	if (!(pos->map = (char **)malloc(pos->rows * sizeof(char *) + 1)))
 		return_error(4);
+	ft_memset(pos->map, 0, pos->rows * sizeof(char *) + 1);
 	i = 0;
 	while (i < pos->rows)
 	{
-		if (!(pos->map[i] = malloc((pos->columns + 1) * sizeof(char))))
+		if (!(pos->map[i] = malloc((pos->columns + 1) * sizeof(char *) + 1)))
 			return_error(4);
+		ft_memset(pos->map[i], '8', (pos->columns + 1) * sizeof(char *) + 1);
 		i++;
 	}
 }
@@ -95,16 +97,15 @@ void	create_map(t_game *pos, char **argv)
 	if (checker(pos->checking) && pos->control_map == 1)
 	{
 		reserv_mem_map(pos);
-		rellenar_matriz(pos->map, pos->rows, pos->columns);
-		if (!(pos->sp = (t_sprite *)malloc(sizeof(t_sprite) * pos->sp_count)))
+		if (!(pos->sp = (t_sprite *)malloc(sizeof(t_sprite) * pos->sp_count + 1)))
 			return_error(4);
+		ft_memset(pos->sp, 0, sizeof(t_sprite) * pos->sp_count + 1);
 		fd = open_file(argv);
 		while (get_next_line(fd, &line) == 1)
 		{
 			reset_sprites(pos);
 			create_matriz(line, pos);
-			if (line != '\0')
-				free(line);
+			free(line);
 		}
 		create_matriz(line, pos);
 		free(line);

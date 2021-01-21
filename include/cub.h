@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/02 21:37:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:09:23 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define KEY_DOWN			125
 # define KEY_W				13
 # define KEY_S				1
-# define KEY_Q				12
-# define KEY_E				14
+# define KEY_A				0
+# define KEY_D				2
 # define FALSE				0
 # define TRUE				1
 # define KEY_ESC				53
@@ -37,6 +37,14 @@
 # define BYTES_PER_PIXEL		3
 # define INFO_HEADER_SIZE	40
 # define FILE_HEADER_SIZE	14
+
+typedef struct	s_new
+{
+	float new_player_x;
+	float new_player_y;
+	float move_step;
+	float move_l_r;
+}				t_new;
 
 typedef struct	s_position
 {
@@ -98,6 +106,7 @@ typedef struct	s_move_player
 {
 	int			turn;
 	int			walk;
+	int			l_r;
 	float		minimapscale;
 	float		player_angle;
 	float		movespeed;
@@ -256,11 +265,9 @@ void			reset_sprites(t_game *pos);
 void			reset_color(t_color *color);
 void			resolution(char *buffer, t_game *pos);
 void			is_map(char *line, t_game *pos);
-void			create_window(t_game *pos, t_data *img);
 int				open_file(char **argv);
 void			create_map(t_game *pos, char **argv);
 void			create_matriz(char *line, t_game *pos);
-void			rellenar_matriz(char **matriz, int filas, int columnas);
 void			new_matriz(t_game *pos, char *line);
 int				wall_control(char **matriz, int rows, int columns);
 int				wall_colision(t_game *pos, float y, float x);

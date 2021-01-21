@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/02 21:36:38 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/12 21:23:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	angulo_spr_vision(t_sprite *sprites, t_game *pos, t_colortexture *t)
 	sprites->spr_height / 2;
 	t->tex_x = 0;
 	t->tex_send = sprites->x + sprites->spr_height;
-	t->tex_send = t->tex_send > pos->winres.window_h ? pos->winres.window_h :
+	t->tex_send = t->tex_send > pos->winres.window_w ? pos->winres.window_w :
 	t->tex_send;
 }
 

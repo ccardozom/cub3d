@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 14:36:24 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/29 10:26:20 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 14:46:27 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,6 @@ int		player(char c)
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
 		return (0);
 	return (1);
-}
-
-void	rellenar_matriz(char **matriz, int filas, int columnas)
-{
-	int i;
-	int j;
-
-	j = 0;
-	while (filas > j)
-	{
-		i = 0;
-		while (columnas > i)
-		{
-			matriz[j][i] = '8';
-			i++;
-		}
-		matriz[j][i] = '\0';
-		j++;
-	}
 }
 
 void	reset_color(t_color *color)
