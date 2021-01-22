@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/22 17:25:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/22 19:50:52 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,11 @@ typedef struct	s_move_player
 	float		perpdistance;
 	float		distanceprojplane;
 	float		projectedwallheight;
-	int			wallstripheight;
-	int			walltoppixel;
-	int			wallbottompixel;
-	int			textureoffsetx;
-	int			textureoffsety;
+	float			wallstripheight;
+	float			walltoppixel;
+	float			wallbottompixel;
+	float			textureoffsetx;
+	float			textureoffsety;
 	float		wall_x;
 }				t_player;
 

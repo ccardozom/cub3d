@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 17:13:25 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/22 17:44:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/22 20:57:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ void	wall_position(t_game *pos, int i, int y)
 	if (pos->ray_data[i].washitvertical == TRUE &&
 		pos->ray_data[i].israyfacingright)
 		my_mlx_pixel_put(&pos->img, i, y,
-		pos->texture.east_text.image[(pos->player.textureoffsety * pos->texture.east_text.h) + pos->player.textureoffsetx]);
+		pos->texture.east_text.image[((int)pos->player.textureoffsetx * pos->texture.east_text.h) + (int)pos->player.textureoffsety]);
 	if (pos->ray_data[i].washitvertical == TRUE &&
 		pos->ray_data[i].israyfacingleft)
 		my_mlx_pixel_put(&pos->img, i, y,
-		pos->texture.weast_text.image[(pos->player.textureoffsety * pos->texture.east_text.h) + pos->player.textureoffsetx]);
+		pos->texture.weast_text.image[((int)pos->player.textureoffsetx * pos->texture.east_text.h) + (int)pos->player.textureoffsety]);
 	if (pos->ray_data[i].washitvertical == FALSE &&
 		pos->ray_data[i].israyfacingdown)
 		my_mlx_pixel_put(&pos->img, i, y,
-		pos->texture.south_text.image[(pos->player.textureoffsety * pos->texture.east_text.h) + pos->player.textureoffsetx]);
+		pos->texture.south_text.image[((int)pos->player.textureoffsetx * pos->texture.east_text.h) + (int)pos->player.textureoffsety]);
 	if (pos->ray_data[i].washitvertical == FALSE &&
 		pos->ray_data[i].israyfacingup)
 		my_mlx_pixel_put(&pos->img, i, y,
-		pos->texture.north_text.image[(pos->player.textureoffsety * pos->texture.east_text.h) + pos->player.textureoffsetx]);
+		pos->texture.north_text.image[((int)pos->player.textureoffsetx * pos->texture.east_text.h) + (int)pos->player.textureoffsety]);
 }
 
 void	color_all_wall(t_game *pos, int x)
 {
-	int y;
-	int distancefromtop;
+	float y;
+	float distancefromtop;
 
 	y = pos->player.walltoppixel;
 	distancefromtop = 0;
@@ -70,11 +70,9 @@ void	projection_wall(t_game *pos, int x)
 	pos->winres.y ? pos->winres.y :
 	pos->player.wallbottompixel;
 	if (pos->ray_data[x].washitvertical)
-		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhit_y %
-		pos->tile.size;
+		pos->player.textureoffsetx = (pos->texture.east_text.h / pos->tile.size) * (pos->ray_data[x].wallhit_y - (int)(pos->ray_data[x].wallhit_y / pos->tile.size) * pos->tile.size);
 	else
-		pos->player.textureoffsetx = (int)pos->ray_data[x].wallhit_x %
-		pos->tile.size;
+		pos->player.textureoffsetx = (pos->texture.east_text.h / pos->tile.size) * (pos->ray_data[x].wallhit_x - (int)(pos->ray_data[x].wallhit_x / pos->tile.size) * pos->tile.size);
 	color_all_wall(pos, x);
 }
 
