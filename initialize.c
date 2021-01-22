@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:22:02 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 16:19:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/22 21:22:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	screen(t_game *pos)
 	sizey = 1395;
 	pos->winres.x = pos->winres.x > sizex ? sizex : pos->winres.x;
 	pos->winres.y = pos->winres.y > sizey ? sizey : pos->winres.y;
+	pos->winres.x = pos->winres.x < sizex ? sizex : pos->winres.x;
+	pos->winres.y = pos->winres.y < sizey ? sizey : pos->winres.y;
+	
 }
 
 void	map_controll(t_game *pos)
