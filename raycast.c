@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 09:30:52 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 17:12:12 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.ystep < 0) ? -1 : 1;
 	pos->rays.nextverttouchy = pos->rays.yintercep;
 	pos->rays.nextverttouchx = pos->rays.xintercep;
-	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <=
-	pos->winres.window_w &&
-	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <
-	pos->winres.window_h)
+	while ((int)(pos->rays.nextverttouchx / pos->tile.size) >= 0 && (int)(pos->rays.nextverttouchx / pos->tile.size) <
+	pos->columns &&
+	(int)(pos->rays.nextverttouchy / pos->tile.size) >= 0 && (int)(pos->rays.nextverttouchy / pos->tile.size) <
+	pos->rows)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
 			break ;
@@ -56,10 +56,10 @@ void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 	pos->rays.xstep < 0) ? -1 : 1;
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
-	while (pos->rays.nexthoriztouchx >= 0 &&
-	pos->rays.nexthoriztouchx <= pos->winres.window_w &&
-	pos->rays.nexthoriztouchy >= 0 &&
-	pos->rays.nexthoriztouchy <= pos->winres.window_h)
+	while ((int)(pos->rays.nexthoriztouchx / pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchx / pos->tile.size) < pos->columns &&
+	(int)(pos->rays.nexthoriztouchy / pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchy / pos->tile.size) < pos->rows)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
 			break ;

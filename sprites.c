@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 10:04:51 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/12 21:23:09 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:40:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	ordenar_sprites(t_game *pos)
 void	angulo_spr_vision(t_sprite *sprites, t_game *pos, t_colortexture *t)
 {
 	sprites->x = pos->player.distanceprojplane * tan(sprites->spriteangulo);
-	sprites->x = (pos->winres.window_w / 2 + sprites->x) -
+	sprites->x = (pos->winres.x / 2 + sprites->x) -
 	sprites->spr_height / 2;
 	t->tex_x = 0;
 	t->tex_send = sprites->x + sprites->spr_height;
-	t->tex_send = t->tex_send > pos->winres.window_w ? pos->winres.window_w :
+	t->tex_send = t->tex_send > pos->winres.x ? pos->winres.x :
 	t->tex_send;
 }
 
@@ -89,7 +89,7 @@ void	color_sprites(t_sprite *sprites, t_game *pos)
 	t.x = sprites->x - 1;
 	while (++t.x < t.tex_send)
 	{
-		if (t.x >= 0 && t.x <= (int)pos->winres.window_w &&
+		if (t.x >= 0 && t.x <= (int)pos->winres.x &&
 		sprites->distance < pos->ray_data[t.x].distance)
 		{
 			t.tex_y = 0;
@@ -97,7 +97,7 @@ void	color_sprites(t_sprite *sprites, t_game *pos)
 			while (t.y < sprites->spr_bottom - 1)
 			{
 				t.index = ((int)t.tex_y * pos->tile.size) + (int)t.tex_x;
-				if (++t.y > 0 && t.y < (int)pos->winres.window_h)
+				if (++t.y > 0 && t.y < (int)pos->winres.y)
 					if (pos->texture.sprite.image[t.index] != 0x0)
 						my_mlx_pixel_put(&pos->img, t.x, t.y,
 						pos->texture.sprite.image[t.index]);
@@ -124,7 +124,7 @@ void	sprites(t_game *pos)
 		{
 			pos->sp[i].spr_height = (pos->tile.size /
 			pos->sp[i].distance) * pos->player.distanceprojplane;
-			pos->sp[i].spr_top = (pos->winres.window_h / 2) -
+			pos->sp[i].spr_top = (pos->winres.y / 2) -
 			(pos->sp[i].spr_height / 2);
 			pos->sp[i].spr_bottom = pos->sp[i].spr_top +
 			pos->sp[i].spr_height;

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:09:35 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:33:13 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	new_matriz(t_game *pos, char *line)
 
 void	create_matriz(char *line, t_game *pos)
 {
+	pos->tile.size = pos->winres.x / pos->columns;
 	if ((pos->line_count2 == pos->line_count1) && *line != '\0')
 		new_matriz(pos, line);
 	if (pos->line_count2 != pos->line_count1)

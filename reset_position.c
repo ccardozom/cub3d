@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:09:48 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:42:28 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reset_pos_move(t_game *pos)
 	pos->player.walk = 0;
 	pos->player.player_angle = 0;
 	pos->player.movespeed = 2;
-	pos->player.rotationspeed = 0.5 * (PI / 180);
+	pos->player.rotationspeed = 2 * (PI / 180);
 	pos->texture.north_text.path = NULL;
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
@@ -109,7 +109,7 @@ void	reset_position(t_game *pos)
 	pos->matriz.y = 0;
 	pos->mlx_win = 0;
 	pos->mlx = 0;
-	pos->tile.size = 64;
+	pos->tile.size = 0;
 	pos->sp_count = 0;
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;

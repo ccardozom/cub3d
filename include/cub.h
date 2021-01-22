@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:09:23 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/22 17:25:14 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct	s_move_player
 	int			wallbottompixel;
 	int			textureoffsetx;
 	int			textureoffsety;
+	float		wall_x;
 }				t_player;
 
 typedef struct	s_data

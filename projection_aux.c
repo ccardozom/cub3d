@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:00:37 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:40:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void		color_all_buffer(t_game *pos)
 
 	y = 0;
 	charge_textures_main(pos);
-	while (y < pos->winres.window_h)
+	while (y < pos->winres.y)
 	{
 		x = 0;
-		while (x < pos->winres.window_w)
+		while (x < pos->winres.x)
 		{
-			if (y < pos->winres.window_h / 2)
+			if (y < pos->winres.y / 2)
 			{
 				my_mlx_pixel_put(&pos->img, x, y,
 				get_color(pos->texture.ceilling));

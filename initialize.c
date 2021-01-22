@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 11:22:02 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/12 23:02:07 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:19:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,8 @@ void	screen(t_game *pos)
 	
 	sizex = 2560;
 	sizey = 1395;
-	if ((pos->winres.x < sizex && pos->winres.y >= sizey) ||
-	(pos->winres.x > sizex && pos->winres.y < sizey) ||
-	(pos->winres.x > sizex && pos->winres.y > sizey))
-	{
-		pos->winres.window_h = sizey;
-		pos->winres.window_w = sizex;
-	}
-	else if (pos->winres.x < pos->tile.size * pos->columns || pos->winres.y < pos->tile.size * pos->rows)
-	{
-		pos->winres.window_w = pos->tile.size * pos->columns;
-		pos->winres.window_h = pos->tile.size * pos->rows;
-	}
-	else
-	{
-		pos->winres.window_w = pos->winres.x;
-		pos->winres.window_h = pos->winres.y;
-	}
+	pos->winres.x = pos->winres.x > sizex ? sizex : pos->winres.x;
+	pos->winres.y = pos->winres.y > sizey ? sizey : pos->winres.y;
 }
 
 void	map_controll(t_game *pos)

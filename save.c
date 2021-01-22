@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 14:35:31 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/30 11:51:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/21 16:40:44 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void			generate_bitmap_image(t_game *pos)
 	if (w.fd < 0)
 		return_error(2);
 	windows = &pos->img;
-	w.width = (int)pos->winres.window_w;
-	w.heigth = (int)pos->winres.window_h;
+	w.width = (int)pos->winres.x;
+	w.heigth = (int)pos->winres.y;
 	w.paddingsize = (4 - (w.width * 3) % 4) % 4;
 	ft_putstr_fd("Se esta creando el archivo BMP ...\n", 1);
 	w.fileheader = create_bitmap_file_header(&w);
