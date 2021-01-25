@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   cub_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/25 14:51:55 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 15:14:04 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-# define CUB_H
+#ifndef CUB_BONUS_H
+# define CUB_BONUS_H
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -289,6 +289,7 @@ float			normalizeangle(float angle);
 void			draw_minimap(t_game *pos);
 void			my_mlx_pixel_put(t_data *image, int x, int y, int color);
 void			draw_player(t_game *pos);
+void			draw_player_move(t_game *pos);
 void			cast_all_rays(t_game *pos);
 int				control_wall_x(t_game *pos, float new_pos);
 int				control_wall_y(t_game *pos, int new_pos);

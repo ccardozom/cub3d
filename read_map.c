@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/25 13:25:42 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:23:18 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char		*erase_spaces(char *line)
 void		get_colors(char *line, t_color *color)
 {
 	reset_color(color);
+	if (count_char_in_str(line, ',') != 2)
+		return_error(16);
 	while (*line == ' ' || *line == '\t')
 		line++;
 	if (ft_isdigit(*line))
@@ -41,8 +43,7 @@ void		get_colors(char *line, t_color *color)
 	while (ft_isdigit(*line))
 		line++;
 	line = erase_spaces(line);
-	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0' ||
-	(count_char_in_str(line, ',') != 2))
+	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0')
 		return_error(16);
 }
 

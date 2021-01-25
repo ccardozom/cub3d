@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player_move.c                                 :+:      :+:    :+:   */
+/*   draw_player_move_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 10:54:35 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:33:14 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:50:58 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub.h"
+#include "../include/cub_bonus.h"
 
 void	draw_player_move(t_game *pos)
 {

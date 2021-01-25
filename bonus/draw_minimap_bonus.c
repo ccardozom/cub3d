@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_minimap.c                                     :+:      :+:    :+:   */
+/*   draw_minimap_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/25 14:45:08 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 14:51:12 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub.h"
+#include "../include/cub_bonus.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -29,6 +29,17 @@ int		put_color_pixel(t_game *pos)
 	pos_sx = 0;
 	while (pos_sx < (int)pos->tile.size)
 	{
+		my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+		pos->tile.squa_f * pos->player.minimapscale, 0xFFFFFF);
+		if (pos->map[pos->tile.f][pos->tile.c] == '1' ||
+		pos->map[pos->tile.f][pos->tile.c] == '8')
+			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+			pos->tile.squa_f * pos->player.minimapscale, 0x0101DF);
+		if (pos->map[pos->tile.f][pos->tile.c] == '2')
+		{
+			my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
+			pos->tile.squa_f * pos->player.minimapscale, 0x28A108);
+		}
 		pos_sx++;
 		pos_x++;
 	}
@@ -57,4 +68,5 @@ void	draw_minimap(t_game *pos)
 			pos->tile.pos_squa = 0;
 		}
 	}
+	draw_player_move(pos);
 }
