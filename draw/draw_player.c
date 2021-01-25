@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:33:11 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 09:31:10 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			put_color(t_game *pos)
 
 	tile_pos.x = pos->tile.squa_c;
 	tile_pos.y = 0;
-	while (tile_pos.y < pos->tile.size)
+	while (tile_pos.y < (int)pos->tile.size)
 	{
 		player_direction(pos, &tile_pos);
 		tile_pos.y++;
@@ -67,7 +67,7 @@ void		draw_player(t_game *pos)
 		}
 		pos->tile.squa_f++;
 		pos->tile.pos_squa++;
-		if (pos->tile.pos_squa >= pos->tile.size)
+		if (pos->tile.pos_squa >= (int)pos->tile.size)
 		{
 			pos->tile.f++;
 			pos->tile.pos_squa = 0;

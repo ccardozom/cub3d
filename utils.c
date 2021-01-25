@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 14:36:24 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 14:46:27 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 13:26:36 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,22 @@ void	reset_color(t_color *color)
 	color->r = -1;
 	color->g = -1;
 	color->b = -1;
+}
+
+int		count_char_in_str(char *str, char c)
+{
+	int	i;
+	int	counter;
+
+	if (!str)
+		return (0);
+	i = 0;
+	counter = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			counter++;
+		i++;
+	}
+	return (counter);
 }

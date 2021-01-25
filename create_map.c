@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 10:02:03 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 16:33:13 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:18:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	put_value_in_matriz(t_game *pos, char *line)
 		if (line[(int)pos->matriz.x] == '2')
 		{
 			pos->sp[pos->spritecount_aux].pos.x = (pos->matriz.x *
-			pos->tile.size) + (pos->tile.size / 2);
+			(int)pos->tile.size) + ((int)pos->tile.size / 2);
 			pos->sp[pos->spritecount_aux++].pos.y = (pos->matriz.y *
-			pos->tile.size) + (pos->tile.size / 2);
+			(int)pos->tile.size) + ((int)pos->tile.size / 2);
 		}
 		if (line[(int)pos->matriz.x] == ' ')
 			pos->map[(int)pos->matriz.y][(int)pos->matriz.x] = '8';
@@ -98,7 +98,7 @@ void	create_map(t_game *pos, char **argv)
 	if (checker(pos->checking) && pos->control_map == 1)
 	{
 		reserv_mem_map(pos);
-		if (!(pos->sp = (t_sprite *)malloc(sizeof(t_sprite) * pos->sp_count + 1)))
+		if (!(pos->sp = malloc(sizeof(t_sprite) * pos->sp_count + 1)))
 			return_error(4);
 		ft_memset(pos->sp, 0, sizeof(t_sprite) * pos->sp_count + 1);
 		fd = open_file(argv);

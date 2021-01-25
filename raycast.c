@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 17:12:12 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:31:29 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 void	vertical_intersection(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.xintercep = (int)(pos->player.pos.x /
-	pos->tile.size) * pos->tile.size;
+	(int)pos->tile.size) * (int)pos->tile.size;
 	pos->rays.xintercep += ray_data->israyfacingright ?
-	pos->tile.size : 0;
+	(int)pos->tile.size : 0;
 	pos->rays.yintercep = pos->player.pos.y + (pos->rays.xintercep -
 	pos->player.pos.x) * tan(pos->rays.rayangle);
-	pos->rays.xstep = pos->tile.size;
+	pos->rays.xstep = (int)pos->tile.size;
 	pos->rays.xstep *= ray_data->israyfacingleft ? -1 : 1;
-	pos->rays.ystep = pos->tile.size * tan(pos->rays.rayangle);
+	pos->rays.ystep = (int)pos->tile.size * tan(pos->rays.rayangle);
 	pos->rays.ystep *= (ray_data->israyfacingup &&
 	pos->rays.ystep > 0) ? -1 : 1;
 	pos->rays.ystep *= (ray_data->israyfacingdown &&
 	pos->rays.ystep < 0) ? -1 : 1;
 	pos->rays.nextverttouchy = pos->rays.yintercep;
 	pos->rays.nextverttouchx = pos->rays.xintercep;
-	while ((int)(pos->rays.nextverttouchx / pos->tile.size) >= 0 && (int)(pos->rays.nextverttouchx / pos->tile.size) <
-	pos->columns &&
-	(int)(pos->rays.nextverttouchy / pos->tile.size) >= 0 && (int)(pos->rays.nextverttouchy / pos->tile.size) <
-	pos->rows)
+	while ((int)(pos->rays.nextverttouchx / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nextverttouchx / (int)pos->tile.size) < pos->columns &&
+	(int)(pos->rays.nextverttouchy / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nextverttouchy / (int)pos->tile.size) < pos->rows)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
 			break ;
@@ -42,24 +42,24 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.yintercep = (int)(pos->player.pos.y /
-	pos->tile.size) * pos->tile.size;
+	(int)pos->tile.size) * (int)pos->tile.size;
 	pos->rays.yintercep += ray_data->israyfacingdown ?
-	pos->tile.size : 0;
+	(int)pos->tile.size : 0;
 	pos->rays.xintercep = pos->player.pos.x +
 	(pos->rays.yintercep - pos->player.pos.y) / tan(pos->rays.rayangle);
-	pos->rays.ystep = pos->tile.size;
+	pos->rays.ystep = (int)pos->tile.size;
 	pos->rays.ystep *= ray_data->israyfacingup ? -1 : 1;
-	pos->rays.xstep = pos->tile.size / tan(pos->rays.rayangle);
+	pos->rays.xstep = (int)pos->tile.size / tan(pos->rays.rayangle);
 	pos->rays.xstep *= (ray_data->israyfacingleft &&
 	pos->rays.xstep > 0) ? -1 : 1;
 	pos->rays.xstep *= (ray_data->israyfacingright &&
 	pos->rays.xstep < 0) ? -1 : 1;
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
-	while ((int)(pos->rays.nexthoriztouchx / pos->tile.size) >= 0 &&
-	(int)(pos->rays.nexthoriztouchx / pos->tile.size) < pos->columns &&
-	(int)(pos->rays.nexthoriztouchy / pos->tile.size) >= 0 &&
-	(int)(pos->rays.nexthoriztouchy / pos->tile.size) < pos->rows)
+	while ((int)(pos->rays.nexthoriztouchx / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchx / (int)pos->tile.size) < pos->columns &&
+	(int)(pos->rays.nexthoriztouchy / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchy / (int)pos->tile.size) < pos->rows)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
 			break ;

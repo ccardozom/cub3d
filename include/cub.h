@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:01:01 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/22 21:08:25 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 13:23:04 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct	s_move_player
 	float		wallbottompixel;
 	float		textureoffsetx;
 	float		textureoffsety;
+	float		wall_x;
 }				t_player;
 
 typedef struct	s_data
@@ -169,8 +170,8 @@ typedef struct	s_sprite
 	float		angulofin;
 	int			spr_bottom;
 	int			spr_top;
-	int			x;
-	int			spr_height;
+	float		x;
+	float		spr_height;
 
 }				t_sprite;
 
@@ -179,8 +180,8 @@ typedef struct	s_colortextura
 	float		y;
 	float		tex_x;
 	float		tex_y;
-	int			x;
-	int			tex_send;
+	float		x;
+	float		tex_send;
 	float		auxstep;
 	int			index;
 }				t_colortexture;
@@ -198,7 +199,7 @@ typedef struct	s_textures
 
 typedef struct	s_tile_size
 {
-	int			size;
+	float		size;
 	int			f;
 	int			c;
 	int			squa_f;
@@ -232,6 +233,7 @@ typedef struct	s_game
 	int			line_count1;
 	int			line_count2;
 	int			checkplayer;
+	int			control_row;
 	int			control_line_empty;
 	t_checkmap	checkmap;
 	t_pos		dir;
@@ -252,6 +254,7 @@ void			initialize(t_game *pos, char **argv);
 void			read_map(t_game *pos, char **argv);
 void			check_line(char *line, t_game *pos);
 int				checker(int *checker);
+void			screen(t_game *pos);
 int				search_wall(t_game *pos, char *line);
 void			position_player(t_game *pos, t_pos *tile_pos);
 int				player(char c);
@@ -264,6 +267,7 @@ void			reset_rays_data(t_game *pos);
 void			reset_sprites(t_game *pos);
 void			reset_color(t_color *color);
 void			resolution(char *buffer, t_game *pos);
+int				count_char_in_str(char *str, char c);
 void			is_map(char *line, t_game *pos);
 int				open_file(char **argv);
 void			create_map(t_game *pos, char **argv);
@@ -274,7 +278,6 @@ int				wall_colision(t_game *pos, float y, float x);
 void			start(t_game *pos);
 void			save_bmp(t_game *pos);
 void			return_error(int x);
-void			free_all(t_game *pos);
 float			distancebetweenpoints(float x1, float y1, float x2, float y2);
 int				key_press(int keycode, t_game *pos);
 int				key_release(int keycode, t_game *pos);

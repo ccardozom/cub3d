@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 10:00:58 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 16:20:18 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 13:00:42 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		program_exit(t_game *all)
 {
 	mlx_destroy_window(all->mlx, all->mlx_win);
-	system("leaks cub3D");
 	exit(0);
 }
 

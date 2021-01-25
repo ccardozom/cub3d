@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 10:37:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 15:33:16 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 09:30:52 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		put_color_pixel(t_game *pos)
 
 	pos_x = pos->tile.squa_c;
 	pos_sx = 0;
-	while (pos_sx < pos->tile.size)
+	while (pos_sx < (int)pos->tile.size)
 	{
 		my_mlx_pixel_put(&pos->img, pos_x * pos->player.minimapscale,
 		pos->tile.squa_f * pos->player.minimapscale, 0xFFFFFF);
@@ -62,7 +62,7 @@ void	draw_minimap(t_game *pos)
 		}
 		pos->tile.squa_f++;
 		pos->tile.pos_squa++;
-		if (pos->tile.pos_squa >= pos->tile.size)
+		if (pos->tile.pos_squa >= (int)pos->tile.size)
 		{
 			pos->tile.f++;
 			pos->tile.pos_squa = 0;

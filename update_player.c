@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/24 09:57:34 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/12 10:55:02 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:25:16 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int		control_wall_y(t_game *pos, int new_pos)
 	int position_x;
 	int position_y;
 
-	position_x = (int)(pos->player.pos.x / pos->tile.size);
-	position_y = (int)(new_pos / pos->tile.size);
-	if (pos->map[position_y][position_x] == '1')
+	position_x = (int)(pos->player.pos.x / (int)pos->tile.size);
+	position_y = (int)(new_pos / (int)pos->tile.size);
+	if (pos->map[position_y][position_x] == '1' ||
+	pos->map[position_y][position_x] == '2')
 		return (1);
 	return (0);
 }
@@ -29,9 +30,10 @@ int		control_wall_x(t_game *pos, float new_pos)
 	int position_x;
 	int position_y;
 
-	position_x = (int)(new_pos / pos->tile.size);
-	position_y = (int)(pos->player.pos.y / pos->tile.size);
-	if (pos->map[position_y][position_x] == '1')
+	position_x = (int)(new_pos / (int)pos->tile.size);
+	position_y = (int)(pos->player.pos.y / (int)pos->tile.size);
+	if (pos->map[position_y][position_x] == '1' ||
+	pos->map[position_y][position_x] == '2')
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/16 20:43:29 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 13:25:42 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,14 @@ void		get_colors(char *line, t_color *color)
 	while (ft_isdigit(*line))
 		line++;
 	line = erase_spaces(line);
-	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0')
-	{
-		ft_putstr_fd("Error\n Datos incorrectos en suelo o el cielo :-(", 1);
-		exit(0);
-	}
+	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0' ||
+	(count_char_in_str(line, ',') != 2))
+		return_error(16);
 }
 
 void		resolution(char *line, t_game *pos)
 {
-	while (ft_isdigit(*line) == 0 && *line != '\0')
+	while (ft_isdigit(*line) == 0 && *line != '\0' && *line != '-')
 		line++;
 	if (*line == '\0')
 		return_error(11);
@@ -59,7 +57,7 @@ void		resolution(char *line, t_game *pos)
 		line++;
 	line++;
 	while ((*line == ' ' || *line == '\t' ||
-	ft_isdigit(*line) == 0) && *line != '\0')
+	ft_isdigit(*line) == 0) && *line != '\0' && *line != '-')
 		line++;
 	pos->winres.y = ft_atoi(line);
 	while (ft_isdigit(*line) == 1)
@@ -72,7 +70,8 @@ void		resolution(char *line, t_game *pos)
 	}
 	if (pos->winres.x <= 0 || pos->winres.y <= 0)
 		return_error(11);
-	pos->checking[0] = 1;
+	pos->checking[0] += 1;
+	screen(pos);
 }
 
 void		check_line(char *line, t_game *pos)
@@ -88,13 +87,13 @@ void		check_line(char *line, t_game *pos)
 	if (ft_strchr(line, 'F'))
 	{
 		line++;
-		pos->checking[6] = 1;
+		pos->checking[6] += 1;
 		get_colors((char*)line, &pos->texture.floor);
 	}
 	else if (ft_strchr(line, 'C'))
 	{
 		line++;
-		pos->checking[7] = 1;
+		pos->checking[7] += 1;
 		get_colors((char*)line, &pos->texture.ceilling);
 	}
 	else if (search_wall(pos, line))

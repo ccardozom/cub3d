@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 16:42:28 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 09:27:51 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	reset_position(t_game *pos)
 	pos->matriz.y = 0;
 	pos->mlx_win = 0;
 	pos->mlx = 0;
-	pos->tile.size = 0;
+	pos->tile.size = 0.0;
 	pos->sp_count = 0;
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;

@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2021/01/21 10:45:46 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:19:28 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int		key_press(int keycode, t_game *pos)
 		pos->player.l_r = -1;
 	if (keycode == KEY_ESC)
 	{
-		//printf("%x \n",&pos->sp);
-		system("leaks cub3D");
 		exit(0);
 	}
 	return (0);
