@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgalian- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 06:52:17 by jgalian-          #+#    #+#             */
-/*   Updated: 2020/01/14 07:01:17 by jgalian-         ###   ########.fr       */
+/*   Updated: 2021/01/21 09:25:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char		*ft_strdup(const char *s1)
 
 	i = 0;
 	str1 = (char *)s1;
-	str2 = (char*)malloc(ft_strlen(str1) + 1);
-	if (str2 == NULL)
+	if (!(str2 = (char*)malloc(ft_strlen(str1) + 1)))
 		return (NULL);
 	while (str1[i] != '\0')
 	{

@@ -6,74 +6,80 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 09:36:44 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 11:52:17 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:22:06 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub.h"
 
-void		get_colors(char *line, t_color *color, char param)
+char		*erase_spaces(char *line)
 {
-	color->empty = 0;
-	while (*line == ' ' || *line == param)
+	while (*line == ' ' || *line == '\t')
 		line++;
-	color->r = ft_atoi(line);
+	return (line);
+}
+
+void		get_colors(char *line, t_color *color)
+{
+	reset_color(color);
+	if (count_char_in_str(line, ',') != 2)
+		return_error(16);
+	while (*line == ' ' || *line == '\t')
+		line++;
+	if (ft_isdigit(*line))
+		color->r = ft_atoi(line);
 	while (ft_isdigit(*line))
 		line++;
-	while (*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == '\t' || *line == ',')
 		line++;
-	color->g = ft_atoi(line);
+	if (ft_isdigit(*line))
+		color->g = ft_atoi(line);
 	while (ft_isdigit(*line))
 		line++;
-	while (*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == '\t' || *line == ',')
 		line++;
-	color->b = ft_atoi(line);
-	if (color->r == -1 || color->g == -1 || color->b == -1)
-	{
-		ft_putstr_fd("Error\n Faltan datos del juego", 1);
-		exit (0);
-	}
+	if (ft_isdigit(*line))
+		color->b = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	line = erase_spaces(line);
+	if (color->r == -1 || color->g == -1 || color->b == -1 || *line != '\0')
+		return_error(16);
 }
 
 void		resolution(char *line, t_game *pos)
 {
-	while (*line == ' ' || *line == '\t')
+	while (ft_isdigit(*line) == 0 && *line != '\0' && *line != '-')
 		line++;
-	if (*line == 'R')
+	if (*line == '\0')
+		return_error(11);
+	pos->winres.x = ft_atoi(line);
+	while (ft_isdigit(*line) == 1)
+		line++;
+	line++;
+	while ((*line == ' ' || *line == '\t' ||
+	ft_isdigit(*line) == 0) && *line != '\0' && *line != '-')
+		line++;
+	pos->winres.y = ft_atoi(line);
+	while (ft_isdigit(*line) == 1)
+		line++;
+	while (*line != '\0')
 	{
-		while (ft_isdigit(*line) == 0 && *line != '\0')
-			line++;
-		if (*line == '\0')
-			return_error (11);
-		pos->winres.x = ft_atoi(line);
-		while (ft_isdigit(*line) == 1)
-			line++;
+		if (*line != ' ' || *line == '\t')
+			return_error(13);
 		line++;
-		while ((*line == ' ' || *line == '\t' || ft_isdigit(*line) == 0) && *line != '\0')
-			line++;
-		pos->winres.y = ft_atoi(line);
-		while (ft_isdigit(*line) == 1)
-			line++;
-		while (*line != '\0')
-		{
-			if (*line != ' ' || *line == '\t')
-				return_error (13);
-			line++;
-		}
-		if (!(pos->winres.x) || !(pos->winres.y))
-			return_error (11);
-		pos->checking[0] = 1;
 	}
+	if (pos->winres.x <= 0 || pos->winres.y <= 0)
+		return_error(11);
+	pos->checking[0] += 1;
+	screen(pos);
 }
 
 void		check_line(char *line, t_game *pos)
 {
-	int index;
-
-	index = 0;
-	while (line[index] == ' ' || line[index] == '\t')
-		index++;
-	resolution(line, pos);
+	line = erase_spaces(line);
+	if (*line == 'R')
+		resolution(line, pos);
 	path_texture_n(pos, line);
 	path_texture_s(pos, line);
 	path_texture_o(pos, line);
@@ -81,13 +87,15 @@ void		check_line(char *line, t_game *pos)
 	path_texture_sp(pos, line);
 	if (ft_strchr(line, 'F'))
 	{
-		pos->checking[6] = 1;
-		get_colors((char*)line, &pos->texture.floor, 'F');
+		line++;
+		pos->checking[6] += 1;
+		get_colors((char*)line, &pos->texture.floor);
 	}
 	else if (ft_strchr(line, 'C'))
 	{
-		pos->checking[7] = 1;
-		get_colors((char*)line, &pos->texture.ceilling, 'C');
+		line++;
+		pos->checking[7] += 1;
+		get_colors((char*)line, &pos->texture.ceilling);
 	}
 	else if (search_wall(pos, line))
 		is_map(line, pos);
@@ -117,7 +125,7 @@ void		read_map(t_game *pos, char **argv)
 	}
 	check_line(line, pos);
 	if (pos->control_line_empty == 0)
-		return_error (3);
+		return_error(3);
 	free(line);
 	close(fd);
 }

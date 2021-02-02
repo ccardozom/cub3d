@@ -670,6 +670,18 @@ void *mlx_new_window(mlx_ptr_t *mlx_ptr, int size_x, int size_y, char *title)
   return ((void *)newwin);
 }
 
+int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)
+{
+	XWindowAttributes	xwAttr;
+	Status				ret;
+	t_xvar				*xvar;
+	
+	xvar = mlx_ptr;
+	ret = XGetWindowAttributes(xvar->display, xvar->root, &xwAttr);
+	(*sizex) = xwAttr.width;
+	(*sizey) = xwAttr.height;
+}
+
 
 void mlx_clear_window(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_ptr)
 {

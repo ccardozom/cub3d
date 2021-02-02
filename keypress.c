@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/21 12:39:42 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/08 23:35:26 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:21:17 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ int		key_press(int keycode, t_game *pos)
 		pos->player.walk = +1;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
 		pos->player.walk = -1;
-	if (keycode == KEY_Q || keycode == KEY_LEFT)
+	if (keycode == KEY_LEFT)
 		pos->player.turn = -1;
-	else if (keycode == KEY_E || keycode == KEY_RIGHT)
+	else if (keycode == KEY_RIGHT)
 		pos->player.turn = +1;
+	if (keycode == KEY_A)
+		pos->player.l_r = +1;
+	else if (keycode == KEY_D)
+		pos->player.l_r = -1;
 	if (keycode == KEY_ESC)
 	{
-		free_all(pos);
-		//free(pos->texture.sprite.path);
-		//system("leaks cub3D");
 		exit(0);
 	}
 	return (0);
@@ -38,9 +39,13 @@ int		key_release(int keycode, t_game *pos)
 		pos->player.walk = 0;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)
 		pos->player.walk = 0;
-	else if (keycode == KEY_Q || keycode == KEY_LEFT)
+	else if (keycode == KEY_LEFT)
 		pos->player.turn = 0;
-	else if (keycode == KEY_E || keycode == KEY_RIGHT)
+	else if (keycode == KEY_RIGHT)
 		pos->player.turn = 0;
+	else if (keycode == KEY_A)
+		pos->player.l_r = 0;
+	else if (keycode == KEY_D)
+		pos->player.l_r = 0;
 	return (0);
 }

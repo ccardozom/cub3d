@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/28 11:44:13 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/09 10:39:43 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:22:01 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 void	vertical_intersection(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.xintercep = (int)(pos->player.pos.x /
-	pos->tile.size) * pos->tile.size;
+	(int)pos->tile.size) * (int)pos->tile.size;
 	pos->rays.xintercep += ray_data->israyfacingright ?
-	pos->tile.size : 0;
+	(int)pos->tile.size : 0;
 	pos->rays.yintercep = pos->player.pos.y + (pos->rays.xintercep -
 	pos->player.pos.x) * tan(pos->rays.rayangle);
-	pos->rays.xstep = pos->tile.size;
+	pos->rays.xstep = (int)pos->tile.size;
 	pos->rays.xstep *= ray_data->israyfacingleft ? -1 : 1;
-	pos->rays.ystep = pos->tile.size * tan(pos->rays.rayangle);
+	pos->rays.ystep = (int)pos->tile.size * tan(pos->rays.rayangle);
 	pos->rays.ystep *= (ray_data->israyfacingup &&
 	pos->rays.ystep > 0) ? -1 : 1;
 	pos->rays.ystep *= (ray_data->israyfacingdown &&
 	pos->rays.ystep < 0) ? -1 : 1;
 	pos->rays.nextverttouchy = pos->rays.yintercep;
 	pos->rays.nextverttouchx = pos->rays.xintercep;
-	while (pos->rays.nextverttouchx >= 0 && pos->rays.nextverttouchx <=
-	pos->winres.window_width &&
-	pos->rays.nextverttouchy >= 0 && pos->rays.nextverttouchy <
-	pos->winres.window_height)
+	while ((int)(pos->rays.nextverttouchx / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nextverttouchx / (int)pos->tile.size) < pos->columns &&
+	(int)(pos->rays.nextverttouchy / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nextverttouchy / (int)pos->tile.size) < pos->rows)
 	{
 		if (wall_colision_search_ver(pos, ray_data))
 			break ;
@@ -42,27 +42,26 @@ void	vertical_intersection(t_game *pos, t_ray *ray_data)
 void	horizontal_intersection(t_game *pos, t_ray *ray_data)
 {
 	pos->rays.yintercep = (int)(pos->player.pos.y /
-	pos->tile.size) * pos->tile.size;
+	(int)pos->tile.size) * (int)pos->tile.size;
 	pos->rays.yintercep += ray_data->israyfacingdown ?
-	pos->tile.size : 0;
+	(int)pos->tile.size : 0;
 	pos->rays.xintercep = pos->player.pos.x +
 	(pos->rays.yintercep - pos->player.pos.y) / tan(pos->rays.rayangle);
-	pos->rays.ystep = pos->tile.size;
+	pos->rays.ystep = (int)pos->tile.size;
 	pos->rays.ystep *= ray_data->israyfacingup ? -1 : 1;
-	pos->rays.xstep = pos->tile.size / tan(pos->rays.rayangle);
+	pos->rays.xstep = (int)pos->tile.size / tan(pos->rays.rayangle);
 	pos->rays.xstep *= (ray_data->israyfacingleft &&
 	pos->rays.xstep > 0) ? -1 : 1;
 	pos->rays.xstep *= (ray_data->israyfacingright &&
 	pos->rays.xstep < 0) ? -1 : 1;
 	pos->rays.nexthoriztouchy = pos->rays.yintercep;
 	pos->rays.nexthoriztouchx = pos->rays.xintercep;
-	while (pos->rays.nexthoriztouchx >= 0 &&
-	pos->rays.nexthoriztouchx <= pos->winres.window_width &&
-	pos->rays.nexthoriztouchy >= 0 &&
-	pos->rays.nexthoriztouchy <= pos->winres.window_height)
+	while ((int)(pos->rays.nexthoriztouchx / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchx / (int)pos->tile.size) < pos->columns &&
+	(int)(pos->rays.nexthoriztouchy / (int)pos->tile.size) >= 0 &&
+	(int)(pos->rays.nexthoriztouchy / (int)pos->tile.size) < pos->rows)
 	{
 		if (wall_colision_search_hor(pos, ray_data))
-		
 			break ;
 	}
 }
@@ -104,17 +103,18 @@ void	cast_all_rays(t_game *pos)
 	int id;
 
 	pos->rays.rayangle = 0;
-	if (!(pos->ray_data = (t_ray *)malloc(sizeof(t_ray) *
-	pos->player.num_rays)))
+	if (!(pos->ray_data = (t_ray *)malloc((sizeof(t_ray) *
+	pos->player.num_rays) + 1)))
 		return_error(4);
-	pos->rays.rayangle = pos->player.player_angle - (pos->player.FOV_angle / 2);
+	ft_memset(pos->ray_data, 0, sizeof(t_ray));
+	pos->rays.rayangle = pos->player.player_angle - (pos->player.v_angle / 2);
 	pos->rays.rayangle = normalizeangle(pos->rays.rayangle);
 	id = 0;
 	while (id < pos->player.num_rays)
 	{
 		reset_rays_data(pos);
 		castray(pos, &pos->ray_data[id]);
-		pos->rays.rayangle += pos->player.FOV_angle / pos->player.num_rays;
+		pos->rays.rayangle += pos->player.v_angle / pos->player.num_rays;
 		id++;
 	}
 }

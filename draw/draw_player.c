@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 09:16:28 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/10/20 14:08:56 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:20:33 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		draw_player(t_game *pos)
 		}
 		pos->tile.squa_f++;
 		pos->tile.pos_squa++;
-		if (pos->tile.pos_squa >= pos->tile.size)
+		if (pos->tile.pos_squa >= (int)pos->tile.size)
 		{
 			pos->tile.f++;
 			pos->tile.pos_squa = 0;

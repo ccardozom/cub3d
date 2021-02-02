@@ -6,7 +6,7 @@
 /*   By: ccardozo <ccardozo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 10:46:16 by ccardozo          #+#    #+#             */
-/*   Updated: 2020/12/11 08:27:10 by ccardozo         ###   ########.fr       */
+/*   Updated: 2021/01/27 14:22:09 by ccardozo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reset_pos_move(t_game *pos)
 	pos->player.walk = 0;
 	pos->player.player_angle = 0;
 	pos->player.movespeed = 2;
-	pos->player.rotationspeed = 1.5 * (PI / 180);
+	pos->player.rotationspeed = 2 * (PI / 180);
 	pos->texture.north_text.path = NULL;
 	pos->texture.south_text.path = NULL;
 	pos->texture.weast_text.path = NULL;
@@ -60,7 +60,7 @@ void	reset_rays_data(t_game *pos)
 
 void	reset_cast(t_game *pos)
 {
-	pos->player.FOV_angle = 66 * (PI / 180);
+	pos->player.v_angle = 66 * (PI / 180);
 	pos->player.num_rays = 0;
 	pos->player.player_control = 0;
 	pos->player.minimapscale = 0.2;
@@ -78,15 +78,17 @@ void	reset_cast(t_game *pos)
 
 void	reset_sprites(t_game *pos)
 {
-	pos->sprites->distance = 0.0;
-	pos->sprites->visible = 0;
-	pos->sprites->vectx = 0;
-	pos->sprites->vecty = 0;
-	pos->sprites->spriteangulo = 0;
-	pos->sprites->spr_top = 0;
-	pos->sprites->spr_bottom = 0;
-	pos->sprites->x = 0;
-	pos->sprites->spr_height = 0;
+	pos->sp->distance = 0.0;
+	pos->sp->visible = 0;
+	pos->sp->vectx = 0;
+	pos->sp->vecty = 0;
+	pos->sp->spriteangulo = 0;
+	pos->sp->anguloini = 0;
+	pos->sp->angulofin = 0;
+	pos->sp->spr_top = 0;
+	pos->sp->spr_bottom = 0;
+	pos->sp->x = 0;
+	pos->sp->spr_height = 0;
 }
 
 void	reset_position(t_game *pos)
@@ -107,8 +109,8 @@ void	reset_position(t_game *pos)
 	pos->matriz.y = 0;
 	pos->mlx_win = 0;
 	pos->mlx = 0;
-	pos->tile.size = 64;
-	pos->spritecount = 0;
+	pos->tile.size = 0.0;
+	pos->sp_count = 0;
 	pos->spritecount_aux = 0;
 	pos->control_map = 0;
 	pos->pos_id_spr = 0;
